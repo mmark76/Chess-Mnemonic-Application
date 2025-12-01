@@ -54,7 +54,6 @@
   position: absolute;
   top: 100%;
   left: 0;
-  margin-top: 10px;
   padding: 6px;
   background: #000;
   border: 1px solid #444;
@@ -108,5 +107,6 @@
   margin-right: 3px;
   margin-left: 10px;   /* ← Μετακινεί τα κουμπιά δεξιά */
 }
+
 
 
