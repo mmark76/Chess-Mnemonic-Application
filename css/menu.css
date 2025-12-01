@@ -99,3 +99,14 @@
     padding: 9px;
   }
 }
+
+.br-menu > summary {
+  padding: 4px 8px;     /* μικρό, όσο χρειάζεται */
+  font-size: 14px;      /* λίγο μικρότερο */
+  gap: 6px;             /* μικρότερο κενό */
+}
+.br-burger {
+  width: 18px;          /* μικρότερο εικονίδιο */
+  height: 12px;
+}
+
