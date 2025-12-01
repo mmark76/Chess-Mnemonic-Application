@@ -462,15 +462,17 @@ window.onclick = e => { if (e.target === popup) popup.style.display = "none"; };
 
 <script>
 document.addEventListener("click", function(e) {
-  const menu = document.querySelector(".br-menu");
-  if (!menu.contains(e.target)) {
-    menu.removeAttribute("open");
-  }
+  document.querySelectorAll(".br-menu").forEach(menu => {
+    if (!menu.contains(e.target)) {
+      menu.removeAttribute("open");
+    }
+  });
 });
 </script>
 
 </body>
 </html>
+
 
 
 
