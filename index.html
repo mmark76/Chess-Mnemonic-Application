@@ -442,7 +442,7 @@ window.onclick = e => { if (e.target === popup) popup.style.display = "none"; };
   window.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; };
 </script>
 
-		<script>
+<script>
   // Modal για τη Memory Palace Image
   const mpModal = document.getElementById("memoryPalaceModal");
   const mpBtn = document.getElementById("openMemoryPalaceImgBtn");
@@ -456,9 +456,19 @@ window.onclick = e => { if (e.target === popup) popup.style.display = "none"; };
     });
   }
 </script>
-		
+
+<script>
+document.addEventListener("click", function(e) {
+  const menu = document.querySelector(".br-menu");
+  if (!menu.contains(e.target)) {
+    menu.removeAttribute("open");
+  }
+});
+</script>
+
 </body>
 </html>
+
 
 
 
