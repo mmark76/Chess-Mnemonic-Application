@@ -104,6 +104,7 @@
   }
 }
 
-header {
-  column-gap: 20px !important;
+.br-menu {
+  margin-right: 10px;   /* Μικραίνει την απόσταση μεταξύ των δύο κουμπιών */
 }
+
