@@ -9,7 +9,7 @@
 .br-menu > summary {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
   padding: 10px 14px;
   cursor: pointer;
   background: #000;
@@ -107,6 +107,7 @@
   margin-right: 3px;
   margin-left: 35px;
 }
+
 
 
 
