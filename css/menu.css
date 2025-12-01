@@ -9,14 +9,14 @@
 .br-menu > summary {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 10px 14px;
+  gap: 6px;            /* μικρό κενό */
+  padding: 4px 8px;    /* όσο χρειάζεται */
   cursor: pointer;
   background: #000;
   color: #fff;
   border: 1px solid #444;
-  border-radius: 6px;
-  font-size: 15px;
+  border-radius: 4px;  /* μικρός στρογγυλεμένος όγκος */
+  font-size: 14px;     /* μαζεμένο */
   user-select: none;
   list-style: none;
 }
@@ -29,8 +29,8 @@
 /* Hamburger */
 .br-burger {
   display: inline-block;
-  width: 24px;
-  height: 16px;
+  width: 18px;         /* μικρότερο */
+  height: 12px;        /* μικρότερο */
   position: relative;
 }
 
@@ -38,7 +38,7 @@
   position: absolute;
   left: 0;
   width: 100%;
-  height: 2px;
+  height: 2px;         /* σταθερό λεπτό πάχος */
   background: #fff;
 }
 
@@ -51,12 +51,12 @@
   position: absolute;
   top: 100%;
   left: 0;
-  margin-top: 10px;
+  margin-top: 8px;      /* μικρότερο κενό */
   padding: 6px;
   background: #000;
   border: 1px solid #444;
   border-radius: 6px;
-  min-width: 240px;
+  min-width: 220px;     /* πιο μαζεμένο */
   box-shadow: 0 10px 25px rgba(0,0,0,0.6);
   z-index: 9999;
 }
@@ -64,13 +64,13 @@
 /* Links */
 .br-panel a {
   display: block;
-  padding: 10px;
+  padding: 9px;
   margin-bottom: 6px;
   background: #111;
   color: #fff;
   border-radius: 4px;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .br-panel a:last-child {
@@ -85,28 +85,17 @@
 /* Responsive (mobile-friendly) */
 @media (max-width: 480px) {
   .br-menu > summary {
-    padding: 9px 12px;
-    font-size: 14px;
+    padding: 4px 7px;
+    font-size: 13px;
   }
 
   .br-panel {
-    margin-top: 12px;     /* ↑ αυξάνει το κενό πάνω στο mobile */
-    margin-bottom: 3px;  /* ↓ πρόσθετο κενό κάτω στο mobile */
+    margin-top: 10px;
+    margin-bottom: 3px;
   }
 
   .br-panel a {
-    font-size: 14px;
-    padding: 9px;
+    font-size: 13px;
+    padding: 8px;
   }
 }
-
-.br-menu > summary {
-  padding: 4px 8px;     /* μικρό, όσο χρειάζεται */
-  font-size: 14px;      /* λίγο μικρότερο */
-  gap: 6px;             /* μικρότερο κενό */
-}
-.br-burger {
-  width: 18px;          /* μικρότερο εικονίδιο */
-  height: 12px;
-}
-
