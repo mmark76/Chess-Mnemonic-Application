@@ -88,6 +88,12 @@
     padding: 9px 12px;
     font-size: 14px;
   }
+
+  .br-panel {
+    margin-top: 12px;     /* ↑ αυξάνει το κενό πάνω στο mobile */
+    margin-bottom: 3px;  /* ↓ πρόσθετο κενό κάτω στο mobile */
+  }
+
   .br-panel a {
     font-size: 14px;
     padding: 9px;
