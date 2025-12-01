@@ -978,13 +978,3 @@ header nav .header-links a {
   font-weight: normal !important;
 }
 
-/* Force all buttons to only match text width */
-#howToBtn,
-.header-links a,
-.gold-button {
-  width: auto !important;
-  display: inline-flex !important;
-  white-space: nowrap !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
