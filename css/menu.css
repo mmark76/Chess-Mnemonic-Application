@@ -103,3 +103,7 @@
     padding: 9px;
   }
 }
+
+header {
+  column-gap: 20px !important;
+}
