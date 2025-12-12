@@ -185,31 +185,48 @@
     }
     if(localStorage.getItem('theme') === 'dark') document.body.classList.add('dark-mode');
 
-    // --- AUDIO & VOICES ---
+   // --- AUDIO & VOICES ---
     function populateVoices() {
         voices = synth.getVoices();
         const voiceSelect = document.getElementById('voiceSelect');
         voiceSelect.innerHTML = '';
         
-        // Ταξινόμηση και φιλτράρισμα
+        // 1. Ταξινόμηση αλφαβητικά (για ομορφιά στη λίστα)
         voices.sort((a, b) => a.name.localeCompare(b.name));
         
+        // 2. Δημιουργία της λίστας
         voices.forEach((voice, index) => {
             const option = document.createElement('option');
             option.textContent = voice.name + ' (' + voice.lang + ')';
             option.value = index;
-            // Επιλογή Αγγλικών ως default
-            if(voice.lang.includes("en-US") || voice.lang.includes("en-GB")) {
-                if (!voiceSelect.value) option.selected = true; // Select first English found
-            }
             voiceSelect.appendChild(option);
         });
+
+        // 3. ΛΟΓΙΚΗ ΕΠΙΛΟΓΗΣ (Διόρθωση για Bahasa)
+        // Ψάχνουμε τη σωστή φωνή αφού δημιουργηθεί η λίστα
+        let preferredIndex = -1;
+
+        // Πρώτα ψάχνουμε για Google US English
+        preferredIndex = voices.findIndex(v => v.name.includes("Google US English"));
+
+        // Αν δεν βρεθεί, ψάχνουμε γενικά για en-US
+        if (preferredIndex === -1) preferredIndex = voices.findIndex(v => v.lang === "en-US");
+
+        // Αν δεν βρεθεί, ψάχνουμε για en-GB (Αγγλικά Μ. Βρετανίας)
+        if (preferredIndex === -1) preferredIndex = voices.findIndex(v => v.lang === "en-GB");
+
+        // Αν βρέθηκε κάτι από τα παραπάνω, το επιλέγουμε
+        if (preferredIndex !== -1) {
+            voiceSelect.selectedIndex = preferredIndex;
+        } else {
+            voiceSelect.selectedIndex = 0; // Αλλιώς το πρώτο στη λίστα
+        }
     }
     
     // Αρχική κλήση
     populateVoices();
     
-    // ΔΙΟΡΘΩΣΗ: Το βασικό λάθος ήταν εδώ (synthesis -> speechSynthesis)
+    // Event listener για όταν φορτώσουν οι φωνές
     if (speechSynthesis.onvoiceschanged !== undefined) {
         speechSynthesis.onvoiceschanged = populateVoices;
     }
@@ -353,3 +370,4 @@
 
 </body>
 </html>
+
