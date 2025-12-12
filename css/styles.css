@@ -978,3 +978,9 @@ header nav .header-links a {
   font-weight: normal !important;
 }
 
+/* Ειδική ρύθμιση για το Memory Palace Modal */
+#memoryPalaceModal .modal-content {
+  width: 95%;           /* Πιάνει το 95% του πλάτους της οθόνης */
+  max-width: 1200px;    /* Μεγαλώνει το όριο από 650px σε 1200px (ή 'none' για απεριόριστο) */
+  background-color: #000; /* Μαύρο φόντο για να φαίνεται ωραία η εικόνα */
+}
