@@ -38,7 +38,11 @@ document.addEventListener("DOMContentLoaded", () => {
         <button id="sanModeHalfBtn">Half-move</button>
         <button id="sanCopyBtn" class="primary">Copy</button>
         <button id="sanLociBtn">Loci: OFF</button>
-        <p class="tts-hint">Listen to the game with a TTS Tool (i.e. Read Aloud MSWord etc.)</p>
+        <p class="tts-hint">
+          <a href="https://chessmnemonics.net/chess_games_tts_app/index.html" target="_blank">
+            Listen to the game with this site TTS Tool or use external (i.e. Read Aloud MSWord etc.)
+          </a>
+        </p>
       </div>
 
       <pre id="sanTextOut" class="san-text"></pre>
@@ -447,3 +451,4 @@ document.addEventListener("DOMContentLoaded", () => {
   setTimeout(enableSanButtonIfReady, 200);
 
 });
+
