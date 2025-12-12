@@ -143,7 +143,7 @@
     </div>
 
     <p>Paste PGN text or upload a file:</p>
-    <textarea id="pgnInput" placeholder='[Event "Example"] ... 1. e4 e5 ...'></textarea>
+    <textarea id="pgnInput" placeholder='[Event "Example"]&#10;1. e4 e5 2. Nf3 Nc6'></textarea>
     <input type="file" id="fileInput" accept=".pgn">
     
     <br><br>
@@ -162,13 +162,21 @@
       new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
     }
 </script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 <script>
     let synth = window.speechSynthesis;
     let voices = [];
-    let game = new Chess();
+    let game;
     let isPaused = false;
+
+    // Έλεγχος αν φορτώθηκε η βιβλιοθήκη Chess
+    try {
+        game = new Chess();
+    } catch (e) {
+        document.getElementById('statusBox').innerText = "⚠️ Error: Chess.js library failed to load. Check internet connection.";
+        document.getElementById('statusBox').style.color = "red";
+    }
 
     // --- DARK MODE ---
     function toggleTheme() {
@@ -182,20 +190,35 @@
         voices = synth.getVoices();
         const voiceSelect = document.getElementById('voiceSelect');
         voiceSelect.innerHTML = '';
+        
+        // Ταξινόμηση και φιλτράρισμα
         voices.sort((a, b) => a.name.localeCompare(b.name));
+        
         voices.forEach((voice, index) => {
             const option = document.createElement('option');
             option.textContent = voice.name + ' (' + voice.lang + ')';
             option.value = index;
-            if(voice.lang.includes("en-US") || voice.lang.includes("en-GB")) option.selected = true;
+            // Επιλογή Αγγλικών ως default
+            if(voice.lang.includes("en-US") || voice.lang.includes("en-GB")) {
+                if (!voiceSelect.value) option.selected = true; // Select first English found
+            }
             voiceSelect.appendChild(option);
         });
     }
+    
+    // Αρχική κλήση
     populateVoices();
-    if (speechSynthesis.onvoiceschanged !== undefined) synthesis.onvoiceschanged = populateVoices;
+    
+    // ΔΙΟΡΘΩΣΗ: Το βασικό λάθος ήταν εδώ (synthesis -> speechSynthesis)
+    if (speechSynthesis.onvoiceschanged !== undefined) {
+        speechSynthesis.onvoiceschanged = populateVoices;
+    }
 
     // --- TRANSLATION LOGIC ---
     function sanToEnglish(san) {
+        // Καθαρισμός από σχόλια ή σύμβολα που δεν υποστηρίζονται
+        san = san.replace(/[?!#+]/g, '');
+
         if (san === "O-O") return "Short Castles";
         if (san === "O-O-O") return "Long Castles";
         
@@ -204,18 +227,22 @@
         
         // 1. Piece
         let firstChar = san.charAt(0);
-        if (firstChar === firstChar.toLowerCase()) desc += "Pawn ";
-        else if (pieces[firstChar]) desc += pieces[firstChar] + " ";
+        if (pieces[firstChar]) {
+            desc += pieces[firstChar] + " ";
+        } else {
+            desc += "Pawn ";
+        }
 
         // 2. Action (takes OR moves to)
         if (san.includes('x')) desc += "takes ";
-        else desc += "moves to "; // ΕΔΩ Η ΑΛΛΑΓΗ ΠΟΥ ΖΗΤΗΣΕΣ
+        else desc += "moves to ";
 
-        // 3. Square
-        let square = san.replace(/[+#xKQRBN]/g, "");
+        // 3. Square (Αφαιρούμε τα γράμματα των κομματιών αλλά κρατάμε το τετράγωνο)
+        // Προσοχή: Το 'b' στο 'b4' (πιόνι) δεν πρέπει να αφαιρεθεί, αλλά το 'B' (Αξιωματικός) πρέπει.
+        let square = san.replace(/[KQRBNx]/g, ""); 
         desc += square;
 
-        // 4. Check/Mate
+        // 4. Check/Mate (από το αρχικό string)
         if (san.includes('#')) desc += ", Checkmate!";
         else if (san.includes('+')) desc += ", Check!";
         
@@ -224,20 +251,27 @@
 
     // --- PLAYBACK LOGIC ---
     function playGame() {
+        if (!game) return; // Αν δεν έχει φορτώσει η βιβλιοθήκη
         stopGame(); 
         game.reset();
 
-        const pgn = document.getElementById('pgnInput').value;
+        const pgn = document.getElementById('pgnInput').value.trim();
+        
+        if (!pgn) {
+            document.getElementById('statusBox').innerText = "⚠️ Please paste a PGN first.";
+            return;
+        }
+
         const loaded = game.load_pgn(pgn);
 
         if (!loaded) {
-            document.getElementById('statusBox').innerText = "❌ Invalid PGN!";
+            document.getElementById('statusBox').innerText = "❌ Invalid PGN format!";
             return;
         }
 
         const header = game.header();
-        const whiteName = header['White'] || 'Unknown';
-        const blackName = header['Black'] || 'Unknown';
+        const whiteName = header['White'] || 'White';
+        const blackName = header['Black'] || 'Black';
         
         speakText(`New game. ${whiteName} versus ${blackName}.`);
 
@@ -272,13 +306,18 @@
     function speakText(text, visualText = null) {
         let utterance = new SpeechSynthesisUtterance(text);
         const voiceSelect = document.getElementById('voiceSelect');
-        const selectedVoice = voices[voiceSelect.value];
-        if (selectedVoice) utterance.voice = selectedVoice;
-        utterance.rate = document.getElementById('rateRange').value;
+        
+        // Έλεγχος αν υπάρχουν φωνές
+        if (voices.length > 0) {
+            const selectedVoice = voices[voiceSelect.value];
+            if (selectedVoice) utterance.voice = selectedVoice;
+        }
+        
+        utterance.rate = parseFloat(document.getElementById('rateRange').value);
 
         // Add a small pause after "Move X"
         if (text.startsWith("Move")) {
-            utterance.rate = utterance.rate * 0.9; // Slightly slower for the move number
+            utterance.rate = utterance.rate * 0.9;
         }
 
         utterance.onstart = function() {
