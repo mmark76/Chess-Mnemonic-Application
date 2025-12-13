@@ -1,373 +1,424 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chess PGN Audio Player</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
-    <style>
-        :root {
-            --bg-color: #f4f4f9;
-            --container-bg: #ffffff;
-            --text-color: #333333;
-            --textarea-bg: #ffffff;
-            --textarea-text: #000000;
-            --settings-bg: #eeeeee;
-            --status-bg: #e8f5e9;
-            --status-text: #2e7d32;
-            --border-color: #cccccc;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chess PGN Audio Player</title>
 
-        /* Dark Mode Variables */
-        body.dark-mode {
-            --bg-color: #121212;
-            --container-bg: #1e1e1e;
-            --text-color: #e0e0e0;
-            --textarea-bg: #2d2d2d;
-            --textarea-text: #ffffff;
-            --settings-bg: #2c2c2c;
-            --status-bg: #1b5e20;
-            --status-text: #a5d6a7;
-            --border-color: #444444;
-        }
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
 
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background-color: var(--bg-color); 
-            color: var(--text-color);
-            padding: 20px; 
-            max-width: 800px; 
-            margin: 0 auto; 
-            transition: background-color 0.3s, color 0.3s;
-        }
+  <style>
+    :root {
+      --bg-color: #f4f4f9;
+      --container-bg: #ffffff;
+      --text-color: #333333;
+      --textarea-bg: #ffffff;
+      --textarea-text: #000000;
+      --settings-bg: #eeeeee;
+      --status-bg: #e8f5e9;
+      --status-text: #2e7d32;
+      --border-color: #cccccc;
+    }
 
-        .header-tools {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
+    body.dark-mode {
+      --bg-color: #121212;
+      --container-bg: #1e1e1e;
+      --text-color: #e0e0e0;
+      --textarea-bg: #2d2d2d;
+      --textarea-text: #ffffff;
+      --settings-bg: #2c2c2c;
+      --status-bg: #1b5e20;
+      --status-text: #a5d6a7;
+      --border-color: #444444;
+    }
 
-        .container { 
-            background: var(--container-bg); 
-            padding: 30px; 
-            border-radius: 10px; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2); 
-            transition: background 0.3s;
-        }
+    /* Prevent mobile overflow */
+    *, *::before, *::after { box-sizing: border-box; }
 
-        h1 { text-align: center; margin-bottom: 20px; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      padding: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      transition: background-color 0.3s, color 0.3s;
+      overflow-x: hidden;
+    }
 
-        .theme-toggle {
-            background: transparent;
-            border: 2px solid var(--text-color);
-            color: var(--text-color);
-            padding: 5px 15px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 14px;
-        }
-        .theme-toggle:hover { opacity: 0.8; }
+    .header-tools {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
 
-        textarea { 
-            width: 100%; 
-            height: 150px; 
-            padding: 10px; 
-            border: 1px solid var(--border-color); 
-            background-color: var(--textarea-bg);
-            color: var(--textarea-text);
-            border-radius: 5px; 
-            font-family: monospace; 
-            font-size: 14px; 
-            margin-bottom: 15px; 
-            box-sizing: border-box; 
-        }
+    .container {
+      background: var(--container-bg);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: background 0.3s;
+      width: 100%;
+    }
 
-        .controls { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-bottom: 20px; }
-        
-        button.ctrl-btn { padding: 12px 24px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background 0.3s; font-weight: bold; color: white; }
-        .btn-play { background-color: #4CAF50; }
-        .btn-play:hover { background-color: #45a049; }
-        .btn-pause { background-color: #ff9800; }
-        .btn-stop { background-color: #f44336; }
+    h1 { text-align: center; margin: 0 0 20px; }
 
-        .status { 
-            margin-top: 20px; 
-            padding: 15px; 
-            background: var(--status-bg); 
-            color: var(--status-text);
-            border-radius: 5px; 
-            border-left: 5px solid #4CAF50; 
-            font-size: 1.1em; 
-            min-height: 20px; 
-        }
+    .theme-toggle {
+      background: transparent;
+      border: 2px solid var(--text-color);
+      color: var(--text-color);
+      padding: 6px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+    .theme-toggle:hover { opacity: 0.85; }
 
-        .settings { 
-            margin-bottom: 20px; 
-            padding: 15px; 
-            background: var(--settings-bg); 
-            border-radius: 5px; 
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-        
-        label { font-weight: bold; }
-        select, input[type="file"] { padding: 5px; background: var(--textarea-bg); color: var(--textarea-text); border: 1px solid var(--border-color); }
-        
-        #google_translate_element { margin-right: 15px; }
-    </style>
+    textarea {
+      width: 100%;
+      height: 150px;
+      padding: 10px;
+      border: 1px solid var(--border-color);
+      background-color: var(--textarea-bg);
+      color: var(--textarea-text);
+      border-radius: 5px;
+      font-family: monospace;
+      font-size: 14px;
+      margin-bottom: 15px;
+      resize: vertical;
+    }
+
+    .controls {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    button.ctrl-btn {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: opacity 0.2s;
+      font-weight: bold;
+      color: white;
+    }
+    button.ctrl-btn:hover { opacity: 0.9; }
+
+    .btn-play { background-color: #4CAF50; }
+    .btn-pause { background-color: #ff9800; }
+    .btn-stop { background-color: #f44336; }
+
+    .status {
+      margin-top: 20px;
+      padding: 15px;
+      background: var(--status-bg);
+      color: var(--status-text);
+      border-radius: 5px;
+      border-left: 5px solid #4CAF50;
+      font-size: 1.05em;
+      min-height: 20px;
+      word-break: break-word;
+    }
+
+    .settings {
+      margin-bottom: 20px;
+      padding: 15px;
+      background: var(--settings-bg);
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    label { font-weight: bold; }
+
+    select, input[type="file"] {
+      padding: 6px;
+      background: var(--textarea-bg);
+      color: var(--textarea-text);
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      max-width: 100%;
+    }
+
+    /* Fix the Speed row overflow on mobile (range inside flex must be allowed to shrink) */
+    .settings > div {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .settings input[type="range"]{
+      flex: 1;
+      min-width: 0;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    #rateValue { white-space: nowrap; }
+
+    #google_translate_element { margin-right: 15px; max-width: 100%; }
+
+    /* Mobile layout */
+    @media (max-width: 480px){
+      body { padding: 10px; }
+      .container { padding: 16px; }
+
+      .settings {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .settings > div {
+        width: 100%;
+      }
+      select, input[type="file"] { width: 100%; }
+    }
+
+      /* Google Translate: make the outer shell follow the theme (iframe content can't be styled) */
+#google_translate_element,
+#google_translate_element *{
+  color: var(--text-color) !important;
+}
+
+#google_translate_element .goog-te-gadget,
+#google_translate_element .goog-te-gadget-simple{
+  background: var(--container-bg) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 8px !important;
+  padding: 6px 10px !important;
+}
+
+#google_translate_element .goog-te-gadget-icon{
+  display: none !important;
+}
+
+  </style>
 </head>
+
 <body>
+  <div class="header-tools">
+    <div id="google_translate_element"></div>
+    <button class="theme-toggle" onclick="toggleTheme()">🌓 Light/Dark</button>
+  </div>
 
-    <div class="header-tools">
-        <div id="google_translate_element"></div>
-        <button class="theme-toggle" onclick="toggleTheme()">🌓 Light/Dark</button>
-    </div>
-
-<div class="container">
+  <div class="container">
     <h1>♟️ Chess PGN Audio Player</h1>
-    
+
     <div class="settings">
-        <div>
-            <label for="voiceSelect">Voice:</label>
-            <select id="voiceSelect"></select>
-        </div>
-        <div>
-            <label for="rateRange">Speed:</label>
-            <input type="range" id="rateRange" min="0.5" max="2" value="1" step="0.1">
-            <span id="rateValue">1.0x</span>
-        </div>
+      <div>
+        <label for="voiceSelect">Voice:</label>
+        <select id="voiceSelect"></select>
+      </div>
+
+      <div>
+        <label for="rateRange">Speed:</label>
+        <input type="range" id="rateRange" min="0.5" max="2" value="1" step="0.1" />
+        <span id="rateValue">1.0x</span>
+      </div>
     </div>
 
     <p>Paste PGN text or upload a file:</p>
     <textarea id="pgnInput" placeholder='[Event "Example"]&#10;1. e4 e5 2. Nf3 Nc6'></textarea>
-    <input type="file" id="fileInput" accept=".pgn">
-    
-    <br><br>
+    <input type="file" id="fileInput" accept=".pgn" />
+
+    <br /><br />
 
     <div class="controls">
-        <button class="ctrl-btn btn-play" onclick="playGame()">▶ Play</button>
-        <button class="ctrl-btn btn-pause" onclick="pauseGame()">⏸ Pause</button>
-        <button class="ctrl-btn btn-stop" onclick="stopGame()">⏹ Stop</button>
+      <button class="ctrl-btn btn-play" onclick="playGame()">▶ Play</button>
+      <button class="ctrl-btn btn-pause" onclick="pauseGame()">⏸ Pause</button>
+      <button class="ctrl-btn btn-stop" onclick="stopGame()">⏹ Stop</button>
     </div>
 
     <div id="statusBox" class="status">Ready...</div>
-</div>
+  </div>
 
-<script type="text/javascript">
+  <script type="text/javascript">
     function googleTranslateElementInit() {
-      new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+      new google.translate.TranslateElement(
+        { pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE },
+        'google_translate_element'
+      );
     }
-</script>
-<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  </script>
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-<script>
+  <script>
     let synth = window.speechSynthesis;
     let voices = [];
     let game;
     let isPaused = false;
 
-    // Έλεγχος αν φορτώθηκε η βιβλιοθήκη Chess
     try {
-        game = new Chess();
+      game = new Chess();
     } catch (e) {
-        document.getElementById('statusBox').innerText = "⚠️ Error: Chess.js library failed to load. Check internet connection.";
-        document.getElementById('statusBox').style.color = "red";
+      const box = document.getElementById('statusBox');
+      box.innerText = "⚠️ Error: Chess.js library failed to load. Check internet connection.";
+      box.style.color = "red";
     }
 
-    // --- DARK MODE ---
     function toggleTheme() {
-        document.body.classList.toggle('dark-mode');
-        localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+      document.body.classList.toggle('dark-mode');
+      localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
     }
-    if(localStorage.getItem('theme') === 'dark') document.body.classList.add('dark-mode');
+    if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark-mode');
 
-   // --- AUDIO & VOICES ---
     function populateVoices() {
-        voices = synth.getVoices();
-        const voiceSelect = document.getElementById('voiceSelect');
-        voiceSelect.innerHTML = '';
-        
-        // 1. Ταξινόμηση αλφαβητικά (για ομορφιά στη λίστα)
-        voices.sort((a, b) => a.name.localeCompare(b.name));
-        
-        // 2. Δημιουργία της λίστας
-        voices.forEach((voice, index) => {
-            const option = document.createElement('option');
-            option.textContent = voice.name + ' (' + voice.lang + ')';
-            option.value = index;
-            voiceSelect.appendChild(option);
-        });
+      voices = synth.getVoices();
+      const voiceSelect = document.getElementById('voiceSelect');
+      voiceSelect.innerHTML = '';
 
-        // 3. ΛΟΓΙΚΗ ΕΠΙΛΟΓΗΣ (Διόρθωση για Bahasa)
-        // Ψάχνουμε τη σωστή φωνή αφού δημιουργηθεί η λίστα
-        let preferredIndex = -1;
+      voices.sort((a, b) => a.name.localeCompare(b.name));
 
-        // Πρώτα ψάχνουμε για Google US English
-        preferredIndex = voices.findIndex(v => v.name.includes("Google US English"));
+      voices.forEach((voice, index) => {
+        const option = document.createElement('option');
+        option.textContent = voice.name + ' (' + voice.lang + ')';
+        option.value = index;
+        voiceSelect.appendChild(option);
+      });
 
-        // Αν δεν βρεθεί, ψάχνουμε γενικά για en-US
-        if (preferredIndex === -1) preferredIndex = voices.findIndex(v => v.lang === "en-US");
+      let preferredIndex = -1;
+      preferredIndex = voices.findIndex(v => v.name.includes("Google US English"));
+      if (preferredIndex === -1) preferredIndex = voices.findIndex(v => v.lang === "en-US");
+      if (preferredIndex === -1) preferredIndex = voices.findIndex(v => v.lang === "en-GB");
 
-        // Αν δεν βρεθεί, ψάχνουμε για en-GB (Αγγλικά Μ. Βρετανίας)
-        if (preferredIndex === -1) preferredIndex = voices.findIndex(v => v.lang === "en-GB");
-
-        // Αν βρέθηκε κάτι από τα παραπάνω, το επιλέγουμε
-        if (preferredIndex !== -1) {
-            voiceSelect.selectedIndex = preferredIndex;
-        } else {
-            voiceSelect.selectedIndex = 0; // Αλλιώς το πρώτο στη λίστα
-        }
+      voiceSelect.selectedIndex = (preferredIndex !== -1) ? preferredIndex : 0;
     }
-    
-    // Αρχική κλήση
+
     populateVoices();
-    
-    // Event listener για όταν φορτώσουν οι φωνές
     if (speechSynthesis.onvoiceschanged !== undefined) {
-        speechSynthesis.onvoiceschanged = populateVoices;
+      speechSynthesis.onvoiceschanged = populateVoices;
     }
 
-    // --- TRANSLATION LOGIC ---
     function sanToEnglish(san) {
-        // Καθαρισμός από σχόλια ή σύμβολα που δεν υποστηρίζονται
-        san = san.replace(/[?!#+]/g, '');
+      san = san.replace(/[?!#+]/g, '');
 
-        if (san === "O-O") return "Short Castles";
-        if (san === "O-O-O") return "Long Castles";
-        
-        let desc = "";
-        let pieces = {'K': 'King', 'Q': 'Queen', 'R': 'Rook', 'B': 'Bishop', 'N': 'Knight'};
-        
-        // 1. Piece
-        let firstChar = san.charAt(0);
-        if (pieces[firstChar]) {
-            desc += pieces[firstChar] + " ";
-        } else {
-            desc += "Pawn ";
-        }
+      if (san === "O-O") return "Short castles";
+      if (san === "O-O-O") return "Long castles";
 
-        // 2. Action (takes OR moves to)
-        if (san.includes('x')) desc += "takes ";
-        else desc += "moves to ";
+      let desc = "";
+      const pieces = { 'K': 'King', 'Q': 'Queen', 'R': 'Rook', 'B': 'Bishop', 'N': 'Knight' };
 
-        // 3. Square (Αφαιρούμε τα γράμματα των κομματιών αλλά κρατάμε το τετράγωνο)
-        // Προσοχή: Το 'b' στο 'b4' (πιόνι) δεν πρέπει να αφαιρεθεί, αλλά το 'B' (Αξιωματικός) πρέπει.
-        let square = san.replace(/[KQRBNx]/g, ""); 
-        desc += square;
+      const firstChar = san.charAt(0);
+      if (pieces[firstChar]) desc += pieces[firstChar] + " ";
+      else desc += "Pawn ";
 
-        // 4. Check/Mate (από το αρχικό string)
-        if (san.includes('#')) desc += ", Checkmate!";
-        else if (san.includes('+')) desc += ", Check!";
-        
-        return desc;
+      if (san.includes('x')) desc += "takes ";
+      else desc += "moves to ";
+
+      const square = san.replace(/[KQRBNx]/g, "");
+      desc += square;
+
+      if (san.includes('#')) desc += ", checkmate!";
+      else if (san.includes('+')) desc += ", check!";
+
+      return desc;
     }
 
-    // --- PLAYBACK LOGIC ---
     function playGame() {
-        if (!game) return; // Αν δεν έχει φορτώσει η βιβλιοθήκη
-        stopGame(); 
-        game.reset();
+      if (!game) return;
 
-        const pgn = document.getElementById('pgnInput').value.trim();
-        
-        if (!pgn) {
-            document.getElementById('statusBox').innerText = "⚠️ Please paste a PGN first.";
-            return;
+      stopGame();
+      game.reset();
+
+      const pgn = document.getElementById('pgnInput').value.trim();
+      if (!pgn) {
+        document.getElementById('statusBox').innerText = "⚠️ Please paste a PGN first.";
+        return;
+      }
+
+      const loaded = game.load_pgn(pgn);
+      if (!loaded) {
+        document.getElementById('statusBox').innerText = "❌ Invalid PGN format!";
+        return;
+      }
+
+      const header = game.header();
+      const whiteName = header['White'] || 'White';
+      const blackName = header['Black'] || 'Black';
+
+      speakText(`New game. ${whiteName} versus ${blackName}.`);
+
+      const moves = game.history();
+      let moveNumber = 1;
+
+      for (let i = 0; i < moves.length; i += 2) {
+        speakText(`Move ${moveNumber}.`, `Move ${moveNumber}`);
+
+        const whiteSan = moves[i];
+        speakText(`White: ${sanToEnglish(whiteSan)}`, `White: ${whiteSan}`);
+
+        if (i + 1 < moves.length) {
+          const blackSan = moves[i + 1];
+          speakText(`Black: ${sanToEnglish(blackSan)}`, `Black: ${blackSan}`);
         }
 
-        const loaded = game.load_pgn(pgn);
+        moveNumber++;
+      }
 
-        if (!loaded) {
-            document.getElementById('statusBox').innerText = "❌ Invalid PGN format!";
-            return;
-        }
-
-        const header = game.header();
-        const whiteName = header['White'] || 'White';
-        const blackName = header['Black'] || 'Black';
-        
-        speakText(`New game. ${whiteName} versus ${blackName}.`);
-
-        const moves = game.history();
-        let moveNumber = 1;
-
-        // Iterate by pairs (White + Black)
-        for (let i = 0; i < moves.length; i += 2) {
-            
-            // 1. Say "Move X"
-            speakText(`Move ${moveNumber}.`, `Move ${moveNumber}`);
-
-            // 2. White's Move
-            let whiteSan = moves[i];
-            let whiteText = sanToEnglish(whiteSan);
-            speakText(`White: ${whiteText}`, `White: ${whiteSan}`);
-
-            // 3. Black's Move (if exists)
-            if (i + 1 < moves.length) {
-                let blackSan = moves[i+1];
-                let blackText = sanToEnglish(blackSan);
-                speakText(`Black: ${blackText}`, `Black: ${blackSan}`);
-            }
-
-            moveNumber++;
-        }
-        
-        let result = header['Result'];
-        if(result) speakText("Result: " + result);
+      const result = header['Result'];
+      if (result) speakText("Result: " + result);
     }
 
     function speakText(text, visualText = null) {
-        let utterance = new SpeechSynthesisUtterance(text);
-        const voiceSelect = document.getElementById('voiceSelect');
-        
-        // Έλεγχος αν υπάρχουν φωνές
-        if (voices.length > 0) {
-            const selectedVoice = voices[voiceSelect.value];
-            if (selectedVoice) utterance.voice = selectedVoice;
-        }
-        
-        utterance.rate = parseFloat(document.getElementById('rateRange').value);
+      const utterance = new SpeechSynthesisUtterance(text);
+      const voiceSelect = document.getElementById('voiceSelect');
 
-        // Add a small pause after "Move X"
-        if (text.startsWith("Move")) {
-            utterance.rate = utterance.rate * 0.9;
-        }
+      if (voices.length > 0) {
+        const selectedVoice = voices[Number(voiceSelect.value)];
+        if (selectedVoice) utterance.voice = selectedVoice;
+      }
 
-        utterance.onstart = function() {
-            let display = visualText ? `🔊 ${visualText}` : `🔊 ${text}`;
-            document.getElementById('statusBox').innerText = display;
-        };
-        synth.speak(utterance);
+      utterance.rate = parseFloat(document.getElementById('rateRange').value);
+
+      if (text.startsWith("Move")) {
+        utterance.rate = utterance.rate * 0.9;
+      }
+
+      utterance.onstart = function () {
+        const display = visualText ? `🔊 ${visualText}` : `🔊 ${text}`;
+        document.getElementById('statusBox').innerText = display;
+      };
+
+      synth.speak(utterance);
     }
 
     function pauseGame() {
-        if (synth.paused) { synth.resume(); isPaused = false; }
-        else { synth.pause(); isPaused = true; }
+      if (synth.paused) { synth.resume(); isPaused = false; }
+      else { synth.pause(); isPaused = true; }
     }
 
     function stopGame() {
-        synth.cancel();
-        document.getElementById('statusBox').innerText = "⏹ Stopped.";
+      synth.cancel();
+      document.getElementById('statusBox').innerText = "⏹ Stopped.";
     }
 
-    document.getElementById('fileInput').addEventListener('change', function(event) {
-        const file = event.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) { document.getElementById('pgnInput').value = e.target.result; };
-            reader.readAsText(file);
-        }
+    document.getElementById('fileInput').addEventListener('change', function (event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        document.getElementById('pgnInput').value = e.target.result;
+      };
+      reader.readAsText(file);
     });
 
-    document.getElementById('rateRange').addEventListener('input', function(e) {
-        document.getElementById('rateValue').innerText = e.target.value + "x";
+    document.getElementById('rateRange').addEventListener('input', function (e) {
+      document.getElementById('rateValue').innerText = e.target.value + "x";
     });
-</script>
-
+  </script>
 </body>
 </html>
-
