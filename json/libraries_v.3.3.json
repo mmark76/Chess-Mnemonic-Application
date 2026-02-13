@@ -1485,41 +1485,41 @@
             "Rh8": "the Beast Orc, the Black King-Side Rook"
         },
 		"LibraryC3": {
-            "Pa2_name": "Arnold Schwarzenegger",
-            "Pb2_name": "Bruce Lee",
-            "Pc2_name": "Conor McGregor",
-            "Pd2_name": "Donald Trump",
-            "Pe2_name": "Elon Musk",
-            "Pf2_name": "Frank Sinatra",
-            "Pg2_name": "George Clooney",
-            "Ph2_name": "Hugh Grant",
+  "Pa2_name": "Arnold Schwarzenegger (weights)",
+  "Pb2_name": "Bruce Lee (kicks)",
+  "Pc2_name": "Conor McGregor (gloves)",
+  "Pd2_name": "Donald Trump (pen)",
+  "Pe2_name": "Elon Musk (rocket)",
+  "Pf2_name": "Frank Sinatra (microphone)",
+  "Pg2_name": "George Clooney (coffee)",
+  "Ph2_name": "Hugh Grant (flower)",
 
-            "Ra1_name": "Atlas",
-            "Nb1_name": "Centaur",
-            "Bc1_name": "Gandalf the White",
-            "Qd1_name": "Galadriel",
-            "Ke1_name": "Geralt of Rivia",
-            "Bf1_name": "Merlin",
-            "Ng1_name": "Sir Lancelot",
-            "Rh1_name": "Yeti",
+  "Ra1_name": "Atlas (globe)",
+  "Nb1_name": "Centaur (arrow)",
+  "Bc1_name": "Gandalf the White (staff)",
+  "Qd1_name": "Galadriel (light)",
+  "Ke1_name": "Geralt of Rivia (swords)",
+  "Bf1_name": "Merlin (book)",
+  "Ng1_name": "Sir Lancelot (white armour)",
+  "Rh1_name": "Yeti (ice)",
 
-            "Pa7_name": "Ali Muhammad",
-            "Pb7_name": "Ben Johnson",
-            "Pc7_name": "Carl Lewis",
-            "Pd7_name": "Denzel Washington",
-            "Pe7_name": "Eddie Murphy",
-            "Pf7_name": "Floyd Mayweather",
-            "Pg7_name": "George Foreman",
-            "Ph7_name": "Hakeem Olajuwon",
+  "Pa7_name": "Ali Muhammad (boxing bag)",
+  "Pb7_name": "Ben Johnson (spikes)",
+  "Pc7_name": "Carl Lewis (sand pit)",
+  "Pd7_name": "Denzel Washington (Oscar)",
+  "Pe7_name": "Eddie Murphy (gold chain)",
+  "Pf7_name": "Floyd Mayweather (belt)",
+  "Pg7_name": "Giannis Antetokounmpo (Greek flag)",
+  "Ph7_name": "Hakeem Olajuwon (basketball)",
 
-            "Ra8_name": "Godzilla",
-            "Nb8_name": "Black-Widow",
-            "Bc8_name": "Dracula the Vampire",
-            "Qd8_name": "Banshee",
-            "Ke8_name": "Sauron",
-            "Bf8_name": "Venom",
-            "Ng8_name": "Catwoman",
-            "Rh8_name": "Beast Orc"
+  "Ra8_name": "Godzilla (black gorilla)",
+  "Nb8_name": "Black-Widow (spider)",
+  "Bc8_name": "Dracula the Vampire (teeth)",
+  "Qd8_name": "Banshee (skull)",
+  "Ke8_name": "Sauron (ring)",
+  "Bf8_name": "Venom (tongue)",
+  "Ng8_name": "Catwoman (black cat)",
+  "Rh8_name": "Beast Orc (axe)"
         }
     },
     "PAO 0-9": {
@@ -4539,6 +4539,7 @@
         }
     }
 }
+
 
 
 
