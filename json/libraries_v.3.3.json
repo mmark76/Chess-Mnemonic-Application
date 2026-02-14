@@ -1485,42 +1485,42 @@
             "Rh8": "the Beast Orc, the Black King-Side Rook"
         },
 		"LibraryC3": {
-            "Pa2_name": "Arnold Schwarzenegger (weights)",
-            "Pb2_name": "Bruce Lee (kicks)",
-            "Pc2_name": "Conor McGregor (gloves)",
-            "Pd2_name": "Donald Trump (pen)",
-            "Pe2_name": "Elon Musk (rocket)",
-            "Pf2_name": "Frank Sinatra (microphone)",
-            "Pg2_name": "George Clooney (coffee)",
-            "Ph2_name": "Hugh Grant (flower)",
+            "Pa2_name": "Arnold Schwarzenegger lifting weights", 
+            "Pb2_name": "Bruce Lee delivering sharp kicks",
+            "Pc2_name": "Conor McGregor wearing gloves",
+            "Pd2_name": "Donald Trump holding a pen",
+            "Pe2_name": "Elon Musk launching a rocket",
+            "Pf2_name": "Frank Sinatra singing into a microphone",
+            "Pg2_name": "George Clooney holding a coffee",
+            "Ph2_name": "Hugh Grant offering a flower",
 
-            "Ra1_name": "Atlas (globe)",
-            "Nb1_name": "Centaur (arrow)",
-            "Bc1_name": "Gandalf the White (staff)",
-            "Qd1_name": "Galadriel (light)",
-            "Ke1_name": "Geralt of Rivia (swords)",
-            "Bf1_name": "Merlin (book)",
-            "Ng1_name": "Sir Lancelot (white armour)",
-            "Rh1_name": "Yeti (ice)",
+            "Ra1_name": "Atlas supporting a globe",
+            "Nb1_name": "Centaur drawing an arrow",
+            "Bc1_name": "Gandalf the White raising a staff",
+            "Qd1_name": "Galadriel shining with light",
+            "Ke1_name": "Geralt of Rivia gripping swords",
+            "Bf1_name": "Merlin opening a book",
+            "Ng1_name": "Sir Lancelot standing in a white armor", 
+            "Rh1_name": "Yeti emerging from ice",
 
-            "Pa7_name": "Ali Muhammad (boxing bag)",
-            "Pb7_name": "Ben Johnson (spikes)",
-            "Pc7_name": "Carl Lewis (sand pit)",
-            "Pd7_name": "Denzel Washington (Oscar)",
-            "Pe7_name": "Eddie Murphy (gold chain)",
-            "Pf7_name": "Floyd Mayweather (belt)",
-            "Pg7_name": "Giannis Antetokounmpo (Greek flag)",
-            "Ph7_name": "Hakeem Olajuwon (basketball)",
+            "Pa7_name": "Ali Muhammad striking a boxing bag",
+            "Pb7_name": "Ben Johnson tightening spikes",
+            "Pc7_name": "Carl Lewis landing in a sand pit",
+            "Pd7_name": "Denzel Washington lifting an Oscar",
+            "Pe7_name": "Eddie Murphy wearing a gold chain",
+            "Pf7_name": "Floyd Mayweather lifting a belt", 
+            "Pg7_name": "Giannis Antetokounmpo waving a Greek flag",
+            "Ph7_name": "Hakeem Olajuwon dribbling a basketball",
 
-            "Ra8_name": "Godzilla (black gorilla)",
-            "Nb8_name": "Black-Widow (spider)",
-            "Bc8_name": "Dracula the Vampire (teeth)",
-            "Qd8_name": "Banshee (skull)",
-            "Ke8_name": "Sauron (ring)",
-            "Bf8_name": "Venom (tongue)",
-            "Ng8_name": "Catwoman (black cat)",
-            "Rh8_name": "Beast Orc (axe)"
-        }
+            "Ra8_name": "Godzilla hitting his chest",
+            "Nb8_name": "Black Widow spinning a web like a spider",
+            "Bc8_name": "Dracula the Vampire revealing his teeth",
+            "Qd8_name": "Banshee screaming with a skull",
+            "Ke8_name": "Sauron raising the ring",
+            "Bf8_name": "Venom lashing out his tongue",
+            "Ng8_name": "Catwoman climbing like a black cat", 
+            "Rh8_name": "Beast Orc swinging an axe"
+         }
     },
     "PAO 0-9": {
         "Library_p1": {
@@ -4539,6 +4539,7 @@
         }
     }
 }
+
 
 
 
