@@ -524,452 +524,459 @@
     "Spatial": {
         "LibraryS1": {
             "a1": {
-                "Action": "enters",
-                "Feeling": "determination",
-                "Object": "sword",
-                "Target Square Association": "the white barn",
-                "text": "enters the white barn with determination and raises the sword into the light"
-            },
-            "a2": {
-                "Action": "climbs",
-                "Feeling": "anxiety",
-                "Object": "spear",
-                "Target Square Association": "the white battlements",
-                "text": "climbs the white battlements with the spear in hand, feeling the air of battle approaching"
-            },
-            "a3": {
-                "Action": "dives",
-                "Feeling": "courage",
-                "Object": "spear",
-                "Target Square Association": "the white moat",
-                "text": "dives into the white moat and moves forward with courage toward the bright reef"
-            },
-            "a4": {
-                "Action": "descends",
-                "Feeling": "caution",
-                "Object": "spear",
-                "Target Square Association": "the deep crater",
-                "text": "descends carefully into the deep crater, holding the spear in the darkness"
-            },
-            "a5": {
-                "Action": "climbs",
-                "Feeling": "ecstasy",
-                "Object": "spear",
-                "Target Square Association": "the active volcano",
-                "text": "climbs the active volcano, admiring the lava bursting around like living fire"
-            },
-            "a6": {
-                "Action": "enters",
-                "Feeling": "exhaustion",
-                "Object": "spear",
-                "Target Square Association": "the black moat",
-                "text": "enters the black moat and swims through the darkness, with the spear lighting the way"
-            },
-            "a7": {
-                "Action": "arrives",
-                "Feeling": "wariness",
-                "Object": "spear",
-                "Target Square Association": "the dark watchtower",
-                "text": "arrives at the dark watchtower, touches the spear to the ground and listens to the silence"
-            },
-            "a8": {
-                "Action": "enters",
-                "Feeling": "seriousness",
-                "Object": "torch",
-                "Target Square Association": "the black warehouses",
-                "text": "enters the black warehouses with a flickering torch, lighting up the dusty beams"
-            },
-            "b1": {
-                "Action": "enters",
-                "Feeling": "calmness",
-                "Object": "shield",
-                "Target Square Association": "the white stables",
-                "text": "enters the white stables and raises the shield among the proud horses"
-            },
-            "b2": {
-                "Action": "climbs",
-                "Feeling": "alertness",
-                "Object": "bell",
-                "Target Square Association": "the tall white bell tower",
-                "text": "climbs the tall white bell tower and rings the alarm bell that echoes everywhere"
-            },
-            "b3": {
-                "Action": "walks",
-                "Feeling": "caution",
-                "Object": "bow",
-                "Target Square Association": "the riverbank",
-                "text": "walks along the riverbank with the bow ready, watching the water snakes move in the water"
-            },
-            "b4": {
-                "Action": "walks",
-                "Feeling": "alertness",
-                "Object": "sword",
-                "Target Square Association": "the dark graveyard",
-                "text": "walks through the dark graveyard, ready to draw the sword at the slightest sound"
-            },
-            "b5": {
-                "Action": "moves",
-                "Feeling": "caution",
-                "Object": "shield",
-                "Target Square Association": "the broken marble tombstone",
-                "text": "moves across the broken marble tombstone, gripping the shield tightly"
-            },
-            "b6": {
-                "Action": "swims",
-                "Feeling": "fear",
-                "Object": "shield",
-                "Target Square Association": "the river of piranhas",
-                "text": "swims in the river of piranhas and raises the shield in front of the face for protection"
-            },
-            "b7": {
-                "Action": "climbs",
-                "Feeling": "focus",
-                "Object": "binoculars",
-                "Target Square Association": "the observatory of the black palace",
-                "text": "climbs to the observatory of the black palace and looks through the binoculars searching for movement"
-            },
-            "b8": {
-                "Action": "tames",
-                "Feeling": "persistence",
-                "Object": "horses",
-                "Target Square Association": "the dark stables",
-                "text": "tames the wild black horses in the dark stables as chains rattle"
-            },
-            "c1": {
-                "Action": "sits",
-                "Feeling": "calmness",
-                "Object": "cup",
-                "Target Square Association": "the white dining hall",
-                "text": "sits in the white dining hall and holds the cup thoughtfully in the silence"
-            },
-            "c2": {
-                "Action": "runs",
-                "Feeling": "anxiety",
-                "Object": "arrow",
-                "Target Square Association": "the white catapult",
-                "text": "runs to the white catapult and places the large arrow for launch"
-            },
-            "c3": {
-                "Action": "arrives",
-                "Feeling": "calmness",
-                "Object": "spear",
-                "Target Square Association": "the tall cypress tree",
-                "text": "arrives at the tall cypress and rests the spear on the ground for a pause"
-            },
-            "c4": {
-                "Action": "hides",
-                "Feeling": "anxiety",
-                "Object": "spear",
-                "Target Square Association": "the white bush",
-                "text": "hides inside the white bush holding the spear among the reeds"
-            },
-            "c5": {
-                "Action": "marches",
-                "Feeling": "anger",
-                "Object": "spear",
-                "Target Square Association": "the black swamp",
-                "text": "marches through the black swamp with the spear raised amid fog and mud"
-            },
-            "c6": {
-                "Action": "sits",
-                "Feeling": "anxiety",
-                "Object": "spear",
-                "Target Square Association": "the thorny bush",
-                "text": "sits near the thorny bush and rests the spear upon it"
-            },
-            "c7": {
-                "Action": "arrives",
-                "Feeling": "rage",
-                "Object": "flaming rock",
-                "Target Square Association": "the siege engine launching flaming rocks",
-                "text": "arrives at the siege engine and launches a flaming rock"
-            },
-            "c8": {
-                "Action": "moves",
-                "Feeling": "calmness",
-                "Object": "sword",
-                "Target Square Association": "the ballroom of the black palace",
-                "text": "moves inside the ballroom of the black palace and the sword echoes in the silence"
-            },
-            "d1": {
-                "Action": "enters",
-                "Feeling": "tiredness",
-                "Object": "armor",
-                "Target Square Association": "the room of the white queen",
-                "text": "enters the room of the white queen and places the armor beside the bed"
-            },
-            "d2": {
-                "Action": "passes",
-                "Feeling": "devotion",
-                "Object": "banner",
-                "Target Square Association": "the hall of banners",
-                "text": "passes through the hall of banners"
-            },
-            "d3": {
-                "Action": "swims",
-                "Feeling": "caution",
-                "Object": "shield",
-                "Target Square Association": "the river of white sharks",
-                "text": "swims in the river of white sharks"
-            },
-            "d4": {
-                "Action": "charges",
-                "Feeling": "wild energy",
-                "Object": "sword",
-                "Target Square Association": "the dark cave with bats",
-                "text": "charges into the dark cave of bats and waves the sword in the darkness"
-            },
-            "d5": {
-                "Action": "moves",
-                "Feeling": "anxiety",
-                "Object": "sword",
-                "Target Square Association": "the small wooden hut",
-                "text": "moves inside the small wooden hut and sharpens the sword on the table"
-            },
-            "d6": {
-                "Action": "swims",
-                "Feeling": "calmness",
-                "Object": "spear",
-                "Target Square Association": "the black alligators",
-                "text": "swims among the black alligators with the spear pointing forward"
-            },
-            "d7": {
-                "Action": "chains himself",
-                "Feeling": "despair",
-                "Object": "chains",
-                "Target Square Association": "the black hall of skulls",
-                "text": "chains himself in the black hall of skulls as darkness surrounds him"
-            },
-            "d8": {
-                "Action": "walks",
-                "Feeling": "sadness",
-                "Object": "crown",
-                "Target Square Association": "the dark rooms of the black queen",
-                "text": "walks through the dark rooms of the black queen holding the broken crown"
-            },
-            "e1": {
-                "Action": "sits",
-                "Feeling": "serenity",
-                "Object": "crown",
-                "Target Square Association": "the white throne",
-                "text": "sits on the white throne and holds the crown with reverence in the silence of the hall"
-            },
-            "e2": {
-                "Action": "passes",
-                "Feeling": "energy",
-                "Object": "gate",
-                "Target Square Association": "the white gate",
-                "text": "passes through the great white gate and observes the guards on the battlements"
-            },
-            "e3": {
-                "Action": "runs",
-                "Feeling": "anxiety",
-                "Object": "stone bridge",
-                "Target Square Association": "the stone bridge",
-                "text": "runs across the stone bridge as the water rushes fiercely below"
-            },
-            "e4": {
-                "Action": "enters",
-                "Feeling": "determination",
-                "Object": "spear",
-                "Target Square Association": "the area with the white weasels",
-                "text": "enters the area with white weasels running between the trees"
-            },
-            "e5": {
-                "Action": "charges",
-                "Feeling": "rage",
-                "Object": "sword",
-                "Target Square Association": "the ravine of red roses",
-                "text": "charges into the ravine of red roses and the blood on the sword shines in the light"
-            },
-            "e6": {
-                "Action": "crosses",
-                "Feeling": "caution",
-                "Object": "sword",
-                "Target Square Association": "the iron bridge",
-                "text": "crosses the iron bridge where the air smells of rust and fear"
-            },
-            "e7": {
-                "Action": "fights",
-                "Feeling": "revenge",
-                "Object": "sword",
-                "Target Square Association": "the black gate",
-                "text": "fights under the black gate and the sword sparks in the darkness"
-            },
-            "e8": {
-                "Action": "sits",
-                "Feeling": "coldness",
-                "Object": "scepter",
-                "Target Square Association": "the throne of the black king",
-                "text": "sits on the throne of the black king and lets the scepter fall on the marble"
-            },
-            "f1": {
-                "Action": "enters",
-                "Feeling": "focus",
-                "Object": "banner",
-                "Target Square Association": "the war hall of the white palace",
-                "text": "enters the war hall of the white palace and raises the banner before the light"
-            },
-            "f2": {
-                "Action": "moves",
-                "Feeling": "prudence",
-                "Object": "statue",
-                "Target Square Association": "the statue of the white dragon",
-                "text": "moves beside the statue of the white dragon with the spear ready"
-            },
-            "f3": {
-                "Action": "lands",
-                "Feeling": "anger",
-                "Object": "rock",
-                "Target Square Association": "the white rock",
-                "text": "lands on the white rock and strikes it with the spear, splashing water everywhere"
-            },
-            "f4": {
-                "Action": "descends",
-                "Feeling": "fear",
-                "Object": "shield",
-                "Target Square Association": "the steep ravine",
-                "text": "descends the steep ravine holding the shield in front of the body"
-            },
-            "f5": {
-                "Action": "climbs",
-                "Feeling": "stubbornness",
-                "Object": "spear",
-                "Target Square Association": "the dangerous hill",
-                "text": "climbs the dangerous hill and plants the spear in the ground as a symbol of victory"
-            },
-            "f6": {
-                "Action": "lands",
-                "Feeling": "tiredness",
-                "Object": "armor",
-                "Target Square Association": "the land of skeletons",
-                "text": "lands in the land of skeletons and the armor echoes on the bones"
-            },
-            "f7": {
-                "Action": "runs",
-                "Feeling": "panic",
-                "Object": "spear",
-                "Target Square Association": "the statue of the black dragon guardian",
-                "text": "runs beside the statue of the black dragon guardian, gripping the spear tightly"
-            },
-            "f8": {
-                "Action": "studies",
-                "Feeling": "calmness",
-                "Object": "book",
-                "Target Square Association": "the war hall of the black palace",
-                "text": "studies in the war hall of the black palace, leafing through an ancient book"
-            },
-            "g1": {
-                "Action": "is",
-                "Feeling": "calmness",
-                "Object": "knife",
-                "Target Square Association": "the kitchens of the white palace",
-                "text": "is in the kitchens of the white palace and cleans the knife in the light"
-            },
-            "g2": {
-                "Action": "climbs",
-                "Feeling": "observation",
-                "Object": "telescope",
-                "Target Square Association": "the white turret",
-                "text": "climbs the white turret and looks through the telescope at the horizon"
-            },
-            "g3": {
-                "Action": "hides",
-                "Feeling": "terror",
-                "Object": "chest",
-                "Target Square Association": "a wooden box at the bottom of the river",
-                "text": "hides inside a wooden box at the bottom of the river and holds his breath"
-            },
-            "g4": {
-                "Action": "runs",
-                "Feeling": "fear",
-                "Object": "spear",
-                "Target Square Association": "the haunted path",
-                "text": "runs along the haunted path while the trees move with the wind"
-            },
-            "g5": {
-                "Action": "wanders",
-                "Feeling": "anxiety",
-                "Object": "sword",
-                "Target Square Association": "the haunted clearing",
-                "text": "wanders through the haunted clearing with the sword aimed toward the shadows"
-            },
-            "g6": {
-                "Action": "stands",
-                "Feeling": "coldness",
-                "Object": "mast",
-                "Target Square Association": "the mast of the sunken ship",
-                "text": "stands upon the mast of the sunken ship and looks at the night spreading around"
-            },
-            "g7": {
-                "Action": "climbs",
-                "Feeling": "passion",
-                "Object": "torch",
-                "Target Square Association": "the tall black turret",
-                "text": "climbs the tall black turret and lights a great torch to illuminate the battlements"
-            },
-            "g8": {
-                "Action": "is",
-                "Feeling": "isolation",
-                "Object": "chains",
-                "Target Square Association": "the dungeons of the black palace",
-                "text": "is in the dungeons of the black palace and hears the chains echoing in the darkness"
-            },
-            "h1": {
-                "Action": "enters",
-                "Feeling": "reverence",
-                "Object": "candle",
-                "Target Square Association": "the white temple",
-                "text": "enters the white temple and lights a candle under the tall arches"
-            },
-            "h2": {
-                "Action": "walks",
-                "Feeling": "caution",
-                "Object": "candle",
-                "Target Square Association": "the underground passage",
-                "text": "walks through the underground passage holding the candle that lights the path ahead"
-            },
-            "h3": {
-                "Action": "climbs",
-                "Feeling": "anxiety",
-                "Object": "lighthouse",
-                "Target Square Association": "the haunted lighthouse",
-                "text": "climbs the haunted lighthouse and looks at the river sinking into darkness"
-            },
-            "h4": {
-                "Action": "fights",
-                "Feeling": "anger",
-                "Object": "sword",
-                "Target Square Association": "the steep cliff",
-                "text": "fights on the edge of the steep cliff with the sword flashing in the battle light"
-            },
-            "h5": {
-                "Action": "fights",
-                "Feeling": "fury",
-                "Object": "sword",
-                "Target Square Association": "the blood-soaked ravine",
-                "text": "fights within the blood-soaked ravine as the abyssal wind blows"
-            },
-            "h6": {
-                "Action": "dives",
-                "Feeling": "surrender",
-                "Object": "spear",
-                "Target Square Association": "the haunted shipwreck",
-                "text": "dives into the haunted shipwreck and lets the spear sink into the depths of the river"
-            },
-            "h7": {
-                "Action": "is",
-                "Feeling": "coldness",
-                "Object": "sword",
-                "Target Square Association": "the black catacombs",
-                "text": "is in the black catacombs and holds the sword while hearing whispers around"
-            },
-            "h8": {
-                "Action": "enters",
-                "Feeling": "calmness",
-                "Object": "cloak",
-                "Target Square Association": "the black temple",
-                "text": "enters the black temple and wraps the cloak around the shoulders for protection"
+        "Action": "enters",
+        "Feeling": "determination",
+        "Object": "manger",
+        "Target Square Association": "manger in the white barn",
+        "text": "enters the white barn with determination and drags the manger into the light"
+      },
+      "a2": {
+        "Action": "climbs",
+        "Feeling": "anxiety",
+        "Object": "helmet",
+        "Target Square Association": "helmet on the white battlements",
+        "text": "climbs the white battlements with anxiety and tightens the helmet strap as battle approaches"
+      },
+      "a3": {
+        "Action": "dives",
+        "Feeling": "courage",
+        "Object": "trident",
+        "Target Square Association": "trident in the white moat",
+        "text": "dives into the white moat with courage and lifts the trident through the water"
+      },
+      "a4": {
+        "Action": "descends",
+        "Feeling": "caution",
+        "Object": "rope",
+        "Target Square Association": "rope in the deep crater",
+        "text": "descends carefully into the deep crater, holding the rope in the darkness"
+      },
+      "a5": {
+        "Action": "climbs",
+        "Feeling": "ecstasy",
+        "Object": "lava",
+        "Target Square Association": "lava in the active volcano",
+        "text": "climbs the active volcano in ecstasy, staring at the lava bursting like living fire"
+      },
+      "a6": {
+        "Action": "enters",
+        "Feeling": "exhaustion",
+        "Object": "coral",
+        "Target Square Association": "coral in the black moat",
+        "text": "enters the black moat in exhaustion and swims past coral glowing under dark water"
+      },
+      "a7": {
+        "Action": "arrives",
+        "Feeling": "wariness",
+        "Object": "trumpet",
+        "Target Square Association": "trumpet in the dark watchtower",
+        "text": "arrives at the dark watchtower warily and grips the trumpet while listening to the silence"
+      },
+      "a8": {
+        "Action": "enters",
+        "Feeling": "seriousness",
+        "Object": "barrel",
+        "Target Square Association": "barrel in the black warehouses",
+        "text": "enters the black warehouses with seriousness and rolls a heavy barrel through the dusty beams"
+      },
+
+      "b1": {
+        "Action": "enters",
+        "Feeling": "calmness",
+        "Object": "hay",
+        "Target Square Association": "hay in the white stables",
+        "text": "enters the white stables with calmness and brushes hands through the fresh hay"
+      },
+      "b2": {
+        "Action": "climbs",
+        "Feeling": "alertness",
+        "Object": "bell",
+        "Target Square Association": "bell in the tall white bell tower",
+        "text": "climbs the tall white bell tower with alertness and rings the bell until it echoes everywhere"
+      },
+      "b3": {
+        "Action": "walks",
+        "Feeling": "caution",
+        "Object": "frogs",
+        "Target Square Association": "frogs on the riverbank",
+        "text": "walks along the riverbank with caution as frogs leap between reeds and water"
+      },
+      "b4": {
+        "Action": "walks",
+        "Feeling": "alertness",
+        "Object": "bones",
+        "Target Square Association": "bones in the dark graveyard",
+        "text": "walks through the dark graveyard with alertness, bones scattered underfoot"
+      },
+      "b5": {
+        "Action": "moves",
+        "Feeling": "caution",
+        "Object": "broken marble tombstone",
+        "Target Square Association": "broken marble tombstone in the graveyard",
+        "text": "moves across the broken marble tombstone with caution, tracing the jagged cracks"
+      },
+      "b6": {
+        "Action": "swims",
+        "Feeling": "fear",
+        "Object": "piranhas",
+        "Target Square Association": "piranhas in the river",
+        "text": "swims in the river with fear as piranhas flash their teeth in the dark water"
+      },
+      "b7": {
+        "Action": "climbs",
+        "Feeling": "focus",
+        "Object": "telescope",
+        "Target Square Association": "telescope in the observatory",
+        "text": "climbs to the observatory of the black palace and peers through the telescope with focus"
+      },
+      "b8": {
+        "Action": "tames",
+        "Feeling": "persistence",
+        "Object": "horseshoe",
+        "Target Square Association": "horseshoe in the dark stables",
+        "text": "tames the wild black horses with persistence as a cold horseshoe glints on the ground"
+      },
+
+      "c1": {
+        "Action": "sits",
+        "Feeling": "calmness",
+        "Object": "candle",
+        "Target Square Association": "candle in the white dining hall",
+        "text": "sits in the white dining hall with calmness, watching a candle flicker in the silence"
+      },
+      "c2": {
+        "Action": "runs",
+        "Feeling": "anxiety",
+        "Object": "boulder",
+        "Target Square Association": "boulder in the white catapult",
+        "text": "runs to the white catapult with anxiety and sets a boulder into the sling for launch"
+      },
+      "c3": {
+        "Action": "arrives",
+        "Feeling": "calmness",
+        "Object": "owl",
+        "Target Square Association": "owl in the tall cypress tree",
+        "text": "arrives at the tall cypress with calmness and watches an owl stare from the branches"
+      },
+      "c4": {
+        "Action": "hides",
+        "Feeling": "anxiety",
+        "Object": "berries",
+        "Target Square Association": "berries in the white bush",
+        "text": "hides inside the white bush with anxiety, fingers stained by crushed berries"
+      },
+      "c5": {
+        "Action": "marches",
+        "Feeling": "anger",
+        "Object": "mud",
+        "Target Square Association": "mud in the black swamp",
+        "text": "marches through the black swamp with anger, boots sinking deep into mud"
+      },
+      "c6": {
+        "Action": "sits",
+        "Feeling": "anxiety",
+        "Object": "torn cloth",
+        "Target Square Association": "torn cloth on the thorny bush",
+        "text": "sits near the thorny bush with anxiety and notices torn cloth snagged on the thorns"
+      },
+      "c7": {
+        "Action": "arrives",
+        "Feeling": "rage",
+        "Object": "flaming rock",
+        "Target Square Association": "flaming rock in the siege engine",
+        "text": "arrives at the siege engine in rage and hurls a flaming rock into the sky"
+      },
+      "c8": {
+        "Action": "moves",
+        "Feeling": "calmness",
+        "Object": "violin",
+        "Target Square Association": "violin in the ballroom",
+        "text": "moves inside the ballroom of the black palace with calmness as a violin hums through the silence"
+      },
+
+      "d1": {
+        "Action": "enters",
+        "Feeling": "tiredness",
+        "Object": "mirror",
+        "Target Square Association": "mirror in the white queen’s room",
+        "text": "enters the room of the white queen with tiredness and faces the mirror beside the bed"
+      },
+      "d2": {
+        "Action": "passes",
+        "Feeling": "devotion",
+        "Object": "banner",
+        "Target Square Association": "banner in the hall of banners",
+        "text": "passes through the hall of banners with devotion, touching a hanging banner as it sways"
+      },
+      "d3": {
+        "Action": "swims",
+        "Feeling": "caution",
+        "Object": "shark",
+        "Target Square Association": "shark in the river of white sharks",
+        "text": "swims in the river of white sharks with caution as a shark fin cuts the surface"
+      },
+      "d4": {
+        "Action": "charges",
+        "Feeling": "wild energy",
+        "Object": "bats",
+        "Target Square Association": "bats in the dark cave",
+        "text": "charges into the dark cave with wild energy as bats explode from the ceiling"
+      },
+      "d5": {
+        "Action": "moves",
+        "Feeling": "anxiety",
+        "Object": "wooden table",
+        "Target Square Association": "wooden table in the small hut",
+        "text": "moves inside the small wooden hut with anxiety and slams a hand on the wooden table"
+      },
+      "d6": {
+        "Action": "swims",
+        "Feeling": "calmness",
+        "Object": "alligators",
+        "Target Square Association": "alligators in the black waters",
+        "text": "swims among the black waters with calmness as alligators drift nearby, eyes unblinking"
+      },
+      "d7": {
+        "Action": "chains himself",
+        "Feeling": "despair",
+        "Object": "bone pyramid",
+        "Target Square Association": "bone pyramid in the black hall",
+        "text": "chains himself in despair before a towering bone pyramid as darkness surrounds him"
+      },
+      "d8": {
+        "Action": "walks",
+        "Feeling": "sadness",
+        "Object": "jewel",
+        "Target Square Association": "jewel in the dark rooms",
+        "text": "walks through the dark rooms of the black queen with sadness, a jewel glinting in the shadows"
+      },
+
+      "e1": {
+        "Action": "sits",
+        "Feeling": "serenity",
+        "Object": "crown",
+        "Target Square Association": "crown on the white throne",
+        "text": "sits on the white throne with serenity and holds the crown with reverence in the silent hall"
+      },
+      "e2": {
+        "Action": "passes",
+        "Feeling": "energy",
+        "Object": "keys",
+        "Target Square Association": "keys at the great white gate",
+        "text": "passes through the great white gate with energy as keys jingle at the waist of the guards"
+      },
+      "e3": {
+        "Action": "runs",
+        "Feeling": "anxiety",
+        "Object": "parapet",
+        "Target Square Association": "parapet on the stone bridge",
+        "text": "runs across the stone bridge with anxiety, hand sliding along the parapet as water roars below"
+      },
+      "e4": {
+        "Action": "enters",
+        "Feeling": "determination",
+        "Object": "weasels",
+        "Target Square Association": "weasels in the white weasel area",
+        "text": "enters the area with determination as white weasels dart between the trees"
+      },
+      "e5": {
+        "Action": "charges",
+        "Feeling": "rage",
+        "Object": "roses",
+        "Target Square Association": "roses in the red rose ravine",
+        "text": "charges into the ravine in rage as red roses tear at the air with thorns and petals"
+      },
+      "e6": {
+        "Action": "crosses",
+        "Feeling": "caution",
+        "Object": "bolts",
+        "Target Square Association": "bolts on the iron bridge",
+        "text": "crosses the iron bridge with caution, fingers brushing over cold bolts and rusty metal"
+      },
+      "e7": {
+        "Action": "fights",
+        "Feeling": "revenge",
+        "Object": "hinges",
+        "Target Square Association": "hinges on the black gate",
+        "text": "fights under the black gate with revenge as the heavy hinges groan above"
+      },
+      "e8": {
+        "Action": "sits",
+        "Feeling": "coldness",
+        "Object": "scepter",
+        "Target Square Association": "scepter on the black king’s throne",
+        "text": "sits on the throne of the black king with coldness and lets the scepter fall on the marble"
+      },
+
+      "f1": {
+        "Action": "enters",
+        "Feeling": "focus",
+        "Object": "map",
+        "Target Square Association": "map on the war hall table",
+        "text": "enters the war hall of the white palace with focus and spreads a map across the table"
+      },
+      "f2": {
+        "Action": "moves",
+        "Feeling": "prudence",
+        "Object": "claws",
+        "Target Square Association": "claws on the white dragon statue",
+        "text": "moves beside the white dragon statue with prudence, staring at its stone claws"
+      },
+      "f3": {
+        "Action": "lands",
+        "Feeling": "anger",
+        "Object": "seagull",
+        "Target Square Association": "seagull on the white rock",
+        "text": "lands on the white rock with anger as a seagull shrieks over splashing water"
+      },
+      "f4": {
+        "Action": "descends",
+        "Feeling": "fear",
+        "Object": "falling stone",
+        "Target Square Association": "falling stone in the steep ravine",
+        "text": "descends the steep ravine with fear and watches a falling stone vanish into the abyss"
+      },
+      "f5": {
+        "Action": "climbs",
+        "Feeling": "stubbornness",
+        "Object": "loose soil",
+        "Target Square Association": "loose soil on the dangerous hill",
+        "text": "climbs the dangerous hill with stubbornness as loose soil crumbles under every step"
+      },
+      "f6": {
+        "Action": "lands",
+        "Feeling": "tiredness",
+        "Object": "skeletons",
+        "Target Square Association": "skeletons in the land of skeletons",
+        "text": "lands in the land of skeletons with tiredness as skeletons and bones rattle underfoot"
+      },
+      "f7": {
+        "Action": "runs",
+        "Feeling": "panic",
+        "Object": "glowing eyes",
+        "Target Square Association": "glowing eyes on the black dragon statue",
+        "text": "runs beside the black dragon guardian in panic as glowing eyes blaze in the darkness"
+      },
+      "f8": {
+        "Action": "studies",
+        "Feeling": "calmness",
+        "Object": "large round table",
+        "Target Square Association": "large round table in the black war hall",
+        "text": "studies in the war hall of the black palace with calmness, circling a large round table"
+      },
+
+      "g1": {
+        "Action": "is",
+        "Feeling": "calmness",
+        "Object": "cauldron",
+        "Target Square Association": "cauldron in the white kitchens",
+        "text": "is in the kitchens of the white palace with calmness as a cauldron boils in the light"
+      },
+      "g2": {
+        "Action": "climbs",
+        "Feeling": "observation",
+        "Object": "black pigeon",
+        "Target Square Association": "black pigeon on the white turret",
+        "text": "climbs the white turret with observation as a black pigeon flutters at the edge"
+      },
+      "g3": {
+        "Action": "hides",
+        "Feeling": "terror",
+        "Object": "box",
+        "Target Square Association": "box at the river bottom",
+        "text": "hides in terror inside a box at the river bottom and holds his breath in the dark"
+      },
+      "g4": {
+        "Action": "runs",
+        "Feeling": "fear",
+        "Object": "fog",
+        "Target Square Association": "fog on the haunted path",
+        "text": "runs along the haunted path with fear as fog swallows the trees moving in the wind"
+      },
+      "g5": {
+        "Action": "wanders",
+        "Feeling": "anxiety",
+        "Object": "moon",
+        "Target Square Association": "moon over the haunted clearing",
+        "text": "wanders through the haunted clearing with anxiety under a cold moon and restless shadows"
+      },
+      "g6": {
+        "Action": "stands",
+        "Feeling": "coldness",
+        "Object": "mast",
+        "Target Square Association": "mast of the sunken ship",
+        "text": "stands upon the mast with coldness and watches the night spread around the sunken ship"
+      },
+      "g7": {
+        "Action": "climbs",
+        "Feeling": "passion",
+        "Object": "raven",
+        "Target Square Association": "raven on the tall black turret",
+        "text": "climbs the tall black turret with passion as a raven waits, silent and watchful"
+      },
+      "g8": {
+        "Action": "is",
+        "Feeling": "isolation",
+        "Object": "chains",
+        "Target Square Association": "chains in the black dungeons",
+        "text": "is in the black dungeons with isolation and hears chains echoing in the darkness"
+      },
+
+      "h1": {
+        "Action": "enters",
+        "Feeling": "reverence",
+        "Object": "altar",
+        "Target Square Association": "altar in the white temple",
+        "text": "enters the white temple with reverence and kneels before the altar under tall arches"
+      },
+      "h2": {
+        "Action": "walks",
+        "Feeling": "caution",
+        "Object": "torch",
+        "Target Square Association": "torch in the underground passage",
+        "text": "walks through the underground passage with caution holding the torch that lights the path ahead"
+      },
+      "h3": {
+        "Action": "climbs",
+        "Feeling": "anxiety",
+        "Object": "beam of light",
+        "Target Square Association": "beam of light from the lighthouse",
+        "text": "climbs the haunted lighthouse with anxiety, watching the beam of light sweep the darkness"
+      },
+      "h4": {
+        "Action": "fights",
+        "Feeling": "anger",
+        "Object": "crack",
+        "Target Square Association": "crack on the steep cliff",
+        "text": "fights on the edge of the steep cliff with anger as a crack splits the rock beneath"
+      },
+      "h5": {
+        "Action": "fights",
+        "Feeling": "fury",
+        "Object": "blood",
+        "Target Square Association": "blood in the ravine",
+        "text": "fights within the ravine in fury as blood soaks the stones and the abyssal wind blows"
+      },
+      "h6": {
+        "Action": "dives",
+        "Feeling": "surrender",
+        "Object": "shipwreck",
+        "Target Square Association": "shipwreck in the depths",
+        "text": "dives with surrender into the depths toward a shipwreck and lets everything sink into darkness"
+      },
+      "h7": {
+        "Action": "is",
+        "Feeling": "coldness",
+        "Object": "echo",
+        "Target Square Association": "echo in the black catacombs",
+        "text": "is in the black catacombs with coldness, listening as an echo repeats the whispers around"
+      },
+      "h8": {
+        "Action": "enters",
+        "Feeling": "calmness",
+        "Object": "cloak",
+        "Target Square Association": "cloak in the black temple",
+        "text": "enters the black temple with calmness and wraps the cloak around the shoulders for protection"
             }
         },
         "LibraryS2": {
@@ -4539,6 +4546,7 @@
         }
     }
 }
+
 
 
 
