@@ -1488,7 +1488,7 @@
             "Qd8": "the Black Queen Banshee",
             "Ke8": "the Black King Sauron",
             "Bf8": "the terrifying Venom, the Black King-Side Bishop",
-            "Ng8": "the sexy Catwoman, the Black King-Side Knight",
+            "Ng8": "the Catwoman, the Black King-Side Knight",
             "Rh8": "the Beast Orc, the Black King-Side Rook"
         },
 		"LibraryC3": {
@@ -4546,6 +4546,7 @@
         }
     }
 }
+
 
 
 
