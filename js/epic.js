@@ -171,7 +171,7 @@ function updateEpicText() {
         "A little later, the action continues",
         "After a while, the scene shifts",
       ];
-      const verbs = ["appears", "emerges", "can be seen"];
+      const verbs = ["appear", "emerge", "can be seen"];
 
       const opening = i === 0
         ? "A trumpet sounds, and the battle begins"
@@ -182,7 +182,7 @@ function updateEpicText() {
       const sceneNumber = i + 1;
       const t1Header = `Half-move ${sceneNumber}. ${sanText}.\n`;
 
-      let phrase =`${t1Header}- ${opening} in the area of ${areaName}, where ${locus} ${action}. Then, ${pieceAssoc}, ${storyText}.`;
+      let phrase =`${t1Header}- ${opening} in the area where ${areaName}, where ${locus} ${action} our heroes. Then, ${pieceAssoc}, ${action} ${storyText}.`;
       if (anchorTxt) phrase = `${anchorTxt} ${phrase}`;
 
       stories.push(phrase);
