@@ -182,7 +182,7 @@ function updateEpicText() {
       const sceneNumber = i + 1;
       const t1Header = `Half-move ${sceneNumber}. ${sanText}.\n`;
 
-      let phrase =`${t1Header}- ${opening} in the area where ${areaName}, where ${locus} ${action} our heroes. Then, ${pieceAssoc}, ${action} ${storyText}.`;
+      let phrase =`${t1Header}- ${opening} ${locus}. There ${pieceAssoc}, ${action}, in the area where ${areaName}.`;
       if (anchorTxt) phrase = `${anchorTxt} ${phrase}`;
 
       stories.push(phrase);
