@@ -171,7 +171,7 @@ function updateEpicText() {
         "A little later, the action continues",
         "After a while, the scene shifts",
       ];
-      const verbs = ["appear", "emerge", "can be seen"];
+      const verbs = ["appears", "emerges", "can be seen"];
 
       const opening = i === 0
         ? "A trumpet sounds, and the battle begins"
