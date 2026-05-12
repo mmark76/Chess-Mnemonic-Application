@@ -217,7 +217,7 @@ function showAnswer() {
 async function autoFetch() {
   try {
     setStatus("Automatic loading…");
-    const res = await fetch("../json/libraries_v.3.3.json?ts=" + Date.now(), { cache:"no-store" });
+    const res = await fetch("../json/libraries_v.5.1.json?ts=" + Date.now(), { cache:"no-store" });
     if (!res.ok) throw new Error(`HTTP ${res.status} ${res.statusText}`);
     const data = await res.json();
     window.lastData = data;
@@ -226,7 +226,7 @@ async function autoFetch() {
     loadPAOObject(normalized);
   } catch (err) {
     console.warn("Failed to load automatically:", err.message);
-    setStatus("Could not find file libraries_v.3.3.json. Choose JSON file.", true);
+    setStatus("Could not find file libraries.json. Choose JSON file.", true);
   }
 }
 
