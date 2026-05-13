@@ -158,9 +158,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const areaName = node["Target Square Association"] || (m.to || "");
 
         const openings = [
-          "Then, the action unfolds",
+          "Then, the action continues",
           "A little later, the action continues",
-          "After a while, the scene shifts",
+          "After a while, the scene continues",
         ];
         const verbs = ["appears", "emerges", "can be seen"];
 
