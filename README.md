@@ -127,11 +127,11 @@ Each chess move becomes a cognitive “anchor” that fits into a larger interna
 
 ---
 
-© 2025 Markellos. All rights reserved.
+© 2025-2026 Markellos. All rights reserved.
 
 ---
 
-# 🇬🇷 **README — Εφαρμογή Μνημονικών Σκακιού & Δημιουργός Επικών Ιστοριών — v3.3**
+# 🇬🇷 **README — Εφαρμογή Μνημονικών Σκακιού & Δημιουργός Επικών Ιστοριών**
 
 Μια modular **διαδικτυακή εφαρμογή μνήμης**, που μετατρέπει τις κινήσεις σκακιού σε δομημένες **Μνημονικές Ιστορίες** μέσα από χρονικά, χωρικά, προσωποποιημένα, PAO, έμμετρα και θεμελιώδη μοτίβα μνήμης.
 
@@ -172,7 +172,7 @@ Chess-Mnemonic-Application/
 │   ├── structured-data.js         # JSON-LD structured data for SEO
 │   └── user-libraries-history.js  # Tracks recently imported user libraries
 ├── json/
-│   └── libraries_v.3.3.json       # Core mnemonic libraries dataset
+│   └── libraries_v.5.2.json       # Core mnemonic libraries dataset
 ├── flashcards/
 │   ├── index.html                 # Flashcards Trainer UI
 │   ├── script.js                  # Flashcards Trainer logic
@@ -253,4 +253,4 @@ Chess-Mnemonic-Application/
 
 ---
 
-© 2025 Μάρκελλος. Με επιφύλαξη παντός δικαιώματος.
+© 2025-2026 Μάρκελλος. Με επιφύλαξη παντός δικαιώματος.
