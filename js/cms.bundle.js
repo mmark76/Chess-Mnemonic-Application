@@ -1377,7 +1377,7 @@ function lockDropdown(id, value){
 /* ... εδώ μπορείς να κρατήσεις τον exportTable / download logic ακριβώς όπως το έχεις ... */
 
 /* ===========================================================
-   14. DEMO GAMES MODULE — Morphy / Anderssen / Capablanca
+   14. DEMO GAMES MODULE
    =========================================================== */
 
 /* ---- PGN DATA ---- */
@@ -1425,6 +1425,25 @@ const demoCapaPGN = `[Event "Simul Exhibition"]
 20.Rxe1 Qd7 21.Bg5 Be5 22.f4 Bg7 23.f5 Re8 
 24.f6 Bh8 25.Re7 Qd8 26.Ne6 1-0`;
 
+const demoRubinsteinPGN = `[Event "Lodz"]
+[Site "Lodz RUE"]
+[Date "1907.12.26"]
+[Round "6"]
+[White "Georg Rotlewi"]
+[Black "Akiba Rubinstein"]
+[Result "0-1"]
+
+1. d4 d5 2. Nf3 e6 3. e3 c5 4. c4 Nc6 5. Nc3 Nf6 6. dxc5 Bxc5 7. a3 a6 8. b4 Bd6 9. Bb2 O-O 10. Qd2 Qe7 11. Bd3 dxc4 12. Bxc4 b5 13. Bd3 Rd8 14. Qe2 Bb7 15. O-O Ne5 16. Nxe5 Bxe5 17. f4 Bc7 18. e4 Rac8 19. e5 Bb6+ 20. Kh1 Ng4 21. Be4 Qh4 22. g3 Rxc3 23. gxh4 Rd2 24. Qxd2 Bxe4+ 25. Qg2 Rh3 0-1`;
+
+const demoLaskerPGN = `[Event "Casual game"]
+[Site "London ENG"]
+[Date "1912.10.29"]
+[White "Edward Lasker"]
+[Black "George Alan Thomas"]
+[Result "1-0"]
+
+1. d4 e6 2. Nf3 f5 3. Nc3 Nf6 4. Bg5 Be7 5. Bxf6 Bxf6 6. e4 fxe4 7. Nxe4 b6 8. Ne5 O-O 9. Bd3 Bb7 10. Qh5 Qe7 11. Qxh7+ Kxh7 12. Nxf6+ Kh6 13. Neg4+ Kg5 14. h4+ Kf4 15. g3+ Kf3 16. Be2+ Kg2 17. Rh2+ Kg1 18. Kd2# 1-0`;
+
 /* ---- MODAL ---- */
 
 function openDemoGamesModal() {
@@ -1471,7 +1490,9 @@ function openDemoGamesModal() {
   addGame("🎭 Morphy – Opera Game (1858)", demoMorphyPGN);
   addGame("♜ Anderssen – Immortal Game (1851)", demoImmortalPGN);
   addGame("♚ Capablanca – Simul Mini", demoCapaPGN);
-
+  addGame("🧠 Rubinstein – Rotlewi (1907)", demoRubinsteinPGN);
+  addGame("⚔️ Lasker – Thomas (1912)", demoLaskerPGN);
+   
   modal.appendChild(body);
   backdrop.appendChild(modal);
   document.body.appendChild(backdrop);
