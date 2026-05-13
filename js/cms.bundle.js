@@ -433,7 +433,7 @@ function wireTableSelect(){
    =========================================================== */
 
 async function loadLibraries(){
-  const res = await fetch('json/libraries_v.5.1.json');
+  const res = await fetch('json/libraries_v.5.2.json');
   libs = await res.json();
   console.log("LIBS KEYS:", Object.keys(libs));
 }
