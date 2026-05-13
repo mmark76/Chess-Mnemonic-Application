@@ -1,5 +1,5 @@
 /* ================================================
-   Markellos CMS v3.4 — Epic Story (Half-Move / Full-Move Loci, JSON-based)
+   Markellos CMS — Epic Story (Half-Move / Full-Move Loci, JSON-based)
    ================================================ */
 
 document.addEventListener("DOMContentLoaded", () => {
