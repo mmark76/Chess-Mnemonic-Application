@@ -1,4 +1,4 @@
-# 🇬🇧 **README — Chess Mnemonic Application & Epic Chess Stories Creator_v.3.4**
+# 🇬🇧 **README — Chess Mnemonic Application & Epic Chess Stories Creator**
 
 A modular **web-based mnemonic system** that transforms chess moves into structured **Mnemonic Histories** using Temporal, Spatial, Character-based, PAO, Verse, and Foundational memory layers.
 The application helps users encode games, study patterns, and build personalized mnemonic structures.
@@ -38,7 +38,7 @@ Chess-Mnemonic-Application/
 │   ├── structured-data.js         # JSON-LD structured data for SEO
 │   └── user-libraries-history.js  # Tracks recently imported user libraries
 ├── json/
-│   └── libraries_v.3.3.json       # Core mnemonic libraries dataset
+│   └── libraries_v.5.2.json       # Core mnemonic libraries dataset
 ├── flashcards/
 │   ├── index.html                 # Flashcards Trainer UI
 │   ├── script.js                  # Flashcards Trainer logic
