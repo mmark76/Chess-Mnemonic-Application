@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const openings = [
           "Then, the action continues",
           "A little later, the action continues",
-          "After a while, the scene continues",
+          "After a while, the action continues",
         ];
         const verbs = ["appears", "emerges", "can be seen"];
 
@@ -176,8 +176,8 @@ document.addEventListener("DOMContentLoaded", () => {
           : (m.index % 80) + 1;
 
         const sceneLabel = epicLocusMode === "full"
-          ? `Half-move ${sceneNumber} / Move locus ${locusNumber}`
-          : `Half-move ${sceneNumber} / Move locus ${locusNumber}`;
+          ? `Half-move ${sceneNumber}. Locus ${locusNumber}`
+          : `Half-move ${sceneNumber}. Locus ${locusNumber}`;
 
         const t1Header = `${sceneLabel}. ${sanText}.\n`;
 
