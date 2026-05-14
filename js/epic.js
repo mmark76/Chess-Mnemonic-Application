@@ -162,7 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
           "A little later, the action continues",
           "After a while, the action continues",
         ];
-        const verbs = ["appears", "emerges", "unfolds"];
+        const verbs = ["appears", "emerges", "moves"];
 
         const opening = i === 0
           ? "A trumpet sounds, and the battle begins"
@@ -176,12 +176,12 @@ document.addEventListener("DOMContentLoaded", () => {
           : (m.index % 80) + 1;
 
         const sceneLabel = epicLocusMode === "full"
-          ? `Half-move ${sceneNumber}. ${sanText}. Locus ${locusNumber}. ${locus}`
-          : `Half-move ${sceneNumber}. ${sanText}. Locus ${locusNumber}. ${locus}`;
+          ? `White's half-move ${sceneNumber}. ${sanText}. The scene unfolds ${locusNumber}. ${locus}`
+          : `Black's half-move ${sceneNumber}. ${sanText}. The scene unfolds ${locusNumber}. ${locus}`;
 
         const t1Header = `${sceneLabel}.\n`;
 
-        let phrase = `${t1Header}- ${opening} when ${pieceAssoc} ${action}, in the area where ${areaName}`;
+        let phrase = `${t1Header}- ${opening} when ${pieceAssoc} ${action} in the area where ${areaName}`;
         if (anchorTxt) phrase = `${anchorTxt} ${phrase}`;
 
         stories.push(phrase);
