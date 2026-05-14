@@ -158,9 +158,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const areaName = node["Target Square Association"] || (m.to || "");
 
         const openings = [
-          "Then, the action continues",
-          "A little later, the action continues",
-          "After a while, the action continues",
+          "Then, the action continues,",
+          "A little later, the action continues,",
+          "After a while, the action continues,",
         ];
         const verbs = ["appears", "emerges", "moves"];
 
@@ -170,13 +170,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const action = verbs[i % verbs.length];
 
         const sanText = sanToText(m.san);
-        const halfMoveLabel = `${m.side === "White" ? " White's " : " Black's "} ${m.movePair}`;
+        const halfMoveLabel = `${m.side === "White" ? " White's " : " Black's "} half-move ${m.movePair}`;
 
-        const sceneLabel = `half-move ${halfMoveLabel}. ${sanText}. Now the scene unfolds ${locus}`;
+        const sceneLabel = `${halfMoveLabel}. ${sanText}. Now the scene unfolds ${locus}`;
 
         const t1Header = `${sceneLabel}.\n`;
 
-        let phrase = `${t1Header}- ${opening} when ${pieceAssoc} ${action} in the area where ${areaName}`;
+        let phrase = `${t1Header}- ${opening} when ${pieceAssoc}, ${action} in the area where ${areaName}`;
         if (anchorTxt) phrase = `${anchorTxt} ${phrase}`;
 
         stories.push(phrase);
