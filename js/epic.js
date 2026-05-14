@@ -176,8 +176,8 @@ document.addEventListener("DOMContentLoaded", () => {
           : (m.index % 80) + 1;
 
         const sceneLabel = epicLocusMode === "full"
-          ? `White's half-move ${sceneNumber}. ${sanText}. The scene unfolds ${locusNumber}. ${locus}`
-          : `Black's half-move ${sceneNumber}. ${sanText}. The scene unfolds ${locusNumber}. ${locus}`;
+          ? `White's half-move ${sceneNumber}. ${sanText}. The scene unfolds ${locus}`
+          : `Black's half-move ${sceneNumber}. ${sanText}. The scene unfolds ${locus}`;
 
         const t1Header = `${sceneLabel}.\n`;
 
