@@ -170,14 +170,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const action = verbs[i % verbs.length];
 
         const sanText = sanToText(m.san);
-        const sceneNumber = i + 1;
-        const locusNumber = epicLocusMode === "full"
-          ? ((m.movePair - 1) % 80) + 1
-          : (m.index % 80) + 1;
+        const halfMoveLabel = `${m.movePair}${m.side === "White" ? "w" : "b"}`;
 
-        const sceneLabel = epicLocusMode === "full"
-          ? `Half-move ${sceneNumber}. ${sanText}. The scene unfolds ${locus}`
-          : `Half-move ${sceneNumber}. ${sanText}. The scene unfolds ${locus}`;
+        const sceneLabel = `Half-move ${halfMoveLabel}. ${sanText}. The scene unfolds ${locus}`;
 
         const t1Header = `${sceneLabel}.\n`;
 
