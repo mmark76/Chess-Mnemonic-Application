@@ -158,9 +158,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const areaName = node["Target Square Association"] || (m.to || "");
 
         const openings = [
-          "Then, the action continues",
-          "A little later, the action continues",
-          "After a while, the action continues",
+          "Then,",
+          "A little later,",
+          "After a while,",
         ];
         const verbs = ["appears", "emerges", "can be seen"];
 
@@ -176,12 +176,12 @@ document.addEventListener("DOMContentLoaded", () => {
           : (m.index % 80) + 1;
 
         const sceneLabel = epicLocusMode === "full"
-          ? `Half-move ${sceneNumber}. Locus ${locusNumber}`
-          : `Half-move ${sceneNumber}. Locus ${locusNumber}`;
+          ? `Half-move ${sceneNumber}. ${sanText}. Locus ${locusNumber}. ${locus}`
+          : `Half-move ${sceneNumber}. ${sanText}. Locus ${locusNumber}. ${locus}`;
 
-        const t1Header = `${sceneLabel}. ${sanText}.\n`;
+        const t1Header = `${sceneLabel}.\n`;
 
-        let phrase = `${t1Header}- ${opening} ${locus}. There, ${pieceAssoc} ${action}, in the area where ${areaName}`;
+        let phrase = `${t1Header}- ${opening} the action continues when ${pieceAssoc} ${action}, in the area where ${areaName}`;
         if (anchorTxt) phrase = `${anchorTxt} ${phrase}`;
 
         stories.push(phrase);
