@@ -158,11 +158,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const areaName = node["Target Square Association"] || (m.to || "");
 
         const openings = [
-          "Then,",
-          "A little later,",
-          "After a while,",
+          "Then, the action continues",
+          "A little later, the action continues",
+          "After a while, the action continues",
         ];
-        const verbs = ["appears", "emerges", "can be seen"];
+        const verbs = ["appears", "emerges", "unfolds"];
 
         const opening = i === 0
           ? "A trumpet sounds, and the battle begins"
@@ -181,7 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const t1Header = `${sceneLabel}.\n`;
 
-        let phrase = `${t1Header}- ${opening} the action continues when ${pieceAssoc} ${action}, in the area where ${areaName}`;
+        let phrase = `${t1Header}- ${opening} when ${pieceAssoc} ${action}, in the area where ${areaName}`;
         if (anchorTxt) phrase = `${anchorTxt} ${phrase}`;
 
         stories.push(phrase);
