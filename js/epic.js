@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const sanText = sanToText(m.san);
         const halfMoveLabel = `${m.movePair}${m.side === "White" ? "w" : "b"}`;
 
-        const sceneLabel = `Half-move ${halfMoveLabel}. ${sanText}. The scene unfolds ${locus}`;
+        const sceneLabel = `Half-move ${halfMoveLabel}. ${sanText}. Now the scene unfolds ${locus}`;
 
         const t1Header = `${sceneLabel}.\n`;
 
