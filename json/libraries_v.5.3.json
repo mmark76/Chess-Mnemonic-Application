@@ -610,10 +610,10 @@
         "Action": "",
         "Feeling": "",
         "Object": "",
-        "Target Square Association": "Bats hang inside the cave with the stalactites.",
-        "text": "Bats hang inside the cave with the stalactites.",
-        "el": "Νυχτερίδες κρέμονται μέσα στη σπηλιά με τους σταλακτίτες.",
-        "en": "Bats hang inside the cave with the stalactites."
+        "Target Square Association": "Bats hang inside a cave.",
+        "text": "Bats hang inside a caves.",
+        "el": "Νυχτερίδες κρέμονται μέσα σε μία σπηλιά.",
+        "en": "Bats hang inside a cave."
       },
       "d5": {
         "Action": "",
