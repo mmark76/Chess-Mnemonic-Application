@@ -364,576 +364,384 @@
   "Spatial": {
     "LibraryS1": {
       "a1": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "White swans fill the temple with censers.",
         "text": "White swans fill the temple with censers.",
         "el": "Λευκοί κύκνοι γεμίζουν τον ναό με θυμιατά.",
         "en": "White swans fill the temple with censers."
       },
       "a2": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Pandas beat drums at the observatory.",
         "text": "Pandas beat drums at the observatory.",
         "el": "Panda χτυπούν τύμπανα στο παρατηρητήριο.",
         "en": "Pandas beat drums at the observatory."
       },
       "a3": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Octopuses swim in the water among seashells.",
         "text": "Octopuses swim in the water among seashells.",
         "el": "Χταπόδια κολυμπούν στο νερό ανάμεσα σε κοχύλια.",
         "en": "Octopuses swim in the water among seashells."
       },
       "a4": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Mouflons emerge from the bushes.",
         "text": "Mouflons emerge from the bushes.",
         "el": "Αγρινά ξεπροβάλλουν μέσα από τους θάμνους.",
         "en": "Mouflons emerge from the bushes."
       },
       "a5": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Panthers carry prey to their den.",
         "text": "Panthers carry prey to their den.",
         "el": "Πάνθηρες κουβαλούν θηράματα στη φωλιά τους.",
         "en": "Panthers carry prey to their den."
       },
       "a6": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Squids glide around the reef and the rock.",
         "text": "Squids glide around the reef and the rock.",
         "el": "Καλαμάρια γλιστρούν γύρω από τον ύφαλο και τον βράχο.",
         "en": "Squids glide around the reef and the rock."
       },
       "a7": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Koalas stand at the observatory.",
         "text": "Koalas stand at the observatory.",
         "el": "Κοάλα στέκονται στο παρατηρητήριο.",
         "en": "Koalas stand at the observatory."
       },
       "a8": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Black storks light the temple with candles.",
         "text": "Black storks light the temple with candles.",
         "el": "Μαυροπελαργοί φωτίζουν τον ναό με κεριά.",
         "en": "Black storks light the temple with candles."
       },
       "b1": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Ducks wander through the kitchens next to the cauldron.",
         "text": "Ducks wander through the kitchens next to the cauldron.",
         "el": "Πάπιες τριγυρνούν στις κουζίνες δίπλα στο καζάνι.",
         "en": "Ducks wander through the kitchens next to the cauldron."
       },
       "b2": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Woodpeckers peck the stone of the statue.",
         "text": "Woodpeckers peck the stone of the statue.",
         "el": "Δρυοκολάπτες χτυπούν την πέτρα του αγάλματος.",
         "en": "Woodpeckers peck the stone of the statue."
       },
       "b3": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Goldfish swim in the hut among the plants.",
         "text": "Goldfish swim in the hut among the plants.",
         "el": "Χρυσόψαρα κολυμπούν στην καλύβα ανάμεσα στα φυτά.",
         "en": "Goldfish swim in the hut among the plants."
       },
       "b4": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Hyenas roam the cemetery around the graves.",
         "text": "Hyenas roam the cemetery around the graves.",
         "el": "Ύαινες τριγυρνούν στο νεκροταφείο γύρω από τα μνήματα.",
         "en": "Hyenas roam the cemetery around the graves."
       },
       "b5": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Vultures stand over the flesh in the cemetery.",
         "text": "Vultures stand over the flesh in the cemetery.",
         "el": "Όρνεα στέκονται πάνω από τις σάρκες στο νεκροταφείο.",
         "en": "Vultures stand over the flesh in the cemetery."
       },
       "b6": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Piranhas bite bones in the water.",
         "text": "Piranhas bite bones in the water.",
         "el": "Πιράνχας δαγκώνουν κόκαλα μέσα στο νερό.",
         "en": "Piranhas bite bones in the water."
       },
       "b7": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Parrots stand on the base of a statue.",
         "text": "Parrots stand on the base of a statue.",
         "el": "Παπαγάλοι στέκονται πάνω στη βάση ενός αγάλματος.",
         "en": "Parrots stand on the base of a statue."
       },
       "b8": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Hens run among pots in the kitchens.",
         "text": "Hens run among pots in the kitchens.",
         "el": "κότες τρέχουν ανάμεσα σε κατσαρόλες στις κουζίνες.",
         "en": "Hens run among pots in the kitchens."
       },
       "c1": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Peacocks dance in the ballroom in front of the mirrors.",
         "text": "Peacocks dance in the ballroom in front of the mirrors.",
         "el": "Παγώνια χορεύουν στην αίθουσα χορού μπροστά στους καθρέφτες.",
         "en": "Peacocks dance in the ballroom in front of the mirrors."
       },
       "c2": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Orangutans draw bows on the battlements.",
         "text": "Orangutans draw bows on the battlements.",
         "el": "Ουρακουτάγκοι τεντώνουν τόξα πάνω στις επάλξεις.",
         "en": "Orangutans draw bows on the battlements."
       },
       "c3": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Seals glide through the seaweed in the water.",
         "text": "Seals glide through the seaweed in the water.",
         "el": "Φώκιες γλιστρούν μέσα στα φύκια του νερού.",
         "en": "Seals glide through the seaweed in the water."
       },
       "c4": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Jackals scatter bones and skeletons.",
         "text": "Jackals scatter bones and skeletons.",
         "el": "Τσακάλια σκορπίζουν κόκαλα και σκελετούς.",
         "en": "Jackals scatter bones and skeletons."
       },
       "c5": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Crows shriek over skulls and bones.",
         "text": "Crows shriek over skulls and bones.",
         "el": "Κοράκια ουρλιάζουν πάνω από κρανία και οστά.",
         "en": "Crows shriek over skulls and bones."
       },
       "c6": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Eels crawl among the seaweed and vegetation.",
         "text": "Eels crawl among the seaweed and vegetation.",
         "el": "Χέλια σέρνονται ανάμεσα στα φύκια και τη βλάστηση.",
         "en": "Eels crawl among the seaweed and vegetation."
       },
       "c7": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Monkeys shoot arrows from the battlements.",
         "text": "Monkeys shoot arrows from the battlements.",
         "el": "Μαϊμούδες ρίχνουν βέλη από τις επάλξεις.",
         "en": "Monkeys shoot arrows from the battlements."
       },
       "c8": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Flamingos stand under chandeliers that illuminate the ballroom.",
         "text": "Flamingos stand under chandeliers that illuminate the ballroom.",
         "el": "Φλαμίγκο στέκονται κάτω από πολυέλαιους που φωτίζουν την αίθουσα χορού.",
         "en": "Flamingos stand under chandeliers that illuminate the ballroom."
       },
       "d1": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Lynxes sit in the queen's room next to the crown.",
         "text": "Lynxes sit in the queen's room next to the crown.",
         "el": "Λύγκες κάθονται στο δωμάτιο βασίλισσας δίπλα στην κορώνα.",
         "en": "Lynxes sit in the queen's room next to the crown."
       },
       "d2": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Nightingales perch on the cross of the flag's mast and cloth.",
         "text": "Nightingales perch on the cross of the flag's mast and cloth.",
         "el": "Αηδόνια κάθονται στο σταυρό στον ιστό πανί της σημαίας.",
         "en": "Nightingales perch on the cross of the flag's mast and cloth."
       },
       "d3": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Sharks swim among the fish in the water.",
         "text": "Sharks swim among the fish in the water.",
         "el": "Καρχαρίες κολυμπούν ανάμεσα στα ψάρια στο νερό.",
         "en": "Sharks swim among the fish in the water."
       },
       "d4": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Bats hang inside a cave.",
         "text": "Bats hang inside a caves.",
         "el": "Νυχτερίδες κρέμονται μέσα σε μία σπηλιά.",
         "en": "Bats hang inside a cave."
       },
       "d5": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Kangaroos move outside the hut.",
         "text": "Kangaroos move outside the hut.",
         "el": "Καγκουρό κινούνται έξω από την καλύβα.",
         "en": "Kangaroos move outside the hut."
       },
       "d6": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Alligators crawl over the logs and wood.",
         "text": "Alligators crawl over the logs and wood.",
         "el": "Αλιγάτορες σέρνονται πάνω στους κορμούς και τα ξύλα.",
         "en": "Alligators crawl over the logs and wood."
       },
       "d7": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Black canaries sing for the flag on the mast.",
         "text": "Black canaries sing for the flag on the mast.",
         "el": "Μαύρα καναρίνια κελαηδούν για τη σημαία πάνω στον ιστό.",
         "en": "Black canaries sing for the flag on the mast."
       },
       "d8": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Foxes run in the queen's room under the crown.",
         "text": "Foxes run in the queen's room under the crown.",
         "el": "Αλεπούδες τρέχουν στο δωμάτιο βασίλισσας κάτω από το στέμμα.",
         "en": "Foxes run in the queen's room under the crown."
       },
       "e1": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Lions guard the throne with the scepter.",
         "text": "Lions guard the throne with the scepter.",
         "el": "Λιοντάρια φυλάνε τον θρόνο με το σκήπτρο.",
         "en": "Lions guard the throne with the scepter."
       },
       "e2": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "A rhinoceros stands at the gate with keys.",
         "text": "A rhinoceros stands at the gate with keys.",
         "el": "Ένας ρινόκερος στέκεται στην πύλη με κλειδιά.",
         "en": "A rhinoceros stands at the gate with keys."
       },
       "e3": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Frogs jump on the bridge and the planks.",
         "text": "Frogs jump on the bridge and the planks.",
         "el": "Βατράχια πηδούν πάνω στη γέφυρα και τις σανίδες.",
         "en": "Frogs jump on the bridge and the planks."
       },
       "e4": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Hares run among a pile of stones.",
         "text": "Hares run among a pile of stones.",
         "el": "Λαγοί τρέχουν ανάμεσα σε σωρό από πέτρες.",
         "en": "Hares run among a pile of stones."
       },
       "e5": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Butterflies sit on the fence in the meadow with poppies.",
         "text": "Butterflies sit on the fence in the meadow with poppies.",
         "el": "Πεταλούδες κάθονται πάνω στο φράχτη στο λιβάδι με τις παπαρούνες.",
         "en": "Butterflies sit on the fence in the meadow with poppies."
       },
       "e6": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Lizards slip under the bridge with the planks.",
         "text": "Lizards slip under the bridge with the planks.",
         "el": "Σαύρες γλιστρούν κάτω από τη γέφυρα με τις σανίδες.",
         "en": "Lizards slip under the bridge with the planks."
       },
       "e7": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "A bison stands at the gate next to the keys.",
         "text": "A bison stands at the gate next to the keys.",
         "el": "Ένας βίσωνας στέκεται στην πύλη δίπλα στα κλειδιά.",
         "en": "A bison stands at the gate next to the keys."
       },
       "e8": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Tigers stand on the throne with the crown.",
         "text": "Tigers stand on the throne with the crown.",
         "el": "Τίγρεις στέκονται στον θρόνο με την κορώνα.",
         "en": "Tigers stand on the throne with the crown."
       },
       "f1": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Badgers move through the war room over maps.",
         "text": "Badgers move through the war room over maps.",
         "el": "Ασβοί κινούνται στην αίθουσα πολέμου πάνω από χάρτες.",
         "en": "Badgers move through the war room over maps."
       },
       "f2": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Chimpanzees run along the battlements' corridor.",
         "text": "Chimpanzees run along the battlements' corridor.",
         "el": "Χιμπατζήδες τρέχουν στον διάδρομο των επάλξεων.",
         "en": "Chimpanzees run along the battlements' corridor."
       },
       "f3": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Swordfish swim among rocks.",
         "text": "Swordfish swim among rocks.",
         "el": "Ξιφίες κολυμπάνε ανάμεσα σε βράχους.",
         "en": "Swordfish swim among rocks."
       },
       "f4": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Hedgehogs run among the trees and trunks.",
         "text": "Hedgehogs run among the trees and trunks.",
         "el": "Σκαντζόχοιροι τρέχουν ανάμεσα στα δέντρα και τους κορμούς.",
         "en": "Hedgehogs run among the trees and trunks."
       },
       "f5": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Anteaters hop in the meadow with the grasses.",
         "text": "Anteaters hop in the meadow with the grasses.",
         "el": "Μυρμηγκοφάγοι χοροπηδάνε στο λιβάδι με τα χορτάρια.",
         "en": "Anteaters hop in the meadow with the grasses."
       },
       "f6": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Dolphins swim in the water among skeletons.",
         "text": "Dolphins swim in the water among skeletons.",
         "el": "Δελφίνια κολυμπούν στο νερό ανάμεσα σε σκελετούς.",
         "en": "Dolphins swim in the water among skeletons."
       },
       "f7": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Lemurs stand on the battlements next to the crossbows.",
         "text": "Lemurs stand on the battlements next to the crossbows.",
         "el": "Λεμούριοι στέκονται στις επάλξεις δίπλα στις βαλλίστρες.",
         "en": "Lemurs stand on the battlements next to the crossbows."
       },
       "f8": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Beavers work in the war room over the maps.",
         "text": "Beavers work in the war room over the maps.",
         "el": "Κάστορες δουλεύουν στην αίθουσα πολέμου πάνω στους χάρτες.",
         "en": "Beavers work in the war room over the maps."
       },
       "g1": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Zebras stand in the stables next to the saddles.",
         "text": "Zebras stand in the stables next to the saddles.",
         "el": "Ζέβρες στέκονται στους στάβλους δίπλα στις σέλες.",
         "en": "Zebras stand in the stables next to the saddles."
       },
       "g2": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Rats run through the dungeon among the cells.",
         "text": "Rats run through the dungeon among the cells.",
         "el": "Αρουραίοι τρέχουν στο μπουντρούμι ανάμεσα στα κελιά.",
         "en": "Rats run through the dungeon among the cells."
       },
       "g3": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Crabs guard chests full of treasure.",
         "text": "Crabs guard chests full of treasure.",
         "el": "Καβούρια φυλάνε μπαούλα γεμάτα θησαυρό.",
         "en": "Crabs guard chests full of treasure."
       },
       "g4": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Wild boars leap over the rocks near the clearing.",
         "text": "Wild boars leap over the rocks near the clearing.",
         "el": "Αγριογούρουνα πηδούν πάνω στους βράχους κοντά στο ξέφωτο.",
         "en": "Wild boars leap over the rocks near the clearing."
       },
       "g5": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Wolves howl in the clearing under the moon.",
         "text": "Wolves howl in the clearing under the moon.",
         "el": "Λύκοι ουρλιάζουν στο ξέφωτο κάτω από το φεγγάρι.",
         "en": "Wolves howl in the clearing under the moon."
       },
       "g6": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Jellyfish swim around the anchor and the chain.",
         "text": "Jellyfish swim around the anchor and the chain.",
         "el": "Μέδουσες κολυμπάνε γύρω από την άγκυρα και την αλυσίδα.",
         "en": "Jellyfish swim around the anchor and the chain."
       },
       "g7": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Weasels run through the dungeon among the cells.",
         "text": "Weasels run through the dungeon among the cells.",
         "el": "Νυφίτσες τρέχουν στο μπουντρούμι ανάμεσα στα κελιά.",
         "en": "Weasels run through the dungeon among the cells."
       },
       "g8": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Horses stand in the stables next to the saddle.",
         "text": "Horses stand in the stables next to the saddle.",
         "el": "Άλογα στέκονται στους στάβλους δίπλα στο σαμάρι.",
         "en": "Horses stand in the stables next to the saddle."
       },
       "h1": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Squirrels hide in the storerooms inside the sacks.",
         "text": "Squirrels hide in the storerooms inside the sacks.",
         "el": "Σκίουροι κρύβονται στις αποθήκες μέσα στα σακιά.",
         "en": "Squirrels hide in the storerooms inside the sacks."
       },
       "h2": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Owls observe from the observatory with the telescopes.",
         "text": "Owls observe from the observatory with the telescopes.",
         "el": "Κουκουβάγιες παρατηρούν από το παρατηρητήριο με τα τηλεσκόπια.",
         "en": "Owls observe from the observatory with the telescopes."
       },
       "h3": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Starfish hide in the lighthouse.",
         "text": "Starfish hide in the lighthouse.",
         "el": "Αστερίες κρύβονται στον φάρο.",
         "en": "Starfish hide in the lighthouse."
       },
       "h4": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Sheep move quickly along the shore and the water.",
         "text": "Sheep move quickly along the shore and the water.",
         "el": "Πρόβατα κινούνται γρήγορα στην ακτή και το νερό.",
         "en": "Sheep move quickly along the shore and the water."
       },
       "h5": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Leopards leave tracks in the grass and the ground.",
         "text": "Leopards leave tracks in the grass and the ground.",
         "el": "Λεοπαρδάλεις αφήνουν ίχνη στο γρασίδι και το έδαφος.",
         "en": "Leopards leave tracks in the grass and the ground."
       },
       "h6": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Seahorses swim around the shipwreck.",
         "text": "Seahorses swim around the shipwreck.",
         "el": "Ιππόκαμποι κολυμπούν γύρω από το ναυάγιο.",
         "en": "Seahorses swim around the shipwreck."
       },
       "h7": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Magpies guard the observatory with the telescopes.",
         "text": "Magpies guard the observatory with the telescopes.",
         "el": "Καρακάξες φυλάνε το παρατηρητήριο με τα τηλεσκόπια.",
         "en": "Magpies guard the observatory with the telescopes."
       },
       "h8": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
         "Target Square Association": "Raccoons search barrels inside the storerooms.",
         "text": "Raccoons search barrels inside the storerooms.",
         "el": "Ρακούν ψάχνουν βαρέλια μέσα στις αποθήκες.",
@@ -942,576 +750,448 @@
     },
     "LibraryS2": {
       "a1": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "White swans fill the temple with censers.",
         "text": "White swans fill the temple with censers.",
         "el": "Λευκοί κύκνοι γεμίζουν τον ναό με θυμιατά.",
         "en": "White swans fill the temple with censers."
       },
       "a2": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Pandas beat drums at the observatory.",
         "text": "Pandas beat drums at the observatory.",
         "el": "Panda χτυπούν τύμπανα στο παρατηρητήριο.",
         "en": "Pandas beat drums at the observatory."
       },
       "a3": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Octopuses swim in the water among seashells.",
         "text": "Octopuses swim in the water among seashells.",
         "el": "Χταπόδια κολυμπούν στο νερό ανάμεσα σε κοχύλια.",
         "en": "Octopuses swim in the water among seashells."
       },
       "a4": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Mouflons emerge from the bushes.",
         "text": "Mouflons emerge from the bushes.",
         "el": "Αγρινά ξεπροβάλλουν μέσα από τους θάμνους.",
         "en": "Mouflons emerge from the bushes."
       },
       "a5": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Panthers carry prey to their den.",
         "text": "Panthers carry prey to their den.",
         "el": "Πάνθηρες κουβαλούν θηράματα στη φωλιά τους.",
         "en": "Panthers carry prey to their den."
       },
       "a6": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Squids glide around the reef and the rock.",
         "text": "Squids glide around the reef and the rock.",
         "el": "Καλαμάρια γλιστρούν γύρω από τον ύφαλο και τον βράχο.",
         "en": "Squids glide around the reef and the rock."
       },
       "a7": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Koalas stand at the observatory.",
         "text": "Koalas stand at the observatory.",
         "el": "Κοάλα στέκονται στο παρατηρητήριο.",
         "en": "Koalas stand at the observatory."
       },
       "a8": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Black storks light the temple with candles.",
         "text": "Black storks light the temple with candles.",
         "el": "Μαυροπελαργοί φωτίζουν τον ναό με κεριά.",
         "en": "Black storks light the temple with candles."
       },
       "b1": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Ducks wander through the kitchens next to the cauldron.",
         "text": "Ducks wander through the kitchens next to the cauldron.",
         "el": "Πάπιες τριγυρνούν στις κουζίνες δίπλα στο καζάνι.",
         "en": "Ducks wander through the kitchens next to the cauldron."
       },
       "b2": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Woodpeckers peck the stone of the statue.",
         "text": "Woodpeckers peck the stone of the statue.",
         "el": "Δρυοκολάπτες χτυπούν την πέτρα του αγάλματος.",
         "en": "Woodpeckers peck the stone of the statue."
       },
       "b3": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Goldfish swim in the hut among the plants.",
         "text": "Goldfish swim in the hut among the plants.",
         "el": "Χρυσόψαρα κολυμπούν στην καλύβα ανάμεσα στα φυτά.",
         "en": "Goldfish swim in the hut among the plants."
       },
       "b4": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Hyenas roam the cemetery around the graves.",
         "text": "Hyenas roam the cemetery around the graves.",
         "el": "Ύαινες τριγυρνούν στο νεκροταφείο γύρω από τα μνήματα.",
         "en": "Hyenas roam the cemetery around the graves."
       },
       "b5": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Vultures stand over the flesh in the cemetery.",
         "text": "Vultures stand over the flesh in the cemetery.",
         "el": "Όρνεα στέκονται πάνω από τις σάρκες στο νεκροταφείο.",
         "en": "Vultures stand over the flesh in the cemetery."
       },
       "b6": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Piranhas bite bones in the water.",
         "text": "Piranhas bite bones in the water.",
         "el": "Πιράνχας δαγκώνουν κόκαλα μέσα στο νερό.",
         "en": "Piranhas bite bones in the water."
       },
       "b7": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Parrots stand on the base of a statue.",
         "text": "Parrots stand on the base of a statue.",
         "el": "Παπαγάλοι στέκονται πάνω στη βάση ενός αγάλματος.",
         "en": "Parrots stand on the base of a statue."
       },
       "b8": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Hens run among pots in the kitchens.",
         "text": "Hens run among pots in the kitchens.",
         "el": "κότες τρέχουν ανάμεσα σε κατσαρόλες στις κουζίνες.",
         "en": "Hens run among pots in the kitchens."
       },
       "c1": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Peacocks dance in the ballroom in front of the mirrors.",
         "text": "Peacocks dance in the ballroom in front of the mirrors.",
         "el": "Παγώνια χορεύουν στην αίθουσα χορού μπροστά στους καθρέφτες.",
         "en": "Peacocks dance in the ballroom in front of the mirrors."
       },
       "c2": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Orangutans draw bows on the battlements.",
         "text": "Orangutans draw bows on the battlements.",
         "el": "Ουρακουτάγκοι τεντώνουν τόξα πάνω στις επάλξεις.",
         "en": "Orangutans draw bows on the battlements."
       },
       "c3": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Seals glide through the seaweed in the water.",
         "text": "Seals glide through the seaweed in the water.",
         "el": "Φώκιες γλιστρούν μέσα στα φύκια του νερού.",
         "en": "Seals glide through the seaweed in the water."
       },
       "c4": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Jackals scatter bones and skeletons.",
         "text": "Jackals scatter bones and skeletons.",
         "el": "Τσακάλια σκορπίζουν κόκαλα και σκελετούς.",
         "en": "Jackals scatter bones and skeletons."
       },
       "c5": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Crows shriek over skulls and bones.",
         "text": "Crows shriek over skulls and bones.",
         "el": "Κοράκια ουρλιάζουν πάνω από κρανία και οστά.",
         "en": "Crows shriek over skulls and bones."
       },
       "c6": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Eels crawl among the seaweed and vegetation.",
         "text": "Eels crawl among the seaweed and vegetation.",
         "el": "Χέλια σέρνονται ανάμεσα στα φύκια και τη βλάστηση.",
         "en": "Eels crawl among the seaweed and vegetation."
       },
       "c7": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Monkeys shoot arrows from the battlements.",
         "text": "Monkeys shoot arrows from the battlements.",
         "el": "Μαϊμούδες ρίχνουν βέλη από τις επάλξεις.",
         "en": "Monkeys shoot arrows from the battlements."
       },
       "c8": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Flamingos stand under chandeliers that illuminate the ballroom.",
         "text": "Flamingos stand under chandeliers that illuminate the ballroom.",
         "el": "Φλαμίγκο στέκονται κάτω από πολυέλαιους που φωτίζουν την αίθουσα χορού.",
         "en": "Flamingos stand under chandeliers that illuminate the ballroom."
       },
       "d1": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Lynxes sit in the queen's room next to the crown.",
         "text": "Lynxes sit in the queen's room next to the crown.",
         "el": "Λύγκες κάθονται στο δωμάτιο βασίλισσας δίπλα στην κορώνα.",
         "en": "Lynxes sit in the queen's room next to the crown."
       },
       "d2": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Nightingales perch on the cross of the flag's mast and cloth.",
         "text": "Nightingales perch on the cross of the flag's mast and cloth.",
         "el": "Αηδόνια κάθονται στο σταυρό στον ιστό πανί της σημαίας.",
         "en": "Nightingales perch on the cross of the flag's mast and cloth."
       },
       "d3": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Sharks swim among the fish in the water.",
         "text": "Sharks swim among the fish in the water.",
         "el": "Καρχαρίες κολυμπούν ανάμεσα στα ψάρια στο νερό.",
         "en": "Sharks swim among the fish in the water."
       },
       "d4": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Bats hang inside the cave with the stalactites.",
         "text": "Bats hang inside the cave with the stalactites.",
         "el": "Νυχτερίδες κρέμονται μέσα στη σπηλιά με τους σταλακτίτες.",
         "en": "Bats hang inside the cave with the stalactites."
       },
       "d5": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Kangaroos move outside the hut.",
         "text": "Kangaroos move outside the hut.",
         "el": "Καγκουρό κινούνται έξω από την καλύβα.",
         "en": "Kangaroos move outside the hut."
       },
       "d6": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Alligators crawl over the logs and wood.",
         "text": "Alligators crawl over the logs and wood.",
         "el": "Αλιγάτορες σέρνονται πάνω στους κορμούς και τα ξύλα.",
         "en": "Alligators crawl over the logs and wood."
       },
       "d7": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Black canaries sing for the flag on the mast.",
         "text": "Black canaries sing for the flag on the mast.",
         "el": "Μαύρα καναρίνια κελαηδούν για τη σημαία πάνω στον ιστό.",
         "en": "Black canaries sing for the flag on the mast."
       },
       "d8": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Foxes run in the queen's room under the crown.",
         "text": "Foxes run in the queen's room under the crown.",
         "el": "Αλεπούδες τρέχουν στο δωμάτιο βασίλισσας κάτω από το στέμμα.",
         "en": "Foxes run in the queen's room under the crown."
       },
       "e1": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Lions guard the throne with the scepter.",
         "text": "Lions guard the throne with the scepter.",
         "el": "Λιοντάρια φυλάνε τον θρόνο με το σκήπτρο.",
         "en": "Lions guard the throne with the scepter."
       },
       "e2": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "A rhinoceros stands at the gate with keys.",
         "text": "A rhinoceros stands at the gate with keys.",
         "el": "Ένας ρινόκερος στέκεται στην πύλη με κλειδιά.",
         "en": "A rhinoceros stands at the gate with keys."
       },
       "e3": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Frogs jump on the bridge and the planks.",
         "text": "Frogs jump on the bridge and the planks.",
         "el": "Βατράχια πηδούν πάνω στη γέφυρα και τις σανίδες.",
         "en": "Frogs jump on the bridge and the planks."
       },
       "e4": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Hares run among a pile of stones.",
         "text": "Hares run among a pile of stones.",
         "el": "Λαγοί τρέχουν ανάμεσα σε σωρό από πέτρες.",
         "en": "Hares run among a pile of stones."
       },
       "e5": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Butterflies sit on the fence in the meadow with poppies.",
         "text": "Butterflies sit on the fence in the meadow with poppies.",
         "el": "Πεταλούδες κάθονται πάνω στο φράχτη στο λιβάδι με τις παπαρούνες.",
         "en": "Butterflies sit on the fence in the meadow with poppies."
       },
       "e6": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Lizards slip under the bridge with the planks.",
         "text": "Lizards slip under the bridge with the planks.",
         "el": "Σαύρες γλιστρούν κάτω από τη γέφυρα με τις σανίδες.",
         "en": "Lizards slip under the bridge with the planks."
       },
       "e7": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "A bison stands at the gate next to the keys.",
         "text": "A bison stands at the gate next to the keys.",
         "el": "Ένας βίσωνας στέκεται στην πύλη δίπλα στα κλειδιά.",
         "en": "A bison stands at the gate next to the keys."
       },
       "e8": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Tigers stand on the throne with the crown.",
         "text": "Tigers stand on the throne with the crown.",
         "el": "Τίγρεις στέκονται στον θρόνο με την κορώνα.",
         "en": "Tigers stand on the throne with the crown."
       },
       "f1": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Badgers move through the war room over maps.",
         "text": "Badgers move through the war room over maps.",
         "el": "Ασβοί κινούνται στην αίθουσα πολέμου πάνω από χάρτες.",
         "en": "Badgers move through the war room over maps."
       },
       "f2": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Chimpanzees run along the battlements' corridor.",
         "text": "Chimpanzees run along the battlements' corridor.",
         "el": "Χιμπατζήδες τρέχουν στον διάδρομο των επάλξεων.",
         "en": "Chimpanzees run along the battlements' corridor."
       },
       "f3": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Swordfish swim among rocks.",
         "text": "Swordfish swim among rocks.",
         "el": "Ξιφίες κολυμπάνε ανάμεσα σε βράχους.",
         "en": "Swordfish swim among rocks."
       },
       "f4": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Hedgehogs run among the trees and trunks.",
         "text": "Hedgehogs run among the trees and trunks.",
         "el": "Σκαντζόχοιροι τρέχουν ανάμεσα στα δέντρα και τους κορμούς.",
         "en": "Hedgehogs run among the trees and trunks."
       },
       "f5": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Anteaters hop in the meadow with the grasses.",
         "text": "Anteaters hop in the meadow with the grasses.",
         "el": "Μυρμηγκοφάγοι χοροπηδάνε στο λιβάδι με τα χορτάρια.",
         "en": "Anteaters hop in the meadow with the grasses."
       },
       "f6": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Dolphins swim in the water among skeletons.",
         "text": "Dolphins swim in the water among skeletons.",
         "el": "Δελφίνια κολυμπούν στο νερό ανάμεσα σε σκελετούς.",
         "en": "Dolphins swim in the water among skeletons."
       },
       "f7": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Lemurs stand on the battlements next to the crossbows.",
         "text": "Lemurs stand on the battlements next to the crossbows.",
         "el": "Λεμούριοι στέκονται στις επάλξεις δίπλα στις βαλλίστρες.",
         "en": "Lemurs stand on the battlements next to the crossbows."
       },
       "f8": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Beavers work in the war room over the maps.",
         "text": "Beavers work in the war room over the maps.",
         "el": "Κάστορες δουλεύουν στην αίθουσα πολέμου πάνω στους χάρτες.",
         "en": "Beavers work in the war room over the maps."
       },
       "g1": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Zebras stand in the stables next to the saddles.",
         "text": "Zebras stand in the stables next to the saddles.",
         "el": "Ζέβρες στέκονται στους στάβλους δίπλα στις σέλες.",
         "en": "Zebras stand in the stables next to the saddles."
       },
       "g2": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Rats run through the dungeon among the cells.",
         "text": "Rats run through the dungeon among the cells.",
         "el": "Αρουραίοι τρέχουν στο μπουντρούμι ανάμεσα στα κελιά.",
         "en": "Rats run through the dungeon among the cells."
       },
       "g3": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Crabs guard chests full of treasure.",
         "text": "Crabs guard chests full of treasure.",
         "el": "Καβούρια φυλάνε μπαούλα γεμάτα θησαυρό.",
         "en": "Crabs guard chests full of treasure."
       },
       "g4": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Wild boars leap over the rocks near the clearing.",
         "text": "Wild boars leap over the rocks near the clearing.",
         "el": "Αγριογούρουνα πηδούν πάνω στους βράχους κοντά στο ξέφωτο.",
         "en": "Wild boars leap over the rocks near the clearing."
       },
       "g5": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Wolves howl in the clearing under the moon.",
         "text": "Wolves howl in the clearing under the moon.",
         "el": "Λύκοι ουρλιάζουν στο ξέφωτο κάτω από το φεγγάρι.",
         "en": "Wolves howl in the clearing under the moon."
       },
       "g6": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Jellyfish swim around the anchor and the chain.",
         "text": "Jellyfish swim around the anchor and the chain.",
         "el": "Μέδουσες κολυμπάνε γύρω από την άγκυρα και την αλυσίδα.",
         "en": "Jellyfish swim around the anchor and the chain."
       },
       "g7": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Weasels run through the dungeon among the cells.",
         "text": "Weasels run through the dungeon among the cells.",
         "el": "Νυφίτσες τρέχουν στο μπουντρούμι ανάμεσα στα κελιά.",
         "en": "Weasels run through the dungeon among the cells."
       },
       "g8": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Horses stand in the stables next to the saddle.",
         "text": "Horses stand in the stables next to the saddle.",
         "el": "Άλογα στέκονται στους στάβλους δίπλα στο σαμάρι.",
         "en": "Horses stand in the stables next to the saddle."
       },
       "h1": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Squirrels hide in the storerooms inside the sacks.",
         "text": "Squirrels hide in the storerooms inside the sacks.",
         "el": "Σκίουροι κρύβονται στις αποθήκες μέσα στα σακιά.",
         "en": "Squirrels hide in the storerooms inside the sacks."
       },
       "h2": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Owls observe from the observatory with the telescopes.",
         "text": "Owls observe from the observatory with the telescopes.",
         "el": "Κουκουβάγιες παρατηρούν από το παρατηρητήριο με τα τηλεσκόπια.",
         "en": "Owls observe from the observatory with the telescopes."
       },
       "h3": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Starfish hide in the lighthouse.",
         "text": "Starfish hide in the lighthouse.",
         "el": "Αστερίες κρύβονται στον φάρο.",
         "en": "Starfish hide in the lighthouse."
       },
       "h4": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Sheep move quickly along the shore and the water.",
         "text": "Sheep move quickly along the shore and the water.",
         "el": "Πρόβατα κινούνται γρήγορα στην ακτή και το νερό.",
         "en": "Sheep move quickly along the shore and the water."
       },
       "h5": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Leopards leave tracks in the grass and the ground.",
         "text": "Leopards leave tracks in the grass and the ground.",
         "el": "Λεοπαρδάλεις αφήνουν ίχνη στο γρασίδι και το έδαφος.",
         "en": "Leopards leave tracks in the grass and the ground."
       },
       "h6": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Seahorses swim around the shipwreck.",
         "text": "Seahorses swim around the shipwreck.",
         "el": "Ιππόκαμποι κολυμπούν γύρω από το ναυάγιο.",
         "en": "Seahorses swim around the shipwreck."
       },
       "h7": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Magpies guard the observatory with the telescopes.",
         "text": "Magpies guard the observatory with the telescopes.",
         "el": "Καρακάξες φυλάνε το παρατηρητήριο με τα τηλεσκόπια.",
         "en": "Magpies guard the observatory with the telescopes."
       },
       "h8": {
-        "Action": "",
-        "Feeling": "",
-        "Object": "",
+        
         "Target Square Association": "Raccoons search barrels inside the storerooms.",
         "text": "Raccoons search barrels inside the storerooms.",
         "el": "Ρακούν ψάχνουν βαρέλια μέσα στις αποθήκες.",
