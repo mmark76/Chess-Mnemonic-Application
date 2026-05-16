@@ -1,5 +1,5 @@
 /* ===========================================================
-   Markellos CMA v3.3 — Unified Core (cms.bundle.js)
+   Markellos CMA — Unified Core (cms.bundle.js)
    Libraries Loader + Active Library Engine + Renderer + User Libs + Palace Mapper
    =========================================================== */
 
