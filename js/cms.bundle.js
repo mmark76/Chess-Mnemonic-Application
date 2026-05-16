@@ -269,9 +269,7 @@ function fillAssociationsTable(moves){
 
   const assocBySquare = Object.create(null);
   const getAssocFor = (pieceLetter, fromSq) =>
-    getPieceName(pieceLetter + (fromSq || "")) ||
-    getPieceName(fromSq || "") ||
-    getPieceName(pieceLetter) ||
+    getPieceName(fromSq || "", pieceLetter) ||
     pieceGreek(pieceLetter);
 
   moves.forEach(m=>{
