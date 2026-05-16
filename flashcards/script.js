@@ -290,7 +290,3 @@ document.querySelectorAll(".lib-btn").forEach(btn=>{
 
 window.addEventListener("DOMContentLoaded", ()=>autoFetch());
 
-document.getElementById("btnRefresh").addEventListener("click", refreshDefaults);
-
-
-
