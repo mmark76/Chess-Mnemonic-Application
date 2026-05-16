@@ -653,13 +653,15 @@ table td:nth-child(3) {
   
   /* Unified Grid Definition */
   header {
-    display: grid; 
-    grid-template-columns: 38% 22% 40% !important; 
+    display: grid;
+    grid-template-columns: minmax(330px, 1fr) max-content max-content !important;
     align-items: center;
+    column-gap: 12px;
   }
   
   .header-top-row { justify-content: flex-start; }
   .header-links { display: flex; justify-content: center; }
+  .br-menu { margin-left: 0; margin-right: 0; }
 
   /* Title Wrap Fix */
   .main-title {
@@ -671,7 +673,25 @@ table td:nth-child(3) {
   #howToBtn {
     width: fit-content !important; 
     justify-self: end; /* Aligns button to the right of the cell */
-    margin: 0 auto;
+    margin: 0;
+  }
+}
+
+/* --- Large Tablet / Small Laptop Header Fix (1024px-1366px) --- */
+@media (min-width: 1024px) and (max-width: 1366px) {
+  .br-menu > summary {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+
+  #howToBtn {
+    font-size: 15px !important;
+    padding: 8px 12px !important;
+  }
+
+  .main-title {
+    font-size: 1.05rem !important;
+    max-width: 420px !important;
   }
 }
 
