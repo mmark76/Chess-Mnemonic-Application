@@ -4,6 +4,15 @@
 (function () {
   // ----------------- helpers -----------------
 
+  function loadRuntimeHelper() {
+    if (window.__cmaUserRuntimeFixLoading) return;
+    window.__cmaUserRuntimeFixLoading = true;
+    const script = document.createElement("script");
+    script.src = "js/user-library-runtime-fix.js";
+    script.defer = true;
+    document.head.appendChild(script);
+  }
+
   function detectLibraryType(json) {
     if (!json || typeof json !== "object") return null;
 
@@ -12,6 +21,17 @@
     if (json["00"] || json["01"]) return "PAO_00_99";
     if (json.a1 || json.a2) return "Squares";
     return null;
+  }
+
+  function refreshTablesAfterUserLibraryImport() {
+    try {
+      setTimeout(() => {
+        if (typeof renderAll === "function") renderAll();
+        if (typeof enableManualAnchors === "function") enableManualAnchors();
+      }, 250);
+    } catch (e) {
+      console.warn("user-libraries-history: refresh after import failed", e);
+    }
   }
 
   function saveLibraryToHistory(fileName, json) {
@@ -67,6 +87,8 @@
     } catch (e) {
       console.warn("user-libraries-history: loadUserLibrariesIntoUI failed", e);
     }
+
+    refreshTablesAfterUserLibraryImport();
 
     console.log(
       `💾 Saved user library → name="${libName}", type="${type}", path="${path}"`
@@ -133,6 +155,7 @@
 
   // Εγκατάσταση hook
   if (typeof window !== "undefined") {
+    loadRuntimeHelper();
     if (document.readyState === "loading") {
       document.addEventListener("DOMContentLoaded", hookFileReaderForUserLibraries);
     } else {
