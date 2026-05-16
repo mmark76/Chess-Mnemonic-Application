@@ -96,9 +96,20 @@ function v1Verse(pieceLetter, file, rank, side, moveNo){
 
 function sn1Shortname(code){
   const key = String(code).padStart(2, '0');
-  const lib = libs?.Shortnames?.LibrarySN1;
+  const lib = libs?.Shortnames?.Shortnames00_99List;
   if(!lib) return '';
   return lib?.[key] || '';
+}
+
+function characterShortnameBySquare(square, pieceLetter){
+  const lib = libs?.Shortnames?.CharactersSN1 || {};
+  const key = `${pieceLetter}${square || ''}`;
+  return lib?.[key] || '';
+}
+
+function squareShortname(square){
+  const lib = libs?.Shortnames?.SquaresSN1 || {};
+  return lib?.[square] || square || '';
 }
 
 /* ===========================================================
@@ -389,33 +400,63 @@ function fillShortnamesTable(moves){
   if(!body) return;
   body.innerHTML='';
 
-  for(let i=0;i<moves.length;i+=2){
-    const wm = moves[i];
-    const bm = moves[i+1];
-    if(!wm || !bm) break;
+  const shortnameBySquare = Object.create(null);
 
-    const movePair = wm.movePair;
-    const locus = locusForMove(wm);
-    const anchor = anchorForMove(wm.index);
-    const parts = weave6Digits(toPFR(wm), toPFR(bm));
+  const getShortnameFor = (pieceLetter, fromSq) =>
+    shortnameBySquare[fromSq] ||
+    characterShortnameBySquare(fromSq, pieceLetter) ||
+    pieceGreek(pieceLetter);
 
-    const s1 = sn1Shortname(twoDigit(parts.a));
-    const s2 = sn1Shortname(twoDigit(parts.b));
-    const s3 = sn1Shortname(twoDigit(parts.c));
+  moves.forEach(m=>{
+    const locus  = locusForMove(m);
+    const anchor = anchorForMove(m.index);
+
+    let pieceShortname = shortnameBySquare[m.from] || characterShortnameBySquare(m.from, m.piece) || pieceGreek(m.piece);
+    if(m.from) delete shortnameBySquare[m.from];
+
+    const sanClean = (m.san || '').replace(/[+#?!]+/g,'');
+
+    if(sanClean.startsWith('O-O')){
+      const long  = sanClean.startsWith('O-O-O');
+      const white = (m.side === 'White');
+
+      const rookFrom = white ? (long ? 'a1' : 'h1') : (long ? 'a8' : 'h8');
+      const rookTo   = white ? (long ? 'd1' : 'f1') : (long ? 'd8' : 'f8');
+
+      if(shortnameBySquare[rookFrom]){
+        shortnameBySquare[rookTo] = shortnameBySquare[rookFrom];
+        delete shortnameBySquare[rookFrom];
+      }else{
+        shortnameBySquare[rookTo] = getShortnameFor('R', rookFrom);
+      }
+    }
+
+    if((m.flags || '').includes('e') && /^[a-h][1-8]$/.test(m.to)){
+      const toFile = m.to[0];
+      const toRank = parseInt(m.to[1], 10);
+      const capRank = (m.side === 'White') ? (toRank - 1) : (toRank + 1);
+      const capSq = `${toFile}${capRank}`;
+      if(shortnameBySquare[capSq]) delete shortnameBySquare[capSq];
+    }
+
+    shortnameBySquare[m.to] = pieceShortname;
+
+    const targetSquareShortname = squareShortname(m.to);
 
     const tr = document.createElement('tr');
-    tr.dataset.index = wm.index;
+    tr.dataset.index = m.index;
     tr.innerHTML =
-      `<td>${escapeHtml(`${movePair}.`)}</td>`+
-      `<td>${escapeHtml(`${wm.san}  ${bm.san}`)}</td>`+
+      `<td>${escapeHtml(m.moveNumDisplay)}</td>`+
+      `<td>${escapeHtml(m.san)}</td>`+
       `<td>${escapeHtml(anchor)}</td>`+
       `<td>${escapeHtml(locus)}</td>`+
-      `<td>${escapeHtml('Full move')}</td>`+
-      `<td>${escapeHtml(`${twoDigit(parts.a)}: ${s1}`)}<br>`+
-          `${escapeHtml(`${twoDigit(parts.b)}: ${s2}`)}<br>`+
-          `${escapeHtml(`${twoDigit(parts.c)}: ${s3}`)}</td>`;
+      `<td>${escapeHtml(m.to)}</td>`+
+      `<td>${escapeHtml(sideGR(m.side))}</td>`+
+      `<td>${escapeHtml(pieceShortname)}</td>`+
+      `<td>${escapeHtml(targetSquareShortname)}</td>`;
+
     body.appendChild(tr);
-  }
+  });
 }
 /* ----- Render All ----- */
 
@@ -450,7 +491,7 @@ function wireTableSelect(){
    =========================================================== */
 
 async function loadLibraries(){
-  const res = await fetch('json/libraries_v.5.3.json');
+  const res = await fetch('json/libraries_v.5.2.shortnames.updated.json');
   libs = await res.json();
   console.log("LIBS KEYS:", Object.keys(libs));
 }
