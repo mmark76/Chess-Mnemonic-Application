@@ -94,6 +94,13 @@ function v1Verse(pieceLetter, file, rank, side, moveNo){
   return {piece, file:fileTxt, rank:rankTxt, closing};
 }
 
+function sn1Shortname(code){
+  const key = String(code).padStart(2, '0');
+  const lib = libs?.Shortnames?.LibrarySN1;
+  if(!lib) return '';
+  return lib?.[key] || '';
+}
+
 /* ===========================================================
    4. LOCUS MODE + MANUAL ANCHORS
    =========================================================== */
@@ -193,7 +200,7 @@ function fillSanTable(moves){
   });
 }
 function enableManualAnchors() {
-  document.querySelectorAll('#sanBody, #assocBody, #paoBody, #pao99Body, #verseBody')
+  document.querySelectorAll('#sanBody, #assocBody, #paoBody, #pao99Body, #shortnamesBody')
     .forEach(table => {
       table.querySelectorAll('tr').forEach(tr => {
         const moveIndex = tr.dataset.index;
@@ -375,31 +382,41 @@ function fillPaoTable_00_99(moves){
     body.appendChild(tr);
   }
 }
-/* ----- VERSE TABLE ----- */
+/* ----- SHORTNAMES TABLE ----- */
 
-function fillVerseTable(moves){
-  const body = document.getElementById('verseBody'); if(!body) return;
+function fillShortnamesTable(moves){
+  const body = document.getElementById('shortnamesBody'); 
+  if(!body) return;
   body.innerHTML='';
-  moves.forEach(m=>{
-    const locus = locusForMove(m);
-    const anchor = anchorForMove(m.index);
-    const file = m.to?.[0]; const rank = Number(m.to?.[1]||0);
-    const v = v1Verse(m.piece, file, rank, m.side, m.moveNumber);
-    const tr=document.createElement('tr'); tr.dataset.index=m.index;
+
+  for(let i=0;i<moves.length;i+=2){
+    const wm = moves[i];
+    const bm = moves[i+1];
+    if(!wm || !bm) break;
+
+    const movePair = wm.movePair;
+    const locus = locusForMove(wm);
+    const anchor = anchorForMove(wm.index);
+    const parts = weave6Digits(toPFR(wm), toPFR(bm));
+
+    const s1 = sn1Shortname(twoDigit(parts.a));
+    const s2 = sn1Shortname(twoDigit(parts.b));
+    const s3 = sn1Shortname(twoDigit(parts.c));
+
+    const tr = document.createElement('tr');
+    tr.dataset.index = wm.index;
     tr.innerHTML =
-      `<td>${escapeHtml(m.moveNumDisplay)}</td>`+
-      `<td>${escapeHtml(m.san)}</td>`+
+      `<td>${escapeHtml(`${movePair}.`)}</td>`+
+      `<td>${escapeHtml(`${wm.san}  ${bm.san}`)}</td>`+
       `<td>${escapeHtml(anchor)}</td>`+
       `<td>${escapeHtml(locus)}</td>`+
-      `<td>${escapeHtml(sideGR(m.side))}</td>`+
-      `<td>${escapeHtml(`Piece: ${v.piece}`)}<br>`+
-          `${escapeHtml(`File: ${v.file}`)}<br>`+
-          `${escapeHtml(`Rank: ${v.rank}`)}<br>`+
-          `${escapeHtml(`Closing: ${v.closing}`)}</td>`;
+      `<td>${escapeHtml('Full move')}</td>`+
+      `<td>${escapeHtml(`${twoDigit(parts.a)}: ${s1}`)}<br>`+
+          `${escapeHtml(`${twoDigit(parts.b)}: ${s2}`)}<br>`+
+          `${escapeHtml(`${twoDigit(parts.c)}: ${s3}`)}</td>`;
     body.appendChild(tr);
-  });
+  }
 }
-
 /* ----- Render All ----- */
 
 function renderAll(){
@@ -407,7 +424,7 @@ function renderAll(){
   fillAssociationsTable(gameMoves);
   fillPaoTable_0_9(gameMoves);
   fillPaoTable_00_99(gameMoves);
-  fillVerseTable(gameMoves);
+  fillShortnamesTable(gameMoves);
 }
 
 /* ===========================================================
@@ -415,7 +432,7 @@ function renderAll(){
    =========================================================== */
 
 function showOnlySection(idToShow){
-  const ids=['sanSection','assocSection','paoSection','pao99Section','verseSection'];
+  const ids=['sanSection','assocSection','paoSection','pao99Section','shortnamesSection'];
   ids.forEach(id=>{
     const el=document.getElementById(id);
     if(el) el.style.display = (id===idToShow)?'block':'none';
@@ -433,7 +450,7 @@ function wireTableSelect(){
    =========================================================== */
 
 async function loadLibraries(){
-  const res = await fetch('json/libraries_v.5.2.json');
+  const res = await fetch('json/libraries_v.5.3.json');
   libs = await res.json();
   console.log("LIBS KEYS:", Object.keys(libs));
 }
@@ -820,7 +837,6 @@ function openCharactersModal(data) {
 /* ===========================================================
    10.4 PAO 00–99 Modal
    =========================================================== */
-
 function openPAOModal(data) {
   const backdrop = createBackdrop();
   const modal = document.createElement("div");
@@ -1248,13 +1264,12 @@ function wireUserLibraryDropdown() {
     }
   });
 }
-
 /* ===========================================================
    12. MEMORY PALACE → TABLE MAPPER (FIXED: WAITS FOR TABLES)
    =========================================================== */
 
 (() => {
-  const TABLE_IDS = ["sanBody", "assocBody", "paoBody", "pao99Body", "verseBody"];
+  const TABLE_IDS = ["sanBody", "assocBody", "paoBody", "pao99Body", "shortnamesBody"];
   const LOCUS_COL = 3;
 
 function updateLocusColumn(bodyId, lociArray) {
@@ -1442,7 +1457,7 @@ const demoLaskerPGN = `[Event "Casual game"]
 [Black "George Alan Thomas"]
 [Result "1-0"]
 
-1. d4 e6 2. Nf3 f5 3. Nc3 Nf6 4. Bg5 Be7 5. Bxf6 Bxf6 6. e4 fxe4 7. Nxe4 b6 8. Ne5 O-O 9. Bd3 Bb7 10. Qh5 Qe7 11. Qxh7+ Kxh7 12. Nxf6+ Kh6 13. Neg4+ Kg5 14. h4+ Kf4 15. g3+ Kf3 16. Be2+ Kg2 17. Rh2+ Kg1 18. Kd2# 1-0`;
+1. d4 e6 2. Nf3 f5 3. Nc3 Nf6 4. Bg5 Be7 5. Bxf6 Bxf6 6. e4 fxe4 7. Nxe4 b6 8. Ne5 O-O 9. Bd3 Bb7 10. Qh5 Qe7 11. Qxh7+ Kxh7 12. Nxf6+ Kh6 13. Ng4+ Kg5 14. h4+ Kf4 15. g3+ Kf3 16. Be2+ Kg2 17. Rh2+ Kg1 18. Kd2# 1-0`;
 
 /* ---- MODAL ---- */
 
@@ -1659,5 +1674,3 @@ document.addEventListener('DOMContentLoaded', async ()=>{
   });
 
 }); // END DOMContentLoaded
-
-
