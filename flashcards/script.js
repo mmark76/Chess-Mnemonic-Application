@@ -217,7 +217,7 @@ function showAnswer() {
 async function autoFetch() {
   try {
     setStatus("Automatic loading…");
-    const res = await fetch("../json/libraries_v.5.2.shortnames.updated.json?ts=" + Date.now(), { cache:"no-store" });
+    const res = await fetch("../json/libraries_v.5.3.json?ts=" + Date.now(), { cache:"no-store" });
     if (!res.ok) throw new Error(`HTTP ${res.status} ${res.statusText}`);
     const data = await res.json();
     window.lastData = data;
