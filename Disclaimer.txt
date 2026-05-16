@@ -6,4 +6,6 @@
 
 ⚠️ To import or load a library, the file must follow exactly the structure of the official Library Templates. You may download the official templates using the Download Libraries Templates (zip) button or create correctly structured files through the Create Library feature.
 
+⚠️ This application is designed for online use. Some functions depend on external online libraries and may not work if these services are unavailable.
+
 ℹ️ Recommended screen resolution: 1920×1080 for the best viewing experience.
