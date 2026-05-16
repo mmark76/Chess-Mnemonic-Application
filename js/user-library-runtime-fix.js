@@ -19,6 +19,20 @@
     return squareText(square) || defaultSquareShortname(square);
   };
 
+  var defaultAssociations = fillAssociationsTable;
+  fillAssociationsTable = function (moves) {
+    defaultAssociations(moves);
+    var body = document.getElementById("assocBody");
+    if (!body) return;
+    Array.prototype.forEach.call(body.querySelectorAll("tr"), function (row) {
+      var targetCell = row.children && row.children[4];
+      var assocCell = row.children && row.children[7];
+      if (!targetCell || !assocCell) return;
+      var userText = squareText(targetCell.textContent.trim());
+      if (userText) assocCell.textContent = userText;
+    });
+  };
+
   var defaultStatus = updateUserLibraryStatus;
   updateUserLibraryStatus = function (text) {
     defaultStatus(text);
