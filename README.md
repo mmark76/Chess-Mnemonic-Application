@@ -61,14 +61,14 @@ Chess-Mnemonic-Application-main/
 │   ├── download-tables.js              # Export tools for tables
 │   ├── epic.js                         # Active Epic Story generator
 │   ├── epic-ui-init.js                 # Epic Story UI initialization/styling support
-│   ├── epic_1.js                       # Safe backup of an older tested Epic Story version; not loaded by index.html
 │   ├── san-to-text-popup.js            # SAN-to-text popup helper
 │   ├── structured-data.js              # SEO structured data
 │   └── user-libraries-history.js       # User library import/history support
 │
 ├── json/
 │   ├── libraries_v.5.1.json            # Older library version
-│   └── libraries_v.5.2.json            # Current core mnemonic library dataset
+│   ├── libraries_v.5.2.json            # Older library version
+│   └── libraries_v.5.3.json            # Current core mnemonic library dataset
 │
 ├── flashcards/
 │   ├── index.html                      # Flashcards Trainer UI
