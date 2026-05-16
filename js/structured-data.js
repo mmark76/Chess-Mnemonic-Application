@@ -1,6 +1,6 @@
 // Structured Data for Chess Mnemonic Application and Epic Chess Stories Creator v3.3
-// This script only injects JSON-LD metadata for search engines.
-// It does not modify any visible part of the page.
+// This script injects JSON-LD metadata for search engines.
+// It also loads the user-library runtime helper when available.
 
 (function () {
   var structuredData = {
@@ -64,6 +64,15 @@
     script.text = JSON.stringify(structuredData);
     document.head.appendChild(script);
   } catch (e) {
-    // structured data only, δεν επηρεάζει τη λειτουργία της εφαρμογής
+    // Structured data only; this must not affect the app.
+  }
+
+  try {
+    var helper = document.createElement("script");
+    helper.src = "js/user-library-runtime-fix.js";
+    helper.defer = true;
+    document.head.appendChild(helper);
+  } catch (e) {
+    // Optional helper only; this must not block the app.
   }
 })();
