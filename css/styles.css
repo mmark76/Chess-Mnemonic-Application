@@ -616,6 +616,37 @@ table td:nth-child(3) {
   header nav .header-links a { font-size: 25px !important; padding: 10px 20px !important; }
 }
 
+/* --- Tablet Header Fix (768px-1023px) --- */
+@media (min-width: 768px) and (max-width: 1023px) {
+  header {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px 12px;
+  }
+
+  .header-top-row {
+    flex: 1 1 100%;
+    justify-content: center;
+  }
+
+  .menus-wrapper,
+  #howToBtn {
+    flex: 0 1 auto;
+  }
+
+  .br-menu {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  #howToBtn {
+    font-size: 16px !important;
+    padding: 8px 14px !important;
+    margin: 0;
+  }
+}
+
 /* --- Large Desktop (>=1024px) --- */
 @media (min-width: 1024px) {
   .header-img { width: 90px; }
