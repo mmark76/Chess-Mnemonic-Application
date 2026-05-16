@@ -159,31 +159,22 @@ The Epic Story generator creates a continuous narrative from the chess game. It 
 js/epic.js
 ```
 
-The older file:
-
-```text
-js/epic_1.js
-```
-
-is intentionally kept as a **safe backup** of a previous tested version. It is not loaded by `index.html` and should not be deleted unless the project owner explicitly decides to remove or archive it.
-
----
-
 ## 6. Libraries
 
 The core mnemonic libraries are stored in:
 
 ```text
-json/libraries_v.5.2.json
+json/libraries_v.5.3.json
 ```
 
-An older version is also kept:
+Two older versions are also kept:
 
 ```text
 json/libraries_v.5.1.json
+json/libraries_v.5.2.json
 ```
 
-The current application should use `libraries_v.5.2.json` as the main data source unless another version is intentionally selected by the project owner.
+The current application should use `libraries_v.5.3.json` as the main data source unless another version is intentionally selected by the project owner.
 
 ---
 
