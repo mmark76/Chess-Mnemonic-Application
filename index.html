@@ -189,7 +189,7 @@ window.onclick = e => { if (e.target === popup) popup.style.display = "none"; };
       <option value="PAO 00-99/LibraryP3">PAO 00-99 (P3)</option>
       <option value="PAO 00-99/LibraryP4">PAO 00-99 (P4)</option>-->
       <!-- <option value="PAO 00-99/LibraryP5">PAO 00-99 (P2)</option>-->
-      <option value="Verses/LibraryV1">Rhythm R1</option>
+      <option value="Shortnames/LibrarySN1">Shortnames SN1</option>
     </select>
   </div>
 
@@ -224,7 +224,7 @@ window.onclick = e => { if (e.target === popup) popup.style.display = "none"; };
           <option value="assocSection">Associations</option>
           <option value="paoSection">PAO 0–9</option>
           <option value="pao99Section">PAO 00–99</option>
-          <option value="verseSection">Rhythm</option>
+          <option value="shortnamesSection">Shortnames</option>
         </select>
 
 		<label for="locusMode">Memory Palace Mode:</label>
@@ -351,8 +351,8 @@ window.onclick = e => { if (e.target === popup) popup.style.display = "none"; };
   </div>
 </section>
 
-<section id="verseSection">
-  <h4>Rhythm Table</h4>
+<section id="shortnamesSection">
+  <h4>Shortnames Table</h4>
   <div class="table-wrapper">
     <table>
       <thead>
@@ -362,12 +362,12 @@ window.onclick = e => { if (e.target === popup) popup.style.display = "none"; };
           <th style="min-width:2ch;"><span style="font-size:0.8em;color:#777;">⚓</span></th>
           <th style="min-width:9ch;">Mnemonic Locus</th>
           <th style="min-width:6ch;">Color Turn</th>
-          <th>Rhythm (4 γραμμές)</th>
+          <th>Shortname</th>
         </tr>
       </thead>
-      <tbody id="verseBody"></tbody>
+      <tbody id="shortnamesBody"></tbody>
     </table>
-    <select class="download-select" data-table="verseSection">
+    <select class="download-select" data-table="shortnamesSection">
       <option value="">Download as…</option>
       <option value="csv">CSV</option>
       <option value="txt">TXT</option>
