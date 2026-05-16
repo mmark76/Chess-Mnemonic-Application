@@ -42,5 +42,26 @@
     }, 80);
   };
 
+  function applySmallUiFixes() {
+    var assocSection = document.getElementById("assocSection");
+    if (assocSection) {
+      var headers = assocSection.querySelectorAll("thead th");
+      if (headers && headers[7]) headers[7].textContent = "Target Square Association";
+    }
+
+    var popup = document.getElementById("popupOverlay");
+    var howTo = document.getElementById("howToModal");
+    window.addEventListener("click", function (event) {
+      if (popup && event.target === popup) popup.style.display = "none";
+      if (howTo && event.target === howTo) howTo.style.display = "none";
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", applySmallUiFixes);
+  } else {
+    applySmallUiFixes();
+  }
+
   window.CMAUserLibraryFix = { squareText: squareText };
 })();
