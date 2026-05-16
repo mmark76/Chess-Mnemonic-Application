@@ -44,6 +44,7 @@ Chess-Mnemonic-Application-main/
 ├── index.html                          # Main Chess Mnemonic Application UI
 ├── CNAME                               # Custom domain configuration
 ├── Disclaimer.txt                      # Project disclaimer
+├── LICENSE                             # All rights reserved license
 ├── README.md                           # Project documentation
 ├── favicon.ico
 ├── start_server.bat                    # Optional local helper for testing with a local HTTP server
@@ -63,7 +64,8 @@ Chess-Mnemonic-Application-main/
 │   ├── epic-ui-init.js                 # Epic Story UI initialization/styling support
 │   ├── san-to-text-popup.js            # SAN-to-text popup helper
 │   ├── structured-data.js              # SEO structured data
-│   └── user-libraries-history.js       # User library import/history support
+│   ├── user-libraries-history.js       # User library import/history support
+│   └── user-library-runtime-fix.js     # Runtime support for imported user libraries
 │
 ├── json/
 │   ├── libraries_v.5.1.json            # Older library version
@@ -195,6 +197,14 @@ Available templates include:
 
 These files are templates for user-defined mnemonic material and can be imported through the application where supported.
 
+The helper file:
+
+```text
+js/user-library-runtime-fix.js
+```
+
+adds runtime support so imported user PAO 00–99 and Squares libraries can override the default display where supported.
+
 There is no `user_custom.js` file in the current structure.
 
 ---
@@ -285,7 +295,21 @@ Disclaimer.txt
 
 ---
 
-## 14. Author
+## 14. License
+
+This project is publicly visible for transparency, documentation, educational reference, and project demonstration purposes only.
+
+See:
+
+```text
+LICENSE
+```
+
+No open-source license is granted.
+
+---
+
+## 15. Author
 
 Created by Markellos Markides.
 
