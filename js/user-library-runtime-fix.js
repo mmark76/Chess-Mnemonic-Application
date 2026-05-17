@@ -6,6 +6,29 @@
     return item.keyword || item.name || item.label || item.notes || "";
   }
 
+  function applyFullMoveLocusDisplay() {
+    if (typeof locusMode === "undefined" || locusMode !== "full") return;
+
+    var tableIds = ["sanBody", "assocBody", "paoBody", "shortnamesBody"];
+    var locusCol = 3;
+
+    tableIds.forEach(function (bodyId) {
+      var body = document.getElementById(bodyId);
+      if (!body) return;
+
+      Array.prototype.forEach.call(body.querySelectorAll("tr"), function (row) {
+        var cells = row.children || [];
+        var locusCell = cells[locusCol];
+        if (!locusCell) return;
+
+        var moveCellText = cells[0] ? cells[0].textContent.trim() : "";
+        if (moveCellText.indexOf("...") !== -1) {
+          locusCell.textContent = "";
+        }
+      });
+    });
+  }
+
   var defaultPao99 = p2p3Get;
   p2p3Get = function (code, collection) {
     var key = String(code).padStart(2, "0");
@@ -41,6 +64,14 @@
     });
   };
 
+  if (typeof renderAll === "function") {
+    var defaultRenderAll = renderAll;
+    renderAll = function () {
+      defaultRenderAll.apply(this, arguments);
+      applyFullMoveLocusDisplay();
+    };
+  }
+
   var defaultStatus = updateUserLibraryStatus;
   updateUserLibraryStatus = function (text) {
     defaultStatus(text);
@@ -63,6 +94,8 @@
   }
 
   function applySmallUiFixes() {
+    applyFullMoveLocusDisplay();
+
     var assocSection = document.getElementById("assocSection");
     if (assocSection) {
       var headers = assocSection.querySelectorAll("thead th");
@@ -92,5 +125,8 @@
     applySmallUiFixes();
   }
 
-  window.CMAUserLibraryFix = { squareText: squareText };
+  window.CMAUserLibraryFix = {
+    squareText: squareText,
+    applyFullMoveLocusDisplay: applyFullMoveLocusDisplay
+  };
 })();
