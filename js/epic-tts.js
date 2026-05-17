@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!voices.length) {
       const option = document.createElement("option");
       option.value = "";
-      option.textContent = "Default browser voice";
+      option.textContent = "Default browser voice (English US preferred)";
       voiceSelect.appendChild(option);
       return;
     }
@@ -92,7 +92,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const preferredVoice =
-      voices.find((voice) => voice.lang && voice.lang.toLowerCase().startsWith("en")) || voices[0];
+      voices.find((voice) => voice.lang && voice.lang.toLowerCase() === "en-us") ||
+      voices.find((voice) => voice.lang && voice.lang.toLowerCase().startsWith("en-us")) ||
+      voices.find((voice) => voice.name && voice.name.toLowerCase().includes("english") && voice.name.toLowerCase().includes("united states")) ||
+      voices.find((voice) => voice.lang && voice.lang.toLowerCase().startsWith("en")) ||
+      voices[0];
 
     if (preferredVoice) {
       voiceSelect.value = preferredVoice.name;
@@ -150,6 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const utterance = new SpeechSynthesisUtterance(chunks[chunkIndex]);
+    utterance.lang = "en-US";
     utterance.voice = getPreferredVoice();
     utterance.rate = Number(rateSelect.value) || 1;
     utterance.pitch = 1;
