@@ -62,6 +62,22 @@
     });
   }
 
+  function applyDefaultHiddenColumn(section, table, colIndex, datasetKey) {
+    if (!section || !table || colIndex < 0) return;
+
+    var labels = section.querySelectorAll(".table-toolbar label");
+    var label = labels && labels[colIndex];
+    var checkbox = label && label.querySelector && label.querySelector('input[type="checkbox"]');
+
+    if (checkbox && !checkbox.dataset[datasetKey]) {
+      checkbox.checked = false;
+      checkbox.dataset[datasetKey] = "1";
+    }
+
+    var visible = checkbox ? checkbox.checked : false;
+    setColumnVisible(table, colIndex, visible);
+  }
+
   function defaultHideTargetSquareColumns() {
     var sections = ["assocSection", "shortnamesSection"];
 
@@ -73,26 +89,36 @@
       if (!table) return;
 
       var colIndex = getColumnIndexByHeaderText(table, "Target Square");
-      if (colIndex < 0) return;
-
-      var labels = section.querySelectorAll(".table-toolbar label");
-      var label = labels && labels[colIndex];
-      var checkbox = label && label.querySelector && label.querySelector('input[type="checkbox"]');
-
-      if (checkbox && !checkbox.dataset.cmaDefaultTargetSquareApplied) {
-        checkbox.checked = false;
-        checkbox.dataset.cmaDefaultTargetSquareApplied = "1";
-      }
-
-      var visible = checkbox ? checkbox.checked : false;
-      setColumnVisible(table, colIndex, visible);
+      applyDefaultHiddenColumn(section, table, colIndex, "cmaDefaultTargetSquareApplied");
     });
   }
 
-  function retryDefaultHideTargetSquareColumns() {
+  function defaultHideAnchorAndColorColumns() {
+    var sections = ["sanSection", "assocSection", "shortnamesSection", "pao99Section", "paoSection"];
+
+    sections.forEach(function (sectionId) {
+      var section = document.getElementById(sectionId);
+      if (!section) return;
+
+      var table = section.querySelector("table");
+      if (!table) return;
+
+      applyDefaultHiddenColumn(section, table, 2, "cmaDefaultAnchorApplied");
+      applyDefaultHiddenColumn(section, table, getColumnIndexByHeaderText(table, "Color Turn"), "cmaDefaultColorTurnApplied");
+    });
+  }
+
+  function retryDefaultHiddenColumns() {
     defaultHideTargetSquareColumns();
-    setTimeout(defaultHideTargetSquareColumns, 250);
-    setTimeout(defaultHideTargetSquareColumns, 750);
+    defaultHideAnchorAndColorColumns();
+    setTimeout(function () {
+      defaultHideTargetSquareColumns();
+      defaultHideAnchorAndColorColumns();
+    }, 250);
+    setTimeout(function () {
+      defaultHideTargetSquareColumns();
+      defaultHideAnchorAndColorColumns();
+    }, 750);
   }
 
   var defaultPao99 = p2p3Get;
@@ -136,6 +162,7 @@
       defaultRenderAll.apply(this, arguments);
       applyFullMoveLocusDisplay();
       defaultHideTargetSquareColumns();
+      defaultHideAnchorAndColorColumns();
       insertPao09EducationalNote();
     };
   }
@@ -164,7 +191,7 @@
   function applySmallUiFixes() {
     applyFullMoveLocusDisplay();
     insertPao09EducationalNote();
-    retryDefaultHideTargetSquareColumns();
+    retryDefaultHiddenColumns();
 
     var assocSection = document.getElementById("assocSection");
     if (assocSection) {
@@ -199,6 +226,7 @@
     squareText: squareText,
     applyFullMoveLocusDisplay: applyFullMoveLocusDisplay,
     defaultHideTargetSquareColumns: defaultHideTargetSquareColumns,
+    defaultHideAnchorAndColorColumns: defaultHideAnchorAndColorColumns,
     insertPao09EducationalNote: insertPao09EducationalNote
   };
 })();
