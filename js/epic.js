@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <option value="full">Full-move loci</option>
           </select>
         </label>
-        <span>Use the built-in TTS controls to listen to the Epic Story.</span>
+        <span>You can listen to the Epic Story using the built-in TTS tool. For a more natural and higher-quality narration, copy the Epic Story and use Microsoft Word Read Aloud.</span>
       </div>
       <div id="epicTextView" class="epic-text"></div>
     </div>
