@@ -109,17 +109,30 @@
   margin-top: 7px; 
 }
 
-/* Desktop: center the main chess/mnemonics dropdown */
-@media (min-width: 1025px) {
+/* Desktop: keep the central dropdown exactly in the middle of the header */
+@media (min-width: 1024px) {
+  header {
+    grid-template-columns: minmax(0, 1fr) max-content minmax(0, 1fr) !important;
+  }
+
+  .header-top-row {
+    justify-self: start;
+  }
+
   .menus-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    justify-self: center;
+    width: auto;
   }
 
   .menus-wrapper .br-menu {
     margin-left: 0;
     margin-right: 0;
+  }
+
+  #howToBtn {
+    justify-self: end;
   }
 }
