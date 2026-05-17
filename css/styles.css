@@ -387,6 +387,15 @@ th {
   word-break: break-word !important;
 }
 
+/* Keep table title rows visible below the sticky page header. */
+section table thead th {
+  position: sticky;
+  top: 124px;
+  z-index: 900;
+  background: #333;
+  box-shadow: 0 1px 0 #555;
+}
+
 tr:nth-child(even) { background: #1a1a1a; }
 tr:nth-child(odd) { background: #111; }
 .row-hover { background: #f0f8ff; }
@@ -594,6 +603,10 @@ table td:nth-child(3) {
   /* Burger mobile tweak */
   .br-menu > summary { padding: 9px 12px; font-size: 14px; width: fit-content; }
   .br-panel { margin-top: 12px; }
+
+  section table thead th {
+    top: 150px;
+  }
 }
 
 /* --- Tablet / Laptop (<768px) --- */
@@ -645,6 +658,10 @@ table td:nth-child(3) {
     padding: 8px 14px !important;
     margin: 0;
   }
+
+  section table thead th {
+    top: 146px;
+  }
 }
 
 /* --- Large Desktop (>=1024px) --- */
@@ -674,6 +691,10 @@ table td:nth-child(3) {
     width: fit-content !important; 
     justify-self: end; /* Aligns button to the right of the cell */
     margin: 0;
+  }
+
+  section table thead th {
+    top: 124px;
   }
 }
 
