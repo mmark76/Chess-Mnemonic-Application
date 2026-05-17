@@ -6,7 +6,22 @@
     return item.keyword || item.name || item.label || item.notes || "";
   }
 
+  function applyDefaultFullMoveMode() {
+    if (typeof locusMode !== "undefined" && !window.__cmaDefaultFullMoveApplied) {
+      locusMode = "full";
+      window.locusMode = "full";
+      window.__cmaDefaultFullMoveApplied = true;
+    }
+
+    var locusSelect = document.getElementById("locusMode");
+    if (locusSelect && locusSelect.value !== "full") {
+      locusSelect.value = "full";
+    }
+  }
+
   function applyFullMoveLocusDisplay() {
+    applyDefaultFullMoveMode();
+
     if (typeof locusMode === "undefined" || locusMode !== "full") return;
 
     var tableIds = ["sanBody", "assocBody", "paoBody", "shortnamesBody"];
@@ -93,7 +108,7 @@
     });
   }
 
-  function defaultHideAnchorAndColorColumns() {
+  function defaultHideAnchorColorAndActionColumns() {
     var sections = ["sanSection", "assocSection", "shortnamesSection", "pao99Section", "paoSection"];
 
     sections.forEach(function (sectionId) {
@@ -105,19 +120,20 @@
 
       applyDefaultHiddenColumn(section, table, 2, "cmaDefaultAnchorApplied");
       applyDefaultHiddenColumn(section, table, getColumnIndexByHeaderText(table, "Color Turn"), "cmaDefaultColorTurnApplied");
+      applyDefaultHiddenColumn(section, table, getColumnIndexByHeaderText(table, "Action"), "cmaDefaultActionApplied");
     });
   }
 
   function retryDefaultHiddenColumns() {
     defaultHideTargetSquareColumns();
-    defaultHideAnchorAndColorColumns();
+    defaultHideAnchorColorAndActionColumns();
     setTimeout(function () {
       defaultHideTargetSquareColumns();
-      defaultHideAnchorAndColorColumns();
+      defaultHideAnchorColorAndActionColumns();
     }, 250);
     setTimeout(function () {
       defaultHideTargetSquareColumns();
-      defaultHideAnchorAndColorColumns();
+      defaultHideAnchorColorAndActionColumns();
     }, 750);
   }
 
@@ -159,10 +175,11 @@
   if (typeof renderAll === "function") {
     var defaultRenderAll = renderAll;
     renderAll = function () {
+      applyDefaultFullMoveMode();
       defaultRenderAll.apply(this, arguments);
       applyFullMoveLocusDisplay();
       defaultHideTargetSquareColumns();
-      defaultHideAnchorAndColorColumns();
+      defaultHideAnchorColorAndActionColumns();
       insertPao09EducationalNote();
     };
   }
@@ -189,9 +206,15 @@
   }
 
   function applySmallUiFixes() {
+    applyDefaultFullMoveMode();
     applyFullMoveLocusDisplay();
     insertPao09EducationalNote();
     retryDefaultHiddenColumns();
+
+    if (typeof renderAll === "function" && Array.isArray(gameMoves) && gameMoves.length) {
+      renderAll();
+      if (typeof enableManualAnchors === "function") enableManualAnchors();
+    }
 
     var assocSection = document.getElementById("assocSection");
     if (assocSection) {
@@ -224,9 +247,10 @@
 
   window.CMAUserLibraryFix = {
     squareText: squareText,
+    applyDefaultFullMoveMode: applyDefaultFullMoveMode,
     applyFullMoveLocusDisplay: applyFullMoveLocusDisplay,
     defaultHideTargetSquareColumns: defaultHideTargetSquareColumns,
-    defaultHideAnchorAndColorColumns: defaultHideAnchorAndColorColumns,
+    defaultHideAnchorColorAndActionColumns: defaultHideAnchorColorAndActionColumns,
     insertPao09EducationalNote: insertPao09EducationalNote
   };
 })();
