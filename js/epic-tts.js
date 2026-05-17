@@ -196,6 +196,20 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(speakCurrentChunk, 100);
   }
 
+  function restartCurrentChunkWithCurrentSettings() {
+    if (!chunks.length) return;
+
+    if (chunkIndex >= chunks.length) {
+      chunkIndex = Math.max(0, chunks.length - 1);
+    }
+
+    isStopped = false;
+    currentUtterance = null;
+    window.speechSynthesis.cancel();
+    setStatus(`Reading ${chunkIndex + 1}/${chunks.length}`);
+    setTimeout(speakCurrentChunk, 100);
+  }
+
   playBtn.addEventListener("click", speakEpicStory);
 
   pauseBtn.addEventListener("click", () => {
@@ -216,13 +230,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   voiceSelect.addEventListener("change", () => {
     if (window.speechSynthesis.speaking || window.speechSynthesis.paused) {
-      speakEpicStory();
+      restartCurrentChunkWithCurrentSettings();
     }
   });
 
   rateSelect.addEventListener("change", () => {
     if (window.speechSynthesis.speaking || window.speechSynthesis.paused) {
-      speakEpicStory();
+      restartCurrentChunkWithCurrentSettings();
     }
   });
 
