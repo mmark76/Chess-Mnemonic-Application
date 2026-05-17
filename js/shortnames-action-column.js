@@ -208,3 +208,38 @@ function fillShortnamesTable(moves){
     body.appendChild(tr);
   });
 }
+
+/* Fix dynamic column-control labels after cms.bundle.js creates them. */
+document.addEventListener('DOMContentLoaded', () => {
+  function setLabelText(label, text) {
+    if (!label) return;
+    const checkbox = label.querySelector('input[type="checkbox"]');
+    label.textContent = '';
+    if (checkbox) {
+      label.appendChild(checkbox);
+      label.appendChild(document.createTextNode(' ' + text));
+    } else {
+      label.textContent = text;
+    }
+  }
+
+  function fixAssociationsToolbar() {
+    const section = document.getElementById('assocSection');
+    if (!section) return;
+
+    const headers = section.querySelectorAll('thead th');
+    if (headers.length >= 9) {
+      headers[7].textContent = 'Action';
+      headers[8].textContent = 'Target Square Association';
+    }
+
+    const labels = section.querySelectorAll('.table-toolbar label');
+    if (labels.length >= 9) {
+      setLabelText(labels[7], 'Action');
+      setLabelText(labels[8], 'Target Square Association');
+    }
+  }
+
+  fixAssociationsToolbar();
+  setTimeout(fixAssociationsToolbar, 500);
+});
