@@ -1,6 +1,6 @@
 # Chess Mnemonic Application & Epic Chess Stories Creator
 
-A web-based chess mnemonic application created by Markellos Markides. It transforms PGN/SAN chess games into structured mnemonic material using temporal loci, spatial loci, character associations, PAO systems, verse patterns, and epic narrative storytelling.
+A web-based chess mnemonic application created by Markellos Markides. It transforms PGN/SAN chess games into structured mnemonic material using temporal loci, spatial loci, character associations, shortnames, PAO systems, verse/rhythm patterns, and epic narrative storytelling.
 
 The project is designed as an **online static web application**. It does not use a backend server or database, but it is intended to run online because it depends on external browser resources and web services such as CDN libraries, analytics, translation tools, and other online assets.
 
@@ -8,12 +8,13 @@ The project is designed as an **online static web application**. It does not use
 
 ## 1. Purpose
 
-The application supports the study and memorization of chess games through a layered mnemonic method. A chess move is not treated only as notation, but as a memory event connected with:
+The application supports the study and memorization of chess games through a layered mnemonic method. A chess move is treated as a memory event connected with:
 
 - time,
 - place,
-- piece/character identity,
+- piece or character identity,
 - board square,
+- action or special chess event,
 - PAO encoding,
 - rhythm or verse,
 - and narrative meaning.
@@ -30,7 +31,7 @@ The project contains three main application areas:
    The central interface for loading PGN/SAN moves, parsing chess games, and generating mnemonic tables.
 
 2. **Flashcards Trainer**  
-   A separate study environment for training memory palaces, characters, PAO systems, and other mnemonic libraries.
+   A separate study environment for training memory palaces, characters, PAO systems, square associations, and other mnemonic libraries.
 
 3. **Chess PGN TTS Player**  
    A simple text-to-speech helper for listening to chess games or generated chess text.
@@ -47,25 +48,25 @@ Chess-Mnemonic-Application-main/
 ├── LICENSE                             # All rights reserved license
 ├── README.md                           # Project documentation
 ├── favicon.ico
-├── start_server.bat                    # Optional local helper for testing with a local HTTP server
+├── start_server.bat                    # Optional local helper for local testing
 │
 ├── assets/
 │   ├── chess-and-mnemonics.png
 │   └── memory_palace_image.png
 │
 ├── css/
-│   ├── styles.css                      # Main application styling
+│   ├── styles.css                      # Main application styling and responsive layout
 │   └── menu.css                        # Menu-specific styling
 │
 ├── js/
 │   ├── cms.bundle.js                   # Core application engine
+│   ├── shortnames-action-column.js     # Shortnames and Associations action/castling overrides
 │   ├── download-tables.js              # Export tools for tables
 │   ├── epic.js                         # Active Epic Story generator
 │   ├── epic-ui-init.js                 # Epic Story UI initialization/styling support
 │   ├── san-to-text-popup.js            # SAN-to-text popup helper
 │   ├── structured-data.js              # SEO structured data
-│   ├── user-libraries-history.js       # User library import/history support
-│   └── user-library-runtime-fix.js     # Runtime support for imported user libraries
+│   └── user-libraries-history.js       # User library import/history support
 │
 ├── json/
 │   ├── libraries_v.5.1.json            # Older library version
@@ -103,6 +104,12 @@ Its main logic is handled by:
 js/cms.bundle.js
 ```
 
+Additional current table-specific logic is handled by:
+
+```text
+js/shortnames-action-column.js
+```
+
 The main application supports:
 
 - loading PGN chess games,
@@ -110,6 +117,7 @@ The main application supports:
 - parsing moves through the browser,
 - generating SAN and plain-text move information,
 - building association tables,
+- generating shortname tables,
 - generating PAO tables,
 - producing verse/rhythm-based mnemonic material,
 - creating Epic Story output,
@@ -119,8 +127,6 @@ The main application supports:
 ---
 
 ## 5. Core Mnemonic Layers
-
-The application uses multiple mnemonic layers.
 
 ### 5.1 Temporal Memory
 
@@ -132,7 +138,7 @@ In the Epic Story output, half-moves should be labelled using the fullmove numbe
 1w, 1b, 2w, 2b, 3w, 3b ...
 ```
 
-This means that the fullmove number increases only after Black's move, while each half-move keeps the fullmove number and adds:
+The fullmove number increases only after Black's move, while each half-move keeps the fullmove number and adds:
 
 - `w` for White,
 - `b` for Black.
@@ -145,15 +151,38 @@ Board squares are connected with spatial associations and memory scenes.
 
 Pieces and pawns are linked with character images, identities, or symbolic agents.
 
-### 5.4 PAO Systems
+### 5.4 Action / Special Move Memory
 
-The application supports PAO-based encoding, including PAO 0–9 and PAO 00–99 material.
+The current tables separate special chess actions from the moving piece and the target square where needed.
 
-### 5.5 Verse and Rhythm
+Examples include:
+
+- `x` for capture,
+- `+` for check,
+- `#` for checkmate,
+- `O-O` for kingside castling,
+- `O-O-O` for queenside castling.
+
+### 5.5 PAO Systems
+
+The application supports PAO-based encoding, including PAO 0-9 and PAO 00-99 material.
+
+### 5.6 Shortnames
+
+The Shortnames layer provides compact mnemonic labels for pieces and target squares.
+
+Current specific shortname behaviour includes:
+
+- `Pb2` is displayed as `Bruce`.
+- Castling uses a dedicated castling mnemonic image name in the piece shortname field.
+- The Shortnames table includes a dedicated `Action` column.
+- For captures, checks, and checkmates, the `Action` column can display `x`, `+`, or `#`.
+
+### 5.7 Verse and Rhythm
 
 Some outputs use short poetic or rhythmic structures to make recall easier.
 
-### 5.6 Epic Story
+### 5.8 Epic Story
 
 The Epic Story generator creates a continuous narrative from the chess game. It is handled by:
 
@@ -161,7 +190,63 @@ The Epic Story generator creates a continuous narrative from the chess game. It 
 js/epic.js
 ```
 
-## 6. Libraries
+---
+
+## 6. Current Table Outputs
+
+### 6.1 SAN Table
+
+The SAN table provides the basic parsed move information, including move number, SAN notation, optional anchor marker, mnemonic locus, color turn, piece, and target square.
+
+### 6.2 Associations Table
+
+The Associations table now uses the following structure:
+
+```text
+Move # | SAN | Anchor | Mnemonic Locus | Target Square | Color Turn | Piece Association | Action | Target Square Association
+```
+
+For ordinary moves, the table links the moving piece association with the destination square association.
+
+For castling:
+
+```text
+Piece Association: dedicated castling mnemonic image name
+Action: O-O or O-O-O
+Target Square Association: final king square association
+```
+
+This means the castling mnemonic image is separated from the castling action and from the king's final destination square.
+
+### 6.3 Shortnames Table
+
+The Shortnames table now uses the following structure:
+
+```text
+Move # | SAN | Anchor | Mnemonic Locus | Target Square | Color Turn | Piece Shortname | Action | Target Square Shortname
+```
+
+For ordinary moves, the piece shortname follows the moving piece from square to square.
+
+For captures, checks, and checkmates, the `Action` column can show:
+
+```text
+x, +, #
+```
+
+For castling, the table uses a dedicated castling mnemonic image name in the `Piece Shortname` field, while preserving the final king destination as the target square shortname.
+
+### 6.4 PAO 0-9 Table
+
+The PAO 0-9 table converts the move into a compact piece-file-rank code and displays the corresponding PAO material.
+
+### 6.5 PAO 00-99 Table
+
+The PAO 00-99 table works on full moves and combines White and Black move information into a six-digit structure.
+
+---
+
+## 7. Libraries
 
 The core mnemonic libraries are stored in:
 
@@ -180,7 +265,7 @@ The current application should use `libraries_v.5.3.json` as the main data sourc
 
 ---
 
-## 7. User Libraries
+## 8. User Libraries
 
 User library templates are stored in:
 
@@ -197,19 +282,13 @@ Available templates include:
 
 These files are templates for user-defined mnemonic material and can be imported through the application where supported.
 
-The helper file:
-
-```text
-js/user-library-runtime-fix.js
-```
-
-adds runtime support so imported user PAO 00–99 and Squares libraries can override the default display where supported.
+To import or load a user library, the file must follow the official template structure.
 
 There is no `user_custom.js` file in the current structure.
 
 ---
 
-## 8. Flashcards Trainer
+## 9. Flashcards Trainer
 
 The Flashcards Trainer is located in:
 
@@ -223,17 +302,11 @@ Its logic is handled by:
 flashcards/script.js
 ```
 
-It is used for studying and reinforcing mnemonic libraries such as:
-
-- memory palaces,
-- square associations,
-- characters,
-- PAO systems,
-- and other structured mnemonic decks.
+It is used for studying and reinforcing mnemonic libraries such as memory palaces, square associations, characters, PAO systems, and other structured mnemonic decks.
 
 ---
 
-## 9. Chess PGN TTS Player
+## 10. Chess PGN TTS Player
 
 The Chess PGN TTS helper is located in:
 
@@ -245,7 +318,7 @@ It supports listening to chess-related text or PGN-derived material through brow
 
 ---
 
-## 10. Export Tools
+## 11. Export Tools
 
 The application includes table export functionality through:
 
@@ -261,7 +334,15 @@ Supported export formats include:
 
 ---
 
-## 11. Online Use
+## 12. Responsive Layout
+
+The interface includes responsive layout adjustments for mobile screens, tablet portrait and landscape layouts, large tablet / small laptop screens, and desktop layouts.
+
+The header layout has been adjusted so the main menu and the `How to create the Epic Story` button do not overlap on tablet-sized screens.
+
+---
+
+## 13. Online Use
 
 This project is intended to work **online**.
 
@@ -271,7 +352,7 @@ For this reason, full offline operation is not a project requirement.
 
 ---
 
-## 12. Local Testing
+## 14. Local Testing
 
 The file:
 
@@ -283,7 +364,7 @@ can be used as a helper for local testing on Windows. Local testing is useful du
 
 ---
 
-## 13. Disclaimer
+## 15. Disclaimer
 
 This project is a personal cognitive and educational tool. It is provided for chess study, mnemonic experimentation, and personal learning workflows.
 
@@ -295,7 +376,7 @@ Disclaimer.txt
 
 ---
 
-## 14. License
+## 16. License
 
 This project is publicly visible for transparency, documentation, educational reference, and project demonstration purposes only.
 
@@ -309,8 +390,8 @@ No open-source license is granted.
 
 ---
 
-## 15. Author
+## 17. Author
 
 Created by Markellos Markides.
 
-© 2025–2026 Markellos Markides. All rights reserved.
+© 2025-2026 Markellos Markides. All rights reserved.
