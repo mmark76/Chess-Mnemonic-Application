@@ -1,15 +1,20 @@
 /* ======================================================
-   Markellos Flashcards - Libraries v.3.3
-   Main Stylesheet
+   Markellos Flashcards - Libraries v.3.4
+   Main Stylesheet - Laptop / Tablet / Mobile
    ====================================================== */
 
-/* === 1. Βασικές Ρυθμίσεις === */
+/* === 1. Base / Laptop layout === */
+* {
+  box-sizing: border-box;
+}
+
 body {
   background: #0b1020;
   color: #e8ecf1;
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 20px;
+  padding-bottom: 80px;
   scroll-padding-top: 120px;
 }
 
@@ -19,7 +24,7 @@ header {
   top: 0;
   z-index: 800;
   background: linear-gradient(180deg, #0b1020 0%, #162247 100%);
-  padding: 6px 16px 10px;
+  padding: 8px 16px 12px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
   border-radius: 0 0 12px 12px;
   text-align: left;
@@ -29,22 +34,22 @@ header h1 {
   font-size: 2em;
   font-weight: 900;
   color: #e8ecf1;
-  margin: 2px 0 6px; /* μικρό κενό πάνω και κάτω */
+  margin: 2px 0 8px;
   text-shadow: 0 0 8px rgba(100, 150, 255, 0.25);
 }
 
-/* === Κάτω γραμμή: Κουμπιά & Google Translate === */
 .header-bottom {
   display: flex;
-  align-items: center;       
+  align-items: center;
   justify-content: space-between;
-  min-height: 40px;           
+  gap: 12px;
+  min-height: 40px;
   margin-top: 4px;
 }
 
-/* === 3. Header Links === */
 .header-links {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
 }
 
@@ -55,7 +60,7 @@ header h1 {
   text-decoration: none;
   padding: 9px 16px;
   border-radius: 999px;
-  font-size: 1.05em;
+  font-size: 1.02em;
   font-weight: 600;
   border: 1px solid #5b78ff;
   box-shadow: 0 0 6px rgba(100, 150, 255, 0.3);
@@ -68,7 +73,6 @@ header h1 {
   transform: translateY(-2px);
 }
 
-/* === 4. Google Translate === */
 #google_translate_element {
   display: flex;
   align-items: center;
@@ -77,15 +81,14 @@ header h1 {
   font-size: 1em;
 }
 
-/* === Copyrighted-badge === */
 .copyrighted-badge {
   position: absolute;
   right: 20px;
-  top: 20px;   /* ↓ ρυθμίζει το ύψος  */
+  top: 20px;
   z-index: 1000;
 }
 
-/* === 5. Διάταξη (3 στήλες) === */
+/* === 3. Main layout === */
 .app {
   width: min(1400px, 100%);
   margin: auto;
@@ -94,7 +97,6 @@ header h1 {
   gap: 20px;
 }
 
-/* === 6. Κάρτες === */
 .card {
   border: 1px solid #26324d;
   border-radius: 16px;
@@ -102,33 +104,45 @@ header h1 {
   background: #121a33;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
+
 .title {
   margin: 0 0 10px;
   font-weight: 700;
   font-size: 1.2em;
 }
+
 .status {
   font-size: 15px;
   opacity: 0.85;
   margin-bottom: 16px;
 }
+
 .grid {
   display: grid;
   gap: 12px;
 }
 
-/* === 7. Flashcards Box === */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+/* === 4. Flashcards Box === */
 #cardBox {
   border: 1px dashed #324569;
   border-radius: 12px;
   padding: 24px;
   text-align: center;
 }
+
 #front {
   font-size: 32px;
   font-weight: 600;
   margin: 0 0 14px;
 }
+
 #back {
   font-size: 22px;
   display: none;
@@ -136,12 +150,13 @@ header h1 {
   text-align: left;
 }
 
-/* === 8. Βιβλιοθήκες === */
+/* === 5. Libraries === */
 .libraries-group {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
+
 .library {
   background: #121a33;
   border: 1px solid #26324d;
@@ -149,6 +164,7 @@ header h1 {
   padding: 12px 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
+
 .library span {
   display: block;
   font-weight: 600;
@@ -156,7 +172,7 @@ header h1 {
   margin-bottom: 8px;
 }
 
-/* === 9. Κουμπιά και Φόρμες === */
+/* === 6. Buttons and forms === */
 .lib-btn,
 button,
 select,
@@ -171,6 +187,7 @@ label {
   cursor: pointer;
   transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
 }
+
 .lib-btn:hover,
 button:hover,
 select:hover,
@@ -179,6 +196,7 @@ label:hover {
   box-shadow: 0 0 8px rgba(120, 170, 255, 0.25);
   transform: translateY(-2px);
 }
+
 .lib-btn:focus,
 button:focus,
 select:focus,
@@ -187,7 +205,14 @@ label:focus {
   outline-offset: 2px;
 }
 
-/* === 10. Textarea (readonly) === */
+button:disabled {
+  cursor: default;
+  opacity: 0.55;
+  transform: none;
+  box-shadow: none;
+}
+
+/* === 7. Textarea === */
 #libraryText {
   background: #10182c;
   color: #e8ecf1;
@@ -197,64 +222,149 @@ label:focus {
   font-family: monospace;
   white-space: pre;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
-  width: 93%;
+  width: 100%;
   height: 90%;
+  min-height: 420px;
   font-size: 15px;
   line-height: 1.5;
 }
 
-/* === 11. Πίνακας Κωδικοποίησης === */
+/* === 8. Coding table === */
 #codingBox {
   grid-column: 1 / span 3;
   background: linear-gradient(145deg, #10182c, #182444);
   padding: 24px;
   border-radius: 16px;
 }
+
 #codingTable {
   width: 100%;
   border-collapse: collapse;
   font-size: 17px;
 }
+
 #codingTable th,
 #codingTable td {
   border: 1px solid #324569;
   padding: 10px 14px;
   text-align: center;
 }
+
 #codingTable th {
   background: #223166;
   font-weight: 700;
   color: #e8ecf1;
 }
+
 #codingTable tr:nth-child(even) {
   background: #1a2540;
 }
+
 #codingTable tr:nth-child(odd) {
   background: #121a33;
 }
+
 #codingTable td {
   color: #cfd8f3;
 }
 
-/* === 12. Responsive Σχεδίαση === */
-@media (max-width: 900px) {
-  .app {
-    grid-template-columns: 1fr;
+/* ======================================================
+   LEVEL 2: Tablet layout
+   601px - 1024px
+   ====================================================== */
+@media (min-width: 601px) and (max-width: 1024px) {
+  body {
+    padding: 16px;
+    padding-bottom: 88px;
   }
-  #codingBox {
-    grid-column: 1;
+
+  header {
+    position: static;
+    padding: 12px 16px;
   }
+
   header h1 {
-    font-size: 1.6em;
+    font-size: 1.75em;
+    line-height: 1.15;
   }
+
   .header-bottom {
     flex-direction: column;
+    align-items: center;
     gap: 10px;
-    align-items: stretch;
+  }
+
+  .header-links {
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .header-links a {
+    width: auto;
+    max-width: 360px;
+    padding: 10px 16px;
+    font-size: 0.98em;
+    text-align: center;
+  }
+
+  #google_translate_element {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .app {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .card {
+    padding: 18px;
+    border-radius: 15px;
+  }
+
+  .card:nth-child(3),
+  #codingBox {
+    grid-column: 1 / span 2;
+  }
+
+  .row {
+    justify-content: center;
+  }
+
+  .lib-btn,
+  button,
+  select,
+  label {
+    padding: 9px 14px;
+    font-size: 0.95em;
+  }
+
+  #cardBox {
+    padding: 22px 18px;
+  }
+
+  #front {
+    font-size: 30px;
+  }
+
+  #back {
+    font-size: 20px;
+  }
+
+  #libraryText {
+    min-height: 360px;
+  }
+
+  #codingTable {
+    font-size: 15px;
   }
 }
 
-/* Mobile layout improvements */
+/* ======================================================
+   LEVEL 1: Mobile layout
+   up to 600px
+   ====================================================== */
 @media (max-width: 600px) {
   body {
     padding: 10px;
@@ -269,30 +379,32 @@ label:focus {
   }
 
   header h1 {
-    font-size: 1.65em;
+    font-size: 1.45em;
     line-height: 1.15;
     text-align: left;
   }
 
   .header-bottom {
+    flex-direction: column;
+    align-items: center;
     width: 100%;
+    gap: 10px;
   }
 
   .header-links {
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     width: 100%;
   }
 
   .header-links a {
     display: block;
-    width: 92%;
-    max-width: 340px;
-    box-sizing: border-box;
+    width: 90%;
+    max-width: 300px;
     margin: 0;
-    padding: 11px 14px;
-    font-size: 0.95em;
+    padding: 9px 12px;
+    font-size: 0.9em;
     line-height: 1.15;
     text-align: center;
     white-space: normal;
@@ -306,66 +418,82 @@ label:focus {
   }
 
   .app {
+    grid-template-columns: 1fr;
     width: 100%;
     gap: 14px;
   }
 
-  .card {
+  .card,
+  .card:nth-child(3),
+  #codingBox {
+    grid-column: 1;
     width: 100%;
-    box-sizing: border-box;
-    padding: 16px;
+  }
+
+  .card {
+    padding: 14px;
     border-radius: 14px;
+  }
+
+  .title {
+    font-size: 1.08em;
+  }
+
+  .status {
+    font-size: 14px;
   }
 
   .row {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
+    gap: 7px;
   }
 
   .lib-btn,
   button,
   select,
   label {
-    width: 92%;
-    max-width: 320px;
-    box-sizing: border-box;
-    margin: 3px auto;
-    padding: 10px 14px;
-    font-size: 0.95em;
+    width: 90%;
+    max-width: 300px;
+    margin: 2px auto;
+    padding: 8px 12px;
+    font-size: 0.9em;
     text-align: center;
   }
 
   #cardBox {
-    padding: 20px 14px;
+    padding: 18px 12px;
   }
 
   #front {
-    font-size: 30px;
+    font-size: 28px;
     line-height: 1.2;
   }
 
   #back {
-    font-size: 19px;
+    font-size: 18px;
+  }
+
+  .library {
+    padding: 12px;
   }
 
   #libraryText {
     width: 100%;
-    box-sizing: border-box;
-    min-height: 320px;
+    min-height: 300px;
+    font-size: 14px;
   }
 
   #codingTable {
     display: block;
     overflow-x: auto;
-    font-size: 15px;
+    font-size: 14px;
   }
 
   footer {
     font-size: 0.65em;
     padding: 6px 8px;
-    box-sizing: border-box;
   }
 }
 
@@ -378,23 +506,6 @@ footer {
   font-size: 0.7em;
   position: fixed;
   bottom: 0;
-  left: 0;       /* <-- αυτό λείπει */
+  left: 0;
   width: 100%;
 }
-
-body {
-  padding-bottom: 80px;   /* ➜ αφήνει κενό ώστε να μην ακουμπά ο πίνακας στο footer */
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
