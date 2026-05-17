@@ -1,6 +1,6 @@
 # Chess Mnemonic Application & Epic Chess Stories Creator
 
-A web-based chess mnemonic application created by Markellos Markides. It transforms PGN/SAN chess games into structured mnemonic material using temporal loci, spatial loci, character associations, shortnames, PAO systems, verse/rhythm patterns, and epic narrative storytelling.
+A web-based chess mnemonic application created by Markellos Markides. It transforms PGN/SAN chess games into structured mnemonic material using temporal loci, spatial loci, character associations, shortnames, PAO systems, SAN-to-text output, and epic narrative storytelling.
 
 The project is designed as an **online static web application**. It does not use a backend server or database, but it is intended to run online because it depends on external browser resources and web services such as CDN libraries, analytics, translation tools, and other online assets.
 
@@ -16,10 +16,11 @@ The application supports the study and memorization of chess games through a lay
 - board square,
 - action or special chess event,
 - PAO encoding,
-- rhythm or verse,
+- shortnames,
+- plain SAN-to-text reading,
 - and narrative meaning.
 
-The main goal is to help the user convert chess games into memorable internal stories and structured mnemonic histories.
+The main goal is to help the user convert chess games into memorable internal stories, structured mnemonic tables, and readable or listenable chess text.
 
 ---
 
@@ -44,7 +45,7 @@ The project contains three main application areas:
 Chess-Mnemonic-Application-main/
 ├── index.html                          # Main Chess Mnemonic Application UI
 ├── CNAME                               # Custom domain configuration
-├── Disclaimer.txt                      # Project disclaimer
+├── Disclaimer.txt                      # Project disclaimer and guidance notes
 ├── LICENSE                             # All rights reserved license
 ├── README.md                           # Project documentation
 ├── favicon.ico
@@ -61,12 +62,13 @@ Chess-Mnemonic-Application-main/
 ├── js/
 │   ├── cms.bundle.js                   # Core application engine
 │   ├── shortnames-action-column.js     # Shortnames and Associations action/castling overrides
+│   ├── user-libraries-history.js       # User library import/history support
+│   ├── user-library-runtime-fix.js     # Runtime support for user libraries and UI display refinements
 │   ├── download-tables.js              # Export tools for tables
 │   ├── epic.js                         # Active Epic Story generator
 │   ├── epic-ui-init.js                 # Epic Story UI initialization/styling support
 │   ├── san-to-text-popup.js            # SAN-to-text popup helper
-│   ├── structured-data.js              # SEO structured data
-│   └── user-libraries-history.js       # User library import/history support
+│   └── structured-data.js              # SEO structured data
 │
 ├── json/
 │   ├── libraries_v.5.1.json            # Older library version
@@ -104,10 +106,13 @@ Its main logic is handled by:
 js/cms.bundle.js
 ```
 
-Additional current table-specific logic is handled by:
+Additional current table-specific and runtime support logic is handled by:
 
 ```text
 js/shortnames-action-column.js
+js/user-library-runtime-fix.js
+js/san-to-text-popup.js
+js/epic.js
 ```
 
 The main application supports:
@@ -119,9 +124,9 @@ The main application supports:
 - building association tables,
 - generating shortname tables,
 - generating PAO tables,
-- producing verse/rhythm-based mnemonic material,
 - creating Epic Story output,
 - importing user libraries,
+- hiding/showing table columns,
 - and exporting generated material.
 
 ---
@@ -130,18 +135,38 @@ The main application supports:
 
 ### 5.1 Temporal Memory
 
-Moves are connected with temporal loci. The system can work with full-move logic and half-move display logic depending on the relevant table or story output.
-
-In the Epic Story output, half-moves should be labelled using the fullmove number plus side:
+Moves are connected with temporal loci. The application supports two memory palace modes:
 
 ```text
-1w, 1b, 2w, 2b, 3w, 3b ...
+Ply / half-move mode
+Full-move mode
 ```
 
-The fullmove number increases only after Black's move, while each half-move keeps the fullmove number and adds:
+In **Ply / half-move mode**, every half-move receives its own temporal locus:
 
-- `w` for White,
-- `b` for Black.
+```text
+1. d4   → locus 1
+1... d5 → locus 2
+2. Nf3  → locus 3
+2... e6 → locus 4
+```
+
+In **Full-move mode**, both half-moves of the same full move share the same temporal locus:
+
+```text
+1. d4   → locus 1
+1... d5 → locus 1
+2. Nf3  → locus 2
+2... e6 → locus 2
+```
+
+For cleaner visual presentation in the main move-by-move tables, when Full-move mode is active the locus is displayed only on the White row and the Black row is left blank. Internally, both half-moves still belong to the same full-move locus.
+
+This means:
+
+```text
+Full move = one temporal scene = one locus
+```
 
 ### 5.2 Spatial Memory
 
@@ -165,7 +190,33 @@ Examples include:
 
 ### 5.5 PAO Systems
 
-The application supports PAO-based encoding, including PAO 0-9 and PAO 00-99 material.
+The application supports two PAO-based encoding outputs:
+
+- **PAO 00–99** — the main full-move PAO encoding table.
+- **PAO 0–9** — an educational and explanatory table for Piece–File–Rank encoding of single moves.
+
+The **PAO 0–9 table** is included to explain how a single chess move can be translated into a simple three-part code:
+
+```text
+Piece → File → Rank
+```
+
+For example, a move is decomposed into:
+
+```text
+Piece identity + destination file + destination rank
+```
+
+This makes the PAO 0–9 table useful for learning, checking, and understanding the basic encoding mechanism behind the system. However, because it uses only a small 0–9 set, many mnemonic images repeat frequently. For that reason, it is not intended to be the main method for memorizing complete chess games.
+
+For complete-game memorization, the more suitable outputs are generally:
+
+- Temporal Loci,
+- Associations,
+- Shortnames,
+- PAO 00–99,
+- SAN-to-text output,
+- and Epic Story.
 
 ### 5.6 Shortnames
 
@@ -178,9 +229,9 @@ Current specific shortname behaviour includes:
 - The Shortnames table includes a dedicated `Action` column.
 - For captures, checks, and checkmates, the `Action` column can display `x`, `+`, or `#`.
 
-### 5.7 Verse and Rhythm
+### 5.7 SAN-to-Text Output
 
-Some outputs use short poetic or rhythmic structures to make recall easier.
+The SAN-to-text popup converts the parsed game into plain readable text. It supports Full-move and Half-move views and can optionally include loci. This output is intended for reading, copying, or listening through a TTS workflow.
 
 ### 5.8 Epic Story
 
@@ -190,17 +241,44 @@ The Epic Story generator creates a continuous narrative from the chess game. It 
 js/epic.js
 ```
 
+The Epic Story combines:
+
+- PGN header information,
+- SAN-derived move text,
+- temporal loci,
+- piece associations,
+- target square associations,
+- and narrative phrasing.
+
 ---
 
 ## 6. Current Table Outputs
 
+The current table selection order in the main dropdown is:
+
+```text
+1. SAN Table
+2. Associations
+3. Shortnames
+4. PAO 00–99
+5. PAO 0–9
+```
+
+This order follows the preferred study flow: from basic chess information to richer mnemonic outputs, with PAO 0–9 kept last as an educational helper.
+
 ### 6.1 SAN Table
 
-The SAN table provides the basic parsed move information, including move number, SAN notation, optional anchor marker, mnemonic locus, color turn, piece, and target square.
+The SAN table provides the basic parsed move information, including:
+
+```text
+Move # | SAN | Anchor | Mnemonic Locus | Color Turn | Piece | Target Square
+```
+
+The `Target Square` column remains visible by default in the SAN table because it is basic chess information and there is no separate target square association column in this table.
 
 ### 6.2 Associations Table
 
-The Associations table now uses the following structure:
+The Associations table uses the following structure:
 
 ```text
 Move # | SAN | Anchor | Mnemonic Locus | Target Square | Color Turn | Piece Association | Action | Target Square Association
@@ -216,11 +294,11 @@ Action: O-O or O-O-O
 Target Square Association: final king square association
 ```
 
-This means the castling mnemonic image is separated from the castling action and from the king's final destination square.
+The `Target Square` column is hidden by default in this table because the user normally studies the richer `Target Square Association`. The column remains available through the checkbox controls.
 
 ### 6.3 Shortnames Table
 
-The Shortnames table now uses the following structure:
+The Shortnames table uses the following structure:
 
 ```text
 Move # | SAN | Anchor | Mnemonic Locus | Target Square | Color Turn | Piece Shortname | Action | Target Square Shortname
@@ -236,13 +314,41 @@ x, +, #
 
 For castling, the table uses a dedicated castling mnemonic image name in the `Piece Shortname` field, while preserving the final king destination as the target square shortname.
 
-### 6.4 PAO 0-9 Table
+The `Target Square` column is hidden by default in this table because the user normally studies the richer `Target Square Shortname`. The column remains available through the checkbox controls.
 
-The PAO 0-9 table converts the move into a compact piece-file-rank code and displays the corresponding PAO material.
+### 6.4 PAO 00–99 Table
 
-### 6.5 PAO 00-99 Table
+The PAO 00–99 table works on full moves and combines White and Black move information into a six-digit structure.
 
-The PAO 00-99 table works on full moves and combines White and Black move information into a six-digit structure.
+Example logic:
+
+```text
+1. d4 d5 → one full-move PAO code
+```
+
+This is the main PAO table for full-game mnemonic encoding.
+
+### 6.5 PAO 0–9 Table
+
+The PAO 0–9 table converts each single move into a compact Piece–File–Rank code and displays the corresponding PAO material.
+
+Its main uses are:
+
+- to explain how the basic Piece–File–Rank encoding works,
+- to help the user understand how a move is transformed into code,
+- to provide a simple educational bridge before PAO 00–99,
+- to help with checking/debugging whether the app reads piece and destination-square data correctly.
+
+It is mainly an educational and explanatory table. It is not intended as the main full-game memorization method because the limited 0–9 PAO set creates many repeated mnemonic images.
+
+For full-game memorization, the more suitable outputs are generally:
+
+- Temporal Loci,
+- Associations,
+- Shortnames,
+- PAO 00–99,
+- SAN-to-text output,
+- and Epic Story.
 
 ---
 
@@ -283,6 +389,13 @@ Available templates include:
 These files are templates for user-defined mnemonic material and can be imported through the application where supported.
 
 To import or load a user library, the file must follow the official template structure.
+
+Runtime support for imported user libraries is handled by:
+
+```text
+js/user-libraries-history.js
+js/user-library-runtime-fix.js
+```
 
 There is no `user_custom.js` file in the current structure.
 
