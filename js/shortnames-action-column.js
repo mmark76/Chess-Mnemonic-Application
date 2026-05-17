@@ -8,6 +8,10 @@ function castlingMnemonicName() {
   return String.fromCharCode(83, 112, 105, 100, 101, 114, 109, 97, 110);
 }
 
+function castlingShortnameName() {
+  return 'Peter';
+}
+
 function shortnameActionFromSan(san) {
   const text = String(san || '');
   const actions = [];
@@ -152,7 +156,7 @@ function fillShortnamesTable(moves){
     const action = shortnameActionFromSan(m.san);
 
     if(sanClean.startsWith('O-O')){
-      pieceShortname = castlingMnemonicName();
+      pieceShortname = castlingShortnameName();
 
       const long  = sanClean.startsWith('O-O-O');
       const white = (m.side === 'White');
