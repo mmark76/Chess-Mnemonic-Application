@@ -6,6 +6,8 @@
 
 ⚠️ To import or load a library, the file must follow exactly the structure of the official Library Templates. You may download the official templates using the Download Libraries Templates (zip) button or create correctly structured files through the Create Library feature.
 
+ℹ️ Note on the PAO 0–9 Table: The PAO 0–9 table is mainly an educational and explanatory tool. It shows how a single chess move can be encoded through a simple Piece–File–Rank structure. Because it uses a small set of repeated mnemonic elements, it is not intended to be the main method for memorizing a complete chess game. For full-game memorization, the PAO 00–99 table, Associations, Shortnames, Temporal Loci, and Epic Story outputs are generally more suitable.
+
 ⚠️ This application is designed for online use. Some functions depend on external online libraries and may not work if these services are unavailable.
 
 ℹ️ Recommended screen resolution: 1920×1080 for the best viewing experience.
