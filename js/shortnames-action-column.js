@@ -19,6 +19,14 @@ function shortnameActionFromSan(san) {
   return actions.join(' ');
 }
 
+function associationActionFromSan(san) {
+  const text = String(san || '');
+  const clean = text.replace(/[+#?!]+/g, '');
+  if (clean.startsWith('O-O-O')) return 'O-O-O';
+  if (clean.startsWith('O-O')) return 'O-O';
+  return shortnameActionFromSan(text);
+}
+
 function characterShortnameOverride(square, pieceLetter) {
   const key = `${pieceLetter}${square || ''}`;
   if (key === 'Pb2') return 'Bruce';
@@ -76,6 +84,8 @@ function fillAssociationsTable(moves){
     if(m.from) delete assocBySquare[m.from];
 
     const sanClean = (m.san||'').replace(/[+#?!]+/g,'');
+    const action = associationActionFromSan(m.san);
+
     if(sanClean.startsWith('O-O')){
       pieceAssoc = castlingMnemonicName();
 
@@ -113,6 +123,7 @@ function fillAssociationsTable(moves){
       `<td>${escapeHtml(m.to)}</td>`+
       `<td>${escapeHtml(sideGR(m.side))}</td>`+
       `<td>${escapeHtml(pieceAssoc)}</td>`+
+      `<td>${escapeHtml(action)}</td>`+
       `<td>${escapeHtml(targetAssoc)}</td>`;
     body.appendChild(tr);
   });
