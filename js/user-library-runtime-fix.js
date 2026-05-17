@@ -24,12 +24,20 @@
     defaultAssociations(moves);
     var body = document.getElementById("assocBody");
     if (!body) return;
+
     Array.prototype.forEach.call(body.querySelectorAll("tr"), function (row) {
-      var targetCell = row.children && row.children[4];
-      var assocCell = row.children && row.children[7];
-      if (!targetCell || !assocCell) return;
+      var cells = row.children || [];
+      var targetCell = cells[4];
+
+      // Current Associations table layout has 9 columns:
+      // 0 Move # | 1 SAN | 2 Anchor | 3 Mnemonic Locus | 4 Target Square |
+      // 5 Color Turn | 6 Piece Association | 7 Action | 8 Target Square Association.
+      // Keep a fallback for any older 8-column cached layout.
+      var targetAssociationCell = cells.length >= 9 ? cells[8] : cells[7];
+
+      if (!targetCell || !targetAssociationCell) return;
       var userText = squareText(targetCell.textContent.trim());
-      if (userText) assocCell.textContent = userText;
+      if (userText) targetAssociationCell.textContent = userText;
     });
   };
 
@@ -42,11 +50,32 @@
     }, 80);
   };
 
+  function setToolbarLabel(label, text) {
+    if (!label) return;
+    var checkbox = label.querySelector && label.querySelector('input[type="checkbox"]');
+    label.textContent = "";
+    if (checkbox) {
+      label.appendChild(checkbox);
+      label.appendChild(document.createTextNode(" " + text));
+    } else {
+      label.textContent = text;
+    }
+  }
+
   function applySmallUiFixes() {
     var assocSection = document.getElementById("assocSection");
     if (assocSection) {
       var headers = assocSection.querySelectorAll("thead th");
-      if (headers && headers[7]) headers[7].textContent = "Target Square Association";
+      if (headers && headers.length >= 9) {
+        headers[7].textContent = "Action";
+        headers[8].textContent = "Target Square Association";
+      }
+
+      var labels = assocSection.querySelectorAll(".table-toolbar label");
+      if (labels && labels.length >= 9) {
+        setToolbarLabel(labels[7], "Action");
+        setToolbarLabel(labels[8], "Target Square Association");
+      }
     }
 
     var popup = document.getElementById("popupOverlay");
