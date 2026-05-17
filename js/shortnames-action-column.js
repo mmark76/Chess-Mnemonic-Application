@@ -14,6 +14,12 @@ function shortnameActionFromSan(san) {
   return actions.join(' ');
 }
 
+function characterShortnameOverride(square, pieceLetter) {
+  const key = `${pieceLetter}${square || ''}`;
+  if (key === 'Pb2') return 'Bruce';
+  return characterShortnameBySquare(square, pieceLetter);
+}
+
 function fillShortnamesTable(moves){
   const body = document.getElementById('shortnamesBody');
   if(!body) return;
@@ -23,14 +29,14 @@ function fillShortnamesTable(moves){
 
   const getShortnameFor = (pieceLetter, fromSq) =>
     shortnameBySquare[fromSq] ||
-    characterShortnameBySquare(fromSq, pieceLetter) ||
+    characterShortnameOverride(fromSq, pieceLetter) ||
     pieceGreek(pieceLetter);
 
   moves.forEach(m=>{
     const locus  = locusForMove(m);
     const anchor = anchorForMove(m.index);
 
-    let pieceShortname = shortnameBySquare[m.from] || characterShortnameBySquare(m.from, m.piece) || pieceGreek(m.piece);
+    let pieceShortname = shortnameBySquare[m.from] || characterShortnameOverride(m.from, m.piece) || pieceGreek(m.piece);
     if(m.from) delete shortnameBySquare[m.from];
 
     const sanClean = (m.san || '').replace(/[+#?!]+/g,'');
