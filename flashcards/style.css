@@ -374,6 +374,7 @@ button:disabled {
 
   header {
     position: static;
+    width: 100%;
     padding: 12px;
     border-radius: 0 0 14px 14px;
   }
@@ -420,7 +421,9 @@ button:disabled {
   .app {
     grid-template-columns: 1fr;
     width: 100%;
+    max-width: 100%;
     gap: 14px;
+    justify-items: stretch;
   }
 
   .card,
@@ -428,9 +431,13 @@ button:disabled {
   #codingBox {
     grid-column: 1;
     width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
   }
 
-  .card {
+  .card,
+  #codingBox {
     padding: 14px;
     border-radius: 14px;
   }
@@ -448,6 +455,7 @@ button:disabled {
     flex-direction: column;
     align-items: center;
     gap: 7px;
+    width: 100%;
   }
 
   .lib-btn,
@@ -463,6 +471,7 @@ button:disabled {
   }
 
   #cardBox {
+    width: 100%;
     padding: 18px 12px;
   }
 
@@ -473,6 +482,11 @@ button:disabled {
 
   #back {
     font-size: 18px;
+  }
+
+  .libraries-group,
+  .library {
+    width: 100%;
   }
 
   .library {
@@ -487,6 +501,7 @@ button:disabled {
 
   #codingTable {
     display: block;
+    width: 100%;
     overflow-x: auto;
     font-size: 14px;
   }
