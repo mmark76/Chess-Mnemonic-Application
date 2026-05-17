@@ -37,6 +37,9 @@ document.addEventListener("DOMContentLoaded", () => {
     <label for="epicTtsRateSelect" style="display:inline-flex;align-items:center;gap:4px;">
       Speed:
       <select id="epicTtsRateSelect">
+        <option value="0.45">0.45x</option>
+        <option value="0.55">0.55x</option>
+        <option value="0.65">0.65x</option>
         <option value="0.75">0.75x</option>
         <option value="0.9">0.90x</option>
         <option value="1" selected>1.00x</option>
