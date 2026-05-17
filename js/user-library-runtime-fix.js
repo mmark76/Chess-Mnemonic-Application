@@ -29,6 +29,57 @@
     });
   }
 
+  function getColumnIndexByHeaderText(table, exactText) {
+    if (!table) return -1;
+    var headers = table.querySelectorAll("thead th");
+    for (var i = 0; i < headers.length; i++) {
+      var text = (headers[i].textContent || "").trim();
+      if (text === exactText) return i;
+    }
+    return -1;
+  }
+
+  function setColumnVisible(table, colIndex, visible) {
+    if (!table || colIndex < 0) return;
+    Array.prototype.forEach.call(table.querySelectorAll("tr"), function (row) {
+      var cell = row.children && row.children[colIndex];
+      if (cell) cell.style.display = visible ? "" : "none";
+    });
+  }
+
+  function defaultHideTargetSquareColumns() {
+    var sections = ["sanSection", "assocSection", "shortnamesSection"];
+
+    sections.forEach(function (sectionId) {
+      var section = document.getElementById(sectionId);
+      if (!section) return;
+
+      var table = section.querySelector("table");
+      if (!table) return;
+
+      var colIndex = getColumnIndexByHeaderText(table, "Target Square");
+      if (colIndex < 0) return;
+
+      var labels = section.querySelectorAll(".table-toolbar label");
+      var label = labels && labels[colIndex];
+      var checkbox = label && label.querySelector && label.querySelector('input[type="checkbox"]');
+
+      if (checkbox && !checkbox.dataset.cmaDefaultTargetSquareApplied) {
+        checkbox.checked = false;
+        checkbox.dataset.cmaDefaultTargetSquareApplied = "1";
+      }
+
+      var visible = checkbox ? checkbox.checked : false;
+      setColumnVisible(table, colIndex, visible);
+    });
+  }
+
+  function retryDefaultHideTargetSquareColumns() {
+    defaultHideTargetSquareColumns();
+    setTimeout(defaultHideTargetSquareColumns, 250);
+    setTimeout(defaultHideTargetSquareColumns, 750);
+  }
+
   var defaultPao99 = p2p3Get;
   p2p3Get = function (code, collection) {
     var key = String(code).padStart(2, "0");
@@ -69,6 +120,7 @@
     renderAll = function () {
       defaultRenderAll.apply(this, arguments);
       applyFullMoveLocusDisplay();
+      defaultHideTargetSquareColumns();
     };
   }
 
@@ -95,6 +147,7 @@
 
   function applySmallUiFixes() {
     applyFullMoveLocusDisplay();
+    retryDefaultHideTargetSquareColumns();
 
     var assocSection = document.getElementById("assocSection");
     if (assocSection) {
@@ -127,6 +180,7 @@
 
   window.CMAUserLibraryFix = {
     squareText: squareText,
-    applyFullMoveLocusDisplay: applyFullMoveLocusDisplay
+    applyFullMoveLocusDisplay: applyFullMoveLocusDisplay,
+    defaultHideTargetSquareColumns: defaultHideTargetSquareColumns
   };
 })();
