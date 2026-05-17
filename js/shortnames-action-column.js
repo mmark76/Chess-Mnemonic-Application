@@ -12,8 +12,18 @@ function castlingShortnameName() {
   return 'Peter';
 }
 
+function castlingActionFromSan(san) {
+  const clean = String(san || '').replace(/[+#?!]+/g, '');
+  if (clean.startsWith('O-O-O')) return 'O-O-O';
+  if (clean.startsWith('O-O')) return 'O-O';
+  return '';
+}
+
 function shortnameActionFromSan(san) {
   const text = String(san || '');
+  const castle = castlingActionFromSan(text);
+  if (castle) return castle;
+
   const actions = [];
 
   if (text.includes('x')) actions.push('x');
@@ -24,11 +34,9 @@ function shortnameActionFromSan(san) {
 }
 
 function associationActionFromSan(san) {
-  const text = String(san || '');
-  const clean = text.replace(/[+#?!]+/g, '');
-  if (clean.startsWith('O-O-O')) return 'O-O-O';
-  if (clean.startsWith('O-O')) return 'O-O';
-  return shortnameActionFromSan(text);
+  const castle = castlingActionFromSan(san);
+  if (castle) return castle;
+  return shortnameActionFromSan(san);
 }
 
 function characterShortnameOverride(square, pieceLetter) {
