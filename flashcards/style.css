@@ -1,451 +1,296 @@
 /* ======================================================
-   Markellos Flashcards - Libraries v.3.4
+   Markellos Flashcards - Libraries v.3.3
    Main Stylesheet
    ====================================================== */
 
-:root {
-  --bg: #070b18;
-  --bg-soft: #0e1730;
-  --card: rgba(18, 27, 54, 0.86);
-  --card-strong: #121a33;
-  --line: rgba(128, 157, 255, 0.22);
-  --line-strong: rgba(128, 157, 255, 0.42);
-  --text: #eef3ff;
-  --muted: #aab7d9;
-  --accent: #d6b35a;
-  --accent-soft: rgba(214, 179, 90, 0.16);
-  --blue: #6c8cff;
-  --blue-deep: #25356d;
-  --shadow: 0 18px 45px rgba(0, 0, 0, 0.38);
-  --radius: 20px;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
+/* === 1. Βασικές Ρυθμίσεις === */
 body {
-  min-height: 100vh;
-  background:
-    radial-gradient(circle at top left, rgba(108, 140, 255, 0.22), transparent 34%),
-    radial-gradient(circle at top right, rgba(214, 179, 90, 0.14), transparent 30%),
-    linear-gradient(135deg, #070b18 0%, #0b1020 45%, #111a35 100%);
-  color: var(--text);
+  background: #0b1020;
+  color: #e8ecf1;
   font-family: Arial, sans-serif;
   margin: 0;
-  padding: 22px;
-  padding-bottom: 96px;
+  padding: 20px;
   scroll-padding-top: 120px;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-  background-size: 42px 42px;
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent 70%);
-}
-
-/* Header */
+/* === 2. Header === */
 header {
   position: sticky;
   top: 0;
   z-index: 800;
-  width: min(1400px, 100%);
-  margin: 0 auto 22px;
-  background: linear-gradient(135deg, rgba(18, 27, 54, 0.96), rgba(13, 21, 44, 0.94));
-  backdrop-filter: blur(14px);
-  padding: 18px 22px;
-  box-shadow: var(--shadow);
-  border: 1px solid var(--line);
-  border-radius: 0 0 24px 24px;
+  background: linear-gradient(180deg, #0b1020 0%, #162247 100%);
+  padding: 6px 16px 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+  border-radius: 0 0 12px 12px;
   text-align: left;
 }
 
 header h1 {
-  font-size: clamp(1.45rem, 3vw, 2.15rem);
-  line-height: 1.1;
+  font-size: 2em;
   font-weight: 900;
-  color: var(--text);
-  margin: 0 0 12px;
-  letter-spacing: -0.03em;
-  text-shadow: 0 0 22px rgba(108, 140, 255, 0.25);
+  color: #e8ecf1;
+  margin: 2px 0 6px; /* μικρό κενό πάνω και κάτω */
+  text-shadow: 0 0 8px rgba(100, 150, 255, 0.25);
 }
 
+/* === Κάτω γραμμή: Κουμπιά & Google Translate === */
 .header-bottom {
   display: flex;
-  align-items: center;
+  align-items: center;       
   justify-content: space-between;
-  gap: 16px;
-  min-height: 44px;
-  margin-top: 6px;
+  min-height: 40px;           
+  margin-top: 4px;
 }
 
+/* === 3. Header Links === */
 .header-links {
   display: flex;
-  flex-wrap: wrap;
   gap: 10px;
 }
 
 .header-links a {
-  font-family: Arial, sans-serif;
-  color: var(--text);
-  background: linear-gradient(180deg, rgba(108, 140, 255, 0.34), rgba(37, 53, 109, 0.82));
+  font-family: Georgia, serif;
+  color: #fff;
+  background: linear-gradient(180deg, #3a4f8a 0%, #1f2d60 100%);
   text-decoration: none;
-  padding: 11px 16px;
-  border-radius: 999px;
-  font-size: 0.98rem;
-  font-weight: 700;
-  border: 1px solid var(--line-strong);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.22);
-  transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+  padding: 9px 16px;
+  border-radius: 8px;
+  font-size: 1.05em;
+  font-weight: 600;
+  border: 1px solid #5b78ff;
+  box-shadow: 0 0 6px rgba(100, 150, 255, 0.3);
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
 }
 
 .header-links a:hover {
-  background: linear-gradient(180deg, rgba(130, 158, 255, 0.42), rgba(53, 72, 142, 0.95));
-  border-color: rgba(214, 179, 90, 0.65);
-  box-shadow: 0 10px 26px rgba(108, 140, 255, 0.22);
+  background: linear-gradient(180deg, #5b78ff 0%, #2f3f8a 100%);
+  box-shadow: 0 0 10px rgba(120, 170, 255, 0.6);
   transform: translateY(-2px);
 }
 
+/* === 4. Google Translate === */
 #google_translate_element {
   display: flex;
   align-items: center;
-  min-height: 40px;
+  height: 100%;
   margin: 0;
-  font-size: 1rem;
+  font-size: 1em;
 }
 
+/* === Copyrighted-badge === */
 .copyrighted-badge {
   position: absolute;
   right: 20px;
-  top: 20px;
+  top: 20px;   /* ↓ ρυθμίζει το ύψος  */
   z-index: 1000;
 }
 
-/* Main layout */
+/* === 5. Διάταξη (3 στήλες) === */
 .app {
   width: min(1400px, 100%);
-  margin: 0 auto;
+  margin: auto;
   display: grid;
-  grid-template-columns: minmax(280px, 0.95fr) minmax(280px, 1fr) minmax(320px, 1.1fr);
-  gap: 22px;
-  align-items: start;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
 }
 
+/* === 6. Κάρτες === */
 .card {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 22px;
-  background: linear-gradient(145deg, rgba(18, 27, 54, 0.92), rgba(13, 20, 42, 0.9));
-  box-shadow: var(--shadow);
+  border: 1px solid #26324d;
+  border-radius: 16px;
+  padding: 20px;
+  background: #121a33;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
-
-.card::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--accent), var(--blue), transparent);
-  opacity: 0.9;
-}
-
 .title {
-  margin: 0 0 14px;
-  font-weight: 800;
-  font-size: 1.22rem;
-  letter-spacing: -0.01em;
+  margin: 0 0 10px;
+  font-weight: 700;
+  font-size: 1.2em;
 }
-
 .status {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.94rem;
-  color: var(--muted);
-  background: rgba(255, 255, 255, 0.055);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 999px;
-  padding: 7px 11px;
+  font-size: 15px;
+  opacity: 0.85;
   margin-bottom: 16px;
 }
-
-.status::before {
-  content: "";
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 12px var(--accent);
-}
-
 .grid {
   display: grid;
-  gap: 14px;
+  gap: 12px;
 }
 
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 10px;
-}
-
-/* Flashcard */
+/* === 7. Flashcards Box === */
 #cardBox {
-  min-height: 210px;
-  border: 1px solid rgba(214, 179, 90, 0.28);
-  border-radius: 22px;
-  padding: 30px 24px;
+  border: 1px dashed #324569;
+  border-radius: 12px;
+  padding: 24px;
   text-align: center;
-  background:
-    radial-gradient(circle at top, rgba(214, 179, 90, 0.11), transparent 44%),
-    linear-gradient(160deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.025));
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 16px 32px rgba(0, 0, 0, 0.22);
 }
-
 #front {
-  font-size: clamp(2.1rem, 5vw, 3rem);
-  font-weight: 900;
-  margin: 0 0 16px;
-  letter-spacing: -0.04em;
-  color: #ffffff;
+  font-size: 32px;
+  font-weight: 600;
+  margin: 0 0 14px;
 }
-
 #back {
-  font-size: 1.2rem;
-  line-height: 1.55;
+  font-size: 22px;
   display: none;
   white-space: pre-line;
   text-align: left;
-  color: #dce6ff;
 }
 
-#back-code {
-  color: var(--accent);
-  font-weight: 800;
-  margin-bottom: 8px;
-}
-
-/* Libraries */
+/* === 8. Βιβλιοθήκες === */
 .libraries-group {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 15px;
 }
-
 .library {
-  background: rgba(10, 16, 34, 0.56);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 14px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+  background: #121a33;
+  border: 1px solid #26324d;
+  border-radius: 10px;
+  padding: 12px 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
-
 .library span {
   display: block;
-  font-weight: 800;
-  color: #cfe0ff;
-  margin-bottom: 10px;
-  letter-spacing: -0.01em;
+  font-weight: 600;
+  color: #a8c3ff;
+  margin-bottom: 8px;
 }
 
-/* Buttons and forms */
+/* === 9. Κουμπιά και Φόρμες === */
 .lib-btn,
 button,
 select,
 label {
-  appearance: none;
-  background: linear-gradient(180deg, rgba(37, 53, 109, 0.96), rgba(23, 34, 72, 0.96));
-  border: 1px solid var(--line-strong);
-  color: var(--text);
-  padding: 10px 15px;
-  border-radius: 12px;
-  font-size: 0.95rem;
-  font-weight: 700;
+  background: #1a2750;
+  border: 1px solid #2c3f66;
+  color: #e8ecf1;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 15px;
   margin: 3px;
   cursor: pointer;
-  transition: transform 0.16s ease, background 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
+  transition: background 0.2s, transform 0.15s;
 }
-
 .lib-btn:hover,
 button:hover,
-select:hover,
-label:hover {
-  background: linear-gradient(180deg, rgba(69, 91, 174, 0.98), rgba(35, 49, 101, 0.98));
-  border-color: rgba(214, 179, 90, 0.58);
-  box-shadow: 0 8px 22px rgba(108, 140, 255, 0.18);
+select:hover {
+  background: #223166;
   transform: translateY(-2px);
 }
-
 .lib-btn:focus,
 button:focus,
-select:focus,
-label:focus-within {
-  outline: 3px solid rgba(214, 179, 90, 0.35);
+select:focus {
+  outline: 2px solid #5ca9ff;
   outline-offset: 2px;
 }
 
-button:disabled {
-  cursor: default;
-  opacity: 0.55;
-  background: rgba(255, 255, 255, 0.08);
-  transform: none;
-  box-shadow: none;
-}
-
-select {
-  max-width: 100%;
-}
-
-/* Textarea */
+/* === 10. Textarea (readonly) === */
 #libraryText {
-  background: rgba(7, 11, 24, 0.76);
+  background: #10182c;
   color: #e8ecf1;
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 14px;
-  font-family: Consolas, Monaco, monospace;
+  border: 1px solid #26324d;
+  border-radius: 12px;
+  padding: 12px;
+  font-family: monospace;
   white-space: pre;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 10px 24px rgba(0, 0, 0, 0.24);
-  width: 100%;
-  min-height: 520px;
-  font-size: 0.92rem;
-  line-height: 1.55;
-  resize: vertical;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  width: 93%;
+  height: 90%;
+  font-size: 15px;
+  line-height: 1.5;
 }
 
-/* Coding table */
+/* === 11. Πίνακας Κωδικοποίησης === */
 #codingBox {
   grid-column: 1 / span 3;
-  background: linear-gradient(145deg, rgba(16, 24, 44, 0.94), rgba(24, 36, 68, 0.92));
+  background: linear-gradient(145deg, #10182c, #182444);
   padding: 24px;
-  border-radius: var(--radius);
+  border-radius: 16px;
 }
-
 #codingTable {
   width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  overflow: hidden;
-  border-radius: 16px;
-  font-size: 1rem;
-  border: 1px solid var(--line);
+  border-collapse: collapse;
+  font-size: 17px;
 }
-
 #codingTable th,
 #codingTable td {
-  border-bottom: 1px solid rgba(128, 157, 255, 0.18);
-  padding: 12px 14px;
+  border: 1px solid #324569;
+  padding: 10px 14px;
   text-align: center;
 }
-
 #codingTable th {
-  background: linear-gradient(180deg, rgba(58, 79, 138, 0.9), rgba(31, 45, 96, 0.96));
-  font-weight: 800;
-  color: #fff;
+  background: #223166;
+  font-weight: 700;
+  color: #e8ecf1;
 }
-
 #codingTable tr:nth-child(even) {
-  background: rgba(26, 37, 64, 0.7);
+  background: #1a2540;
 }
-
 #codingTable tr:nth-child(odd) {
-  background: rgba(18, 26, 51, 0.8);
+  background: #121a33;
 }
-
 #codingTable td {
-  color: #d7e0fa;
+  color: #cfd8f3;
 }
 
-/* Responsive layout */
-@media (max-width: 1100px) {
-  .app {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  #codingBox,
-  .card:nth-child(3) {
-    grid-column: 1 / span 2;
-  }
-}
-
+/* === 12. Responsive Σχεδίαση === */
 @media (max-width: 900px) {
-  body {
-    padding: 16px;
-    padding-bottom: 92px;
-  }
-
-  header {
-    position: static;
-  }
-
   .app {
     grid-template-columns: 1fr;
   }
-
-  #codingBox,
-  .card:nth-child(3) {
+  #codingBox {
     grid-column: 1;
   }
-
+  header h1 {
+    font-size: 1.6em;
+  }
   .header-bottom {
     flex-direction: column;
+    gap: 10px;
     align-items: stretch;
-  }
-
-  .header-links {
-    width: 100%;
-  }
-
-  .header-links a {
-    flex: 1 1 240px;
-    text-align: center;
   }
 }
 
+/* Mobile layout improvements */
 @media (max-width: 600px) {
   body {
     padding: 10px;
-    padding-bottom: 92px;
+    padding-bottom: 90px;
     overflow-x: hidden;
   }
 
   header {
-    padding: 14px;
-    border-radius: 0 0 18px 18px;
-    margin-bottom: 14px;
+    position: static;
+    padding: 12px;
+    border-radius: 0 0 14px 14px;
   }
 
   header h1 {
-    font-size: 1.55rem;
-    line-height: 1.12;
+    font-size: 1.65em;
+    line-height: 1.15;
+    text-align: left;
+  }
+
+  .header-bottom {
+    width: 100%;
   }
 
   .header-links {
     flex-direction: column;
     align-items: stretch;
     gap: 10px;
+    width: 100%;
   }
 
   .header-links a {
     display: block;
     width: 100%;
+    box-sizing: border-box;
     margin: 0;
     padding: 14px 16px;
-    font-size: 0.98rem;
-    line-height: 1.18;
-    text-align: center;
+    font-size: 1em;
+    line-height: 1.15;
+    text-align: left;
     white-space: normal;
     overflow-wrap: anywhere;
   }
@@ -463,11 +308,13 @@ select {
 
   .card {
     width: 100%;
+    box-sizing: border-box;
     padding: 16px;
-    border-radius: 18px;
+    border-radius: 14px;
   }
 
   .row {
+    display: flex;
     flex-direction: column;
     align-items: stretch;
     gap: 8px;
@@ -478,53 +325,70 @@ select {
   select,
   label {
     width: 100%;
+    box-sizing: border-box;
     margin: 3px 0;
-    padding: 13px 14px;
-    font-size: 1rem;
+    padding: 12px 14px;
+    font-size: 1em;
   }
 
   #cardBox {
-    min-height: 185px;
-    padding: 24px 16px;
+    padding: 20px 14px;
   }
 
   #front {
-    font-size: 2.45rem;
-    line-height: 1.12;
+    font-size: 30px;
+    line-height: 1.2;
   }
 
   #back {
-    font-size: 1.05rem;
+    font-size: 19px;
   }
 
   #libraryText {
-    min-height: 330px;
-    font-size: 0.88rem;
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 320px;
   }
 
   #codingTable {
     display: block;
     overflow-x: auto;
-    font-size: 0.92rem;
+    font-size: 15px;
+  }
+
+  footer {
+    font-size: 0.65em;
+    padding: 6px 8px;
+    box-sizing: border-box;
   }
 }
 
-/* Footer */
+/* === Footer === */
 footer {
-  background: rgba(7, 10, 20, 0.94);
-  backdrop-filter: blur(10px);
-  padding: 8px 12px;
+  background: #222;
+  padding: 7px;
   text-align: center;
   color: #b3b3b3;
-  font-size: 0.7rem;
+  font-size: 0.7em;
   position: fixed;
   bottom: 0;
-  left: 0;
+  left: 0;       /* <-- αυτό λείπει */
   width: 100%;
-  border-top: 1px solid rgba(128, 157, 255, 0.18);
 }
 
-footer h3 {
-  margin: 0;
-  font-weight: 500;
+body {
+  padding-bottom: 80px;   /* ➜ αφήνει κενό ώστε να μην ακουμπά ο πίνακας στο footer */
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
