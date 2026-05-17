@@ -109,11 +109,17 @@
   margin-top: 7px; 
 }
 
+/* Desktop: center the main chess/mnemonics dropdown */
+@media (min-width: 1025px) {
+  .menus-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
 
-
-
-
-
-
-
-
+  .menus-wrapper .br-menu {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
