@@ -48,7 +48,7 @@
   }
 
   function defaultHideTargetSquareColumns() {
-    var sections = ["sanSection", "assocSection", "shortnamesSection"];
+    var sections = ["assocSection", "shortnamesSection"];
 
     sections.forEach(function (sectionId) {
       var section = document.getElementById(sectionId);
