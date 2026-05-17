@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <option value="1.25">1.25x</option>
       </select>
     </label>
+    <span id="epicTtsStatus" style="font-size:0.85em;opacity:0.8;"></span>
   `;
 
   toolbar.appendChild(ttsGroup);
@@ -54,9 +55,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const stopBtn = document.getElementById("epicTtsStopBtn");
   const voiceSelect = document.getElementById("epicTtsVoiceSelect");
   const rateSelect = document.getElementById("epicTtsRateSelect");
+  const status = document.getElementById("epicTtsStatus");
 
   let voices = [];
+  let chunks = [];
+  let chunkIndex = 0;
+  let isStopped = true;
   let currentUtterance = null;
+
+  function setStatus(message) {
+    if (status) status.textContent = message || "";
+  }
 
   function getPreferredVoice() {
     const selectedName = voiceSelect.value;
@@ -66,6 +75,14 @@ document.addEventListener("DOMContentLoaded", () => {
   function loadVoices() {
     voices = window.speechSynthesis.getVoices() || [];
     voiceSelect.innerHTML = "";
+
+    if (!voices.length) {
+      const option = document.createElement("option");
+      option.value = "";
+      option.textContent = "Default browser voice";
+      voiceSelect.appendChild(option);
+      return;
+    }
 
     voices.forEach((voice) => {
       const option = document.createElement("option");
@@ -82,34 +99,93 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  function splitTextIntoChunks(text, maxLength = 900) {
+    const cleaned = text.replace(/\s+/g, " ").trim();
+    if (!cleaned) return [];
+
+    const sentences = cleaned.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [cleaned];
+    const result = [];
+    let current = "";
+
+    sentences.forEach((sentence) => {
+      const part = sentence.trim();
+      if (!part) return;
+
+      if ((current + " " + part).trim().length <= maxLength) {
+        current = (current + " " + part).trim();
+      } else {
+        if (current) result.push(current);
+
+        if (part.length <= maxLength) {
+          current = part;
+        } else {
+          for (let i = 0; i < part.length; i += maxLength) {
+            result.push(part.slice(i, i + maxLength));
+          }
+          current = "";
+        }
+      }
+    });
+
+    if (current) result.push(current);
+    return result;
+  }
+
   function stopSpeech() {
-    if (window.speechSynthesis.speaking || window.speechSynthesis.pending || window.speechSynthesis.paused) {
-      window.speechSynthesis.cancel();
-    }
+    isStopped = true;
+    chunks = [];
+    chunkIndex = 0;
     currentUtterance = null;
+    window.speechSynthesis.cancel();
+    setStatus("Stopped");
+  }
+
+  function speakCurrentChunk() {
+    if (isStopped) return;
+
+    if (chunkIndex >= chunks.length) {
+      currentUtterance = null;
+      setStatus("Finished");
+      return;
+    }
+
+    const utterance = new SpeechSynthesisUtterance(chunks[chunkIndex]);
+    utterance.voice = getPreferredVoice();
+    utterance.rate = Number(rateSelect.value) || 1;
+    utterance.pitch = 1;
+    utterance.volume = 1;
+
+    currentUtterance = utterance;
+    setStatus(`Reading ${chunkIndex + 1}/${chunks.length}`);
+
+    utterance.onend = () => {
+      if (isStopped) return;
+      chunkIndex += 1;
+      speakCurrentChunk();
+    };
+
+    utterance.onerror = () => {
+      currentUtterance = null;
+      setStatus("TTS error. Try another voice or browser.");
+    };
+
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(utterance);
   }
 
   function speakEpicStory() {
     const text = (textView.textContent || "").trim();
-    if (!text) return;
+    if (!text) {
+      setStatus("No story text to read");
+      return;
+    }
 
-    stopSpeech();
+    window.speechSynthesis.cancel();
+    chunks = splitTextIntoChunks(text);
+    chunkIndex = 0;
+    isStopped = false;
 
-    currentUtterance = new SpeechSynthesisUtterance(text);
-    currentUtterance.voice = getPreferredVoice();
-    currentUtterance.rate = Number(rateSelect.value) || 1;
-    currentUtterance.pitch = 1;
-    currentUtterance.volume = 1;
-
-    currentUtterance.onend = () => {
-      currentUtterance = null;
-    };
-
-    currentUtterance.onerror = () => {
-      currentUtterance = null;
-    };
-
-    window.speechSynthesis.speak(currentUtterance);
+    setTimeout(speakCurrentChunk, 100);
   }
 
   playBtn.addEventListener("click", speakEpicStory);
@@ -117,12 +193,14 @@ document.addEventListener("DOMContentLoaded", () => {
   pauseBtn.addEventListener("click", () => {
     if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) {
       window.speechSynthesis.pause();
+      setStatus("Paused");
     }
   });
 
   resumeBtn.addEventListener("click", () => {
     if (window.speechSynthesis.paused) {
       window.speechSynthesis.resume();
+      setStatus(`Reading ${chunkIndex + 1}/${chunks.length}`);
     }
   });
 
