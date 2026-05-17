@@ -246,7 +246,120 @@ select:focus {
   }
   .header-bottom {
     flex-direction: column;
-    gap: 6px;
+    gap: 10px;
+    align-items: stretch;
+  }
+}
+
+/* Mobile layout improvements */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+    padding-bottom: 90px;
+    overflow-x: hidden;
+  }
+
+  header {
+    position: static;
+    padding: 12px;
+    border-radius: 0 0 14px 14px;
+  }
+
+  header h1 {
+    font-size: 1.65em;
+    line-height: 1.15;
+    text-align: left;
+  }
+
+  .header-bottom {
+    width: 100%;
+  }
+
+  .header-links {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .header-links a {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 14px 16px;
+    font-size: 1em;
+    line-height: 1.15;
+    text-align: left;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  #google_translate_element {
+    justify-content: center;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .app {
+    width: 100%;
+    gap: 14px;
+  }
+
+  .card {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 16px;
+    border-radius: 14px;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .lib-btn,
+  button,
+  select,
+  label {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 3px 0;
+    padding: 12px 14px;
+    font-size: 1em;
+  }
+
+  #cardBox {
+    padding: 20px 14px;
+  }
+
+  #front {
+    font-size: 30px;
+    line-height: 1.2;
+  }
+
+  #back {
+    font-size: 19px;
+  }
+
+  #libraryText {
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 320px;
+  }
+
+  #codingTable {
+    display: block;
+    overflow-x: auto;
+    font-size: 15px;
+  }
+
+  footer {
+    font-size: 0.65em;
+    padding: 6px 8px;
+    box-sizing: border-box;
   }
 }
 
@@ -266,7 +379,6 @@ footer {
 body {
   padding-bottom: 80px;   /* ➜ αφήνει κενό ώστε να μην ακουμπά ο πίνακας στο footer */
 }
-
 
 
 
