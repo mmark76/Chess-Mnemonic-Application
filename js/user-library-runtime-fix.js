@@ -29,6 +29,21 @@
     });
   }
 
+  function insertPao09EducationalNote() {
+    var section = document.getElementById("paoSection");
+    if (!section || section.querySelector(".pao09-educational-note")) return;
+
+    var title = section.querySelector("h4");
+    if (!title) return;
+
+    var note = document.createElement("p");
+    note.className = "pao09-educational-note";
+    note.textContent = "Note: The PAO 0–9 table is mainly educational. It explains the Piece–File–Rank encoding of single moves, but it is not intended as the main full-game memorization method.";
+    note.style.cssText = "margin:6px 0 10px 0;padding:8px 10px;border-left:4px solid #CFAF4A;background:#1b1b1b;color:#CFAF4A;font-size:0.9em;font-family:Georgia,'Times New Roman',serif;line-height:1.4;";
+
+    title.insertAdjacentElement("afterend", note);
+  }
+
   function getColumnIndexByHeaderText(table, exactText) {
     if (!table) return -1;
     var headers = table.querySelectorAll("thead th");
@@ -121,6 +136,7 @@
       defaultRenderAll.apply(this, arguments);
       applyFullMoveLocusDisplay();
       defaultHideTargetSquareColumns();
+      insertPao09EducationalNote();
     };
   }
 
@@ -147,6 +163,7 @@
 
   function applySmallUiFixes() {
     applyFullMoveLocusDisplay();
+    insertPao09EducationalNote();
     retryDefaultHideTargetSquareColumns();
 
     var assocSection = document.getElementById("assocSection");
@@ -181,6 +198,7 @@
   window.CMAUserLibraryFix = {
     squareText: squareText,
     applyFullMoveLocusDisplay: applyFullMoveLocusDisplay,
-    defaultHideTargetSquareColumns: defaultHideTargetSquareColumns
+    defaultHideTargetSquareColumns: defaultHideTargetSquareColumns,
+    insertPao09EducationalNote: insertPao09EducationalNote
   };
 })();
