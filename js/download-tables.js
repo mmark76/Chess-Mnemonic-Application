@@ -54,7 +54,15 @@
     }
   }
 
+  function removeTxtOptions() {
+    document.querySelectorAll('.download-select option[value="txt"]').forEach(option => {
+      option.remove();
+    });
+  }
+
   function initDownloadDropdowns() {
+    removeTxtOptions();
+
     document.querySelectorAll('.download-select').forEach(sel => {
       sel.addEventListener('change', () => {
         const format = sel.value;
