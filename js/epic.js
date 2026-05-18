@@ -1,5 +1,6 @@
 /* ================================================
    Markellos CMS — Epic Story (Half-Move / Full-Move Loci, JSON-based)
+   Supports default libraries and imported custom user libraries.
    ================================================ */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -36,12 +37,12 @@ document.addEventListener("DOMContentLoaded", () => {
   document.body.appendChild(modal);
   const textView = document.getElementById("epicTextView");
   if (textView) {
-    textView.classList.add("parchment","edge");
+    textView.classList.add("parchment", "edge");
   }
 
   const epicLocusModeSelect = document.getElementById("epicLocusMode");
   let epicLocusMode = localStorage.getItem("epicLocusMode") || window.locusMode || "half";
-  if (!['half', 'full'].includes(epicLocusMode)) epicLocusMode = "half";
+  if (!["half", "full"].includes(epicLocusMode)) epicLocusMode = "half";
   if (epicLocusModeSelect) {
     epicLocusModeSelect.value = epicLocusMode;
     epicLocusModeSelect.addEventListener("change", (e) => {
@@ -73,26 +74,146 @@ document.addEventListener("DOMContentLoaded", () => {
     return txt.replace(/^\d+\s*—\s*/, "").trim();
   }
 
+  function safeText(value) {
+    return String(value == null ? "" : value).trim();
+  }
+
+  function readLocalizedNode(node) {
+    if (!node) return "";
+    if (typeof node === "string") return safeText(node);
+
+    return safeText(
+      node.en ||
+      node.locus_en ||
+      node[selectedLang] ||
+      node.el ||
+      node.label ||
+      node.keyword ||
+      node.name ||
+      node.notes ||
+      ""
+    );
+  }
+
+  function pieceTypeName(pieceLetter) {
+    const map = {
+      P: "pawn",
+      N: "knight",
+      B: "bishop",
+      R: "rook",
+      Q: "queen",
+      K: "king"
+    };
+    return map[pieceLetter] || "";
+  }
+
+  function sideKey(side) {
+    return side === "White" ? "white" : "black";
+  }
+
+  function getUserMemoryPalaceLocations() {
+    const palaces = libs?.User?.MemoryPalaces?.palaces;
+    if (!Array.isArray(palaces) || !palaces.length) return [];
+    const firstPalace = palaces[0];
+    if (!Array.isArray(firstPalace.locations)) return [];
+    return firstPalace.locations;
+  }
+
+  function getUserLocusByIndex(idx) {
+    const locations = getUserMemoryPalaceLocations();
+    if (!locations.length) return "";
+    const node = locations[(idx - 1) % locations.length];
+    return readLocalizedNode(node);
+  }
+
+  function getDefaultLocusByIndex(idx) {
+    const T1 = libs?.Temporal?.LibraryT1 || {};
+    return readLocalizedNode(T1[String(idx)]);
+  }
+
+  function getDefaultAnchorByIndex(idx) {
+    const T2 = libs?.Temporal?.LibraryT2 || {};
+    return readLocalizedNode(T2[String(idx)]);
+  }
+
+  function getEpicLocusForMove(m) {
+    const defaultTotal = 80;
+    const userLocations = getUserMemoryPalaceLocations();
+    const total = userLocations.length || defaultTotal;
+
+    const idx = epicLocusMode === "full"
+      ? ((m.movePair - 1) % total) + 1
+      : (m.index % total) + 1;
+
+    return getUserLocusByIndex(idx) || getDefaultLocusByIndex(((idx - 1) % defaultTotal) + 1);
+  }
+
+  function getUserCharacterName(square, pieceLetter, side) {
+    const userChars = libs?.User?.Characters;
+    if (!userChars || !square) return "";
+
+    const color = sideKey(side);
+    const piece = pieceTypeName(pieceLetter);
+
+    const direct = userChars?.[color]?.[piece]?.[square]?.name;
+    if (direct) return safeText(direct);
+
+    const oppositeColor = color === "white" ? "black" : "white";
+    const fallbackSamePiece =
+      userChars?.[oppositeColor]?.[piece]?.[square]?.name ||
+      "";
+
+    if (fallbackSamePiece) return safeText(fallbackSamePiece);
+
+    const colors = ["white", "black"];
+    const pieces = ["pawn", "knight", "bishop", "rook", "queen", "king"];
+
+    for (const c of colors) {
+      for (const p of pieces) {
+        const value = userChars?.[c]?.[p]?.[square]?.name;
+        if (value) return safeText(value);
+      }
+    }
+
+    return "";
+  }
+
+  function getDefaultCharacterName(square, pieceLetter) {
+    const Lpieces = libs?.Characters?.LibraryC2 || {};
+    return safeText(
+      Lpieces[`${pieceLetter}${square || ""}`] ||
+      Lpieces[square || ""] ||
+      Lpieces[pieceLetter] ||
+      pieceGreek(pieceLetter)
+    );
+  }
+
+  function getEpicCharacterName(square, pieceLetter, side) {
+    return getUserCharacterName(square, pieceLetter, side) ||
+           getDefaultCharacterName(square, pieceLetter);
+  }
+
+  function getUserSquareAssociation(square) {
+    const item = libs?.User?.Squares?.[square];
+    return readLocalizedNode(item);
+  }
+
+  function getDefaultSquareAssociation(square) {
+    const sqKey = (square || "").toLowerCase();
+    const node = libs?.Spatial?.LibraryS1?.[sqKey] || {};
+    return safeText(node["Target Square Association"] || readLocalizedNode(node));
+  }
+
+  function getEpicSquareAssociation(square) {
+    return getUserSquareAssociation(square) ||
+           getDefaultSquareAssociation(square) ||
+           safeText(square);
+  }
+
   /* ---------- Epic Story Generator ---------- */
   function updateEpicText() {
     const textView = document.getElementById("epicTextView");
     if (!textView) return;
-
-    const Lpieces  = libs?.Characters?.LibraryC2 || {};
-    const Ltarget1 = libs?.Spatial?.LibraryS1  || {};
-    const T1       = libs?.Temporal?.LibraryT1 || {};
-    const T2       = libs?.Temporal?.LibraryT2 || {};
-
-    function epicLocusForMove(m) {
-      const total = 80;
-      const idx = epicLocusMode === "full"
-        ? ((m.movePair - 1) % total) + 1
-        : (m.index % total) + 1;
-
-      const node = T1[String(idx)];
-      if (!node) return "";
-      return node.en || node.locus_en || node[selectedLang] || node.el || "";
-    }
 
     const anchorMap = {};
     const anchored = Object.keys(manualAnchors || {})
@@ -102,31 +223,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
     anchored.forEach((moveIndex, idx) => {
       const chapNo = idx + 1;
-      const node = T2[String(chapNo)] || {};
-      const label = node.en || node[selectedLang] || node.el || "";
+      const label = getDefaultAnchorByIndex(chapNo);
       if (label) {
         anchorMap[moveIndex] = `${chapNo} — ${label}`;
       }
     });
 
     const assocBySquare = Object.create(null);
-    const getAssocFor = (pieceLetter, fromSq) =>
-      (Lpieces[`${pieceLetter}${fromSq || ""}`] ||
-       Lpieces[fromSq || ""] ||
-       Lpieces[pieceLetter] ||
-       pieceGreek(pieceLetter));
+    const getAssocFor = (pieceLetter, fromSq, side) =>
+      getEpicCharacterName(fromSq || "", pieceLetter, side) ||
+      pieceGreek(pieceLetter);
 
     const stories = [];
 
     if (Array.isArray(gameMoves)) {
       gameMoves.forEach((m, i) => {
-        const locus = epicLocusForMove(m);
+        const locus = getEpicLocusForMove(m);
         if (!locus) return;
 
         const anchorRaw = anchorMap[m.index] || "";
         const anchorTxt = cleanAnchor(anchorRaw);
 
-        let pieceAssoc = assocBySquare[m.from] || getAssocFor(m.piece, m.from);
+        let pieceAssoc = assocBySquare[m.from] || getAssocFor(m.piece, m.from, m.side);
         if (m.from) delete assocBySquare[m.from];
 
         const sanClean = (m.san || "").replace(/[+#?!]+/g, "");
@@ -139,7 +257,7 @@ document.addEventListener("DOMContentLoaded", () => {
             assocBySquare[rookTo] = assocBySquare[rookFrom];
             delete assocBySquare[rookFrom];
           } else {
-            assocBySquare[rookTo] = getAssocFor("R", rookFrom);
+            assocBySquare[rookTo] = getAssocFor("R", rookFrom, m.side);
           }
         }
 
@@ -153,9 +271,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         assocBySquare[m.to] = pieceAssoc;
 
-        const sqKey = (m.to || "").toLowerCase();
-        const node = Ltarget1[sqKey] || {};
-        const areaName = node["Target Square Association"] || (m.to || "");
+        const areaName = getEpicSquareAssociation(m.to);
 
         const openings = [
           "Then,",
