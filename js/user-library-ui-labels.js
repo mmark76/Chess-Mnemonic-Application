@@ -9,6 +9,11 @@
     var style = document.createElement("style");
     style.id = "cmaLibraryPanelSpacingStyles";
     style.textContent = `
+      .right-panel,
+      .right-panel * {
+        font-family: Arial, sans-serif !important;
+      }
+
       .right-panel .library-panel-title {
         line-height: 1.25 !important;
         margin-bottom: 4px !important;
