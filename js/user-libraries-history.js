@@ -1,5 +1,5 @@
 // user-libraries-history.js
-// Συνδέει το Import / Load Library με το User Libraries dropdown.
+// Custom library import/history support and Library System panel UX.
 
 (function () {
   // ----------------- helpers -----------------
@@ -15,7 +15,6 @@
 
   function detectLibraryType(json) {
     if (!json || typeof json !== "object") return null;
-
     if (Array.isArray(json.palaces)) return "MemoryPalace";
     if (json.white && json.black) return "Characters";
     if (json["00"] || json["01"]) return "PAO_00_99";
@@ -39,8 +38,8 @@
     if (!type) return;
 
     const baseName = (fileName || "").replace(/\.json$/i, "") || "User Library";
-
     let libName = baseName;
+
     if (json && typeof json === "object") {
       if (json.name) libName = json.name;
       if (Array.isArray(json.palaces) && json.palaces[0]?.name) {
@@ -48,7 +47,6 @@
       }
     }
 
-    // Ο δρόμος που θα χρησιμοποιήσει το dropdown / selector.
     const path = "user_libraries/" + (fileName || "user-library.json");
 
     let saved;
@@ -60,107 +58,145 @@
     }
 
     const entry = { name: libName, type, path };
-
     const idxByPath = saved.findIndex((l) => l.path === entry.path);
-    if (idxByPath >= 0) {
-      saved[idxByPath] = entry;
-    } else {
-      saved.push(entry);
-    }
+
+    if (idxByPath >= 0) saved[idxByPath] = entry;
+    else saved.push(entry);
 
     localStorage.setItem("savedLibraries", JSON.stringify(saved));
 
-    // Προαιρετικά: ορίζουμε αυτή τη βιβλιοθήκη ως ενεργή
     try {
-      if (typeof window.setActiveLibrary === "function") {
-        window.setActiveLibrary(type, path);
-      }
+      localStorage.setItem("activeLibrary", JSON.stringify({ type, path }));
     } catch (e) {
-      console.warn("user-libraries-history: setActiveLibrary failed", e);
+      console.warn("user-libraries-history: activeLibrary save failed", e);
     }
 
-    // Refresh dropdown αν υπάρχει
     try {
-      if (typeof window.loadUserLibrariesIntoUI === "function") {
-        window.loadUserLibrariesIntoUI();
-      }
+      if (typeof loadUserLibrariesIntoUI === "function") loadUserLibrariesIntoUI();
     } catch (e) {
       console.warn("user-libraries-history: loadUserLibrariesIntoUI failed", e);
     }
 
     refreshTablesAfterUserLibraryImport();
 
-    console.log(
-      `💾 Saved user library → name="${libName}", type="${type}", path="${path}"`
-    );
+    console.log(`💾 Saved user library → name="${libName}", type="${type}", path="${path}"`);
   }
 
-  // ----------------- FileReader hook -----------------
+  function applyImportedLibrary(fileName, json) {
+    if (!json || typeof json !== "object") {
+      alert("❌ Invalid JSON structure.");
+      return;
+    }
 
-  function hookFileReaderForUserLibraries() {
-    const proto = window.FileReader && window.FileReader.prototype;
-    if (!proto || proto.__userLibHookInstalled) return;
+    const type = detectLibraryType(json);
+    const name = (fileName || "user-library.json").replace(/\.json$/i, "");
 
-    proto.__userLibHookInstalled = true;
+    libs = libs || {};
+    libs.User = libs.User || {};
 
-    const originalReadAsText = proto.readAsText;
-    if (!originalReadAsText) return;
+    if (type === "MemoryPalace") {
+      libs.User.MemoryPalaces = json;
+      const p = json.palaces[0] || {};
+      const loci = Array.isArray(p.locations) ? p.locations.map(l => l.label || "") : [];
 
-    proto.readAsText = function (file) {
-      try {
-        if (file && file.name) {
-          this.__cmsFileName = file.name;
-        }
-
-        if (!this.__userLibListenerAttached) {
-          this.__userLibListenerAttached = true;
-
-          this.addEventListener(
-            "load",
-            (ev) => {
-              try {
-                const text = ev.target.result;
-                if (typeof text !== "string") return;
-
-                let json;
-                try {
-                  json = JSON.parse(text);
-                } catch {
-                  // Όχι JSON (π.χ. PGN) → αγνόησε
-                  return;
-                }
-
-                const fileName = this.__cmsFileName || "user-library.json";
-                saveLibraryToHistory(fileName, json);
-              } catch (err) {
-                console.warn(
-                  "user-libraries-history: error while processing FileReader load",
-                  err
-                );
-              }
-            },
-            false
-          );
-        }
-      } catch (err) {
-        console.warn("user-libraries-history: readAsText hook error", err);
+      if (loci.length) {
+        window.applyUserPalaceToTables?.(loci, p.name || name);
       }
 
-      // Κλήση του αρχικού readAsText ώστε να δουλεύει κανονικά το υπόλοιπο app.
-      return originalReadAsText.apply(this, arguments);
-    };
+      updateUserLibraryStatus(
+        `🏛️ <b>${p.name || name}</b> — ${loci.length} loci loaded ` +
+        `<span style="opacity:0.6;">(${new Date().toLocaleTimeString()})</span>`
+      );
+      saveLibraryToHistory(fileName, json);
+      alert("🏛️ User Memory Palace loaded!");
+      return;
+    }
 
-    console.log("✅ user-libraries-history.js: FileReader hook installed");
+    if (type === "Characters") {
+      libs.User.Characters = json;
+      updateUserLibraryStatus(
+        `♟️ <b>User Characters</b> loaded ` +
+        `<span style="opacity:0.6;">(${new Date().toLocaleTimeString()})</span>`
+      );
+      saveLibraryToHistory(fileName, json);
+      alert("♟️ User Characters loaded!");
+      return;
+    }
+
+    if (type === "PAO_00_99") {
+      libs.User.PAO_00_99 = json;
+      updateUserLibraryStatus(
+        `🔢 <b>PAO 00–99</b> loaded ` +
+        `<span style="opacity:0.6;">(${new Date().toLocaleTimeString()})</span>`
+      );
+      saveLibraryToHistory(fileName, json);
+      alert("🔢 User PAO 00–99 loaded!");
+      return;
+    }
+
+    if (type === "Squares") {
+      libs.User.Squares = json;
+      const count = Object.keys(json).length;
+      updateUserLibraryStatus(
+        `🗺️ <b>Squares Map</b> — ${count} squares loaded ` +
+        `<span style="opacity:0.6;">(${new Date().toLocaleTimeString()})</span>`
+      );
+      saveLibraryToHistory(fileName, json);
+      alert("🗺️ User Squares loaded!");
+      return;
+    }
+
+    alert("⚠️ Unknown library format.");
   }
 
-  // Εγκατάσταση hook
+  function installSingleImportHandler() {
+    if (typeof window === "undefined") return;
+
+    window.wireImportLibraryButton = function () {
+      const importBtn = document.getElementById("importLibraryBtn");
+      if (!importBtn || importBtn.dataset.cmaImportWired === "1") return;
+
+      importBtn.dataset.cmaImportWired = "1";
+      importBtn.addEventListener("click", () => {
+        const picker = document.createElement("input");
+        picker.type = "file";
+        picker.accept = ".json";
+
+        picker.onchange = (e) => {
+          const file = e.target.files && e.target.files[0];
+          if (!file) return;
+
+          const reader = new FileReader();
+          reader.onload = (ev) => {
+            let json;
+            try {
+              json = JSON.parse(ev.target.result);
+            } catch (err) {
+              alert("❌ Invalid JSON file: Cannot parse.");
+              return;
+            }
+
+            applyImportedLibrary(file.name, json);
+          };
+
+          reader.onerror = () => alert("❌ File read error.");
+          reader.readAsText(file);
+        };
+
+        picker.click();
+      });
+    };
+  }
+
+  window.CMAUserLibrariesHistory = {
+    detectLibraryType,
+    saveLibraryToHistory,
+    applyImportedLibrary
+  };
+
   if (typeof window !== "undefined") {
     loadRuntimeHelper();
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", hookFileReaderForUserLibraries);
-    } else {
-      hookFileReaderForUserLibraries();
-    }
+    installSingleImportHandler();
   }
 })();
 
@@ -259,9 +295,19 @@
     document.head.appendChild(style);
   }
 
-  function setDefaultLibraryStatus() {
+  function hasActiveUserLibrary() {
+    try {
+      return typeof libs !== "undefined" && libs && libs.User && Object.keys(libs.User).length > 0;
+    } catch {
+      return false;
+    }
+  }
+
+  function setDefaultLibraryStatus(force) {
     const status = document.getElementById("userLibraryStatus");
     if (!status) return;
+    if (!force && status.innerHTML.trim() && status.innerHTML.indexOf("Default Libraries") === -1) return;
+    if (!force && hasActiveUserLibrary()) return;
 
     status.style.display = "block";
     status.classList.add("library-status-card");
@@ -270,12 +316,8 @@
 
   function restoreDefaultLibraries() {
     try {
-      if (window.libs && typeof window.libs === "object") {
-        delete window.libs.User;
-      }
-      if (typeof libs !== "undefined" && libs && typeof libs === "object") {
-        delete libs.User;
-      }
+      if (window.libs && typeof window.libs === "object") delete window.libs.User;
+      if (typeof libs !== "undefined" && libs && typeof libs === "object") delete libs.User;
     } catch (err) {
       console.warn("restoreDefaultLibraries: could not clear user libraries", err);
     }
@@ -289,7 +331,7 @@
     const activePalaceInfo = document.getElementById("activePalaceInfo");
     if (activePalaceInfo) activePalaceInfo.textContent = "";
 
-    setDefaultLibraryStatus();
+    setDefaultLibraryStatus(true);
 
     try {
       if (typeof renderAll === "function") renderAll();
@@ -375,7 +417,7 @@
       note.textContent = "Custom libraries are applied locally. Use Restore Default Libraries to clear them without refreshing the page.";
     }
 
-    setDefaultLibraryStatus();
+    setDefaultLibraryStatus(false);
   }
 
   function installStatusWrapper() {
