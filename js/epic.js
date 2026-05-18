@@ -176,7 +176,7 @@ document.addEventListener("DOMContentLoaded", () => {
           epicLocusMode === "full" && m.side === "Black"
             ? ""
             : ` Now the scene unfolds ${locus}`;
-        const sceneLabel = `${halfMoveLabel}. ${sanText}.${locusText}`;
+        const sceneLabel = `${halfMoveLabel}. ${sanText} ${locusText}`;
 
         const t1Header = `${sceneLabel}.\n`;
 
