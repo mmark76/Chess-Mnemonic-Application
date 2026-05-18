@@ -73,7 +73,7 @@
 (function () {
   try {
     var script = document.createElement("script");
-    script.src = "js/user-library-batch-import.js?v=20260518-3";
+    script.src = "js/user-library-batch-import.js?v=20260518-4";
     script.defer = true;
     document.head.appendChild(script);
   } catch (e) {
