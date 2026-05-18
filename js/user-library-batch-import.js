@@ -1,24 +1,9 @@
 /* ===========================================================
-   User Library Batch Import + Shortnames + CSV/XLSX Support
+   User Library Import + Shortnames + CSV/XLSX Support
+   Direct multi-file import. JSON remains the official app format.
    =========================================================== */
 (function () {
-  const LIBRARY_OPTIONS = [
-    { key: "Memory Palace", label: "Memory Palace" },
-    { key: "Characters", label: "Characters" },
-    { key: "Squares", label: "Squares" },
-    { key: "Shortnames", label: "Shortnames" },
-    { key: "PAO 00–99", label: "PAO 00–99" },
-    { key: "Combined", label: "Combined user template" }
-  ];
-
   const SHEETJS_URL = "https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js";
-
-  function ensureUserRoot() {
-    if (typeof libs === "undefined") return null;
-    libs = libs || {};
-    libs.User = libs.User || {};
-    return libs.User;
-  }
 
   function clean(value) {
     return String(value == null ? "" : value).trim();
@@ -26,6 +11,13 @@
 
   function normalHeader(value) {
     return clean(value).toLowerCase().replace(/\s+/g, "_").replace(/-/g, "_");
+  }
+
+  function ensureUserRoot() {
+    if (typeof libs === "undefined") return null;
+    libs = libs || {};
+    libs.User = libs.User || {};
+    return libs.User;
   }
 
   function shortnamesFrom(json) {
@@ -50,7 +42,6 @@
   function applyJson(json, sourceName) {
     const user = ensureUserRoot();
     if (!user) return [];
-
     const loaded = [];
 
     function applyMemoryPalace(data) {
@@ -125,32 +116,17 @@
     for (let i = 0; i < text.length; i++) {
       const ch = text[i];
       const next = text[i + 1];
-
       if (quoted) {
-        if (ch === '"' && next === '"') {
-          cell += '"';
-          i++;
-        } else if (ch === '"') {
-          quoted = false;
-        } else {
-          cell += ch;
-        }
+        if (ch === '"' && next === '"') { cell += '"'; i++; }
+        else if (ch === '"') quoted = false;
+        else cell += ch;
       } else {
         if (ch === '"') quoted = true;
-        else if (ch === ',') {
-          row.push(cell);
-          cell = "";
-        } else if (ch === '\n') {
-          row.push(cell);
-          rows.push(row);
-          row = [];
-          cell = "";
-        } else if (ch !== '\r') {
-          cell += ch;
-        }
+        else if (ch === ',') { row.push(cell); cell = ""; }
+        else if (ch === '\n') { row.push(cell); rows.push(row); row = []; cell = ""; }
+        else if (ch !== '\r') cell += ch;
       }
     }
-
     row.push(cell);
     rows.push(row);
     return rows.filter(r => r.some(c => clean(c) !== ""));
@@ -176,8 +152,7 @@
       const out = {};
       objects.forEach(r => {
         const code = clean(r.code).padStart(2, "0");
-        if (!/^\d{2}$/.test(code)) return;
-        out[code] = { person: r.person || "", action: r.action || "", object: r.object || "" };
+        if (/^\d{2}$/.test(code)) out[code] = { person: r.person || "", action: r.action || "", object: r.object || "" };
       });
       return Object.keys(out).length ? out : null;
     }
@@ -186,8 +161,7 @@
       const out = {};
       objects.forEach(r => {
         const square = clean(r.square).toLowerCase();
-        if (!/^[a-h][1-8]$/.test(square)) return;
-        out[square] = { keyword: r.keyword || "", image: r.image || "", notes: r.notes || "" };
+        if (/^[a-h][1-8]$/.test(square)) out[square] = { keyword: r.keyword || "", image: r.image || "", notes: r.notes || "" };
       });
       return Object.keys(out).length ? out : null;
     }
@@ -207,7 +181,7 @@
 
     if (has(["id", "label"]) || has(["locus", "label"])) {
       const first = objects[0] || {};
-      const palaceName = first.palace_name || first.palace || fileName.replace(/\.(csv|xlsx)$/i, "") || "User Palace";
+      const palaceName = first.palace_name || first.palace || fileName.replace(/\.(csv|xlsx|xls)$/i, "") || "User Palace";
       const description = first.palace_description || first.description || "";
       const locations = objects.map((r, index) => ({
         id: r.id || r.locus || `L${index + 1}`,
@@ -232,7 +206,6 @@
       });
       return (Object.keys(out.CharactersSN1).length || Object.keys(out.SquaresSN1).length || Object.keys(out.CastlingSN1).length || Object.keys(out.Actions).length) ? out : null;
     }
-
     return null;
   }
 
@@ -247,20 +220,20 @@
     });
   }
 
-  function readFileAsText(file) {
+  function readAsText(file) {
     return new Promise(resolve => {
       const reader = new FileReader();
-      reader.onload = ev => resolve({ text: ev.target.result, error: null });
-      reader.onerror = () => resolve({ text: "", error: new Error("File read error") });
+      reader.onload = ev => resolve({ value: ev.target.result, error: null });
+      reader.onerror = () => resolve({ value: "", error: new Error("File read error") });
       reader.readAsText(file);
     });
   }
 
-  function readFileAsArrayBuffer(file) {
+  function readAsArrayBuffer(file) {
     return new Promise(resolve => {
       const reader = new FileReader();
-      reader.onload = ev => resolve({ buffer: ev.target.result, error: null });
-      reader.onerror = () => resolve({ buffer: null, error: new Error("File read error") });
+      reader.onload = ev => resolve({ value: ev.target.result, error: null });
+      reader.onerror = () => resolve({ value: null, error: new Error("File read error") });
       reader.readAsArrayBuffer(file);
     });
   }
@@ -270,25 +243,25 @@
     const lower = name.toLowerCase();
 
     if (lower.endsWith(".json")) {
-      const result = await readFileAsText(file);
+      const result = await readAsText(file);
       if (result.error) return { file, json: null, error: result.error };
-      try { return { file, json: JSON.parse(result.text), error: null }; }
+      try { return { file, json: JSON.parse(result.value), error: null }; }
       catch (error) { return { file, json: null, error }; }
     }
 
     if (lower.endsWith(".csv")) {
-      const result = await readFileAsText(file);
+      const result = await readAsText(file);
       if (result.error) return { file, json: null, error: result.error };
-      const json = tableRowsToJson(parseCSV(result.text), name);
+      const json = tableRowsToJson(parseCSV(result.value), name);
       return json ? { file, json, error: null } : { file, json: null, error: new Error("Unknown CSV structure") };
     }
 
     if (lower.endsWith(".xlsx") || lower.endsWith(".xls")) {
-      const result = await readFileAsArrayBuffer(file);
+      const result = await readAsArrayBuffer(file);
       if (result.error) return { file, json: null, error: result.error };
       try {
         const XLSX = await loadSheetJS();
-        const workbook = XLSX.read(result.buffer, { type: "array" });
+        const workbook = XLSX.read(result.value, { type: "array" });
         const sheetName = workbook.SheetNames[0];
         const rows = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], { header: 1, defval: "" });
         const json = tableRowsToJson(rows, name);
@@ -301,9 +274,18 @@
     return { file, json: null, error: new Error("Unsupported file type") };
   }
 
-  async function importFiles(files, expectedTypes) {
+  async function importFiles(files) {
     const loaded = [];
     const errors = [];
+
+    if (files.length > 1) {
+      const ok = confirm(
+        "You selected multiple library files.\n\n" +
+        "If two files contain the same library type or the same keys, later files may overwrite earlier values.\n\n" +
+        "Continue with import?"
+      );
+      if (!ok) return;
+    }
 
     for (const file of files) {
       const result = await readLibraryFile(file);
@@ -311,141 +293,39 @@
         errors.push(file.name + ": " + result.error.message);
         continue;
       }
-
       const names = applyJson(result.json, file.name);
       if (names.length) loaded.push(...names);
       else errors.push(file.name + ": unknown library format");
     }
 
     refreshTables();
-
     const unique = Array.from(new Set(loaded));
     const message = unique.length ? "✅ Loaded: " + unique.join(", ") : "⚠️ No supported user libraries were loaded.";
-    const expected = Array.isArray(expectedTypes) ? expectedTypes : [];
-    const missing = expected.includes("Combined") ? [] : expected.filter(type => !unique.includes(type));
-
     if (typeof updateUserLibraryStatus === "function") updateUserLibraryStatus(message);
     if (errors.length) console.warn("Some files were not loaded:", errors);
-    if (missing.length) console.warn("Selected library types not loaded:", missing);
-
-    alert(message +
-      (missing.length ? "\n\nNot loaded from selected checklist: " + missing.join(", ") : "") +
-      (errors.length ? "\n\nSome files were skipped. Check console for details." : ""));
+    alert(message + (errors.length ? "\n\nSome files were skipped. Check console for details." : ""));
   }
 
-  function showLibraryTypeChooser() {
-    return new Promise(resolve => {
-      const backdrop = document.createElement("div");
-      backdrop.className = "ul-backdrop";
-      backdrop.style.display = "flex";
-      backdrop.style.alignItems = "center";
-      backdrop.style.justifyContent = "center";
-
-      const modal = document.createElement("div");
-      modal.className = "ul-modal";
-      modal.style.maxWidth = "460px";
-
-      const header = document.createElement("div");
-      header.className = "ul-modal-header";
-      header.innerHTML = `<span>Select user libraries to load</span>`;
-
-      const closeBtn = document.createElement("button");
-      closeBtn.className = "ul-close-btn";
-      closeBtn.textContent = "✖";
-      closeBtn.onclick = () => { backdrop.remove(); resolve(null); };
-      header.appendChild(closeBtn);
-
-      const body = document.createElement("div");
-      body.className = "ul-modal-body";
-      body.style.display = "flex";
-      body.style.flexDirection = "column";
-      body.style.gap = "10px";
-
-      const info = document.createElement("p");
-      info.textContent = "Tick the library types you want to upload, then select matching JSON, CSV, or Excel files.";
-      info.style.margin = "0 0 4px 0";
-      info.style.fontSize = "0.92em";
-      info.style.opacity = "0.85";
-      body.appendChild(info);
-
-      const checkboxWrap = document.createElement("div");
-      checkboxWrap.style.display = "grid";
-      checkboxWrap.style.gridTemplateColumns = "1fr";
-      checkboxWrap.style.gap = "8px";
-
-      LIBRARY_OPTIONS.forEach(option => {
-        const label = document.createElement("label");
-        label.style.display = "flex";
-        label.style.alignItems = "center";
-        label.style.gap = "8px";
-        label.style.cursor = "pointer";
-
-        const cb = document.createElement("input");
-        cb.type = "checkbox";
-        cb.value = option.key;
-        cb.checked = option.key !== "Combined";
-
-        label.appendChild(cb);
-        label.appendChild(document.createTextNode(option.label));
-        checkboxWrap.appendChild(label);
-      });
-      body.appendChild(checkboxWrap);
-
-      const buttons = document.createElement("div");
-      buttons.style.display = "flex";
-      buttons.style.justifyContent = "flex-end";
-      buttons.style.gap = "8px";
-      buttons.style.marginTop = "10px";
-
-      const cancel = document.createElement("button");
-      cancel.className = "epic-btn";
-      cancel.textContent = "Cancel";
-      cancel.onclick = () => { backdrop.remove(); resolve(null); };
-
-      const continueBtn = document.createElement("button");
-      continueBtn.className = "epic-btn";
-      continueBtn.textContent = "Continue";
-      continueBtn.onclick = () => {
-        const selected = Array.from(modal.querySelectorAll('input[type="checkbox"]:checked')).map(cb => cb.value);
-        if (!selected.length) {
-          alert("Please select at least one library type.");
-          return;
-        }
-        backdrop.remove();
-        resolve(selected);
-      };
-
-      buttons.append(cancel, continueBtn);
-      body.appendChild(buttons);
-      modal.append(header, body);
-      backdrop.appendChild(modal);
-      document.body.appendChild(backdrop);
-    });
+  function openFilePicker() {
+    const picker = document.createElement("input");
+    picker.type = "file";
+    picker.accept = ".json,.csv,.xlsx,.xls,application/json,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel";
+    picker.multiple = true;
+    picker.onchange = async () => {
+      const files = Array.from(picker.files || []);
+      if (!files.length) return;
+      await importFiles(files);
+    };
+    picker.click();
   }
 
-  function wireBatchImportButton() {
+  function wireImportButton() {
     const oldBtn = document.getElementById("importLibraryBtn");
-    if (!oldBtn || oldBtn.dataset.batchImportReady === "1") return;
-
+    if (!oldBtn || oldBtn.dataset.directImportReady === "1") return;
     const newBtn = oldBtn.cloneNode(true);
-    newBtn.dataset.batchImportReady = "1";
+    newBtn.dataset.directImportReady = "1";
     oldBtn.parentNode.replaceChild(newBtn, oldBtn);
-
-    newBtn.addEventListener("click", async () => {
-      const selectedTypes = await showLibraryTypeChooser();
-      if (!selectedTypes) return;
-
-      const picker = document.createElement("input");
-      picker.type = "file";
-      picker.accept = ".json,.csv,.xlsx,.xls,application/json,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel";
-      picker.multiple = true;
-      picker.onchange = async () => {
-        const files = Array.from(picker.files || []);
-        if (!files.length) return;
-        await importFiles(files, selectedTypes);
-      };
-      picker.click();
-    });
+    newBtn.addEventListener("click", openFilePicker);
   }
 
   function patchShortnameAccessors() {
@@ -458,7 +338,6 @@
       };
       characterShortnameBySquare.__userShortnamesPatched = true;
     }
-
     if (typeof squareShortname === "function" && !squareShortname.__userShortnamesPatched) {
       const original = squareShortname;
       squareShortname = function (square) {
@@ -467,7 +346,6 @@
       };
       squareShortname.__userShortnamesPatched = true;
     }
-
     if (typeof castlingShortnameName === "function" && !castlingShortnameName.__userShortnamesPatched) {
       const original = castlingShortnameName;
       castlingShortnameName = function (san) {
@@ -482,11 +360,9 @@
   function wireTemplatesZipButton() {
     const oldBtn = document.getElementById("downloadTemplatesBtn");
     if (!oldBtn || oldBtn.dataset.extendedTemplatesReady === "1" || typeof JSZip === "undefined") return;
-
     const newBtn = oldBtn.cloneNode(true);
     newBtn.dataset.extendedTemplatesReady = "1";
     oldBtn.parentNode.replaceChild(newBtn, oldBtn);
-
     newBtn.addEventListener("click", async () => {
       const templates = [
         { filename: "template_characters.json", path: "user_libraries/user_characters_template.json", type: "json" },
@@ -501,19 +377,13 @@
         { filename: "csv_template_squares.csv", path: "user_libraries/csv_template_squares.csv", type: "text" },
         { filename: "csv_template_shortnames.csv", path: "user_libraries/csv_template_shortnames.csv", type: "text" }
       ];
-
       const zip = new JSZip();
       for (const tpl of templates) {
         const resp = await fetch(tpl.path);
         if (!resp.ok) throw new Error("Could not load " + tpl.path);
-        if (tpl.type === "json") {
-          const json = await resp.json();
-          zip.file(tpl.filename, JSON.stringify(json, null, 2));
-        } else {
-          zip.file(tpl.filename, await resp.text());
-        }
+        if (tpl.type === "json") zip.file(tpl.filename, JSON.stringify(await resp.json(), null, 2));
+        else zip.file(tpl.filename, await resp.text());
       }
-
       const content = await zip.generateAsync({ type: "blob" });
       const a = document.createElement("a");
       a.href = URL.createObjectURL(content);
@@ -527,7 +397,7 @@
     patchShortnameAccessors();
     setTimeout(() => {
       patchShortnameAccessors();
-      wireBatchImportButton();
+      wireImportButton();
       wireTemplatesZipButton();
     }, 0);
     setTimeout(patchShortnameAccessors, 500);
@@ -536,5 +406,5 @@
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();
 
-  window.CMAUserLibraryBatchImport = { applyJson, detectType, importFiles };
+  window.CMAUserLibraryBatchImport = { applyJson, detectType, importFiles, openFilePicker };
 })();
