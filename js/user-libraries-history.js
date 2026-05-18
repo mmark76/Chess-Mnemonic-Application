@@ -82,10 +82,13 @@
     console.log(`💾 Saved user library → name="${libName}", type="${type}", path="${path}"`);
   }
 
-  function applyImportedLibrary(fileName, json) {
+  function applyImportedLibrary(fileName, json, options = {}) {
+    const silent = options.silent === true;
+
     if (!json || typeof json !== "object") {
-      alert("❌ Invalid JSON structure.");
-      return;
+      const message = "Invalid JSON structure.";
+      if (!silent) alert("❌ " + message);
+      return { ok: false, fileName, type: null, message };
     }
 
     const type = detectLibraryType(json);
@@ -108,8 +111,8 @@
         `<span style="opacity:0.6;">(${new Date().toLocaleTimeString()})</span>`
       );
       saveLibraryToHistory(fileName, json);
-      alert("🏛️ User Memory Palace loaded!");
-      return;
+      if (!silent) alert("🏛️ User Memory Palace loaded!");
+      return { ok: true, fileName, type, name: p.name || name, message: `${loci.length} loci loaded` };
     }
 
     if (type === "Characters") {
@@ -119,8 +122,8 @@
         `<span style="opacity:0.6;">(${new Date().toLocaleTimeString()})</span>`
       );
       saveLibraryToHistory(fileName, json);
-      alert("♟️ User Characters loaded!");
-      return;
+      if (!silent) alert("♟️ User Characters loaded!");
+      return { ok: true, fileName, type, name, message: "User Characters loaded" };
     }
 
     if (type === "PAO_00_99") {
@@ -130,8 +133,8 @@
         `<span style="opacity:0.6;">(${new Date().toLocaleTimeString()})</span>`
       );
       saveLibraryToHistory(fileName, json);
-      alert("🔢 User PAO 00–99 loaded!");
-      return;
+      if (!silent) alert("🔢 User PAO 00–99 loaded!");
+      return { ok: true, fileName, type, name, message: "PAO 00–99 loaded" };
     }
 
     if (type === "Squares") {
@@ -142,31 +145,78 @@
         `<span style="opacity:0.6;">(${new Date().toLocaleTimeString()})</span>`
       );
       saveLibraryToHistory(fileName, json);
-      alert("🗺️ User Squares loaded!");
-      return;
+      if (!silent) alert("🗺️ User Squares loaded!");
+      return { ok: true, fileName, type, name, message: `${count} squares loaded` };
     }
 
-    alert("⚠️ Unknown library format.");
+    const message = "Unknown library format.";
+    if (!silent) alert("⚠️ " + message);
+    return { ok: false, fileName, type: null, message };
   }
 
-  function readAndApplyImportFile(file) {
-    if (!file) return;
-
-    const reader = new FileReader();
-    reader.onload = (ev) => {
-      let json;
-      try {
-        json = JSON.parse(ev.target.result);
-      } catch (err) {
-        alert("❌ Invalid JSON file: Cannot parse.");
+  function readAndApplyImportFile(file, options = {}) {
+    return new Promise((resolve) => {
+      if (!file) {
+        resolve({ ok: false, fileName: "", type: null, message: "No file selected." });
         return;
       }
 
-      applyImportedLibrary(file.name, json);
-    };
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        let json;
+        try {
+          json = JSON.parse(ev.target.result);
+        } catch (err) {
+          const result = { ok: false, fileName: file.name, type: null, message: "Invalid JSON file: Cannot parse." };
+          if (!options.silent) alert("❌ " + result.message);
+          resolve(result);
+          return;
+        }
 
-    reader.onerror = () => alert("❌ File read error.");
-    reader.readAsText(file);
+        resolve(applyImportedLibrary(file.name, json, options));
+      };
+
+      reader.onerror = () => {
+        const result = { ok: false, fileName: file.name, type: null, message: "File read error." };
+        if (!options.silent) alert("❌ " + result.message);
+        resolve(result);
+      };
+
+      reader.readAsText(file);
+    });
+  }
+
+  async function readAndApplyImportFiles(fileList) {
+    const files = Array.from(fileList || []);
+    if (!files.length) return;
+
+    const results = [];
+    for (const file of files) {
+      results.push(await readAndApplyImportFile(file, { silent: files.length > 1 }));
+    }
+
+    if (files.length === 1) return;
+
+    const loaded = results.filter(r => r.ok);
+    const skipped = results.filter(r => !r.ok);
+
+    const loadedHtml = loaded.length
+      ? loaded.map(r => `✅ ${r.fileName} — ${r.type}`).join("<br>")
+      : "None";
+
+    const skippedHtml = skipped.length
+      ? "<br><br><b>Skipped:</b><br>" + skipped.map(r => `⚠️ ${r.fileName} — ${r.message}`).join("<br>")
+      : "";
+
+    updateUserLibraryStatus(
+      `<b>Custom libraries import complete</b><br>${loadedHtml}${skippedHtml}` +
+      `<br><span style="opacity:0.6;">(${new Date().toLocaleTimeString()})</span>`
+    );
+
+    if (typeof renderAll === "function") renderAll();
+    if (typeof enableManualAnchors === "function") enableManualAnchors();
+
+    alert(`Import complete. Loaded: ${loaded.length}. Skipped: ${skipped.length}.`);
   }
 
   function openSingleImportPicker() {
@@ -181,12 +231,13 @@
 
     const picker = document.createElement("input");
     picker.type = "file";
-    picker.accept = ".json";
+    picker.accept = ".json,application/json";
+    picker.multiple = true;
     picker.style.display = "none";
 
-    picker.addEventListener("change", (e) => {
-      const file = e.target.files && e.target.files[0];
-      readAndApplyImportFile(file);
+    picker.addEventListener("change", async (e) => {
+      const files = e.target.files;
+      await readAndApplyImportFiles(files);
       picker.remove();
       unlockPicker();
     }, { once: true });
@@ -228,7 +279,9 @@
   window.CMAUserLibrariesHistory = {
     detectLibraryType,
     saveLibraryToHistory,
-    applyImportedLibrary
+    applyImportedLibrary,
+    readAndApplyImportFile,
+    readAndApplyImportFiles
   };
 
   if (typeof window !== "undefined") {
