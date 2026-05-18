@@ -62,11 +62,12 @@ Chess-Mnemonic-Application-main/
 ├── js/
 │   ├── cms.bundle.js                   # Core application engine
 │   ├── shortnames-action-column.js     # Shortnames and Associations action/castling overrides
-│   ├── user-libraries-history.js       # User library import/history support
+│   ├── user-libraries-history.js       # Library System UX, guarded import, template ZIP guard, history support
 │   ├── user-library-runtime-fix.js     # Runtime support for user libraries and UI display refinements
-│   ├── download-tables.js              # Export tools for tables
+│   ├── download-tables.js              # Export tools for generated tables
 │   ├── epic.js                         # Active Epic Story generator
 │   ├── epic-ui-init.js                 # Epic Story UI initialization/styling support
+│   ├── epic-tts.js                     # Epic Story TTS support where available
 │   ├── san-to-text-popup.js            # SAN-to-text popup helper
 │   └── structured-data.js              # SEO structured data
 │
@@ -106,13 +107,15 @@ Its main logic is handled by:
 js/cms.bundle.js
 ```
 
-Additional current table-specific and runtime support logic is handled by:
+Additional current table-specific, library-specific, and runtime support logic is handled by:
 
 ```text
 js/shortnames-action-column.js
+js/user-libraries-history.js
 js/user-library-runtime-fix.js
 js/san-to-text-popup.js
 js/epic.js
+js/epic-tts.js
 ```
 
 The main application supports:
@@ -125,7 +128,10 @@ The main application supports:
 - generating shortname tables,
 - generating PAO tables,
 - creating Epic Story output,
-- importing user libraries,
+- creating custom library templates,
+- downloading official JSON library templates as a ZIP file,
+- importing custom user libraries,
+- restoring default libraries without refreshing the page,
 - hiding/showing table columns,
 - and exporting generated material.
 
@@ -369,9 +375,11 @@ json/libraries_v.5.2.json
 
 The current application should use `libraries_v.5.3.json` as the main data source unless another version is intentionally selected by the project owner.
 
+The default libraries are protected. They are shown in the Library System panel for viewing and orientation, but they are not edited directly from the main application.
+
 ---
 
-## 8. User Libraries
+## 8. User Libraries and Library System Panel
 
 User library templates are stored in:
 
@@ -390,12 +398,41 @@ These files are templates for user-defined mnemonic material and can be imported
 
 To import or load a user library, the file must follow the official template structure.
 
+The Library System panel supports:
+
+- viewing the protected default libraries,
+- downloading the official JSON templates as `CMA_Templates.zip`,
+- creating custom libraries in the browser and exporting them as JSON,
+- importing a custom JSON library,
+- displaying the currently active library status,
+- restoring the default libraries without refreshing the page.
+
+Supported custom library types are:
+
+- Memory Palace libraries,
+- Characters libraries,
+- PAO 00–99 libraries,
+- Squares libraries.
+
 Runtime support for imported user libraries is handled by:
 
 ```text
 js/user-libraries-history.js
 js/user-library-runtime-fix.js
 ```
+
+### 8.1 Import and Download Stability
+
+The Library System has been hardened against duplicate browser actions.
+
+Current safeguards include:
+
+- custom library import is handled through a single guarded import flow,
+- the previous global `FileReader` hook has been removed to avoid duplicate JSON processing,
+- the import button is protected against being wired more than once,
+- the template ZIP download is guarded against duplicate handlers and rapid double-clicks,
+- the template ZIP button is temporarily disabled while the ZIP file is being prepared,
+- template ZIP creation uses error handling and releases its generated object URL after download.
 
 There is no `user_custom.js` file in the current structure.
 
