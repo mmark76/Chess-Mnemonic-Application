@@ -212,25 +212,26 @@
     style.id = "cmaLibraryPanelUxStyles";
     style.textContent = `
       .library-panel-title {
-        margin: 0 0 8px 0;
+        margin: 0 0 4px 0;
         color: #ffffff;
-        font-size: 1.05rem;
+        font-size: 1rem;
         font-weight: 700;
+        line-height: 1.2;
       }
 
       .library-panel-intro {
-        margin: 0 0 14px 0;
+        margin: 0 0 8px 0;
         color: #dddddd;
-        font-size: 0.92rem;
-        line-height: 1.45;
+        font-size: 0.86rem;
+        line-height: 1.32;
       }
 
       .library-view-row {
         display: flex;
         flex-wrap: wrap;
-        gap: 10px;
+        gap: 6px;
         align-items: center;
-        margin: 6px 0 14px 0;
+        margin: 4px 0 10px 0;
       }
 
       .library-view-row label {
@@ -239,24 +240,25 @@
       }
 
       .library-actions-title {
-        margin: 10px 0 6px 0;
+        margin: 6px 0 3px 0;
         color: #CFAF4A;
         font-family: Georgia, 'Times New Roman', serif;
-        font-size: 0.95rem;
+        font-size: 0.9rem;
         font-weight: 700;
+        line-height: 1.2;
       }
 
       .library-actions-help {
-        margin: 0 0 8px 0;
+        margin: 0 0 6px 0;
         color: #cfcfcf;
-        font-size: 0.84rem;
-        line-height: 1.4;
+        font-size: 0.8rem;
+        line-height: 1.25;
       }
 
       .user-lib-controls {
         display: flex;
         flex-wrap: wrap;
-        gap: 8px;
+        gap: 5px 6px;
         align-items: center;
       }
 
@@ -264,31 +266,45 @@
         display: none;
       }
 
+      .user-lib-controls button,
+      .library-view-row select {
+        padding: 4px 9px;
+        font-size: 0.82rem;
+        line-height: 1.2;
+      }
+
       .library-status-card {
         width: 100%;
-        margin: 10px 0 4px 0;
-        padding: 8px 10px;
+        margin: 6px 0 2px 0;
+        padding: 6px 8px;
         border: 1px solid #4a3f1c;
         border-left: 4px solid #CFAF4A;
         border-radius: 6px;
         background: #141414;
         color: #CFAF4A;
         font-family: Georgia, 'Times New Roman', serif;
-        font-size: 0.9rem;
-        line-height: 1.4;
+        font-size: 0.84rem;
+        line-height: 1.25;
       }
 
       .library-note {
         width: 100%;
-        margin: 4px 0 0 0 !important;
+        margin: 2px 0 0 0 !important;
         color: #bfbfbf !important;
-        font-size: 0.82rem !important;
-        line-height: 1.4;
+        font-size: 0.78rem !important;
+        line-height: 1.25;
       }
 
       #restoreDefaultLibrariesBtn {
         border-color: #CFAF4A;
         color: #CFAF4A;
+        margin-top: 0;
+      }
+
+      #activePalaceInfo {
+        margin: 4px 0 0 0 !important;
+        font-size: 0.84rem !important;
+        line-height: 1.25 !important;
       }
     `;
 
