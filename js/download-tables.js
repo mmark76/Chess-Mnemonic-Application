@@ -1,5 +1,5 @@
 // download-tables.js
-// Χειρίζεται τα "Download as…" dropdowns για όλους τους πίνακες
+// Handles the "Download as…" dropdowns for all tables
 
 (function () {
 
@@ -30,9 +30,6 @@
         .map(r => r.map(x => `"${x.replace(/"/g, '""')}"`).join(','))
         .join('\n');
       blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-    } else if (format === 'txt') {
-      const txt = rows.map(r => r.join('\t')).join('\n');
-      blob = new Blob([txt], { type: 'text/plain;charset=utf-8;' });
     } else if (format === 'json') {
       blob = new Blob(
         [JSON.stringify(rows, null, 2)],
@@ -44,7 +41,7 @@
 
     const filename = `${sectionId}.${format}`;
 
-    // Προτίμηση σε FileSaver.js αν υπάρχει
+    // Prefer FileSaver.js when available
     if (typeof saveAs === 'function') {
       saveAs(blob, filename);
     } else {
@@ -63,11 +60,11 @@
         const format = sel.value;
         if (!format) return;
 
-        const sectionId = sel.dataset.table; // π.χ. "sanSection"
+        const sectionId = sel.dataset.table;
         if (!sectionId) return;
 
         exportTable(sectionId, format);
-        sel.value = ''; // reset επιλογής
+        sel.value = '';
       });
     });
   }
