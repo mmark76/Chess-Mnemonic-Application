@@ -127,7 +127,7 @@ The main application supports:
 - building association tables,
 - generating shortname tables,
 - generating PAO tables,
-- creating Epic Story output,
+- creating Epic Story output from default or imported custom libraries,
 - creating custom library templates,
 - downloading official JSON library templates as a ZIP file,
 - importing custom user libraries,
@@ -255,6 +255,23 @@ The Epic Story combines:
 - piece associations,
 - target square associations,
 - and narrative phrasing.
+
+The Epic Story generator supports both default libraries and imported custom user libraries.
+
+Current Epic Story library priority:
+
+1. **Imported custom user libraries**, when available:
+   - `libs.User.MemoryPalaces` for temporal loci,
+   - `libs.User.Characters` for piece and pawn character associations,
+   - `libs.User.Squares` for target square associations.
+2. **Default libraries**, as fallback when no matching custom user library data exists:
+   - `libs.Temporal.LibraryT1`,
+   - `libs.Characters.LibraryC2`,
+   - `libs.Spatial.LibraryS1`.
+
+Manual anchor chapter labels currently continue to use the default temporal anchor library unless intentionally changed by the project owner in a later version.
+
+This means that imported custom libraries can now influence not only the generated tables, but also the Epic Story narrative itself.
 
 ---
 
@@ -420,6 +437,14 @@ Runtime support for imported user libraries is handled by:
 js/user-libraries-history.js
 js/user-library-runtime-fix.js
 ```
+
+Epic Story support for imported Memory Palace, Characters, and Squares libraries is handled directly by:
+
+```text
+js/epic.js
+```
+
+When a supported custom user library is imported, the application can use it in the relevant generated tables and, where applicable, in the Epic Story output. If a required custom value is missing, the application falls back to the protected default libraries.
 
 ### 8.1 Import and Download Stability
 
