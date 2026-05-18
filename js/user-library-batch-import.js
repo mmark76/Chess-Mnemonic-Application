@@ -2,6 +2,15 @@
    User Library Batch Import + Shortnames Support
    =========================================================== */
 (function () {
+  const LIBRARY_OPTIONS = [
+    { key: "Memory Palace", label: "Memory Palace" },
+    { key: "Characters", label: "Characters" },
+    { key: "Squares", label: "Squares" },
+    { key: "Shortnames", label: "Shortnames" },
+    { key: "PAO 00–99", label: "PAO 00–99" },
+    { key: "Combined", label: "Combined user template" }
+  ];
+
   function ensureUserRoot() {
     if (typeof libs === "undefined") return null;
     libs = libs || {};
@@ -112,7 +121,7 @@
     });
   }
 
-  async function importFiles(files) {
+  async function importFiles(files, expectedTypes) {
     const loaded = [];
     const errors = [];
 
@@ -133,9 +142,117 @@
     const unique = Array.from(new Set(loaded));
     const message = unique.length ? "✅ Loaded: " + unique.join(", ") : "⚠️ No supported user libraries were loaded.";
 
+    const expected = Array.isArray(expectedTypes) ? expectedTypes : [];
+    const missing = expected.includes("Combined")
+      ? []
+      : expected.filter(type => !unique.includes(type));
+
     if (typeof updateUserLibraryStatus === "function") updateUserLibraryStatus(message);
     if (errors.length) console.warn("Some files were not loaded:", errors);
-    alert(message + (errors.length ? "\n\nSome files were skipped. Check console for details." : ""));
+    if (missing.length) console.warn("Selected library types not loaded:", missing);
+
+    alert(
+      message +
+      (missing.length ? "\n\nNot loaded from selected checklist: " + missing.join(", ") : "") +
+      (errors.length ? "\n\nSome files were skipped. Check console for details." : "")
+    );
+  }
+
+  function showLibraryTypeChooser() {
+    return new Promise(resolve => {
+      const backdrop = document.createElement("div");
+      backdrop.className = "ul-backdrop";
+      backdrop.style.display = "flex";
+      backdrop.style.alignItems = "center";
+      backdrop.style.justifyContent = "center";
+
+      const modal = document.createElement("div");
+      modal.className = "ul-modal";
+      modal.style.maxWidth = "460px";
+
+      const header = document.createElement("div");
+      header.className = "ul-modal-header";
+      header.innerHTML = `<span>Select user libraries to load</span>`;
+
+      const closeBtn = document.createElement("button");
+      closeBtn.className = "ul-close-btn";
+      closeBtn.textContent = "✖";
+      closeBtn.onclick = () => {
+        backdrop.remove();
+        resolve(null);
+      };
+      header.appendChild(closeBtn);
+
+      const body = document.createElement("div");
+      body.className = "ul-modal-body";
+      body.style.display = "flex";
+      body.style.flexDirection = "column";
+      body.style.gap = "10px";
+
+      const info = document.createElement("p");
+      info.textContent = "Tick the library types you want to upload, then select the matching JSON files.";
+      info.style.margin = "0 0 4px 0";
+      info.style.fontSize = "0.92em";
+      info.style.opacity = "0.85";
+      body.appendChild(info);
+
+      const checkboxWrap = document.createElement("div");
+      checkboxWrap.style.display = "grid";
+      checkboxWrap.style.gridTemplateColumns = "1fr";
+      checkboxWrap.style.gap = "8px";
+
+      LIBRARY_OPTIONS.forEach(option => {
+        const label = document.createElement("label");
+        label.style.display = "flex";
+        label.style.alignItems = "center";
+        label.style.gap = "8px";
+        label.style.cursor = "pointer";
+
+        const cb = document.createElement("input");
+        cb.type = "checkbox";
+        cb.value = option.key;
+        cb.checked = option.key !== "Combined";
+
+        label.appendChild(cb);
+        label.appendChild(document.createTextNode(option.label));
+        checkboxWrap.appendChild(label);
+      });
+      body.appendChild(checkboxWrap);
+
+      const buttons = document.createElement("div");
+      buttons.style.display = "flex";
+      buttons.style.justifyContent = "flex-end";
+      buttons.style.gap = "8px";
+      buttons.style.marginTop = "10px";
+
+      const cancel = document.createElement("button");
+      cancel.className = "epic-btn";
+      cancel.textContent = "Cancel";
+      cancel.onclick = () => {
+        backdrop.remove();
+        resolve(null);
+      };
+
+      const continueBtn = document.createElement("button");
+      continueBtn.className = "epic-btn";
+      continueBtn.textContent = "Continue";
+      continueBtn.onclick = () => {
+        const selected = Array.from(modal.querySelectorAll('input[type="checkbox"]:checked')).map(cb => cb.value);
+        if (!selected.length) {
+          alert("Please select at least one library type.");
+          return;
+        }
+        backdrop.remove();
+        resolve(selected);
+      };
+
+      buttons.append(cancel, continueBtn);
+      body.appendChild(buttons);
+
+      modal.append(header, body);
+      backdrop.appendChild(modal);
+      document.body.appendChild(backdrop);
+    });
   }
 
   function wireBatchImportButton() {
@@ -146,15 +263,9 @@
     newBtn.dataset.batchImportReady = "1";
     oldBtn.parentNode.replaceChild(newBtn, oldBtn);
 
-    newBtn.addEventListener("click", () => {
-      const answer = prompt("How many user library JSON files do you want to load?", "1");
-      if (answer === null) return;
-
-      const expectedCount = parseInt(answer, 10);
-      if (!Number.isInteger(expectedCount) || expectedCount < 1) {
-        alert("Please enter a valid number of libraries.");
-        return;
-      }
+    newBtn.addEventListener("click", async () => {
+      const selectedTypes = await showLibraryTypeChooser();
+      if (!selectedTypes) return;
 
       const picker = document.createElement("input");
       picker.type = "file";
@@ -163,11 +274,7 @@
       picker.onchange = async () => {
         const files = Array.from(picker.files || []);
         if (!files.length) return;
-        if (files.length !== expectedCount) {
-          const ok = confirm(`You selected ${files.length} file(s), but you entered ${expectedCount}.\n\nContinue with the selected files?`);
-          if (!ok) return;
-        }
-        await importFiles(files);
+        await importFiles(files, selectedTypes);
       };
       picker.click();
     });
