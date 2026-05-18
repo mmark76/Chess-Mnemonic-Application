@@ -504,7 +504,6 @@ js/download-tables.js
 Supported export formats include:
 
 - CSV,
-- TXT,
 - JSON.
 
 ---
