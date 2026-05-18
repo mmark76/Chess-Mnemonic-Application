@@ -449,3 +449,85 @@
     init();
   }
 })();
+
+/* ===========================================================
+   Safe templates ZIP download guard
+   Prevents duplicate download handlers and rapid double-clicks.
+   =========================================================== */
+(function () {
+  async function downloadTemplatesZip(btn) {
+    if (!btn || btn.dataset.cmaTemplatesBusy === "1") return;
+
+    btn.dataset.cmaTemplatesBusy = "1";
+    const originalText = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = "Preparing ZIP...";
+
+    try {
+      if (typeof JSZip !== "function") {
+        throw new Error("JSZip is not available.");
+      }
+
+      const templates = [
+        { filename: "template_characters.json", path: "user_libraries/user_characters_template.json" },
+        { filename: "template_memory_palaces.json", path: "user_libraries/user_memory_palaces_template.json" },
+        { filename: "template_pao_00_99.json", path: "user_libraries/user_pao_00_99_template.json" },
+        { filename: "template_squares.json", path: "user_libraries/user_squares_template.json" }
+      ];
+
+      const zip = new JSZip();
+
+      for (const tpl of templates) {
+        const resp = await fetch(tpl.path, { cache: "no-store" });
+        if (!resp.ok) throw new Error(`Could not load ${tpl.path} (${resp.status})`);
+        const json = await resp.json();
+        zip.file(tpl.filename, JSON.stringify(json, null, 2));
+      }
+
+      const content = await zip.generateAsync({ type: "blob" });
+      const url = URL.createObjectURL(content);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "CMA_Templates.zip";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+
+      alert("📦 Templates ZIP downloaded!");
+    } catch (err) {
+      console.error("Templates ZIP download failed:", err);
+      alert("❌ Templates ZIP download failed. Please try again.");
+    } finally {
+      btn.disabled = false;
+      btn.textContent = originalText || "Download JSON Templates";
+      delete btn.dataset.cmaTemplatesBusy;
+    }
+  }
+
+  function installTemplatesDownloadGuard() {
+    const btn = document.getElementById("downloadTemplatesBtn");
+    if (!btn || btn.dataset.cmaTemplatesGuardInstalled === "1") return;
+
+    btn.dataset.cmaTemplatesGuardInstalled = "1";
+
+    document.addEventListener("click", function (event) {
+      const targetBtn = event.target && event.target.closest
+        ? event.target.closest("#downloadTemplatesBtn")
+        : null;
+
+      if (!targetBtn) return;
+
+      event.preventDefault();
+      event.stopPropagation();
+      event.stopImmediatePropagation();
+      downloadTemplatesZip(targetBtn);
+    }, true);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", installTemplatesDownloadGuard);
+  } else {
+    installTemplatesDownloadGuard();
+  }
+})();
