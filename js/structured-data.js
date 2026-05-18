@@ -81,11 +81,11 @@
   }
 })();
 
-/* Load small UI label adjustments. */
+/* Load small UI label and spacing adjustments. */
 (function () {
   try {
     var script = document.createElement("script");
-    script.src = "js/user-library-ui-labels.js?v=20260518-1";
+    script.src = "js/user-library-ui-labels.js?v=20260518-2";
     script.defer = true;
     document.head.appendChild(script);
   } catch (e) {
