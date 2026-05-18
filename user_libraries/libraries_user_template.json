@@ -1,0 +1,120 @@
+{
+  "_template": "libraries_user_template",
+  "_description": "Combined user libraries template for loading several user libraries together. For complete 64-square / 100-code structures, use the separate templates and copy their filled content into the matching sections below.",
+  "User": {
+    "MemoryPalaces": {
+      "palaces": [
+        {
+          "name": "",
+          "description": "",
+          "locations": [
+            { "id": "L1", "label": "", "image": "", "notes": "" },
+            { "id": "L2", "label": "", "image": "", "notes": "" },
+            { "id": "L3", "label": "", "image": "", "notes": "" }
+          ]
+        }
+      ]
+    },
+    "Characters": {
+      "white": {
+        "pawn": {
+          "a2": { "name": "", "notes": "" },
+          "b2": { "name": "", "notes": "" }
+        },
+        "knight": {
+          "b1": { "name": "", "notes": "" },
+          "g1": { "name": "", "notes": "" }
+        },
+        "bishop": {
+          "c1": { "name": "", "notes": "" },
+          "f1": { "name": "", "notes": "" }
+        },
+        "rook": {
+          "a1": { "name": "", "notes": "" },
+          "h1": { "name": "", "notes": "" }
+        },
+        "queen": {
+          "d1": { "name": "", "notes": "" }
+        },
+        "king": {
+          "e1": { "name": "", "notes": "" }
+        }
+      },
+      "black": {
+        "pawn": {
+          "a7": { "name": "", "notes": "" },
+          "b7": { "name": "", "notes": "" }
+        },
+        "knight": {
+          "b8": { "name": "", "notes": "" },
+          "g8": { "name": "", "notes": "" }
+        },
+        "bishop": {
+          "c8": { "name": "", "notes": "" },
+          "f8": { "name": "", "notes": "" }
+        },
+        "rook": {
+          "a8": { "name": "", "notes": "" },
+          "h8": { "name": "", "notes": "" }
+        },
+        "queen": {
+          "d8": { "name": "", "notes": "" }
+        },
+        "king": {
+          "e8": { "name": "", "notes": "" }
+        }
+      }
+    },
+    "Squares": {
+      "a1": { "keyword": "", "image": "", "notes": "" },
+      "a2": { "keyword": "", "image": "", "notes": "" }
+    },
+    "Shortnames": {
+      "type": "Shortnames",
+      "description": "User shortnames section. Use CharactersSN1 for piece shortnames and SquaresSN1 for target-square shortnames.",
+      "CharactersSN1": {
+        "Pa2": "",
+        "Pb2": "",
+        "Nb1": "",
+        "Ng1": "",
+        "Bc1": "",
+        "Bf1": "",
+        "Ra1": "",
+        "Rh1": "",
+        "Qd1": "",
+        "Ke1": "",
+        "Pa7": "",
+        "Pb7": "",
+        "Nb8": "",
+        "Ng8": "",
+        "Bc8": "",
+        "Bf8": "",
+        "Ra8": "",
+        "Rh8": "",
+        "Qd8": "",
+        "Ke8": ""
+      },
+      "SquaresSN1": {
+        "a1": "",
+        "a2": "",
+        "b1": "",
+        "b2": ""
+      },
+      "CastlingSN1": {
+        "O-O": "",
+        "O-O-O": ""
+      },
+      "Actions": {
+        "capture": "x",
+        "check": "+",
+        "checkmate": "#",
+        "kingside_castling": "O-O",
+        "queenside_castling": "O-O-O"
+      }
+    },
+    "PAO_00_99": {
+      "00": { "person": "", "action": "", "object": "" },
+      "01": { "person": "", "action": "", "object": "" }
+    }
+  }
+}
