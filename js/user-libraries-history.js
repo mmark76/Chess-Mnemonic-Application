@@ -149,43 +149,80 @@
     alert("⚠️ Unknown library format.");
   }
 
+  function readAndApplyImportFile(file) {
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      let json;
+      try {
+        json = JSON.parse(ev.target.result);
+      } catch (err) {
+        alert("❌ Invalid JSON file: Cannot parse.");
+        return;
+      }
+
+      applyImportedLibrary(file.name, json);
+    };
+
+    reader.onerror = () => alert("❌ File read error.");
+    reader.readAsText(file);
+  }
+
+  function openSingleImportPicker() {
+    if (window.__cmaImportPickerOpen === "1") return;
+    window.__cmaImportPickerOpen = "1";
+
+    const unlockPicker = () => {
+      setTimeout(() => {
+        window.__cmaImportPickerOpen = "0";
+      }, 250);
+    };
+
+    const picker = document.createElement("input");
+    picker.type = "file";
+    picker.accept = ".json";
+    picker.style.display = "none";
+
+    picker.addEventListener("change", (e) => {
+      const file = e.target.files && e.target.files[0];
+      readAndApplyImportFile(file);
+      picker.remove();
+      unlockPicker();
+    }, { once: true });
+
+    window.addEventListener("focus", unlockPicker, { once: true });
+    document.body.appendChild(picker);
+    picker.click();
+  }
+
   function installSingleImportHandler() {
     if (typeof window === "undefined") return;
 
     window.wireImportLibraryButton = function () {
       const importBtn = document.getElementById("importLibraryBtn");
-      if (!importBtn || importBtn.dataset.cmaImportWired === "1") return;
-
+      if (!importBtn) return;
       importBtn.dataset.cmaImportWired = "1";
-      importBtn.addEventListener("click", () => {
-        const picker = document.createElement("input");
-        picker.type = "file";
-        picker.accept = ".json";
-
-        picker.onchange = (e) => {
-          const file = e.target.files && e.target.files[0];
-          if (!file) return;
-
-          const reader = new FileReader();
-          reader.onload = (ev) => {
-            let json;
-            try {
-              json = JSON.parse(ev.target.result);
-            } catch (err) {
-              alert("❌ Invalid JSON file: Cannot parse.");
-              return;
-            }
-
-            applyImportedLibrary(file.name, json);
-          };
-
-          reader.onerror = () => alert("❌ File read error.");
-          reader.readAsText(file);
-        };
-
-        picker.click();
-      });
     };
+  }
+
+  function installImportClickGuard() {
+    if (typeof document === "undefined") return;
+    if (window.__cmaImportClickGuardInstalled === "1") return;
+    window.__cmaImportClickGuardInstalled = "1";
+
+    document.addEventListener("click", function (event) {
+      const targetBtn = event.target && event.target.closest
+        ? event.target.closest("#importLibraryBtn")
+        : null;
+
+      if (!targetBtn) return;
+
+      event.preventDefault();
+      event.stopPropagation();
+      event.stopImmediatePropagation();
+      openSingleImportPicker();
+    }, true);
   }
 
   window.CMAUserLibrariesHistory = {
@@ -197,6 +234,7 @@
   if (typeof window !== "undefined") {
     loadRuntimeHelper();
     installSingleImportHandler();
+    installImportClickGuard();
   }
 })();
 
