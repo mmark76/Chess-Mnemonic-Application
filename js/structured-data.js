@@ -67,3 +67,16 @@
     // Structured data only; this must not affect the app.
   }
 })();
+
+/* Load optional user-library batch import support.
+   This keeps the feature isolated from the main application bundle. */
+(function () {
+  try {
+    var script = document.createElement("script");
+    script.src = "js/user-library-batch-import.js?v=20260518-1";
+    script.defer = true;
+    document.head.appendChild(script);
+  } catch (e) {
+    // Optional helper only; this must not affect the app.
+  }
+})();
