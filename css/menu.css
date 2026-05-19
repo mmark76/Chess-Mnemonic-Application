@@ -138,3 +138,18 @@
     z-index: 1002;
   }
 }
+
+@media (min-width: 1024px) {
+  .header-top-row {
+    transform: translateX(clamp(30px, 7vw, 180px));
+  }
+
+  #howToBtn,
+  header > figure {
+    transform: translateX(clamp(-180px, -7vw, -30px));
+  }
+
+  #howToBtn:hover {
+    transform: translateX(clamp(-180px, -7vw, -30px)) translateY(-1px);
+  }
+}
