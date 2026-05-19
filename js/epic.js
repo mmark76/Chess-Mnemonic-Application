@@ -281,7 +281,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const verbs = ["appears", "emerges", "moves"];
 
         const opening = i === 0
-          ? "A trumpet sounds, and the battle begins"
+          ? "A trumpet sounds, and the battle begins when"
           : openings[i % openings.length];
         const action = verbs[i % verbs.length];
 
