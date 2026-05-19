@@ -165,3 +165,18 @@
     transform: none !important;
   }
 }
+
+@media (max-width: 767px) {
+  header > figure {
+    width: 100%;
+    max-width: none !important;
+    order: 4;
+    display: flex !important;
+    justify-content: center;
+    transform: none !important;
+  }
+
+  header > figure .header-img {
+    width: 70px;
+  }
+}
