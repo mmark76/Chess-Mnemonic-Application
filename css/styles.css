@@ -631,31 +631,75 @@ table td:nth-child(3) {
 /* --- Tablet Header Fix (768px-1023px) --- */
 @media (min-width: 768px) and (max-width: 1023px) {
   header {
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 8px 12px;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    grid-template-areas:
+      "title"
+      "menu"
+      "action" !important;
+    justify-items: center !important;
+    align-items: center !important;
+    row-gap: 8px !important;
+    column-gap: 0 !important;
+    padding: 8px 10px !important;
   }
 
   .header-top-row {
-    flex: 1 1 100%;
-    justify-content: center;
+    grid-area: title !important;
+    width: 100% !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 8px !important;
+    min-width: 0 !important;
   }
 
-  .menus-wrapper,
-  #howToBtn {
-    flex: 0 1 auto;
+  .main-title {
+    max-width: min(560px, calc(100vw - 150px)) !important;
+    font-size: 1rem !important;
+    line-height: 1.22 !important;
+    text-align: left !important;
+    white-space: normal !important;
+  }
+
+  .menus-wrapper {
+    grid-area: menu !important;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    min-width: 0 !important;
   }
 
   .br-menu {
-    margin-left: 0;
-    margin-right: 0;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .br-menu > summary {
+    max-width: calc(100vw - 24px) !important;
+    white-space: normal !important;
+    text-align: center !important;
+    justify-content: center !important;
+    font-size: 14px !important;
+    padding: 8px 10px !important;
+  }
+
+  .br-panel {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    max-width: calc(100vw - 24px) !important;
   }
 
   #howToBtn {
-    font-size: 16px !important;
+    grid-area: action !important;
+    width: fit-content !important;
+    max-width: calc(100vw - 24px) !important;
+    justify-self: center !important;
+    font-size: 15px !important;
     padding: 8px 14px !important;
-    margin: 0;
+    margin: 0 !important;
+    white-space: normal !important;
+    text-align: center !important;
   }
 }
 
