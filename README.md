@@ -63,7 +63,7 @@ Chess-Mnemonic-Application-main/
 │   ├── cms.bundle.js                   # Core application engine
 │   ├── shortnames-action-column.js     # Shortnames and Associations action/castling overrides
 │   ├── user-libraries-history.js       # Library System UX, guarded import, template ZIP guard, history support
-│   ├── user-library-runtime-fix.js     # Runtime support for user libraries and UI display refinements
+│   ├── user-library-runtime-fix.js     # Runtime support loaded dynamically by user-libraries-history.js
 │   ├── download-tables.js              # Export tools for generated tables
 │   ├── epic.js                         # Active Epic Story generator
 │   ├── epic-ui-init.js                 # Epic Story UI initialization/styling support
@@ -107,7 +107,7 @@ Its main logic is handled by:
 js/cms.bundle.js
 ```
 
-Additional current table-specific, library-specific, and runtime support logic is handled by:
+Additional current table-specific, library-specific, and runtime support logic is handled by these scripts. The file `js/user-library-runtime-fix.js` is loaded dynamically by `js/user-libraries-history.js` when needed:
 
 ```text
 js/shortnames-action-column.js
@@ -431,7 +431,7 @@ Supported custom library types are:
 - PAO 00–99 libraries,
 - Squares libraries.
 
-Runtime support for imported user libraries is handled by:
+Runtime support for imported user libraries is handled by `js/user-libraries-history.js`, which dynamically loads `js/user-library-runtime-fix.js` when needed:
 
 ```text
 js/user-libraries-history.js
@@ -501,10 +501,12 @@ The application includes table export functionality through:
 js/download-tables.js
 ```
 
-Supported export formats include:
+Current supported export formats are:
 
 - CSV,
 - JSON.
+
+The static HTML markup may still contain older TXT dropdown options, but the current export script removes TXT options at runtime and keeps the active export flow limited to CSV and JSON.
 
 ---
 
