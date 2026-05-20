@@ -167,6 +167,23 @@
 }
 
 @media (max-width: 767px) {
+  .menus-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .menus-wrapper .br-menu {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 7px;
+  }
+
+  .menus-wrapper .br-menu > summary {
+    justify-content: center;
+  }
+
   header > figure {
     width: 100%;
     max-width: none !important;
