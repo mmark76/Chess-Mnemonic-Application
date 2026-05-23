@@ -61,6 +61,7 @@ Chess-Mnemonic-Application-main/
 │
 ├── js/
 │   ├── cms.bundle.js                   # Core application engine
+│   ├── default-library-v5.4.js         # Current default library loader override
 │   ├── shortnames-action-column.js     # Shortnames and Associations action/castling overrides
 │   ├── user-libraries-history.js       # Library System UX, guarded import, template ZIP guard, history support
 │   ├── user-library-runtime-fix.js     # Runtime support loaded dynamically by user-libraries-history.js
@@ -74,7 +75,8 @@ Chess-Mnemonic-Application-main/
 ├── json/
 │   ├── libraries_v.5.1.json            # Older library version
 │   ├── libraries_v.5.2.json            # Older library version
-│   └── libraries_v.5.3.json            # Current core mnemonic library dataset
+│   ├── libraries_v.5.3.json            # Older library version
+│   └── libraries_v.5.4.json            # Current core mnemonic library dataset
 │
 ├── flashcards/
 │   ├── index.html                      # Flashcards Trainer UI
@@ -105,6 +107,18 @@ Its main logic is handled by:
 
 ```text
 js/cms.bundle.js
+```
+
+The current default mnemonic library dataset is loaded through:
+
+```text
+js/default-library-v5.4.js
+```
+
+This file overrides the earlier `loadLibraries()` definition and loads:
+
+```text
+json/libraries_v.5.4.json
 ```
 
 Additional current table-specific, library-specific, and runtime support logic is handled by these scripts. The file `js/user-library-runtime-fix.js` is loaded dynamically by `js/user-libraries-history.js` when needed:
@@ -377,20 +391,29 @@ For full-game memorization, the more suitable outputs are generally:
 
 ## 7. Libraries
 
-The core mnemonic libraries are stored in:
+The current core mnemonic library dataset is stored in:
 
 ```text
-json/libraries_v.5.3.json
+json/libraries_v.5.4.json
 ```
 
-Two older versions are also kept:
+It is loaded by:
+
+```text
+js/default-library-v5.4.js
+```
+
+The loader in `js/default-library-v5.4.js` overrides the earlier `loadLibraries()` definition in `js/cms.bundle.js` and makes `libraries_v.5.4.json` the active default data source.
+
+Older versions are also kept for reference and rollback:
 
 ```text
 json/libraries_v.5.1.json
 json/libraries_v.5.2.json
+json/libraries_v.5.3.json
 ```
 
-The current application should use `libraries_v.5.3.json` as the main data source unless another version is intentionally selected by the project owner.
+The current application uses `libraries_v.5.4.json` as the main data source unless another version is intentionally selected by the project owner.
 
 The default libraries are protected. They are shown in the Library System panel for viewing and orientation, but they are not edited directly from the main application.
 
