@@ -13,8 +13,20 @@
     document.head.appendChild(script);
   }
 
+  function isCompleteLibraryBundle(json) {
+    return !!(
+      json &&
+      typeof json === "object" &&
+      json.Temporal &&
+      json.Spatial &&
+      json.Characters &&
+      (json["PAO 0-9"] || json["PAO 00-99"])
+    );
+  }
+
   function detectLibraryType(json) {
     if (!json || typeof json !== "object") return null;
+    if (isCompleteLibraryBundle(json)) return "CompleteLibrary";
     if (Array.isArray(json.palaces)) return "MemoryPalace";
     if (json.white && json.black) return "Characters";
     if (json["00"] || json["01"]) return "PAO_00_99";
@@ -44,6 +56,9 @@
       if (json.name) libName = json.name;
       if (Array.isArray(json.palaces) && json.palaces[0]?.name) {
         libName = json.palaces[0].name;
+      }
+      if (type === "CompleteLibrary") {
+        libName = baseName || "Complete Mnemonic Library";
       }
     }
 
@@ -93,6 +108,24 @@
 
     const type = detectLibraryType(json);
     const name = (fileName || "user-library.json").replace(/\.json$/i, "");
+
+    if (type === "CompleteLibrary") {
+      libs = json;
+      try {
+        window.libs = libs;
+      } catch (e) {
+        console.warn("user-libraries-history: window.libs sync failed", e);
+      }
+
+      updateUserLibraryStatus(
+        `📚 <b>${name}</b> — complete mnemonic library loaded ` +
+        `<span style="opacity:0.6;">(${new Date().toLocaleTimeString()})</span>`
+      );
+      saveLibraryToHistory(fileName, json);
+      refreshTablesAfterUserLibraryImport();
+      if (!silent) alert("📚 Complete mnemonic library loaded!");
+      return { ok: true, fileName, type, name, message: "Complete mnemonic library loaded" };
+    }
 
     libs = libs || {};
     libs.User = libs.User || {};
@@ -428,6 +461,7 @@
 
   function hasActiveUserLibrary() {
     try {
+      if (localStorage.getItem("activeLibrary")) return true;
       return typeof libs !== "undefined" && libs && libs.User && Object.keys(libs.User).length > 0;
     } catch {
       return false;
@@ -445,12 +479,22 @@
     status.innerHTML = "Active system: <b>Default Libraries</b>";
   }
 
-  function restoreDefaultLibraries() {
+  async function restoreDefaultLibraries() {
     try {
-      if (window.libs && typeof window.libs === "object") delete window.libs.User;
-      if (typeof libs !== "undefined" && libs && typeof libs === "object") delete libs.User;
+      if (typeof loadLibraries === "function") {
+        await loadLibraries();
+      } else {
+        if (window.libs && typeof window.libs === "object") delete window.libs.User;
+        if (typeof libs !== "undefined" && libs && typeof libs === "object") delete libs.User;
+      }
     } catch (err) {
-      console.warn("restoreDefaultLibraries: could not clear user libraries", err);
+      console.warn("restoreDefaultLibraries: could not reload default libraries", err);
+      try {
+        if (window.libs && typeof window.libs === "object") delete window.libs.User;
+        if (typeof libs !== "undefined" && libs && typeof libs === "object") delete libs.User;
+      } catch (clearErr) {
+        console.warn("restoreDefaultLibraries: could not clear user libraries", clearErr);
+      }
     }
 
     try {
@@ -485,7 +529,7 @@
       heading.innerHTML = `
         <div class="library-panel-title">Library System</div>
         <div class="library-panel-intro">
-          Default libraries are protected. You can view them here, create your own JSON libraries, and load custom libraries temporarily in your browser.
+          Default libraries are protected. You can view them here, create your own JSON libraries, and load custom or complete mnemonic libraries temporarily in your browser.
         </div>
       `;
     }
@@ -514,7 +558,7 @@
 
       const actionsHelp = document.createElement("p");
       actionsHelp.className = "library-actions-help";
-      actionsHelp.textContent = "Custom libraries must follow the official JSON template structure.";
+      actionsHelp.textContent = "You can import official JSON templates or a complete mnemonic library bundle such as libraries_v.5.3.json.";
       controls.parentNode.insertBefore(actionsHelp, controls);
     }
 
@@ -524,7 +568,7 @@
 
     if (downloadBtn) downloadBtn.textContent = "Download JSON Templates";
     if (createBtn) createBtn.textContent = "Create Custom Library";
-    if (importBtn) importBtn.textContent = "Import Custom Library";
+    if (importBtn) importBtn.textContent = "Import / Load Library";
 
     if (downloadBtn && createBtn && importBtn && !controls.dataset.cmaOrdered) {
       controls.dataset.cmaOrdered = "1";
@@ -546,7 +590,7 @@
 
     const note = controls.querySelector(".library-note");
     if (note) {
-      note.textContent = "Custom libraries are applied locally. Use Restore Default Libraries to clear them without refreshing the page.";
+      note.textContent = "Custom and complete libraries are applied locally. Use Restore Default Libraries to reload the protected default dataset without refreshing the page.";
     }
 
     setDefaultLibraryStatus(false);
