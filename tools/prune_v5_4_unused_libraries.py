@@ -2,8 +2,8 @@
 """
 Prune unused libraries from json/libraries_v.5.4.json.
 
-This script is intentionally conservative. It removes only libraries that are
-not referenced by the current app/flashcards code paths:
+This script removes libraries that are not used by the current app/flashcards
+code paths.
 
 Removed from v5.4:
 - Characters.LibraryC1
@@ -12,6 +12,7 @@ Removed from v5.4:
 - PAO 00-99.LibraryP4
 - PAO 00-99.LibraryP5
 - Foundations.LibraryF1
+- Verses.LibraryV1
 
 Kept because the app uses them:
 - Temporal.LibraryT1
@@ -22,7 +23,6 @@ Kept because the app uses them:
 - Characters.LibraryC3
 - PAO 0-9.Library_p1
 - PAO 00-99.LibraryP1
-- Verses.LibraryV1
 - Shortnames.CharactersSN1
 - Shortnames.SquaresSN1
 - Shortnames.Shortnames00_99List
@@ -51,6 +51,7 @@ REMOVALS = [
     ("PAO 00-99", "LibraryP4"),
     ("PAO 00-99", "LibraryP5"),
     ("Foundations", "LibraryF1"),
+    ("Verses", "LibraryV1"),
 ]
 
 REQUIRED_PATHS = [
@@ -62,7 +63,6 @@ REQUIRED_PATHS = [
     ("Characters", "LibraryC3"),
     ("PAO 0-9", "Library_p1"),
     ("PAO 00-99", "LibraryP1"),
-    ("Verses", "LibraryV1"),
     ("Shortnames", "CharactersSN1"),
     ("Shortnames", "SquaresSN1"),
     ("Shortnames", "Shortnames00_99List"),
