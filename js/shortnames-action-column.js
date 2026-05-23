@@ -93,12 +93,14 @@ function fillAssociationsTable(moves){
     const anchor = anchorForMove(m.index);
 
     let pieceAssoc = assocBySquare[m.from] || getPieceName(m.from, m.piece);
+    let trackedPieceAssoc = pieceAssoc;
     if(m.from) delete assocBySquare[m.from];
 
     const sanClean = (m.san||'').replace(/[+#?!]+/g,'');
     const action = associationActionFromSan(m.san);
 
     if(sanClean.startsWith('O-O')){
+      trackedPieceAssoc = pieceAssoc || getAssocFor('K', m.from);
       pieceAssoc = castlingMnemonicName();
 
       const long  = sanClean.startsWith('O-O-O');
@@ -120,7 +122,7 @@ function fillAssociationsTable(moves){
       if(assocBySquare[capSq]) delete assocBySquare[capSq];
     }
 
-    assocBySquare[m.to] = pieceAssoc;
+    assocBySquare[m.to] = trackedPieceAssoc;
 
     const node = (selectedLang === 'el' ? Ltarget2[m.to] : Ltarget1[m.to]) || null;
     const targetAssoc = node?.['Target Square Association'] || m.to;
@@ -158,12 +160,14 @@ function fillShortnamesTable(moves){
     const anchor = anchorForMove(m.index);
 
     let pieceShortname = shortnameBySquare[m.from] || characterShortnameOverride(m.from, m.piece) || pieceGreek(m.piece);
+    let trackedPieceShortname = pieceShortname;
     if(m.from) delete shortnameBySquare[m.from];
 
     const sanClean = (m.san || '').replace(/[+#?!]+/g,'');
     const action = shortnameActionFromSan(m.san);
 
     if(sanClean.startsWith('O-O')){
+      trackedPieceShortname = pieceShortname || getShortnameFor('K', m.from);
       pieceShortname = castlingShortnameName();
 
       const long  = sanClean.startsWith('O-O-O');
@@ -188,7 +192,7 @@ function fillShortnamesTable(moves){
       if(shortnameBySquare[capSq]) delete shortnameBySquare[capSq];
     }
 
-    shortnameBySquare[m.to] = pieceShortname;
+    shortnameBySquare[m.to] = trackedPieceShortname;
 
     const targetSquareShortname = squareShortname(m.to);
 
