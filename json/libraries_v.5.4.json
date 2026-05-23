@@ -750,448 +750,384 @@
     },
     "LibraryS2": {
       "a1": {
-        
         "Target Square Association": "White swans fill the temple with censers.",
         "text": "White swans fill the temple with censers.",
         "el": "Λευκοί κύκνοι γεμίζουν τον ναό με θυμιατά.",
         "en": "White swans fill the temple with censers."
       },
       "a2": {
-        
         "Target Square Association": "Pandas beat drums at the observatory.",
         "text": "Pandas beat drums at the observatory.",
         "el": "Panda χτυπούν τύμπανα στο παρατηρητήριο.",
         "en": "Pandas beat drums at the observatory."
       },
       "a3": {
-        
         "Target Square Association": "Octopuses swim in the water among seashells.",
         "text": "Octopuses swim in the water among seashells.",
         "el": "Χταπόδια κολυμπούν στο νερό ανάμεσα σε κοχύλια.",
         "en": "Octopuses swim in the water among seashells."
       },
       "a4": {
-        
         "Target Square Association": "Mouflons emerge from the bushes.",
         "text": "Mouflons emerge from the bushes.",
         "el": "Αγρινά ξεπροβάλλουν μέσα από τους θάμνους.",
         "en": "Mouflons emerge from the bushes."
       },
       "a5": {
-        
         "Target Square Association": "Panthers carry prey to their den.",
         "text": "Panthers carry prey to their den.",
         "el": "Πάνθηρες κουβαλούν θηράματα στη φωλιά τους.",
         "en": "Panthers carry prey to their den."
       },
       "a6": {
-        
         "Target Square Association": "Squids glide around the reef and the rock.",
         "text": "Squids glide around the reef and the rock.",
         "el": "Καλαμάρια γλιστρούν γύρω από τον ύφαλο και τον βράχο.",
         "en": "Squids glide around the reef and the rock."
       },
       "a7": {
-        
         "Target Square Association": "Koalas stand at the observatory.",
         "text": "Koalas stand at the observatory.",
         "el": "Κοάλα στέκονται στο παρατηρητήριο.",
         "en": "Koalas stand at the observatory."
       },
       "a8": {
-        
         "Target Square Association": "Black storks light the temple with candles.",
         "text": "Black storks light the temple with candles.",
         "el": "Μαυροπελαργοί φωτίζουν τον ναό με κεριά.",
         "en": "Black storks light the temple with candles."
       },
       "b1": {
-        
         "Target Square Association": "Ducks wander through the kitchens next to the cauldron.",
         "text": "Ducks wander through the kitchens next to the cauldron.",
         "el": "Πάπιες τριγυρνούν στις κουζίνες δίπλα στο καζάνι.",
         "en": "Ducks wander through the kitchens next to the cauldron."
       },
       "b2": {
-        
         "Target Square Association": "Woodpeckers peck the stone of the statue.",
         "text": "Woodpeckers peck the stone of the statue.",
         "el": "Δρυοκολάπτες χτυπούν την πέτρα του αγάλματος.",
         "en": "Woodpeckers peck the stone of the statue."
       },
       "b3": {
-        
         "Target Square Association": "Goldfish swim in the hut among the plants.",
         "text": "Goldfish swim in the hut among the plants.",
         "el": "Χρυσόψαρα κολυμπούν στην καλύβα ανάμεσα στα φυτά.",
         "en": "Goldfish swim in the hut among the plants."
       },
       "b4": {
-        
         "Target Square Association": "Hyenas roam the cemetery around the graves.",
         "text": "Hyenas roam the cemetery around the graves.",
         "el": "Ύαινες τριγυρνούν στο νεκροταφείο γύρω από τα μνήματα.",
         "en": "Hyenas roam the cemetery around the graves."
       },
       "b5": {
-        
         "Target Square Association": "Vultures stand over the flesh in the cemetery.",
         "text": "Vultures stand over the flesh in the cemetery.",
         "el": "Όρνεα στέκονται πάνω από τις σάρκες στο νεκροταφείο.",
         "en": "Vultures stand over the flesh in the cemetery."
       },
       "b6": {
-        
         "Target Square Association": "Piranhas bite bones in the water.",
         "text": "Piranhas bite bones in the water.",
         "el": "Πιράνχας δαγκώνουν κόκαλα μέσα στο νερό.",
         "en": "Piranhas bite bones in the water."
       },
       "b7": {
-        
         "Target Square Association": "Parrots stand on the base of a statue.",
         "text": "Parrots stand on the base of a statue.",
         "el": "Παπαγάλοι στέκονται πάνω στη βάση ενός αγάλματος.",
         "en": "Parrots stand on the base of a statue."
       },
       "b8": {
-        
         "Target Square Association": "Hens run among pots in the kitchens.",
         "text": "Hens run among pots in the kitchens.",
         "el": "κότες τρέχουν ανάμεσα σε κατσαρόλες στις κουζίνες.",
         "en": "Hens run among pots in the kitchens."
       },
       "c1": {
-        
         "Target Square Association": "Peacocks dance in the ballroom in front of the mirrors.",
         "text": "Peacocks dance in the ballroom in front of the mirrors.",
         "el": "Παγώνια χορεύουν στην αίθουσα χορού μπροστά στους καθρέφτες.",
         "en": "Peacocks dance in the ballroom in front of the mirrors."
       },
       "c2": {
-        
         "Target Square Association": "Orangutans draw bows on the battlements.",
         "text": "Orangutans draw bows on the battlements.",
         "el": "Ουρακουτάγκοι τεντώνουν τόξα πάνω στις επάλξεις.",
         "en": "Orangutans draw bows on the battlements."
       },
       "c3": {
-        
         "Target Square Association": "Seals glide through the seaweed in the water.",
         "text": "Seals glide through the seaweed in the water.",
         "el": "Φώκιες γλιστρούν μέσα στα φύκια του νερού.",
         "en": "Seals glide through the seaweed in the water."
       },
       "c4": {
-        
         "Target Square Association": "Jackals scatter bones and skeletons.",
         "text": "Jackals scatter bones and skeletons.",
         "el": "Τσακάλια σκορπίζουν κόκαλα και σκελετούς.",
         "en": "Jackals scatter bones and skeletons."
       },
       "c5": {
-        
         "Target Square Association": "Crows shriek over skulls and bones.",
         "text": "Crows shriek over skulls and bones.",
         "el": "Κοράκια ουρλιάζουν πάνω από κρανία και οστά.",
         "en": "Crows shriek over skulls and bones."
       },
       "c6": {
-        
         "Target Square Association": "Eels crawl among the seaweed and vegetation.",
         "text": "Eels crawl among the seaweed and vegetation.",
         "el": "Χέλια σέρνονται ανάμεσα στα φύκια και τη βλάστηση.",
         "en": "Eels crawl among the seaweed and vegetation."
       },
       "c7": {
-        
         "Target Square Association": "Monkeys shoot arrows from the battlements.",
         "text": "Monkeys shoot arrows from the battlements.",
         "el": "Μαϊμούδες ρίχνουν βέλη από τις επάλξεις.",
         "en": "Monkeys shoot arrows from the battlements."
       },
       "c8": {
-        
         "Target Square Association": "Flamingos stand under chandeliers that illuminate the ballroom.",
         "text": "Flamingos stand under chandeliers that illuminate the ballroom.",
         "el": "Φλαμίγκο στέκονται κάτω από πολυέλαιους που φωτίζουν την αίθουσα χορού.",
         "en": "Flamingos stand under chandeliers that illuminate the ballroom."
       },
       "d1": {
-        
         "Target Square Association": "Lynxes sit in the queen's room next to the crown.",
         "text": "Lynxes sit in the queen's room next to the crown.",
         "el": "Λύγκες κάθονται στο δωμάτιο βασίλισσας δίπλα στην κορώνα.",
         "en": "Lynxes sit in the queen's room next to the crown."
       },
       "d2": {
-        
         "Target Square Association": "Nightingales perch on the cross of the flag's mast and cloth.",
         "text": "Nightingales perch on the cross of the flag's mast and cloth.",
         "el": "Αηδόνια κάθονται στο σταυρό στον ιστό πανί της σημαίας.",
         "en": "Nightingales perch on the cross of the flag's mast and cloth."
       },
       "d3": {
-        
         "Target Square Association": "Sharks swim among the fish in the water.",
         "text": "Sharks swim among the fish in the water.",
         "el": "Καρχαρίες κολυμπούν ανάμεσα στα ψάρια στο νερό.",
         "en": "Sharks swim among the fish in the water."
       },
       "d4": {
-        
         "Target Square Association": "Bats hang inside the cave with the stalactites.",
         "text": "Bats hang inside the cave with the stalactites.",
         "el": "Νυχτερίδες κρέμονται μέσα στη σπηλιά με τους σταλακτίτες.",
         "en": "Bats hang inside the cave with the stalactites."
       },
       "d5": {
-        
         "Target Square Association": "Kangaroos move outside the hut.",
         "text": "Kangaroos move outside the hut.",
         "el": "Καγκουρό κινούνται έξω από την καλύβα.",
         "en": "Kangaroos move outside the hut."
       },
       "d6": {
-        
         "Target Square Association": "Alligators crawl over the logs and wood.",
         "text": "Alligators crawl over the logs and wood.",
         "el": "Αλιγάτορες σέρνονται πάνω στους κορμούς και τα ξύλα.",
         "en": "Alligators crawl over the logs and wood."
       },
       "d7": {
-        
         "Target Square Association": "Black canaries sing for the flag on the mast.",
         "text": "Black canaries sing for the flag on the mast.",
         "el": "Μαύρα καναρίνια κελαηδούν για τη σημαία πάνω στον ιστό.",
         "en": "Black canaries sing for the flag on the mast."
       },
       "d8": {
-        
         "Target Square Association": "Foxes run in the queen's room under the crown.",
         "text": "Foxes run in the queen's room under the crown.",
         "el": "Αλεπούδες τρέχουν στο δωμάτιο βασίλισσας κάτω από το στέμμα.",
         "en": "Foxes run in the queen's room under the crown."
       },
       "e1": {
-        
         "Target Square Association": "Lions guard the throne with the scepter.",
         "text": "Lions guard the throne with the scepter.",
         "el": "Λιοντάρια φυλάνε τον θρόνο με το σκήπτρο.",
         "en": "Lions guard the throne with the scepter."
       },
       "e2": {
-        
         "Target Square Association": "A rhinoceros stands at the gate with keys.",
         "text": "A rhinoceros stands at the gate with keys.",
         "el": "Ένας ρινόκερος στέκεται στην πύλη με κλειδιά.",
         "en": "A rhinoceros stands at the gate with keys."
       },
       "e3": {
-        
         "Target Square Association": "Frogs jump on the bridge and the planks.",
         "text": "Frogs jump on the bridge and the planks.",
         "el": "Βατράχια πηδούν πάνω στη γέφυρα και τις σανίδες.",
         "en": "Frogs jump on the bridge and the planks."
       },
       "e4": {
-        
         "Target Square Association": "Hares run among a pile of stones.",
         "text": "Hares run among a pile of stones.",
         "el": "Λαγοί τρέχουν ανάμεσα σε σωρό από πέτρες.",
         "en": "Hares run among a pile of stones."
       },
       "e5": {
-        
         "Target Square Association": "Butterflies sit on the fence in the meadow with poppies.",
         "text": "Butterflies sit on the fence in the meadow with poppies.",
         "el": "Πεταλούδες κάθονται πάνω στο φράχτη στο λιβάδι με τις παπαρούνες.",
         "en": "Butterflies sit on the fence in the meadow with poppies."
       },
       "e6": {
-        
         "Target Square Association": "Lizards slip under the bridge with the planks.",
         "text": "Lizards slip under the bridge with the planks.",
         "el": "Σαύρες γλιστρούν κάτω από τη γέφυρα με τις σανίδες.",
         "en": "Lizards slip under the bridge with the planks."
       },
       "e7": {
-        
         "Target Square Association": "A bison stands at the gate next to the keys.",
         "text": "A bison stands at the gate next to the keys.",
         "el": "Ένας βίσωνας στέκεται στην πύλη δίπλα στα κλειδιά.",
         "en": "A bison stands at the gate next to the keys."
       },
       "e8": {
-        
         "Target Square Association": "Tigers stand on the throne with the crown.",
         "text": "Tigers stand on the throne with the crown.",
         "el": "Τίγρεις στέκονται στον θρόνο με την κορώνα.",
         "en": "Tigers stand on the throne with the crown."
       },
       "f1": {
-        
         "Target Square Association": "Badgers move through the war room over maps.",
         "text": "Badgers move through the war room over maps.",
         "el": "Ασβοί κινούνται στην αίθουσα πολέμου πάνω από χάρτες.",
         "en": "Badgers move through the war room over maps."
       },
       "f2": {
-        
         "Target Square Association": "Chimpanzees run along the battlements' corridor.",
         "text": "Chimpanzees run along the battlements' corridor.",
         "el": "Χιμπατζήδες τρέχουν στον διάδρομο των επάλξεων.",
         "en": "Chimpanzees run along the battlements' corridor."
       },
       "f3": {
-        
         "Target Square Association": "Swordfish swim among rocks.",
         "text": "Swordfish swim among rocks.",
         "el": "Ξιφίες κολυμπάνε ανάμεσα σε βράχους.",
         "en": "Swordfish swim among rocks."
       },
       "f4": {
-        
         "Target Square Association": "Hedgehogs run among the trees and trunks.",
         "text": "Hedgehogs run among the trees and trunks.",
         "el": "Σκαντζόχοιροι τρέχουν ανάμεσα στα δέντρα και τους κορμούς.",
         "en": "Hedgehogs run among the trees and trunks."
       },
       "f5": {
-        
         "Target Square Association": "Anteaters hop in the meadow with the grasses.",
         "text": "Anteaters hop in the meadow with the grasses.",
         "el": "Μυρμηγκοφάγοι χοροπηδάνε στο λιβάδι με τα χορτάρια.",
         "en": "Anteaters hop in the meadow with the grasses."
       },
       "f6": {
-        
         "Target Square Association": "Dolphins swim in the water among skeletons.",
         "text": "Dolphins swim in the water among skeletons.",
         "el": "Δελφίνια κολυμπούν στο νερό ανάμεσα σε σκελετούς.",
         "en": "Dolphins swim in the water among skeletons."
       },
       "f7": {
-        
         "Target Square Association": "Lemurs stand on the battlements next to the crossbows.",
         "text": "Lemurs stand on the battlements next to the crossbows.",
         "el": "Λεμούριοι στέκονται στις επάλξεις δίπλα στις βαλλίστρες.",
         "en": "Lemurs stand on the battlements next to the crossbows."
       },
       "f8": {
-        
         "Target Square Association": "Beavers work in the war room over the maps.",
         "text": "Beavers work in the war room over the maps.",
         "el": "Κάστορες δουλεύουν στην αίθουσα πολέμου πάνω στους χάρτες.",
         "en": "Beavers work in the war room over the maps."
       },
       "g1": {
-        
         "Target Square Association": "Zebras stand in the stables next to the saddles.",
         "text": "Zebras stand in the stables next to the saddles.",
         "el": "Ζέβρες στέκονται στους στάβλους δίπλα στις σέλες.",
         "en": "Zebras stand in the stables next to the saddles."
       },
       "g2": {
-        
         "Target Square Association": "Rats run through the dungeon among the cells.",
         "text": "Rats run through the dungeon among the cells.",
         "el": "Αρουραίοι τρέχουν στο μπουντρούμι ανάμεσα στα κελιά.",
         "en": "Rats run through the dungeon among the cells."
       },
       "g3": {
-        
         "Target Square Association": "Crabs guard chests full of treasure.",
         "text": "Crabs guard chests full of treasure.",
         "el": "Καβούρια φυλάνε μπαούλα γεμάτα θησαυρό.",
         "en": "Crabs guard chests full of treasure."
       },
       "g4": {
-        
         "Target Square Association": "Wild boars leap over the rocks near the clearing.",
         "text": "Wild boars leap over the rocks near the clearing.",
         "el": "Αγριογούρουνα πηδούν πάνω στους βράχους κοντά στο ξέφωτο.",
         "en": "Wild boars leap over the rocks near the clearing."
       },
       "g5": {
-        
         "Target Square Association": "Wolves howl in the clearing under the moon.",
         "text": "Wolves howl in the clearing under the moon.",
         "el": "Λύκοι ουρλιάζουν στο ξέφωτο κάτω από το φεγγάρι.",
         "en": "Wolves howl in the clearing under the moon."
       },
       "g6": {
-        
         "Target Square Association": "Jellyfish swim around the anchor and the chain.",
         "text": "Jellyfish swim around the anchor and the chain.",
         "el": "Μέδουσες κολυμπάνε γύρω από την άγκυρα και την αλυσίδα.",
         "en": "Jellyfish swim around the anchor and the chain."
       },
       "g7": {
-        
         "Target Square Association": "Weasels run through the dungeon among the cells.",
         "text": "Weasels run through the dungeon among the cells.",
         "el": "Νυφίτσες τρέχουν στο μπουντρούμι ανάμεσα στα κελιά.",
         "en": "Weasels run through the dungeon among the cells."
       },
       "g8": {
-        
         "Target Square Association": "Horses stand in the stables next to the saddle.",
         "text": "Horses stand in the stables next to the saddle.",
         "el": "Άλογα στέκονται στους στάβλους δίπλα στο σαμάρι.",
         "en": "Horses stand in the stables next to the saddle."
       },
       "h1": {
-        
         "Target Square Association": "Squirrels hide in the storerooms inside the sacks.",
         "text": "Squirrels hide in the storerooms inside the sacks.",
         "el": "Σκίουροι κρύβονται στις αποθήκες μέσα στα σακιά.",
         "en": "Squirrels hide in the storerooms inside the sacks."
       },
       "h2": {
-        
         "Target Square Association": "Owls observe from the observatory with the telescopes.",
         "text": "Owls observe from the observatory with the telescopes.",
         "el": "Κουκουβάγιες παρατηρούν από το παρατηρητήριο με τα τηλεσκόπια.",
         "en": "Owls observe from the observatory with the telescopes."
       },
       "h3": {
-        
         "Target Square Association": "Starfish hide in the lighthouse.",
         "text": "Starfish hide in the lighthouse.",
         "el": "Αστερίες κρύβονται στον φάρο.",
         "en": "Starfish hide in the lighthouse."
       },
       "h4": {
-        
         "Target Square Association": "Sheep move quickly along the shore and the water.",
         "text": "Sheep move quickly along the shore and the water.",
         "el": "Πρόβατα κινούνται γρήγορα στην ακτή και το νερό.",
         "en": "Sheep move quickly along the shore and the water."
       },
       "h5": {
-        
         "Target Square Association": "Leopards leave tracks in the grass and the ground.",
         "text": "Leopards leave tracks in the grass and the ground.",
         "el": "Λεοπαρδάλεις αφήνουν ίχνη στο γρασίδι και το έδαφος.",
         "en": "Leopards leave tracks in the grass and the ground."
       },
       "h6": {
-        
         "Target Square Association": "Seahorses swim around the shipwreck.",
         "text": "Seahorses swim around the shipwreck.",
         "el": "Ιππόκαμποι κολυμπούν γύρω από το ναυάγιο.",
         "en": "Seahorses swim around the shipwreck."
       },
       "h7": {
-        
         "Target Square Association": "Magpies guard the observatory with the telescopes.",
         "text": "Magpies guard the observatory with the telescopes.",
         "el": "Καρακάξες φυλάνε το παρατηρητήριο με τα τηλεσκόπια.",
         "en": "Magpies guard the observatory with the telescopes."
       },
       "h8": {
-        
         "Target Square Association": "Raccoons search barrels inside the storerooms.",
         "text": "Raccoons search barrels inside the storerooms.",
         "el": "Ρακούν ψάχνουν βαρέλια μέσα στις αποθήκες.",
@@ -1200,32 +1136,6 @@
     }
   },
   "Characters": {
-    "LibraryC1": {
-      "Pawn": {
-        "el": "το Πιόνι",
-        "en": "the Pawn"
-      },
-      "Knight": {
-        "el": "ο Ιππότης",
-        "en": "the Knight"
-      },
-      "Bishop": {
-        "el": "ο Αξιωματικός",
-        "en": "the Bishop"
-      },
-      "Rook": {
-        "el": "ο Πύργος",
-        "en": "the Rook"
-      },
-      "Queen": {
-        "el": "η Βασίλισσα",
-        "en": "the Queen"
-      },
-      "King": {
-        "el": "ο Βασιλιάς",
-        "en": "the King"
-      }
-    },
     "LibraryC2": {
       "Pa2": "Arnold the Armored Armadillo",
       "Pb2": "Bruce the Brutal Boa",
@@ -1237,9 +1147,9 @@
       "Ph2": "Harry the Hardcore Hippo",
       "Ra1": "Atlas the Eternal Titan",
       "Nb1": "Chiron the Wise Centaur",
-      "Bc1": "Gandalf the White Wizard",
-      "Qd1": "Galadriel the Radiant Queen",
-      "Ke1": "Geralt the White Wolf",
+      "Bc1": "Aldor the White Wizard",
+      "Qd1": "Elara the Radiant Queen",
+      "Ke1": "Ravon the White Lord",
       "Bf1": "Merlin the Arcane Sage",
       "Ng1": "Silvaren the White Knight",
       "Rh1": "Yeti the Frozen Giant",
@@ -1251,14 +1161,14 @@
       "Pf7": "Fiona the Furious Fenrir",
       "Pg7": "Grace the Grim Gazelle",
       "Ph7": "Hope the Hostile Hyena",
-      "Ra8": "Goro the Devastating Godzilla",
-      "Nb8": "Natasha the Deadly Black Widow",
+      "Ra8": "Kairo the Devastating Kaiju",
+      "Nb8": "Nara the Shadow Widow",
       "Bc8": "Dracula the Bloodthirsty Vampire",
-      "Qd8": "Banshee the Screaming Spirit",
-      "Ke8": "Sauron the Dark Lord",
-      "Bf8": "Venom the Savage Symbiote",
-      "Ng8": "Selina the Shadow Catwoman",
-      "Rh8": "Grom the Brutal Orc"
+      "Qd8": "Morria the Screaming Spirit",
+      "Ke8": "Vorath the Dark Lord",
+      "Bf8": "Veyron the Savage Symbiote",
+      "Ng8": "Selira the Shadow Cat",
+      "Rh8": "Gromak the Brutal Orc"
     },
     "LibraryC3": {
       "Pa2_name": "Arnold the Armored Armadillo rolls forward, protected by his shell.",
@@ -1271,9 +1181,9 @@
       "Ph2_name": "Harry the Hardcore Hippo charges forward with unstoppable force.",
       "Ra1_name": "Atlas the Eternal Titan holds the globe upon his shoulders with immense strength.",
       "Nb1_name": "Chiron the Wise Centaur calmly holds a book of ancient knowledge.",
-      "Bc1_name": "Gandalf the White Wizard holds a glowing spellbook of power.",
-      "Qd1_name": "Galadriel the Radiant Queen stands bathed in pure light.",
-      "Ke1_name": "Geralt the White Wolf grips his sword, ready for battle.",
+      "Bc1_name": "Aldor the White Wizard holds a glowing spellbook of power.",
+      "Qd1_name": "Elara the Radiant Queen stands bathed in pure light.",
+      "Ke1_name": "Ravon the White Lord grips his sword, ready for battle.",
       "Bf1_name": "Merlin the Arcane Sage raises his wand, channeling magic.",
       "Ng1_name": "Silvaren the White Knight holds a shield, standing firm in defense.",
       "Rh1_name": "Yeti the Frozen Giant lifts an ice boulder with freezing force",
@@ -1285,14 +1195,14 @@
       "Pf7_name": "Fiona the Furious Fenrir lunges forward with savage fury.",
       "Pg7_name": "Grace the Grim Gazelle moves with cold, relentless determination.",
       "Ph7_name": "Hope the Hostile Hyena snarls viciously, ready to attack.",
-      "Ra8_name": "Goro the Devastating Godzilla beats his chest in fury.",
-      "Nb8_name": "Natasha the Deadly Black Widow stands with a spider ready to strike.",
+      "Ra8_name": "Kairo the Devastating Kaiju beats his chest in fury.",
+      "Nb8_name": "Nara the Shadow Widow stands with a spider ready to strike.",
       "Bc8_name": "Dracula the Bloodthirsty Vampire bares his sharp fangs.",
-      "Qd8_name": "Banshee the Screaming Spirit screams while clutching a skull.",
-      "Ke8_name": "Sauron the Dark Lord holds the One Ring with dark power.",
-      "Bf8_name": "Venom the Savage Symbiote snarls with monstrous aggression.",
-      "Ng8_name": "Selina the Shadow Catwoman moves silently in the darkness",
-      "Rh8_name": "Grom the Brutal Orc grips his axe, ready for battle."
+      "Qd8_name": "Morria the Screaming Spirit screams while clutching a skull.",
+      "Ke8_name": "Vorath the Dark Lord holds a dark ring with ominous power.",
+      "Bf8_name": "Veyron the Savage Symbiote snarls with monstrous aggression.",
+      "Ng8_name": "Selira the Shadow Cat moves silently in the darkness.",
+      "Rh8_name": "Gromak the Brutal Orc grips his axe, ready for battle."
     }
   },
   "PAO 0-9": {
@@ -1580,10 +1490,10 @@
         "object_el": "τον ναό με κεριά"
       },
       "19": {
-        "person": "Goro the Devastating Godzilla",
+        "person": "Kairo the Devastating Kaiju",
         "action": "beats",
         "object": "his chest in fury",
-        "person_el": "Γκόρο ο Καταστροφικός Godzilla",
+        "person_el": "Κάιρο το Καταστροφικό Kaiju",
         "action_el": "χτυπά",
         "object_el": "το στήθος του με οργή"
       },
@@ -1660,18 +1570,18 @@
         "object_el": "ανάμεσα σε κατσαρόλες στις κουζίνες"
       },
       "29": {
-        "person": "Natasha the Deadly Black Widow",
+        "person": "Nara the Shadow Widow",
         "action": "stands",
         "object": "with a spider ready to strike",
-        "person_el": "Νατάσα η Θανάσιμη Black Widow",
+        "person_el": "Νάρα η Σκιώδης Χήρα",
         "action_el": "στέκεται",
         "object_el": "με μια αράχνη έτοιμη να χτυπήσει"
       },
       "30": {
-        "person": "Gandalf the White Wizard",
+        "person": "Aldor the White Wizard",
         "action": "holds",
         "object": "a glowing spellbook of power",
-        "person_el": "Γκάνταλφ ο Λευκός Μάγος",
+        "person_el": "Άλντορ ο Λευκός Μάγος",
         "action_el": "κρατά",
         "object_el": "ένα λαμπερό βιβλίο ξορκιών δύναμης"
       },
@@ -1748,10 +1658,10 @@
         "object_el": "τους κοφτερούς κυνόδοντές του"
       },
       "40": {
-        "person": "Galadriel the Radiant Queen",
+        "person": "Elara the Radiant Queen",
         "action": "stands",
         "object": "bathed in pure light",
-        "person_el": "Γκαλάντριελ η Λαμπερή Βασίλισσα",
+        "person_el": "Ελάρα η Λαμπερή Βασίλισσα",
         "action_el": "στέκεται",
         "object_el": "λουσμένη σε καθαρό φως"
       },
@@ -1820,18 +1730,18 @@
         "object_el": "στο δωμάτιο βασίλισσας κάτω από το στέμμα"
       },
       "49": {
-        "person": "Banshee the Screaming Spirit",
+        "person": "Morria the Screaming Spirit",
         "action": "screams",
         "object": "while clutching a skull",
-        "person_el": "Banshee το Ουρλιάζον Πνεύμα",
+        "person_el": "Μόρρια το Ουρλιαχτό Πνεύμα",
         "action_el": "ουρλιάζει",
         "object_el": "κρατώντας ένα κρανίο"
       },
       "50": {
-        "person": "Geralt the White Wolf",
+        "person": "Ravon the White Lord",
         "action": "grips",
         "object": "his sword, ready for battle",
-        "person_el": "Γκέραλτ ο Λευκός Λύκος",
+        "person_el": "Ράβον ο Λευκός Άρχοντας",
         "action_el": "κρατά",
         "object_el": "το σπαθί του έτοιμος για μάχη"
       },
@@ -1900,12 +1810,12 @@
         "object_el": "στον θρόνο με την κορώνα"
       },
       "59": {
-        "person": "Sauron the Dark Lord",
+        "person": "Vorath the Dark Lord",
         "action": "holds",
-        "object": "the One Ring with dark power",
-        "person_el": "Σάουρον ο Σκοτεινός Άρχοντας",
+        "object": "a dark ring with ominous power",
+        "person_el": "Βόραθ ο Σκοτεινός Άρχοντας",
         "action_el": "κρατά",
-        "object_el": "το Ένα Δαχτυλίδι με σκοτεινή δύναμη"
+        "object_el": "ένα σκοτεινό δαχτυλίδι με δυσοίωνη δύναμη"
       },
       "60": {
         "person": "Merlin the Arcane Sage",
@@ -1980,10 +1890,10 @@
         "object_el": "στην αίθουσα πολέμου πάνω στους χάρτες"
       },
       "69": {
-        "person": "Venom the Savage Symbiote",
+        "person": "Veyron the Savage Symbiote",
         "action": "snarls",
         "object": "with monstrous aggression",
-        "person_el": "Venom το Άγριο Συμβίωτο",
+        "person_el": "Βέιρον το Άγριο Συμβίωτο",
         "action_el": "γρυλίζει",
         "object_el": "με τερατώδη αγριότητα"
       },
@@ -2060,10 +1970,10 @@
         "object_el": "στους στάβλους δίπλα στο σαμάρι"
       },
       "79": {
-        "person": "Selina the Shadow Catwoman",
+        "person": "Selira the Shadow Cat",
         "action": "moves",
         "object": "silently in the darkness",
-        "person_el": "Σελίνα η Σκιώδης Catwoman",
+        "person_el": "Σελίρα η Σκιώδης Γάτα",
         "action_el": "κινείται",
         "object_el": "σιωπηλά στο σκοτάδι"
       },
@@ -2140,10 +2050,10 @@
         "object_el": "βαρέλια μέσα στις αποθήκες"
       },
       "89": {
-        "person": "Grom the Brutal Orc",
+        "person": "Gromak the Brutal Orc",
         "action": "grips",
         "object": "his axe, ready for battle",
-        "person_el": "Γκρομ ο Βίαιος Όρκ",
+        "person_el": "Γκρόμακ ο Βίαιος Όρκ",
         "action_el": "κρατά",
         "object_el": "το τσεκούρι του, έτοιμος για μάχη"
       },
@@ -2227,2397 +2137,15 @@
         "action_el": "καταστρέφει",
         "object_el": "(Αιχμαλωσία)"
       }
-    },
-    "LibraryP2": {
-      "10": {
-        "letters": "A O",
-        "person": "Aristotle",
-        "occupation": "Orator",
-        "action": "διδάσκει",
-        "object": "ειλητάριο"
-      },
-      "11": {
-        "letters": "A A",
-        "person": "Al Pacino",
-        "occupation": "Actor",
-        "action": "υποδύεται",
-        "object": "σενάριο"
-      },
-      "12": {
-        "letters": "A B",
-        "person": "Anthony Joshua",
-        "occupation": "Boxer",
-        "action": "πυγμαχεί",
-        "object": "γάντια"
-      },
-      "13": {
-        "letters": "A C",
-        "person": "Anatoly Karpov",
-        "occupation": "Chess Player",
-        "action": "σκέφτεται",
-        "object": "σκακιέρα"
-      },
-      "14": {
-        "letters": "A D",
-        "person": "Anthony Fauci",
-        "occupation": "Doctor",
-        "action": "εξετάζει",
-        "object": "στηθοσκόπιο"
-      },
-      "15": {
-        "letters": "A E",
-        "person": "Adele",
-        "occupation": "Entertainer",
-        "action": "τραγουδά",
-        "object": "μικρόφωνο"
-      },
-      "16": {
-        "letters": "A S",
-        "person": "Albert Einstein",
-        "occupation": "Scientist",
-        "action": "γράφει εξίσωση",
-        "object": "κιμωλία"
-      },
-      "17": {
-        "letters": "A G",
-        "person": "Alexander the Great",
-        "occupation": "Greek",
-        "action": "μάχεται",
-        "object": "σπαθί"
-      },
-      "18": {
-        "letters": "A H",
-        "person": "Achilles",
-        "occupation": "Hero",
-        "action": "καρφώνει δόρυ",
-        "object": "ασπίδα"
-      },
-      "19": {
-        "letters": "A N",
-        "person": "Agatha Christie",
-        "occupation": "Novelist",
-        "action": "γράφει",
-        "object": "βιβλίο"
-      },
-      "20": {
-        "letters": "B O",
-        "person": "Barack Obama",
-        "occupation": "Orator",
-        "action": "εκφωνεί λόγο",
-        "object": "podium"
-      },
-      "21": {
-        "letters": "B A",
-        "person": "Marlon Brando",
-        "occupation": "Actor",
-        "action": "παίζει ρόλο",
-        "object": "καπέλο"
-      },
-      "22": {
-        "letters": "B B",
-        "person": "Kobe Bryant",
-        "occupation": "Basketball Player",
-        "action": "σουτάρει",
-        "object": "μπάλα"
-      },
-      "23": {
-        "letters": "B C",
-        "person": "Bobby Fischer",
-        "occupation": "Chess Player",
-        "action": "κινεί κομμάτι",
-        "object": "σκακιέρα"
-      },
-      "24": {
-        "letters": "B D",
-        "person": "Bernardo Bertolucci",
-        "occupation": "Director",
-        "action": "σκηνοθετεί",
-        "object": "κάμερα"
-      },
-      "25": {
-        "letters": "B E",
-        "person": "Beyoncé",
-        "occupation": "Entertainer",
-        "action": "χορεύει",
-        "object": "μικρόφωνο"
-      },
-      "26": {
-        "letters": "B S",
-        "person": "Carl Sagan",
-        "occupation": "Scientist",
-        "action": "δείχνει αστέρια",
-        "object": "τηλεσκόπιο"
-      },
-      "27": {
-        "letters": "B G",
-        "person": "Βουκεφάλας",
-        "occupation": "Greek",
-        "action": "καλπάζει",
-        "object": "άλογο"
-      },
-      "28": {
-        "letters": "B H",
-        "person": "Βελλεροφόντης",
-        "occupation": "Hero",
-        "action": "πετάει με τον Πήγασο",
-        "object": "Πήγασος"
-      },
-      "29": {
-        "letters": "B N",
-        "person": "Βίκτωρ Ουγκώ",
-        "occupation": "Novelist",
-        "action": "γράφει",
-        "object": "χειρόγραφο"
-      },
-      "30": {
-        "letters": "C O",
-        "person": "Cicero",
-        "occupation": "Orator",
-        "action": "ρητορεύει",
-        "object": "ειλητάριο"
-      },
-      "31": {
-        "letters": "C A",
-        "person": "Charlie Chaplin",
-        "occupation": "Actor",
-        "action": "κάνει παντομίμα",
-        "object": "καπέλο"
-      },
-      "32": {
-        "letters": "C B",
-        "person": "Michael Jordan",
-        "occupation": "Basketball Player",
-        "action": "καρφώνει",
-        "object": "μπάλα"
-      },
-      "33": {
-        "letters": "C C",
-        "person": "Garry Kasparov",
-        "occupation": "Chess Player",
-        "action": "παίζει σκάκι",
-        "object": "σκακιέρα"
-      },
-      "34": {
-        "letters": "C D",
-        "person": "Charles Darwin",
-        "occupation": "Doctor",
-        "action": "εξετάζει δείγμα",
-        "object": "βιβλίο"
-      },
-      "35": {
-        "letters": "C E",
-        "person": "Celine Dion",
-        "occupation": "Entertainer",
-        "action": "τραγουδά",
-        "object": "μικρόφωνο"
-      },
-      "36": {
-        "letters": "C S",
-        "person": "Copernicus",
-        "occupation": "Scientist",
-        "action": "παρουσιάζει πλανήτες",
-        "object": "ηλιακό σύστημα"
-      },
-      "37": {
-        "letters": "C G",
-        "person": "Καλλίμαχος",
-        "occupation": "Greek",
-        "action": "σχεδιάζει ναό",
-        "object": "πάπυρος"
-      },
-      "38": {
-        "letters": "C H",
-        "person": "Ηρακλής",
-        "occupation": "Hero",
-        "action": "σηκώνει ρόπαλο",
-        "object": "ρόπαλο"
-      },
-      "39": {
-        "letters": "C N",
-        "person": "Charles Dickens",
-        "occupation": "Novelist",
-        "action": "γράφει ιστορία",
-        "object": "χειρόγραφο"
-      },
-      "40": {
-        "letters": "D O",
-        "person": "Demosthenes",
-        "occupation": "Orator",
-        "action": "ρητορεύει με πέτρες στο στόμα",
-        "object": "πέτρα"
-      },
-      "41": {
-        "letters": "D A",
-        "person": "Daniel Day-Lewis",
-        "occupation": "Actor",
-        "action": "υποδύεται χαρακτήρα",
-        "object": "κοστούμι"
-      },
-      "42": {
-        "letters": "D B",
-        "person": "Dirk Nowitzki",
-        "occupation": "Basketball Player",
-        "action": "σουτάρει τρίποντο",
-        "object": "μπάλα"
-      },
-      "43": {
-        "letters": "D C",
-        "person": "David Bronstein",
-        "occupation": "Chess Player",
-        "action": "παίζει κίνηση",
-        "object": "σκακιέρα"
-      },
-      "44": {
-        "letters": "D D",
-        "person": "David Livingstone",
-        "occupation": "Doctor",
-        "action": "εξερευνά",
-        "object": "χάρτης"
-      },
-      "45": {
-        "letters": "D E",
-        "person": "Dua Lipa",
-        "occupation": "Entertainer",
-        "action": "τραγουδά",
-        "object": "μικρόφωνο"
-      },
-      "46": {
-        "letters": "D S",
-        "person": "Stephen Hawking",
-        "occupation": "Scientist",
-        "action": "γράφει θεωρία",
-        "object": "βιβλίο"
-      },
-      "47": {
-        "letters": "D G",
-        "person": "Διογένης",
-        "occupation": "Greek",
-        "action": "κάθεται σε πιθάρι",
-        "object": "πιθάρι"
-      },
-      "48": {
-        "letters": "D H",
-        "person": "Θησέας",
-        "occupation": "Hero",
-        "action": "σκοτώνει Μινώταυρο",
-        "object": "σπαθί"
-      },
-      "49": {
-        "letters": "D N",
-        "person": "Dante Alighieri",
-        "occupation": "Novelist",
-        "action": "γράφει ποίηση",
-        "object": "βιβλίο"
-      },
-      "50": {
-        "letters": "E O",
-        "person": "Emmeline Pankhurst",
-        "occupation": "Orator",
-        "action": "διαδηλώνει",
-        "object": "πανό"
-      },
-      "51": {
-        "letters": "E A",
-        "person": "Emma Stone",
-        "occupation": "Actor",
-        "action": "παίζει σε ταινία",
-        "object": "σκηνικό"
-      },
-      "52": {
-        "letters": "E B",
-        "person": "Earvin Magic Johnson",
-        "occupation": "Basketball Player",
-        "action": "παίρνει πάσα",
-        "object": "μπάλα"
-      },
-      "53": {
-        "letters": "E C",
-        "person": "Emanuel Lasker",
-        "occupation": "Chess Player",
-        "action": "παίζει άμυνα",
-        "object": "σκακιέρα"
-      },
-      "54": {
-        "letters": "E D",
-        "person": "Edward Jenner",
-        "occupation": "Doctor",
-        "action": "κάνει εμβολιασμό",
-        "object": "σύριγγα"
-      },
-      "55": {
-        "letters": "E E",
-        "person": "Elvis Presley",
-        "occupation": "Entertainer",
-        "action": "τραγουδά και χορεύει",
-        "object": "κιθάρα"
-      },
-      "56": {
-        "letters": "E S",
-        "person": "Edwin Hubble",
-        "occupation": "Scientist",
-        "action": "παρατηρεί αστέρια",
-        "object": "τηλεσκόπιο"
-      },
-      "57": {
-        "letters": "E G",
-        "person": "Ευκλείδης",
-        "occupation": "Greek",
-        "action": "γράφει γεωμετρία",
-        "object": "κανόνας"
-      },
-      "58": {
-        "letters": "E H",
-        "person": "Περσέας",
-        "occupation": "Hero",
-        "action": "κρατά κεφάλι Μέδουσας",
-        "object": "σπαθί"
-      },
-      "59": {
-        "letters": "E N",
-        "person": "Ernest Hemingway",
-        "occupation": "Novelist",
-        "action": "γράφει διήγημα",
-        "object": "γραφομηχανή"
-      },
-      "60": {
-        "letters": "S O",
-        "person": "Socrates",
-        "occupation": "Orator",
-        "action": "διδάσκει",
-        "object": "κύπελλο"
-      },
-      "61": {
-        "letters": "S A",
-        "person": "Scarlett Johansson",
-        "occupation": "Actor",
-        "action": "υποδύεται",
-        "object": "στολή"
-      },
-      "62": {
-        "letters": "S B",
-        "person": "Shaquille O’Neal",
-        "occupation": "Basketball Player",
-        "action": "καρφώνει",
-        "object": "μπάλα"
-      },
-      "63": {
-        "letters": "S C",
-        "person": "Samuel Reshevsky",
-        "occupation": "Chess Player",
-        "action": "παίζει σκάκι",
-        "object": "σκακιέρα"
-      },
-      "64": {
-        "letters": "S D",
-        "person": "Sigmund Freud",
-        "occupation": "Doctor",
-        "action": "αναλύει",
-        "object": "καναπές"
-      },
-      "65": {
-        "letters": "S E",
-        "person": "Shakira",
-        "occupation": "Entertainer",
-        "action": "χορεύει",
-        "object": "μικρόφωνο"
-      },
-      "66": {
-        "letters": "S S",
-        "person": "Stephen Curry",
-        "occupation": "Scientist (Basketball Shooter)",
-        "action": "σουτάρει τρίποντο",
-        "object": "μπάλα"
-      },
-      "67": {
-        "letters": "S G",
-        "person": "Σόλων",
-        "occupation": "Greek",
-        "action": "θεσπίζει νόμους",
-        "object": "πάπυρος"
-      },
-      "68": {
-        "letters": "S H",
-        "person": "Αχιλλέας",
-        "occupation": "Hero",
-        "action": "χτυπά με δόρυ",
-        "object": "δόρυ"
-      },
-      "69": {
-        "letters": "S N",
-        "person": "Sophocles",
-        "occupation": "Novelist",
-        "action": "γράφει τραγωδία",
-        "object": "πάπυρος"
-      },
-      "70": {
-        "letters": "G O",
-        "person": "Gorgias",
-        "occupation": "Orator",
-        "action": "διδάσκει",
-        "object": "πάπυρος"
-      },
-      "71": {
-        "letters": "G A",
-        "person": "George Clooney",
-        "occupation": "Actor",
-        "action": "υποδύεται",
-        "object": "κοστούμι"
-      },
-      "72": {
-        "letters": "G B",
-        "person": "Giannis Antetokounmpo",
-        "occupation": "Basketball Player",
-        "action": "καρφώνει",
-        "object": "μπάλα"
-      },
-      "73": {
-        "letters": "G C",
-        "person": "Magnus Carlsen",
-        "occupation": "Chess Player",
-        "action": "παίζει γρήγορα",
-        "object": "σκακιέρα"
-      },
-      "74": {
-        "letters": "G D",
-        "person": "Gregor Mendel",
-        "occupation": "Doctor",
-        "action": "πειραματίζεται",
-        "object": "μπιζέλια"
-      },
-      "75": {
-        "letters": "G E",
-        "person": "Gloria Estefan",
-        "occupation": "Entertainer",
-        "action": "τραγουδά",
-        "object": "μικρόφωνο"
-      },
-      "76": {
-        "letters": "G S",
-        "person": "Galileo Galilei",
-        "occupation": "Scientist",
-        "action": "παρατηρεί ουρανό",
-        "object": "τηλεσκόπιο"
-      },
-      "77": {
-        "letters": "G G",
-        "person": "Γοργώ",
-        "occupation": "Greek Myth",
-        "action": "παγώνει με βλέμμα",
-        "object": "φίδια"
-      },
-      "78": {
-        "letters": "G H",
-        "person": "Ηρακλής (δεύτερη εκδοχή)",
-        "occupation": "Hero",
-        "action": "σχίζει λιοντάρι",
-        "object": "λεοντή"
-      },
-      "79": {
-        "letters": "G N",
-        "person": "Γκαμπριέλ Γκαρσία Μάρκες",
-        "occupation": "Novelist",
-        "action": "γράφει μυθιστόρημα",
-        "object": "βιβλίο"
-      },
-      "80": {
-        "letters": "H O",
-        "person": "Homer",
-        "occupation": "Orator/Poet",
-        "action": "απαγγέλει έπος",
-        "object": "πάπυρος"
-      },
-      "81": {
-        "letters": "H A",
-        "person": "Harrison Ford",
-        "occupation": "Actor",
-        "action": "υποδύεται ήρωα",
-        "object": "καπέλο"
-      },
-      "82": {
-        "letters": "H B",
-        "person": "Hakeem Olajuwon (δεύτερη χρήση)",
-        "occupation": "Basketball Player",
-        "action": "κάνει ντρίπλα",
-        "object": "μπάλα"
-      },
-      "83": {
-        "letters": "H C",
-        "person": "Howard Staunton",
-        "occupation": "Chess Player",
-        "action": "παίζει παρτίδα",
-        "object": "σκακιέρα"
-      },
-      "84": {
-        "letters": "H D",
-        "person": "Hippocrates",
-        "occupation": "Doctor",
-        "action": "θεραπεύει ασθενή",
-        "object": "βότανα"
-      },
-      "85": {
-        "letters": "H E",
-        "person": "Harry Styles",
-        "occupation": "Entertainer",
-        "action": "τραγουδά",
-        "object": "μικρόφωνο"
-      },
-      "86": {
-        "letters": "H S",
-        "person": "Henri Poincaré",
-        "occupation": "Scientist",
-        "action": "γράφει μαθηματικά",
-        "object": "πίνακας"
-      },
-      "87": {
-        "letters": "H G",
-        "person": "Ηρόδοτος",
-        "occupation": "Greek",
-        "action": "γράφει ιστορία",
-        "object": "πάπυρος"
-      },
-      "88": {
-        "letters": "H H",
-        "person": "Ηρακλής (παραλλαγή)",
-        "occupation": "Hero",
-        "action": "σηκώνει βράχο",
-        "object": "βράχος"
-      },
-      "89": {
-        "letters": "H N",
-        "person": "Homer (Novelist)",
-        "occupation": "Novelist",
-        "action": "γράφει έπος",
-        "object": "πάπυρος"
-      },
-      "90": {
-        "letters": "N O",
-        "person": "Νικόμαχος",
-        "occupation": "Orator",
-        "action": "διδάσκει μαθητές",
-        "object": "πάπυρος"
-      },
-      "91": {
-        "letters": "N A",
-        "person": "Nicolas Cage",
-        "occupation": "Actor",
-        "action": "υποδύεται",
-        "object": "στολή"
-      },
-      "92": {
-        "letters": "N B",
-        "person": "Νίκος Γκάλης",
-        "occupation": "Basketball Player",
-        "action": "σουτάρει",
-        "object": "μπάλα"
-      },
-      "93": {
-        "letters": "N C",
-        "person": "Νίκος Καζαντζάκης",
-        "occupation": "Chess/Writer hybrid",
-        "action": "γράφει",
-        "object": "βιβλίο"
-      },
-      "94": {
-        "letters": "N D",
-        "person": "Ναπολέων",
-        "occupation": "Director/Leader",
-        "action": "διοικεί στρατό",
-        "object": "ξίφος"
-      },
-      "95": {
-        "letters": "N E",
-        "person": "Νάνα Μούσχουρη",
-        "occupation": "Entertainer",
-        "action": "τραγουδά",
-        "object": "μικρόφωνο"
-      },
-      "96": {
-        "letters": "N S",
-        "person": "Νεύτωνας",
-        "occupation": "Scientist",
-        "action": "παρατηρεί μήλο",
-        "object": "μήλο"
-      },
-      "97": {
-        "letters": "N G",
-        "person": "Νέαρχος",
-        "occupation": "Greek",
-        "action": "πλέει",
-        "object": "καράβι"
-      },
-      "98": {
-        "letters": "N H",
-        "person": "Νιόβη",
-        "occupation": "Hero",
-        "action": "θρηνεί",
-        "object": "δάκρυα"
-      },
-      "99": {
-        "letters": "N N",
-        "person": "Νίκος Καζαντζάκης (παραλλαγή)",
-        "occupation": "Novelist",
-        "action": "γράφει ξανά",
-        "object": "βιβλίο"
-      },
-      "00": {
-        "letters": "O O",
-        "person": "Oprah Winfrey",
-        "occupation": "Orator",
-        "action": "μιλά σε κοινό",
-        "object": "μικρόφωνο"
-      },
-      "01": {
-        "letters": "O A",
-        "person": "Orlando Bloom",
-        "occupation": "Actor",
-        "action": "παίζει ρόλο",
-        "object": "σπαθί"
-      },
-      "02": {
-        "letters": "O B",
-        "person": "Hakeem Olajuwon",
-        "occupation": "Basketball Player",
-        "action": "ντριμπλάρει",
-        "object": "μπάλα μπάσκετ"
-      },
-      "03": {
-        "letters": "O C",
-        "person": "Ossip Bernstein",
-        "occupation": "Chess Player",
-        "action": "κινεί πιόνι",
-        "object": "σκακιέρα"
-      },
-      "04": {
-        "letters": "O D",
-        "person": "Oliver Stone",
-        "occupation": "Director",
-        "action": "σκηνοθετεί",
-        "object": "κάμερα"
-      },
-      "05": {
-        "letters": "O E",
-        "person": "Ozzy Osbourne",
-        "occupation": "Entertainer",
-        "action": "τραγουδά",
-        "object": "μικρόφωνο"
-      },
-      "06": {
-        "letters": "O S",
-        "person": "Oppenheimer",
-        "occupation": "Scientist",
-        "action": "σχεδιάζει άτομο",
-        "object": "μοντέλο ατόμου"
-      },
-      "07": {
-        "letters": "O G",
-        "person": "Οδυσσέας",
-        "occupation": "Greek",
-        "action": "τραβά τόξο",
-        "object": "καράβι"
-      },
-      "08": {
-        "letters": "O H",
-        "person": "Obi-Wan Kenobi",
-        "occupation": "Hero",
-        "action": "μονομαχεί",
-        "object": "lightsaber"
-      },
-      "09": {
-        "letters": "O N",
-        "person": "George Orwell",
-        "occupation": "Novelist",
-        "action": "γράφει",
-        "object": "βιβλίο"
-      }
-    },
-    "LibraryP3": {
-      "10": {
-        "person": "Λεωνίδας",
-        "action": "κραυγάζει «Μολών λαβέ»",
-        "object": "δόρυ"
-      },
-      "11": {
-        "person": "Αλέξανδρος ο Μέγας",
-        "action": "καλπάζει",
-        "object": "σπαθί"
-      },
-      "12": {
-        "person": "Αριστοφάνης",
-        "action": "γράφει κωμωδία",
-        "object": "μάσκα"
-      },
-      "13": {
-        "person": "Όμηρος",
-        "action": "απαγγέλει έπος",
-        "object": "πάπυρος"
-      },
-      "14": {
-        "person": "Ηρόδοτος",
-        "action": "γράφει ιστορία",
-        "object": "πάπυρος"
-      },
-      "15": {
-        "person": "Θουκυδίδης",
-        "action": "καταγράφει γεγονότα",
-        "object": "πάπυρος"
-      },
-      "16": {
-        "person": "Πυθαγόρας",
-        "action": "διδάσκει αριθμούς",
-        "object": "τρίγωνο"
-      },
-      "17": {
-        "person": "Ευκλείδης",
-        "action": "σχεδιάζει γεωμετρία",
-        "object": "κανόνας"
-      },
-      "18": {
-        "person": "Αρχιμήδης",
-        "action": "φωνάζει «Εύρηκα»",
-        "object": "μοχλός"
-      },
-      "19": {
-        "person": "Σοφοκλής",
-        "action": "γράφει τραγωδία",
-        "object": "πάπυρος"
-      },
-      "20": {
-        "person": "Ευριπίδης",
-        "action": "γράφει τραγωδία",
-        "object": "πάπυρος"
-      },
-      "21": {
-        "person": "Αισχύλος",
-        "action": "γράφει τραγωδία",
-        "object": "πάπυρος"
-      },
-      "22": {
-        "person": "Πίνδαρος",
-        "action": "συνθέτει ύμνους",
-        "object": "λύρα"
-      },
-      "23": {
-        "person": "Σαπφώ",
-        "action": "τραγουδά ποιήματα",
-        "object": "λύρα"
-      },
-      "24": {
-        "person": "Καλλίμαχος",
-        "action": "γράφει ύμνους",
-        "object": "πάπυρος"
-      },
-      "25": {
-        "person": "Πολύβιος",
-        "action": "γράφει ιστορία",
-        "object": "πάπυρος"
-      },
-      "26": {
-        "person": "Διογένης",
-        "action": "κάθεται σε πιθάρι",
-        "object": "πιθάρι"
-      },
-      "27": {
-        "person": "Ζήνων ο Στωικός",
-        "action": "διδάσκει φιλοσοφία",
-        "object": "πάπυρος"
-      },
-      "28": {
-        "person": "Χρύσιππος",
-        "action": "γράφει φιλοσοφία",
-        "object": "πάπυρος"
-      },
-      "29": {
-        "person": "Επίκουρος",
-        "action": "διδάσκει ηδονή",
-        "object": "κήπος"
-      },
-      "30": {
-        "person": "Μιλτιάδης",
-        "action": "ηγείται μάχης",
-        "object": "δόρυ"
-      },
-      "31": {
-        "person": "Θεμιστοκλής",
-        "action": "διοικεί στόλο",
-        "object": "τριήρης"
-      },
-      "32": {
-        "person": "Αριστείδης",
-        "action": "ονομάζεται Δίκαιος",
-        "object": "πάπυρος"
-      },
-      "33": {
-        "person": "Φίλιππος Β΄",
-        "action": "ηγείται στρατού",
-        "object": "σπαθί"
-      },
-      "34": {
-        "person": "Ξενοφών",
-        "action": "γράφει Ανάβαση",
-        "object": "πάπυρος"
-      },
-      "35": {
-        "person": "Αναξαγόρας",
-        "action": "διδάσκει κοσμολογία",
-        "object": "ουρανός"
-      },
-      "36": {
-        "person": "Δημόκριτος",
-        "action": "μιλά για άτομα",
-        "object": "άτομο"
-      },
-      "37": {
-        "person": "Ηράκλειτος",
-        "action": "λέει «τα πάντα ρει»",
-        "object": "ποτάμι"
-      },
-      "38": {
-        "person": "Παρμενίδης",
-        "action": "διδάσκει το «Είναι»",
-        "object": "κύκλος"
-      },
-      "39": {
-        "person": "Ζήνων ο Ελεάτης",
-        "action": "παρουσιάζει παράδοξα",
-        "object": "βέλος"
-      },
-      "40": {
-        "person": "Πρωταγόρας",
-        "action": "λέει «πάντων χρημάτων μέτρον άνθρωπος»",
-        "object": "πάπυρος"
-      },
-      "41": {
-        "person": "Γοργίας",
-        "action": "ρητορεύει",
-        "object": "ειλητάριο"
-      },
-      "42": {
-        "person": "Ισοκράτης",
-        "action": "διδάσκει ρητορική",
-        "object": "πάπυρος"
-      },
-      "43": {
-        "person": "Λυσίας",
-        "action": "γράφει λόγους",
-        "object": "πάπυρος"
-      },
-      "44": {
-        "person": "Αντιφών",
-        "action": "γράφει ρητορικούς λόγους",
-        "object": "πάπυρος"
-      },
-      "45": {
-        "person": "Κρατύλος",
-        "action": "φιλοσοφεί για τη γλώσσα",
-        "object": "πάπυρος"
-      },
-      "46": {
-        "person": "Πρωταγόρας (παραλλαγή)",
-        "action": "διδάσκει σοφιστική",
-        "object": "ειλητάριο"
-      },
-      "47": {
-        "person": "Αναξίμανδρος",
-        "action": "γράφει για το άπειρο",
-        "object": "κύκλος"
-      },
-      "48": {
-        "person": "Αναξιμένης",
-        "action": "διδάσκει για τον αέρα",
-        "object": "σύννεφο"
-      },
-      "49": {
-        "person": "Θαλής",
-        "action": "μετρά ύψος πυραμίδων",
-        "object": "ράβδος"
-      },
-      "50": {
-        "person": "Σόλων",
-        "action": "θεσπίζει νόμους",
-        "object": "πάπυρος"
-      },
-      "51": {
-        "person": "Δράκων",
-        "action": "γράφει σκληρούς νόμους",
-        "object": "πάπυρος"
-      },
-      "52": {
-        "person": "Λυκούργος",
-        "action": "οργανώνει Σπάρτη",
-        "object": "δόρυ"
-      },
-      "53": {
-        "person": "Πεισίστρατος",
-        "action": "επιβάλλει τυραννία",
-        "object": "σκήπτρο"
-      },
-      "54": {
-        "person": "Κλεισθένης",
-        "action": "ιδρύει δημοκρατία",
-        "object": "ψήφος"
-      },
-      "55": {
-        "person": "Εφιάλτης",
-        "action": "προδίδει Σπαρτιάτες",
-        "object": "μονοπάτι"
-      },
-      "56": {
-        "person": "Αριστομένης",
-        "action": "ηγείται Μεσσηνίων",
-        "object": "σπαθί"
-      },
-      "57": {
-        "person": "Πύρρος",
-        "action": "πολεμά Ρωμαίους",
-        "object": "ασπίδα"
-      },
-      "58": {
-        "person": "Λύσανδρος",
-        "action": "κατακτά την Αθήνα",
-        "object": "στόλος"
-      },
-      "59": {
-        "person": "Αγησίλαος",
-        "action": "ηγείται Σπάρτης",
-        "object": "δόρυ"
-      },
-      "60": {
-        "person": "Κίμων",
-        "action": "διοικεί Αθηναίους",
-        "object": "ασπίδα"
-      },
-      "61": {
-        "person": "Νικίας",
-        "action": "διοικεί Σικελική εκστρατεία",
-        "object": "πάπυρος"
-      },
-      "62": {
-        "person": "Αλκιβιάδης",
-        "action": "προδίδει και επιστρέφει",
-        "object": "κράνος"
-      },
-      "63": {
-        "person": "Φωκίων",
-        "action": "στρατηγός μετριοπαθής",
-        "object": "σπαθί"
-      },
-      "64": {
-        "person": "Δημοσθένης",
-        "action": "εκφωνεί λόγους",
-        "object": "ειλητάριο"
-      },
-      "65": {
-        "person": "Καλλίμαχος (στρατηγός)",
-        "action": "πολεμά στον Μαραθώνα",
-        "object": "δόρυ"
-      },
-      "66": {
-        "person": "Μιλτιάδης (παραλλαγή)",
-        "action": "ηγείται στρατού",
-        "object": "κράνος"
-      },
-      "67": {
-        "person": "Αντίγονος",
-        "action": "διοικεί Μακεδόνες",
-        "object": "σκήπτρο"
-      },
-      "68": {
-        "person": "Δημήτριος Πολιορκητής",
-        "action": "πολιορκεί πόλεις",
-        "object": "καταπέλτης"
-      },
-      "69": {
-        "person": "Κάσσανδρος",
-        "action": "ελέγχει Μακεδονία",
-        "object": "ξίφος"
-      },
-      "70": {
-        "person": "Πτολεμαίος",
-        "action": "κυβερνά Αίγυπτο",
-        "object": "σκήπτρο"
-      },
-      "71": {
-        "person": "Σέλευκος",
-        "action": "ιδρύει κράτος",
-        "object": "χάρτης"
-      },
-      "72": {
-        "person": "Αντίοχος",
-        "action": "διοικεί Συρία",
-        "object": "σκήπτρο"
-      },
-      "73": {
-        "person": "Ατταλος",
-        "action": "κυβερνά Πέργαμο",
-        "object": "σκήπτρο"
-      },
-      "74": {
-        "person": "Μιθριδάτης",
-        "action": "πολεμά Ρώμη",
-        "object": "ξίφος"
-      },
-      "75": {
-        "person": "Φίλιππος Ε΄",
-        "action": "ηγείται Μακεδόνων",
-        "object": "σπαθί"
-      },
-      "76": {
-        "person": "Περσέας (Μακεδόνας)",
-        "action": "πολεμά Ρωμαίους",
-        "object": "ασπίδα"
-      },
-      "77": {
-        "person": "Αννίβας",
-        "action": "διασχίζει Άλπεις",
-        "object": "ελέφαντας"
-      },
-      "78": {
-        "person": "Σκιπίων",
-        "action": "νικά Καρχηδόνιους",
-        "object": "κράνος"
-      },
-      "79": {
-        "person": "Ιούλιος Καίσαρας",
-        "action": "διασχίζει τον Ρουβίκωνα",
-        "object": "σκήπτρο"
-      },
-      "80": {
-        "person": "Αύγουστος",
-        "action": "θεμελιώνει αυτοκρατορία",
-        "object": "σκήπτρο"
-      },
-      "81": {
-        "person": "Κικέρων",
-        "action": "ρητορεύει στη Σύγκλητο",
-        "object": "ειλητάριο"
-      },
-      "82": {
-        "person": "Σενέκας",
-        "action": "διδάσκει Στωικισμό",
-        "object": "πάπυρος"
-      },
-      "83": {
-        "person": "Μάρκος Αυρήλιος",
-        "action": "γράφει «Εις Εαυτόν»",
-        "object": "πάπυρος"
-      },
-      "84": {
-        "person": "Κωνσταντίνος",
-        "action": "ιδρύει Κωνσταντινούπολη",
-        "object": "σταυρός"
-      },
-      "85": {
-        "person": "Ιουστινιανός",
-        "action": "θεσπίζει νόμους",
-        "object": "κώδικας"
-      },
-      "86": {
-        "person": "Χαρίλαος Τρικούπης",
-        "action": "κηρύσσει πτώχευση",
-        "object": "λόγος"
-      },
-      "87": {
-        "person": "Ελευθέριος Βενιζέλος",
-        "action": "υπογράφει συνθήκες",
-        "object": "πένα"
-      },
-      "88": {
-        "person": "Κολοκοτρώνης",
-        "action": "ηγείται Επανάστασης",
-        "object": "καριοφίλι"
-      },
-      "89": {
-        "person": "Καραϊσκάκης",
-        "action": "πολεμά Οθωμανούς",
-        "object": "ξίφος"
-      },
-      "90": {
-        "person": "Μιαούλης",
-        "action": "καίει τουρκικά πλοία",
-        "object": "φλόγα"
-      },
-      "91": {
-        "person": "Κανάρης",
-        "action": "ρίχνει μπουρλότο",
-        "object": "φλόγα"
-      },
-      "92": {
-        "person": "Ρήγας Φεραίος",
-        "action": "γράφει Θούριο",
-        "object": "πάπυρος"
-      },
-      "93": {
-        "person": "Διονύσιος Σολωμός",
-        "action": "γράφει Εθνικό Ύμνο",
-        "object": "πάπυρος"
-      },
-      "94": {
-        "person": "Ανδρέας Κάλβος",
-        "action": "γράφει Ωδές",
-        "object": "πάπυρος"
-      },
-      "95": {
-        "person": "Κωστής Παλαμάς",
-        "action": "γράφει ποιήματα",
-        "object": "πάπυρος"
-      },
-      "96": {
-        "person": "Γιώργος Σεφέρης",
-        "action": "γράφει ποιήματα",
-        "object": "πάπυρος"
-      },
-      "97": {
-        "person": "Οδυσσέας Ελύτης",
-        "action": "γράφει ποιήματα",
-        "object": "πάπυρος"
-      },
-      "98": {
-        "person": "Νίκος Καζαντζάκης",
-        "action": "γράφει μυθιστορήματα",
-        "object": "πάπυρος"
-      },
-      "99": {
-        "person": "Μίκης Θεοδωράκης",
-        "action": "συνθέτει μουσική",
-        "object": "παρτιτούρα"
-      },
-      "01": {
-        "person": "Περικλής",
-        "action": "εκφωνεί λόγο",
-        "object": "πάπυρος"
-      },
-      "02": {
-        "person": "Σωκράτης",
-        "action": "διδάσκει μαθητές",
-        "object": "κύπελλο"
-      },
-      "03": {
-        "person": "Αριστοτέλης",
-        "action": "γράφει φιλοσοφία",
-        "object": "βιβλίο"
-      },
-      "04": {
-        "person": "Πλάτων",
-        "action": "συζητά σε συμπόσιο",
-        "object": "ειλητάριο"
-      },
-      "05": {
-        "person": "Αχιλλέας",
-        "action": "καρφώνει δόρυ",
-        "object": "ασπίδα"
-      },
-      "06": {
-        "person": "Οδυσσέας",
-        "action": "τραβά τόξο",
-        "object": "καράβι"
-      },
-      "07": {
-        "person": "Ηρακλής",
-        "action": "σηκώνει ρόπαλο",
-        "object": "ρόπαλο"
-      },
-      "08": {
-        "person": "Θησέας",
-        "action": "σκοτώνει Μινώταυρο",
-        "object": "σπαθί"
-      },
-      "09": {
-        "person": "Περσέας",
-        "action": "κρατά το κεφάλι της Μέδουσας",
-        "object": "σπαθί"
-      },
-      "00": {
-        "person": "Ζευς",
-        "action": "εκτοξεύει κεραυνό",
-        "object": "κεραυνός"
-      }
-    },
-    "LibraryP4": {
-      "10": {
-        "person": "Άγγελος Οδοιπόρος",
-        "action": "Τσακίζει",
-        "object": "Δόρυ και Αυγό"
-      },
-      "11": {
-        "person": "Άγιος Άνθρωπος",
-        "action": "Τυλίγει",
-        "object": "Δίδυμα κεριά"
-      },
-      "12": {
-        "person": "Αχιλλέας Βροντερός",
-        "action": "Τινάζει",
-        "object": "Κερί και Κύκνο"
-      },
-      "13": {
-        "person": "Άγγελος Κίκος",
-        "action": "Τσαλακώνει",
-        "object": "Κερί και Χειροπέδες"
-      },
-      "14": {
-        "person": "Anthony Davis",
-        "action": "Τραβάει",
-        "object": "Κερί και Καρέκλα"
-      },
-      "15": {
-        "person": "Αλχημιστής Ερμής",
-        "action": "Τυραννάει",
-        "object": "Κερί και Γάντζο"
-      },
-      "16": {
-        "person": "Αλέξανδρος Στρατηγός",
-        "action": "Τσιμπάει",
-        "object": "Κερί και Κεράσι"
-      },
-      "17": {
-        "person": "Άγγελος Γίγαντας",
-        "action": "Τσακώνεται",
-        "object": "Κερί και Δρεπάνι"
-      },
-      "18": {
-        "person": "Αστερίξ Ηγέτης",
-        "action": "Τυφλώνει",
-        "object": "Κερί και Χιονάνθρωπο"
-      },
-      "19": {
-        "person": "Άτλας Ντάνι",
-        "action": "Τρυπάει",
-        "object": "Κερί και Μπαλόνι"
-      },
-      "20": {
-        "person": "Βασιλιάς Όθων",
-        "action": "Νικάει",
-        "object": "Κύκνο και Μπάλα"
-      },
-      "21": {
-        "person": "Βίκινγκ Άρχοντας",
-        "action": "Ντουφεκίζει",
-        "object": "Κύκνο και Κερί"
-      },
-      "22": {
-        "person": "Big Brother",
-        "action": "Νιαουρίζει",
-        "object": "Δύο κύκνους"
-      },
-      "23": {
-        "person": "Bruce Campbell",
-        "action": "Νομπάρει",
-        "object": "Κύκνο και Χειροπέδες"
-      },
-      "24": {
-        "person": "Βάρδος Δρακοφονιάς",
-        "action": "Ντύνει",
-        "object": "Κύκνο και Καρέκλα"
-      },
-      "25": {
-        "person": "Βασίλισσα Ελισάβετ",
-        "action": "Νευριάζει",
-        "object": "Κύκνο και Γάντζο"
-      },
-      "26": {
-        "person": "Βασιλιάς Σαύρας",
-        "action": "Νιαρίζει",
-        "object": "Κύκνο και Κεράσι"
-      },
-      "27": {
-        "person": "Βαρύς Γίγαντας",
-        "action": "Ντρεσάρει",
-        "object": "Κύκνο και Δρεπάνι"
-      },
-      "28": {
-        "person": "Βελλεροφόντης Ήττας",
-        "action": "Νιώθει",
-        "object": "Κύκνο και Χιονάνθρωπο"
-      },
-      "29": {
-        "person": "Βίκτωρ Νάιτ",
-        "action": "Νουθετεί",
-        "object": "Κύκνο και Μπαλόνι"
-      },
-      "30": {
-        "person": "Κόμης Ορλάντο",
-        "action": "Μαχαιρώνει",
-        "object": "Χειροπέδες και Μπάλα"
-      },
-      "31": {
-        "person": "Καίσαρας Ανίκητος",
-        "action": "Μαστιγώνει",
-        "object": "Χειροπέδες και Κερί"
-      },
-      "32": {
-        "person": "Κένταυρος Βροντερός",
-        "action": "Μουγκρίζει",
-        "object": "Χειροπέδες και Κύκνο"
-      },
-      "33": {
-        "person": "Charlie Chaplin",
-        "action": "Μαδάει",
-        "object": "Διπλά Χειροπέδες"
-      },
-      "34": {
-        "person": "Charles Darwin",
-        "action": "Μπουρλοτιάζει",
-        "object": "Χειροπέδες και Καρέκλα"
-      },
-      "35": {
-        "person": "Celine Dion",
-        "action": "Μαζεύει",
-        "object": "Χειροπέδες και Γάντζο"
-      },
-      "36": {
-        "person": "Copernicus Samurai",
-        "action": "Μασάει",
-        "object": "Χειροπέδες και Κεράσι"
-      },
-      "37": {
-        "person": "Καλλίμαχος Γλύπτης",
-        "action": "Μουσκεύει",
-        "object": "Χειροπέδες και Δρεπάνι"
-      },
-      "38": {
-        "person": "Χριστός Ηγέτης",
-        "action": "Μπουκάρει",
-        "object": "Χειροπέδες και Χιονάνθρωπο"
-      },
-      "39": {
-        "person": "Cyrano Nest",
-        "action": "Μπλοκάρει",
-        "object": "Χειροπέδες και Μπαλόνι"
-      },
-      "40": {
-        "person": "Δον Οθέλλος",
-        "action": "Ρίχνει",
-        "object": "Καρέκλα και Μπάλα"
-      },
-      "41": {
-        "person": "Daniel Aramis",
-        "action": "Ροκανίζει",
-        "object": "Καρέκλα και Κερί"
-      },
-      "42": {
-        "person": "David Bowie",
-        "action": "Ρουφάει",
-        "object": "Καρέκλα και Κύκνο"
-      },
-      "43": {
-        "person": "David Copperfield",
-        "action": "Ραγίζει",
-        "object": "Καρέκλα και Χειροπέδες"
-      },
-      "44": {
-        "person": "Donald Duck",
-        "action": "Ρουλιάζει",
-        "object": "Διπλή Καρέκλα"
-      },
-      "45": {
-        "person": "Desmond Έπαρχος",
-        "action": "Ραπίζει",
-        "object": "Καρέκλα και Γάντζο"
-      },
-      "46": {
-        "person": "Δαιμονικός Σαμάνος",
-        "action": "Ροβολάει",
-        "object": "Καρέκλα και Κεράσι"
-      },
-      "47": {
-        "person": "Δράκουλας Γοτθικός",
-        "action": "Ραντίζει",
-        "object": "Καρέκλα και Δρεπάνι"
-      },
-      "48": {
-        "person": "Διόνυσος Ηρωικός",
-        "action": "Ριζώνει",
-        "object": "Καρέκλα και Χιονάνθρωπο"
-      },
-      "49": {
-        "person": "Δίας Νίτσε",
-        "action": "Ριμάρει",
-        "object": "Καρέκλα και Μπαλόνι"
-      },
-      "50": {
-        "person": "Έκτορας Ορμητικός",
-        "action": "Λακτίζει",
-        "object": "Γάντζο και Μπάλα"
-      },
-      "51": {
-        "person": "Ερμής Αγγελιοφόρος",
-        "action": "Λιώνει",
-        "object": "Γάντζο και Κερί"
-      },
-      "52": {
-        "person": "Εδουάρδος Βασιλιάς",
-        "action": "Λερώνει",
-        "object": "Γάντζο και Κύκνο"
-      },
-      "53": {
-        "person": "Emmanuel Kant",
-        "action": "Λούζει",
-        "object": "Γάντζο και Χειροπέδες"
-      },
-      "54": {
-        "person": "Edward Dante",
-        "action": "Λαμπαδιάζει",
-        "object": "Γάντζο και Καρέκλα"
-      },
-      "55": {
-        "person": "Einstein Εφευρέτης",
-        "action": "Λαχανιάζει",
-        "object": "Διπλό Γάντζο"
-      },
-      "56": {
-        "person": "Euclid Σοφός",
-        "action": "Λυγίζει",
-        "object": "Γάντζο και Κεράσι"
-      },
-      "57": {
-        "person": "Ευριπίδης Γραφέας",
-        "action": "Λαξεύει",
-        "object": "Γάντζο και Δρεπάνι"
-      },
-      "58": {
-        "person": "Έφηβος Ηλεκτρικός",
-        "action": "Λαχταράει",
-        "object": "Γάντζο και Χιονάνθρωπο"
-      },
-      "59": {
-        "person": "Επίκουρος Ναύτης",
-        "action": "Λυτρώνει",
-        "object": "Γάντζο και Μπαλόνι"
-      },
-      "60": {
-        "person": "Σωκράτης Οραματιστής",
-        "action": "Σκίζει",
-        "object": "Κεράσι και Μπάλα"
-      },
-      "61": {
-        "person": "Σαούλ Άρχοντας",
-        "action": "Σουβλίζει",
-        "object": "Κεράσι και Κερί"
-      },
-      "62": {
-        "person": "Superman Βροντερός",
-        "action": "Σουτάρει",
-        "object": "Κεράσι και Κύκνο"
-      },
-      "63": {
-        "person": "Sherlock Cage",
-        "action": "Σουλατσάρει",
-        "object": "Κεράσι και Χειροπέδες"
-      },
-      "64": {
-        "person": "Σπαρτιάτης Διοικητής",
-        "action": "Σουγιάζει",
-        "object": "Κεράσι και Καρέκλα"
-      },
-      "65": {
-        "person": "Σαίξπηρ Εμπνευστής",
-        "action": "Σουλαπίζει",
-        "object": "Κεράσι και Γάντζο"
-      },
-      "66": {
-        "person": "Σούπερ Σόνικ",
-        "action": "Σουρουπώνει",
-        "object": "Διπλό Κεράσι"
-      },
-      "67": {
-        "person": "Σαμουράι Γεράκι",
-        "action": "Σουλατσάρει",
-        "object": "Κεράσι και Δρεπάνι"
-      },
-      "68": {
-        "person": "Σαούλ Ηγέτης",
-        "action": "Σουφρώνει",
-        "object": "Κεράσι και Χιονάνθρωπο"
-      },
-      "69": {
-        "person": "Σατανάς Neal",
-        "action": "Σουγγαρίζει",
-        "object": "Κεράσι και Μπαλόνι"
-      },
-      "70": {
-        "person": "Γόργονας Ονειρική",
-        "action": "Καταστρέφει",
-        "object": "Δρεπάνι και Μπάλα"
-      },
-      "71": {
-        "person": "Gandalf Grey",
-        "action": "Καρφώνει",
-        "object": "Δρεπάνι και Κερί"
-      },
-      "72": {
-        "person": "George Bush",
-        "action": "Κλωτσάει",
-        "object": "Δρεπάνι και Κύκνο"
-      },
-      "73": {
-        "person": "Garry Kasparov",
-        "action": "Κραδαίνει",
-        "object": "Δρεπάνι και Χειροπέδες"
-      },
-      "74": {
-        "person": "Genghis Khan",
-        "action": "Κόβει",
-        "object": "Δρεπάνι και Καρέκλα"
-      },
-      "75": {
-        "person": "Galileo Earvin",
-        "action": "Κονιορτοποιεί",
-        "object": "Δρεπάνι και Γάντζο"
-      },
-      "76": {
-        "person": "General Samurai",
-        "action": "Κυνηγάει",
-        "object": "Δρεπάνι και Κεράσι"
-      },
-      "77": {
-        "person": "Godzilla Giant",
-        "action": "Κουβαλάει",
-        "object": "Διπλό Δρεπάνι"
-      },
-      "78": {
-        "person": "Γοργόνα Ηβόνη",
-        "action": "Καταπίνει",
-        "object": "Δρεπάνι και Χιονάνθρωπο"
-      },
-      "79": {
-        "person": "Gladiator Ντιν",
-        "action": "Καταπονεί",
-        "object": "Δρεπάνι και Μπαλόνι"
-      },
-      "80": {
-        "person": "Homer Ομηρικός",
-        "action": "Φλέει",
-        "object": "Χιονάνθρωπο και Μπάλα"
-      },
-      "81": {
-        "person": "Hannibal action",
-        "action": "Φτύνει",
-        "object": "Χιονάνθρωπο και Κερί"
-      },
-      "82": {
-        "person": "Hulk Buster",
-        "action": "Φουσκώνει",
-        "object": "Χιονάνθρωπο και Κύκνο"
-      },
-      "83": {
-        "person": "Harry Cooper",
-        "action": "Φωνάζει",
-        "object": "Χιονάνθρωπο και Χειροπέδες"
-      },
-      "84": {
-        "person": "Hercules Δυνατός",
-        "action": "Φοράει",
-        "object": "Χιονάνθρωπο και Καρέκλα"
-      },
-      "85": {
-        "person": "Helen Ένδοξη",
-        "action": "Φλερτάρει",
-        "object": "Χιονάνθρωπο και Γάντζο"
-      },
-      "86": {
-        "person": "Hermes Σοφός",
-        "action": "Φουντώνει",
-        "object": "Χιονάνθρωπο και Κεράσι"
-      },
-      "87": {
-        "person": "Hades Γελαστός",
-        "action": "Φουντάρει",
-        "object": "Χιονάνθρωπο και Δρεπάνι"
-      },
-      "88": {
-        "person": "Heidi Hero",
-        "action": "Φωτίζει",
-        "object": "Διπλός Χιονάνθρωπο"
-      },
-      "89": {
-        "person": "Ηλεκτρικός Νίκος",
-        "action": "Φιλάει",
-        "object": "Χιονάνθρωπο και Μπαλόνι"
-      },
-      "90": {
-        "person": "Ιάσονας Ορμητικός",
-        "action": "Πατάει",
-        "object": "Μπαλόνι και Μπάλα"
-      },
-      "91": {
-        "person": "Isaac Asimov",
-        "action": "Πνίγει",
-        "object": "Μπαλόνι και Κερί"
-      },
-      "92": {
-        "person": "Indiana Bones",
-        "action": "Πνέει",
-        "object": "Μπαλόνι και Κύκνο"
-      },
-      "93": {
-        "person": "Ιωάννης Καραθεοδωρής",
-        "action": "Πηδάει",
-        "object": "Μπαλόνι και Χειροπέδες"
-      },
-      "94": {
-        "person": "Iron Dome",
-        "action": "Πυροβολεί",
-        "object": "Μπαλόνι και Καρέκλα"
-      },
-      "95": {
-        "person": "Ιούλιος Έρως",
-        "action": "Παλεύει",
-        "object": "Μπαλόνι και Γάντζο"
-      },
-      "96": {
-        "person": "Ιππότης Σκιών",
-        "action": "Πλάθει",
-        "object": "Μπαλόνι και Κεράσι"
-      },
-      "97": {
-        "person": "Ιπποκράτης Γενναίος",
-        "action": "Πιπιλάει",
-        "object": "Μπαλόνι και Δρεπάνι"
-      },
-      "98": {
-        "person": "Ιάκωβος Ηρακλής",
-        "action": "Παγώνει",
-        "object": "Μπαλόνι και Χιονάνθρωπο"
-      },
-      "99": {
-        "person": "Ironman Νάιτ",
-        "action": "Πιάνει",
-        "object": "Διπλά Μπαλόνια"
-      },
-      "00": {
-        "person": "Ομέγα Ορνιθόπτερος",
-        "action": "Σφυροκοπάει",
-        "object": "Αυγό και Μπάλα"
-      },
-      "01": {
-        "person": "Όμηρος Άλφα",
-        "action": "Σκοντάφτει",
-        "object": "Αυγό και Κερί"
-      },
-      "02": {
-        "person": "Οβελίξ Βλαξ",
-        "action": "Σηκώνει",
-        "object": "Αυγό και Κύκνο"
-      },
-      "03": {
-        "person": "Ομέγα Κλόουν",
-        "action": "Σπρώχνει",
-        "object": "Αυγό και Χειροπέδες"
-      },
-      "04": {
-        "person": "Οδυσσέας Δραπέτης",
-        "action": "Σέρνει",
-        "object": "Αυγό και Καρέκλα"
-      },
-      "05": {
-        "person": "Όσκαρ Έντινσον",
-        "action": "Σαλτάρει",
-        "object": "Αυγό και Γάντζο"
-      },
-      "06": {
-        "person": "Όσκαρ Σαμουράι",
-        "action": "Σχίζει",
-        "object": "Αυγό και Κεράσι"
-      },
-      "07": {
-        "person": "Ορκ Γίγαντας",
-        "action": "Σκοτώνει",
-        "object": "Αυγό και Δρεπάνι"
-      },
-      "08": {
-        "person": "Οράτιος Ηφαίστειος",
-        "action": "Σφυρίζει",
-        "object": "Αυγό και Χιονάνθρωπο"
-      },
-      "09": {
-        "person": "Ορφέας Νάνος",
-        "action": "Σπάζει",
-        "object": "Αυγό και Μπαλόνι"
-      }
-    },
-    "LibraryP5": {
-      "10": {
-        "person": "King Kong",
-        "action": "Climbing",
-        "object": "Building"
-      },
-      "11": {
-        "person": "Leonardo da Vinci",
-        "action": "Sculpting",
-        "object": "Canvas"
-      },
-      "12": {
-        "person": "Marilyn Monroe",
-        "action": "Smiling",
-        "object": "Dress"
-      },
-      "13": {
-        "person": "Napoleon",
-        "action": "Pointing",
-        "object": "Cannon"
-      },
-      "14": {
-        "person": "Bumblebee",
-        "action": "Launching",
-        "object": "Energon Cube"
-      },
-      "15": {
-        "person": "Picasso",
-        "action": "Outlining",
-        "object": "Easel"
-      },
-      "16": {
-        "person": "Queen Elizabeth",
-        "action": "Waving",
-        "object": "Crown"
-      },
-      "17": {
-        "person": "Robin Hood",
-        "action": "Robbing",
-        "object": "Bow"
-      },
-      "18": {
-        "person": "Sherlock Holmes",
-        "action": "Investigating",
-        "object": "Magnifying glass"
-      },
-      "19": {
-        "person": "Tony Stark",
-        "action": "Building",
-        "object": "Iron Suit"
-      },
-      "20": {
-        "person": "Usain Bolt",
-        "action": "Dashing",
-        "object": "Track"
-      },
-      "21": {
-        "person": "Van Gogh",
-        "action": "Illustrating",
-        "object": "Starry Night"
-      },
-      "22": {
-        "person": "Wonder Woman",
-        "action": "Deflecting",
-        "object": "Bracelets"
-      },
-      "23": {
-        "person": "Gabrielle",
-        "action": "Parrying",
-        "object": "Chakram"
-      },
-      "24": {
-        "person": "Qui-Gon Jinn",
-        "action": "Meditating",
-        "object": "Floating Rock"
-      },
-      "25": {
-        "person": "Zeus",
-        "action": "Throwing",
-        "object": "Lightning bolt"
-      },
-      "26": {
-        "person": "Athena",
-        "action": "Strategizing",
-        "object": "War Helmet"
-      },
-      "27": {
-        "person": "Nightwing",
-        "action": "Grappling",
-        "object": "Batmobile"
-      },
-      "28": {
-        "person": "Falcon",
-        "action": "Shielding",
-        "object": "Vibranium Disc"
-      },
-      "29": {
-        "person": "Daenerys Targaryen",
-        "action": "Riding",
-        "object": "Dragon"
-      },
-      "30": {
-        "person": "Einstein",
-        "action": "Calculating",
-        "object": "Equation"
-      },
-      "31": {
-        "person": "Kid Flash",
-        "action": "Accelerating",
-        "object": "Lightning Boots"
-      },
-      "32": {
-        "person": "Dumbledore",
-        "action": "Lighting",
-        "object": "Crystal Staff"
-      },
-      "33": {
-        "person": "Thanos",
-        "action": "Destroying",
-        "object": "Fist"
-      },
-      "34": {
-        "person": "War Machine",
-        "action": "Flying",
-        "object": "Suit"
-      },
-      "35": {
-        "person": "Harley Quinn",
-        "action": "Tricking",
-        "object": "Playing cards"
-      },
-      "36": {
-        "person": "Katniss",
-        "action": "Targeting",
-        "object": "Quiver"
-      },
-      "37": {
-        "person": "Luke Skywalker",
-        "action": "Duelling",
-        "object": "Jedi Robe"
-      },
-      "38": {
-        "person": "Professor X",
-        "action": "Telepathing",
-        "object": "Cerebro"
-      },
-      "39": {
-        "person": "Morpheus",
-        "action": "Offering",
-        "object": "Red Pill"
-      },
-      "40": {
-        "person": "Obi-Wan Kenobi",
-        "action": "Guiding",
-        "object": "Holocron"
-      },
-      "41": {
-        "person": "Raichu",
-        "action": "Electrocuting",
-        "object": "Thunderbolt"
-      },
-      "42": {
-        "person": "The Flash",
-        "action": "Zooming",
-        "object": "Speedster Suit"
-      },
-      "43": {
-        "person": "John Wick",
-        "action": "Bombing",
-        "object": "Machine Gun"
-      },
-      "44": {
-        "person": "Superman",
-        "action": "Levitating",
-        "object": "Cape"
-      },
-      "45": {
-        "person": "Terminator",
-        "action": "Scanning",
-        "object": "Shotgun"
-      },
-      "46": {
-        "person": "Ultron",
-        "action": "Hacking",
-        "object": "Network"
-      },
-      "47": {
-        "person": "Voldemort",
-        "action": "Hexing",
-        "object": "Dark Mark"
-      },
-      "48": {
-        "person": "Deathstroke",
-        "action": "Decapitating",
-        "object": "Grenade"
-      },
-      "49": {
-        "person": "Xenomorph",
-        "action": "Stalking",
-        "object": "Tail"
-      },
-      "50": {
-        "person": "Grogu",
-        "action": "Lifting",
-        "object": "Rocks"
-      },
-      "51": {
-        "person": "Zorro",
-        "action": "Fencing",
-        "object": "Rapier"
-      },
-      "52": {
-        "person": "Ash Ketchum",
-        "action": "Catching",
-        "object": "Pokéball"
-      },
-      "53": {
-        "person": "Buzz Lightyear",
-        "action": "Blasting Off",
-        "object": "Wings"
-      },
-      "54": {
-        "person": "Captain Jack Sparrow",
-        "action": "Drinking",
-        "object": "Rum"
-      },
-      "55": {
-        "person": "Darth Vader",
-        "action": "Choking",
-        "object": "Death Star"
-      },
-      "56": {
-        "person": "Anna",
-        "action": "Freezing",
-        "object": "Frozen Castle"
-      },
-      "57": {
-        "person": "Frodo",
-        "action": "Holding",
-        "object": "Mithril"
-      },
-      "58": {
-        "person": "Radagast",
-        "action": "Shouting",
-        "object": "Balrog Whip"
-      },
-      "59": {
-        "person": "Hermione Granger",
-        "action": "Cursing",
-        "object": "Invisibility Cloak"
-      },
-      "60": {
-        "person": "Lara Croft",
-        "action": "Uncovering",
-        "object": "Crystal Skull"
-      },
-      "61": {
-        "person": "Two-Face",
-        "action": "Laughing",
-        "object": "Card"
-      },
-      "62": {
-        "person": "King Arthur",
-        "action": "Commanding",
-        "object": "Excalibur"
-      },
-      "63": {
-        "person": "Legolas",
-        "action": "Aiming",
-        "object": "Elven Bow"
-      },
-      "64": {
-        "person": "Storm",
-        "action": "Summoning",
-        "object": "Stormbreaker"
-      },
-      "65": {
-        "person": "Trinity",
-        "action": "Kicking",
-        "object": "Agents"
-      },
-      "66": {
-        "person": "Mace Windu",
-        "action": "Defending",
-        "object": "Jedi Starfighter"
-      },
-      "67": {
-        "person": "Zapdos",
-        "action": "Shocking",
-        "object": "Thunder Cloud"
-      },
-      "68": {
-        "person": "Dash",
-        "action": "Sprinting",
-        "object": "Sneakers"
-      },
-      "69": {
-        "person": "John Rambo",
-        "action": "Shooting",
-        "object": "M60 Rifle"
-      },
-      "70": {
-        "person": "Simba",
-        "action": "Roaring",
-        "object": "Rock"
-      },
-      "71": {
-        "person": "Thor",
-        "action": "Hammering",
-        "object": "Hammer"
-      },
-      "72": {
-        "person": "Morgana",
-        "action": "Enchanting",
-        "object": "Magic Conch"
-      },
-      "73": {
-        "person": "Vegeta",
-        "action": "Charging",
-        "object": "Energy"
-      },
-      "74": {
-        "person": "Black Panther",
-        "action": "Clawing",
-        "object": "Vibranium"
-      },
-      "75": {
-        "person": "Achilles",
-        "action": "Battling",
-        "object": "Shield"
-      },
-      "76": {
-        "person": "Yoshi",
-        "action": "Eating",
-        "object": "Egg"
-      },
-      "77": {
-        "person": "Zelda",
-        "action": "Protecting",
-        "object": "Triforce"
-      },
-      "78": {
-        "person": "Aquaman",
-        "action": "Swimming",
-        "object": "Sea Trident"
-      },
-      "79": {
-        "person": "Bane",
-        "action": "Punching",
-        "object": "Criminal"
-      },
-      "80": {
-        "person": "Hawkeye",
-        "action": "Leading",
-        "object": "Leadership Scepter"
-      },
-      "81": {
-        "person": "Ninja",
-        "action": "Slicing",
-        "object": "Samurai Sword"
-      },
-      "82": {
-        "person": "Elsa",
-        "action": "Creating",
-        "object": "Ice Palace"
-      },
-      "83": {
-        "person": "Frozone",
-        "action": "Sliding",
-        "object": "Snowboard"
-      },
-      "84": {
-        "person": "Groot",
-        "action": "Growing",
-        "object": "Tree"
-      },
-      "85": {
-        "person": "Juggernaut",
-        "action": "Demolishing",
-        "object": "Boulder"
-      },
-      "86": {
-        "person": "Star-Lord",
-        "action": "Blasting",
-        "object": "Repulsors"
-      },
-      "87": {
-        "person": "Lex Luthor",
-        "action": "Plotting",
-        "object": "Joker Card"
-      },
-      "88": {
-        "person": "Kylo Ren",
-        "action": "Crossing",
-        "object": "Red Saber"
-      },
-      "89": {
-        "person": "Loki",
-        "action": "Conspiring",
-        "object": "Scepter"
-      },
-      "90": {
-        "person": "Mario",
-        "action": "Jumping",
-        "object": "Mushroom"
-      },
-      "91": {
-        "person": "Neo",
-        "action": "Escaping",
-        "object": "Matrix"
-      },
-      "92": {
-        "person": "Megatron",
-        "action": "Transforming",
-        "object": "Tank"
-      },
-      "93": {
-        "person": "Peter Pan",
-        "action": "Diving",
-        "object": "Pixie Dust"
-      },
-      "94": {
-        "person": "Quasimodo",
-        "action": "Ringing",
-        "object": "Bells"
-      },
-      "95": {
-        "person": "Rapunzel",
-        "action": "Letting down",
-        "object": "Hair"
-      },
-      "96": {
-        "person": "Shrek",
-        "action": "Yelling",
-        "object": "Onion"
-      },
-      "97": {
-        "person": "Tarzan",
-        "action": "Swinging from vines",
-        "object": "Vines"
-      },
-      "98": {
-        "person": "Scarlet Witch",
-        "action": "Conjuring",
-        "object": "Cauldron"
-      },
-      "99": {
-        "person": "Voldermort",
-        "action": "Killing",
-        "object": "Horcrux"
-      },
-      "00": {
-        "person": "Albert Einstein",
-        "action": "Writing",
-        "object": "Chalkboard"
-      },
-      "01": {
-        "person": "Robin",
-        "action": "Leaping",
-        "object": "Batarang"
-      },
-      "02": {
-        "person": "Charlie Chaplin",
-        "action": "Dancing",
-        "object": "Cane"
-      },
-      "03": {
-        "person": "Donald Duck",
-        "action": "Quacking",
-        "object": "Beak"
-      },
-      "04": {
-        "person": "Elvis Presley",
-        "action": "Singing",
-        "object": "Guitar"
-      },
-      "05": {
-        "person": "Frodo Baggins",
-        "action": "Sneaking",
-        "object": "Necklace"
-      },
-      "06": {
-        "person": "Merlin",
-        "action": "Illuminating",
-        "object": "Wizard Hat"
-      },
-      "07": {
-        "person": "Newt Scamander",
-        "action": "Spellcasting",
-        "object": "Broomstick"
-      },
-      "08": {
-        "person": "Rick O’Connell",
-        "action": "Whipping",
-        "object": "Golden Idol"
-      },
-      "09": {
-        "person": "James Bond",
-        "action": "Driving",
-        "object": "Aston Martin"
-      }
-    }
-  },
-  "Verses": {
-    "LibraryV1": {
-      "Pieces": {
-        "P": {
-          "el": "πόνι",
-          "en": "pony"
-        },
-        "N": {
-          "el": "νάιτ",
-          "en": "knight"
-        },
-        "B": {
-          "el": "μπίσσο",
-          "en": "bishop"
-        },
-        "R": {
-          "el": "ρούκο",
-          "en": "rook"
-        },
-        "Q": {
-          "el": "κουήνο",
-          "en": "queen"
-        },
-        "K": {
-          "el": "κίνγκο",
-          "en": "king"
-        }
-      },
-      "Files": {
-        "a": {
-          "el": "άλφα",
-          "en": "alpha"
-        },
-        "b": {
-          "el": "μπέτα",
-          "en": "beta"
-        },
-        "c": {
-          "el": "τσίγκα",
-          "en": "tsinga"
-        },
-        "d": {
-          "el": "ντέλτα",
-          "en": "delta"
-        },
-        "e": {
-          "el": "έψι",
-          "en": "epsi"
-        },
-        "f": {
-          "el": "φέφι",
-          "en": "fefi"
-        },
-        "g": {
-          "el": "γκάμα",
-          "en": "gamma"
-        },
-        "h": {
-          "el": "ήτα",
-          "en": "eta"
-        }
-      },
-      "Ranks": {
-        "1": {
-          "el": "ούνο",
-          "en": "uno"
-        },
-        "2": {
-          "el": "ντούο",
-          "en": "duo"
-        },
-        "3": {
-          "el": "τρέο",
-          "en": "treo"
-        },
-        "4": {
-          "el": "κούα",
-          "en": "qua"
-        },
-        "5": {
-          "el": "τσίνο",
-          "en": "tsino"
-        },
-        "6": {
-          "el": "σέξο",
-          "en": "sexo"
-        },
-        "7": {
-          "el": "σέπτο",
-          "en": "septo"
-        },
-        "8": {
-          "el": "όκτο",
-          "en": "octo"
-        }
-      },
-      "Closings": {
-        "White": [
-          {
-            "el": "λάμα",
-            "en": "lama"
-          },
-          {
-            "el": "μέλα",
-            "en": "mela"
-          }
-        ],
-        "Black": [
-          {
-            "el": "μι",
-            "en": "mi"
-          },
-          {
-            "el": "λι",
-            "en": "li"
-          }
-        ]
-      }
-    }
-  },
-  "Foundations": {
-    "LibraryF1": {
-      "P": {
-        "el": "Πιόνι",
-        "en": "Pawn",
-        "code": "1"
-      },
-      "N": {
-        "el": "Ιππότης",
-        "en": "Knight",
-        "code": "2"
-      },
-      "B": {
-        "el": "Αξιωματικός",
-        "en": "Bishop",
-        "code": "3"
-      },
-      "R": {
-        "el": "Πύργος",
-        "en": "Rook",
-        "code": "4"
-      },
-      "Q": {
-        "el": "Βασίλισσα",
-        "en": "Queen",
-        "code": "5"
-      },
-      "K": {
-        "el": "Βασιλιάς",
-        "en": "King",
-        "code": "6"
-      },
-      "x": {
-        "el": "Λήψη",
-        "en": "Capture",
-        "code": "7"
-      },
-      " και ": {
-        "el": "Σαχ",
-        "en": "Check",
-        "code": "8"
-      },
-      "#": {
-        "el": "Ματ",
-        "en": "Mate",
-        "code": "9"
-      },
-      "0-0": {
-        "el": "Ροκέ Μικρό",
-        "en": "Kingside Castling",
-        "code": "0"
-      }
     }
   },
   "Shortnames": {
     "CharactersSN1": {
       "Ra1": "Atlas",
       "Nb1": "Chiron",
-      "Bc1": "Gandalf",
-      "Qd1": "Gala",
-      "Ke1": "Geralt",
+      "Bc1": "Aldor",
+      "Qd1": "Elara",
+      "Ke1": "Ravon",
       "Bf1": "Merlin",
       "Ng1": "Silva",
       "Rh1": "Yeti",
@@ -4637,14 +2165,14 @@
       "Pf7": "Fiona",
       "Pg7": "Grace",
       "Ph7": "Hope",
-      "Ra8": "Goro",
-      "Nb8": "Nasta",
+      "Ra8": "Kairo",
+      "Nb8": "Nara",
       "Bc8": "Draco",
-      "Qd8": "Banshi",
-      "Ke8": "Sauron",
-      "Bf8": "Venom",
-      "Ng8": "Seli",
-      "Rh8": "Grom"
+      "Qd8": "Morria",
+      "Ke8": "Vorath",
+      "Bf8": "Veyron",
+      "Ng8": "Selira",
+      "Rh8": "Gromak"
     },
     "SquaresSN1": {
       "a1": "Swans",
@@ -4732,7 +2260,7 @@
       "16": "Squids",
       "17": "Koalas",
       "18": "Storks",
-      "19": "Goro",
+      "19": "Kairo",
       "20": "Chiron",
       "21": "Ducks",
       "22": "Pecks",
@@ -4742,8 +2270,8 @@
       "26": "Pirs",
       "27": "Parrots",
       "28": "Hens",
-      "29": "Nasta",
-      "30": "Gandalf",
+      "29": "Nara",
+      "30": "Aldor",
       "31": "Peacs",
       "32": "Orangs",
       "33": "Seals",
@@ -4753,7 +2281,7 @@
       "37": "Monks",
       "38": "Flams",
       "39": "Draco",
-      "40": "Gala",
+      "40": "Elara",
       "41": "Lynxs",
       "42": "Gales",
       "43": "Sharks",
@@ -4762,8 +2290,8 @@
       "46": "Gators",
       "47": "Canars",
       "48": "Foxes",
-      "49": "Banshi",
-      "50": "Geralt",
+      "49": "Morria",
+      "50": "Ravon",
       "51": "Lions",
       "52": "Rhinos",
       "53": "Frogs",
@@ -4772,7 +2300,7 @@
       "56": "Lizards",
       "57": "Bison",
       "58": "Tigers",
-      "59": "Sauron",
+      "59": "Vorath",
       "60": "Merlin",
       "61": "Badgs",
       "62": "Chimps",
@@ -4782,7 +2310,7 @@
       "66": "Dolphins",
       "67": "Lemus",
       "68": "Beavs",
-      "69": "Venom",
+      "69": "Veyron",
       "70": "Silva",
       "71": "Zebras",
       "72": "Rats",
@@ -4792,7 +2320,7 @@
       "76": "Jellys",
       "77": "Weasels",
       "78": "Horses",
-      "79": "Seli",
+      "79": "Selira",
       "80": "Yeti",
       "81": "Squirs",
       "82": "Owls",
@@ -4802,7 +2330,7 @@
       "86": "Seahorses",
       "87": "Magps",
       "88": "Racos",
-      "89": "Grom",
+      "89": "Gromak",
       "90": "Thor",
       "91": "Alice",
       "92": "Bianca",
