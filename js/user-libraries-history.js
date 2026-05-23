@@ -34,15 +34,31 @@
     return null;
   }
 
-  function refreshTablesAfterUserLibraryImport() {
-    try {
-      setTimeout(() => {
+  function rebuildGameAndTablesAfterLibraryChange() {
+    setTimeout(() => {
+      try {
+        const pgnEl = document.getElementById("pgnText");
+        if (pgnEl && pgnEl.value.trim() && typeof parsePGN === "function") {
+          const source = typeof cleanPGN === "function" ? cleanPGN(pgnEl.value) : pgnEl.value;
+          if (source !== pgnEl.value) pgnEl.value = source;
+          gameMoves = parsePGN(source);
+        }
+
         if (typeof renderAll === "function") renderAll();
         if (typeof enableManualAnchors === "function") enableManualAnchors();
-      }, 250);
-    } catch (e) {
-      console.warn("user-libraries-history: refresh after import failed", e);
-    }
+
+        const tableSelect = document.getElementById("tableSelect");
+        if (tableSelect && typeof showOnlySection === "function") {
+          showOnlySection(tableSelect.value || "sanSection");
+        }
+      } catch (e) {
+        console.warn("user-libraries-history: table rebuild after library import failed", e);
+      }
+    }, 250);
+  }
+
+  function refreshTablesAfterUserLibraryImport() {
+    rebuildGameAndTablesAfterLibraryChange();
   }
 
   function saveLibraryToHistory(fileName, json) {
@@ -246,8 +262,7 @@
       `<br><span style="opacity:0.6;">(${new Date().toLocaleTimeString()})</span>`
     );
 
-    if (typeof renderAll === "function") renderAll();
-    if (typeof enableManualAnchors === "function") enableManualAnchors();
+    refreshTablesAfterUserLibraryImport();
 
     alert(`Import complete. Loaded: ${loaded.length}. Skipped: ${skipped.length}.`);
   }
