@@ -244,7 +244,7 @@ document.addEventListener("DOMContentLoaded", () => {
           : "";
 
         // Χρήση της κεντρικής sanToText
-        out.push(`${prefix}Half-move ${i+1} (${side}): ${sanToText(moveObj.san)}.`);
+        out.push(`${prefix}${side}: ${sanToText(moveObj.san)}.`);
       });
     }
 
