@@ -181,6 +181,36 @@ document.addEventListener("DOMContentLoaded", () => {
     return loci;
   }
 
+  function readLocalizedNode(node) {
+    if (!node) return "";
+    if (typeof node === "string") return node.trim();
+    return String(
+      node.en ||
+      node.locus_en ||
+      node[selectedLang] ||
+      node.el ||
+      node.label ||
+      node.keyword ||
+      node.name ||
+      node.notes ||
+      ""
+    ).trim();
+  }
+
+  function getHalfMoveLocusByIndex(index, tableLoci) {
+    if (tableLoci[index]) return tableLoci[index];
+
+    const userLocations = libs?.User?.MemoryPalaces?.palaces?.[0]?.locations;
+    if (Array.isArray(userLocations) && userLocations.length) {
+      return readLocalizedNode(userLocations[index % userLocations.length]);
+    }
+
+    const defaultTotal = 80;
+    const idx = (index % defaultTotal) + 1;
+    if (typeof t1Label === "function") return t1Label(idx) || "";
+    return readLocalizedNode(libs?.Temporal?.LibraryT1?.[String(idx)]);
+  }
+
   function resultText(res) {
     if (res === "1-0") return "\n\nWhite wins.";
     if (res === "0-1") return "\n\nBlack wins.";
@@ -206,7 +236,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (sanMode === "half") {
       moves.forEach((moveObj, i) => {
         const side = moveObj.side === "White" ? "White" : "Black";
-        const locus = sanLociOn ? (lociArray[i] || "") : "";
+        const locus = sanLociOn ? getHalfMoveLocusByIndex(i, lociArray) : "";
         
         // Το locus το εμπιστευόμαστε (δικό μας data) αλλά καλό είναι να το κάνουμε escape
         const prefix = locus
