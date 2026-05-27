@@ -92,3 +92,15 @@
     // Optional helper only; this must not affect the app.
   }
 })();
+
+/* Load feedback UI helper. */
+(function () {
+  try {
+    var script = document.createElement("script");
+    script.src = "js/feedback.js?v=20260527-1";
+    script.defer = true;
+    document.head.appendChild(script);
+  } catch (e) {
+    // Optional helper only; this must not affect the app.
+  }
+})();
