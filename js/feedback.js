@@ -7,7 +7,7 @@
 
     var style = document.createElement("style");
     style.textContent = `
-      .top-action-row { display: flex; justify-content: center; align-items: center; gap: 10px; margin: 6px 0 12px; flex-wrap: wrap; }
+      .top-action-row { display: flex; justify-content: center; align-items: center; gap: 10px; margin: 6px 0 12px; flex-wrap: wrap; transform: translateX(-36px); }
       .feedback-top-btn { padding: 8px 18px; color: #CFAF4A; background: #111; border: 1px solid #CFAF4A; border-radius: 8px; font-weight: 700; cursor: pointer; box-shadow: 0 0 8px rgba(207,175,74,.45); }
       .feedback-top-btn:hover { color: #fff; background: #222; }
       .feedback-modal { display: none; position: fixed; z-index: 7000; inset: 0; background: rgba(0,0,0,.72); overflow: auto; }
@@ -19,6 +19,7 @@
       .feedback-textarea-wrap { padding: 0 14px 16px; }
       .feedback-textarea-wrap label { display: block; margin: 12px 0 6px; color: #CFAF4A; font-weight: 700; }
       .feedback-textarea-wrap textarea { width: 100%; min-height: 140px; resize: vertical; padding: 10px; color: #eee; background: #181818; border: 1px solid #444; border-radius: 8px; font: inherit; }
+      @media (max-width: 700px) { .top-action-row { transform: none; } }
     `;
     document.head.appendChild(style);
 
