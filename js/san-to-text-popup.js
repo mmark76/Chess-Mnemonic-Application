@@ -222,7 +222,7 @@ document.addEventListener("DOMContentLoaded", () => {
     else {
       for (let i = 0; i < moves.length; i += 2) {
         const full = (i/2) + 1;
-        const locus = sanLociOn ? (lociArray[i/2] || "") : "";
+        const locus = sanLociOn ? (lociArray[i] || "") : "";
         
         let block = `Move ${full}.\n`;
 
