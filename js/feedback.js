@@ -53,7 +53,7 @@
         </div>
         <div class="feedback-intro">
           <strong>Found a bug? Have a suggestion?</strong>
-          <p>Write a quick note. It helps a lot. Even the smallest issues matter.</p>
+          <p>Please, write a quick note. Thank you !</p>
         </div>
         <form id="feedbackForm" class="feedback-textarea-wrap">
           <label for="feedbackMessage">Message</label>
