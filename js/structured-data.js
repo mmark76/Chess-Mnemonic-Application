@@ -73,6 +73,29 @@
   }
 })();
 
+/* Add Start Here link to the existing ecosystem menu. */
+(function () {
+  function addStartHereLink() {
+    try {
+      var panel = document.querySelector(".br-panel");
+      if (!panel || panel.querySelector('a[href="https://chessmnemonics.net/start-here.html"]')) return;
+
+      var link = document.createElement("a");
+      link.href = "https://chessmnemonics.net/start-here.html";
+      link.textContent = "Start Here - Chess Mnemonic System";
+      panel.insertBefore(link, panel.firstChild);
+    } catch (e) {
+      // Menu helper only; this must not affect the app.
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", addStartHereLink);
+  } else {
+    addStartHereLink();
+  }
+})();
+
 /* Load optional user-library batch import support.
    This keeps the feature isolated from the main application bundle. */
 (function () {
