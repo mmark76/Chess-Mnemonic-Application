@@ -37,6 +37,13 @@ The project contains three main application areas:
 3. **Chess PGN TTS Player**  
    A simple text-to-speech helper for listening to chess games or generated chess text.
 
+The main application also includes supporting interface helpers such as:
+
+- an **Ecosystem** dropdown that links to related Chess Mnemonics applications, blogs, and community resources,
+- a **SAN → Text** popup for converting parsed games into readable chess text,
+- **half-move** and **full-move** loci display modes in the SAN-to-text output,
+- a **Feedback** helper for sending comments or suggestions by email.
+
 ---
 
 ## 3. Folder Structure
@@ -53,17 +60,23 @@ Chess-Mnemonic-Application-main/
 │
 ├── assets/
 ├── css/
+│   ├── styles.css
+│   └── menu.css
+│
 ├── js/
 │   ├── cms.bundle.js
 │   ├── default-library-v5.4.js
 │   ├── shortnames-action-column.js
 │   ├── user-libraries-history.js
 │   ├── user-library-runtime-fix.js
+│   ├── user-library-ui-labels.js
+│   ├── user-library-batch-import.js
 │   ├── download-tables.js
 │   ├── epic.js
 │   ├── epic-ui-init.js
 │   ├── epic-tts.js
 │   ├── san-to-text-popup.js
+│   ├── feedback.js
 │   └── structured-data.js
 │
 ├── json/
@@ -105,7 +118,52 @@ json/libraries_v.5.4.json
 
 ---
 
-## 7. Libraries
+## 5. Interface Features
+
+### Ecosystem Dropdown
+
+The header includes an **Ecosystem** dropdown. It gives quick access to related Chess Mnemonics resources, including:
+
+- Chess Mnemonic App user guide,
+- Chess Mnemonics Flashcards Trainer,
+- Chess Games TTS Player,
+- Chess Positions Flashcards Trainer App,
+- Chess Reflections Blog,
+- Chess & Mnemonics Forum,
+- Mnemonic Techniques Blog,
+- Memory Palaces App,
+- Relaxing Sounds App.
+
+### SAN → Text
+
+The **SAN → Text** popup converts parsed PGN/SAN moves into readable chess text.
+
+It supports:
+
+- full-move output,
+- half-move output,
+- optional loci display,
+- copy-to-clipboard support,
+- clean text output suitable for reading aloud or external TTS tools.
+
+In half-move mode, the output starts directly with the side to move, for example:
+
+```text
+White: Pawn moves to e4.
+Black: Pawn moves to e5.
+```
+
+When loci are enabled, each half-move receives its own locus.
+
+In full-move mode, loci are attached to the white move of each full move pair.
+
+### Feedback Helper
+
+The application includes a lightweight **Feedback** button. It opens a small feedback form and prepares an email message through the user's local email client.
+
+---
+
+## 6. Libraries
 
 The current core mnemonic library dataset is stored in:
 
@@ -133,7 +191,42 @@ The default libraries are protected. They are shown in the Library System panel 
 
 ---
 
-## 17. Author
+## 7. Technical Notes
+
+The application currently uses a static front-end architecture.
+
+Important implementation notes:
+
+- `index.html` is the main entry point.
+- `js/cms.bundle.js` contains the main application logic.
+- `js/default-library-v5.4.js` loads the current default mnemonic dataset.
+- `js/san-to-text-popup.js` handles the SAN-to-text popup and its half-move / full-move output modes.
+- `css/menu.css` styles the Ecosystem dropdown.
+- `js/feedback.js` injects the Feedback helper.
+- `js/structured-data.js` injects JSON-LD metadata and loads optional helper scripts.
+
+Because the app is static and browser-based, several features depend on browser APIs, external CDN libraries, and the correct script loading order.
+
+---
+
+## 8. Refactor Principle
+
+The application must remain functionally identical during any future refactor unless an intentional decision is made by the project owner.
+
+The code must serve the Chess Mnemonic System.
+
+Any refactor must preserve:
+
+- the cognitive structure,
+- the full-move / half-move logic,
+- the 00–99 PAO philosophy,
+- the temporal and spatial memory palace structure,
+- the existing mnemonic associations,
+- the user-facing behavior.
+
+---
+
+## 9. Author
 
 Created by Markellos Markides.
 
