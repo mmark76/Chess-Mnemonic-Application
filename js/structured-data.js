@@ -1,4 +1,4 @@
-// Structured Data for Chess Mnemonic Application and Epic Chess Stories Creator v3.3
+// Structured Data for Chess Mnemonic Application and Epic Chess Stories Creator
 // This script injects JSON-LD structured data for search engines.
 // It does not modify any visible part of the page.
 
@@ -7,13 +7,13 @@
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Chess Mnemonic Application and Epic Chess Stories Creator",
-    "alternateName": "Chess Mnemonic System v3.3",
-    "version": "3.3",
+    "alternateName": "Chess Mnemonic System",
     "description": "A specialized memory training tool for chess players that converts PGN/SAN into mnemonic tables, PAO sequences, shortnames, epic chess stories and memory palace loci.",
     "applicationCategory": "EducationalApplication",
     "softwareHelp": "https://markellos-chess-mnemonic-system.blogspot.com/",
     "operatingSystem": "Web",
-    "url": "https://chessmnemonics.net/index.html",
+    "url": "https://chessmnemonics.net/",
+    "image": "https://chessmnemonics.net/assets/chess-and-mnemonics.png",
     "featureList": [
       "PGN/SAN Parser",
       "Associations Table",
@@ -53,7 +53,6 @@
       "@type": "Person",
       "name": "Markellos Markides"
     },
-    "license": "© Markellos Markides 2025",
     "copyrightHolder": "Markellos Markides",
     "inLanguage": "en",
     "learningResourceType": "Mnemonic-based training",
