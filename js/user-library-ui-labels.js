@@ -65,6 +65,11 @@
     if (importBtn) {
       importBtn.textContent = "Import / Load your own Libraries";
     }
+
+    var menuLabel = document.querySelector(".br-menu > summary span[style*='margin-left']");
+    if (menuLabel) {
+      menuLabel.textContent = "Ecosystem ↓ ";
+    }
   }
 
   function applyUiAdjustments() {
