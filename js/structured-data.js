@@ -1,5 +1,5 @@
 // Structured Data for Chess Mnemonic Application and Epic Chess Stories Creator v3.3
-// This script injects JSON-LD metadata for search engines.
+// This script injects JSON-LD structured data for search engines.
 // It does not modify any visible part of the page.
 
 (function () {
@@ -9,7 +9,7 @@
     "name": "Chess Mnemonic Application and Epic Chess Stories Creator",
     "alternateName": "Chess Mnemonic System v3.3",
     "version": "3.3",
-    "description": "A specialized memory training tool for chess players that converts PGN/SAN into mnemonic tables, PAO sequences, Rhythm structures and memory palace loci.",
+    "description": "A specialized memory training tool for chess players that converts PGN/SAN into mnemonic tables, PAO sequences, shortnames, epic chess stories and memory palace loci.",
     "applicationCategory": "EducationalApplication",
     "softwareHelp": "https://markellos-chess-mnemonic-system.blogspot.com/",
     "operatingSystem": "Web",
@@ -17,8 +17,8 @@
     "featureList": [
       "PGN/SAN Parser",
       "Associations Table",
+      "Shortnames Table",
       "PAO 0–9 and PAO 00–99 Tables",
-      "Rhythm Tables",
       "Memory Palace Mode",
       "Epic Story Generator",
       "Flashcards Training Module"
@@ -30,11 +30,16 @@
     },
     "keywords": [
       "chess mnemonics",
+      "chess mnemonic app",
+      "chess mnemonic system",
+      "memorize chess games",
+      "chess memory training",
+      "blindfold chess training",
       "memory palace",
       "pao system",
       "chess training",
       "chess notation",
-      "epic story",
+      "epic chess stories",
       "san to mnemonic",
       "memory techniques",
       "PGN visualization"
