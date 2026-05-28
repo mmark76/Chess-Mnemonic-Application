@@ -148,6 +148,10 @@
   header > figure {
     transform: translateX(clamp(-180px, -7vw, -30px));
   }
+
+  #howToBtn:hover {
+    transform: translateX(clamp(-180px, -7vw, -30px));
+  }
 }
 
 @media (max-width: 1023px) {
@@ -162,6 +166,12 @@
   .header-top-row,
   #howToBtn,
   header > figure {
+    transform: none !important;
+  }
+}
+
+@media (max-width: 1023px) {
+  #howToBtn:hover {
     transform: none !important;
   }
 }
