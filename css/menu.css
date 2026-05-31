@@ -59,6 +59,9 @@
   border: 1px solid #444;
   border-radius: 6px;
   min-width: 240px;
+  max-height: min(70vh, 520px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
   box-shadow: 0 10px 25px rgba(0,0,0,0.6);
   z-index: 9999;
 }
@@ -95,6 +98,7 @@
   .br-panel {
     margin-top: 12px;
     margin-bottom: 3px;
+    max-height: 65vh;
   }
 
   .br-panel a {
