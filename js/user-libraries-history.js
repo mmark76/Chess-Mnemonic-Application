@@ -573,7 +573,7 @@
 
       const actionsHelp = document.createElement("p");
       actionsHelp.className = "library-actions-help";
-      actionsHelp.textContent = "You can import official JSON templates or a complete mnemonic library bundle such as libraries_v.5.3.json.";
+      actionsHelp.textContent = "You can import official JSON templates or a complete mnemonic library bundle.";
       controls.parentNode.insertBefore(actionsHelp, controls);
     }
 
