@@ -581,9 +581,9 @@
     const downloadBtn = document.getElementById("downloadTemplatesBtn");
     const importBtn = document.getElementById("importLibraryBtn");
 
-    if (downloadBtn) downloadBtn.textContent = "Download Libraries json Templates zip";
-    if (createBtn) createBtn.textContent = "Create your own custom Libraries";
-    if (importBtn) importBtn.textContent = "Import / Load your own Libraries";
+    if (downloadBtn) downloadBtn.textContent = "Download libraries templates (json zip)";
+    if (createBtn) createBtn.textContent = "Create your own custom libraries";
+    if (importBtn) importBtn.textContent = "Import / load your own libraries";
 
     if (downloadBtn && createBtn && importBtn && !controls.dataset.cmaOrdered) {
       controls.dataset.cmaOrdered = "1";
