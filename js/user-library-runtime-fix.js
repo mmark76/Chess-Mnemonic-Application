@@ -6,44 +6,6 @@
     return item.keyword || item.name || item.label || item.notes || "";
   }
 
-  function applyDefaultFullMoveMode() {
-    if (typeof locusMode !== "undefined" && !window.__cmaDefaultFullMoveApplied) {
-      locusMode = "full";
-      window.locusMode = "full";
-      window.__cmaDefaultFullMoveApplied = true;
-    }
-
-    var locusSelect = document.getElementById("locusMode");
-    if (locusSelect && locusSelect.value !== "full") {
-      locusSelect.value = "full";
-    }
-  }
-
-  function applyFullMoveLocusDisplay() {
-    applyDefaultFullMoveMode();
-
-    if (typeof locusMode === "undefined" || locusMode !== "full") return;
-
-    var tableIds = ["sanBody", "assocBody", "paoBody", "shortnamesBody"];
-    var locusCol = 3;
-
-    tableIds.forEach(function (bodyId) {
-      var body = document.getElementById(bodyId);
-      if (!body) return;
-
-      Array.prototype.forEach.call(body.querySelectorAll("tr"), function (row) {
-        var cells = row.children || [];
-        var locusCell = cells[locusCol];
-        if (!locusCell) return;
-
-        var moveCellText = cells[0] ? cells[0].textContent.trim() : "";
-        if (moveCellText.indexOf("...") !== -1) {
-          locusCell.textContent = "";
-        }
-      });
-    });
-  }
-
   function insertPao09EducationalNote() {
     var section = document.getElementById("paoSection");
     if (!section || section.querySelector(".pao09-educational-note")) return;
@@ -175,9 +137,7 @@
   if (typeof renderAll === "function") {
     var defaultRenderAll = renderAll;
     renderAll = function () {
-      applyDefaultFullMoveMode();
       defaultRenderAll.apply(this, arguments);
-      applyFullMoveLocusDisplay();
       defaultHideTargetSquareColumns();
       defaultHideAnchorColorAndActionColumns();
       insertPao09EducationalNote();
@@ -206,8 +166,6 @@
   }
 
   function applySmallUiFixes() {
-    applyDefaultFullMoveMode();
-    applyFullMoveLocusDisplay();
     insertPao09EducationalNote();
     retryDefaultHiddenColumns();
 
@@ -247,8 +205,6 @@
 
   window.CMAUserLibraryFix = {
     squareText: squareText,
-    applyDefaultFullMoveMode: applyDefaultFullMoveMode,
-    applyFullMoveLocusDisplay: applyFullMoveLocusDisplay,
     defaultHideTargetSquareColumns: defaultHideTargetSquareColumns,
     defaultHideAnchorColorAndActionColumns: defaultHideAnchorColorAndActionColumns,
     insertPao09EducationalNote: insertPao09EducationalNote
