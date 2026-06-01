@@ -7,7 +7,7 @@
 let libs = null;
 let gameMoves = [];
 let selectedLang = 'en';
-let locusMode = 'half';
+let locusMode = 'full';
 let manualAnchors = {};
 
 /* ===========================================================
