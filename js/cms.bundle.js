@@ -8,7 +8,6 @@ let libs = null;
 let gameMoves = [];
 let selectedLang = 'en';
 let locusMode = 'full';
-if (m.side === 'Black') return '';
 let manualAnchors = {};
 
 /* ===========================================================
