@@ -119,6 +119,7 @@ function squareShortname(square){
 function locusForMove(m) {
   const total = 80;
   if (locusMode === 'full') {
+   if (m.side === 'Black') return '';
     const idx = ((m.movePair - 1) % total) + 1;
     const label = t1Label(idx);
     return label || '';
