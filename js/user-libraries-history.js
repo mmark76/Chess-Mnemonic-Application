@@ -1,1 +1,508 @@
-!function(){function e(e){return e&&"object"==typeof e?function(e){return!!(e&&"object"==typeof e&&e.Temporal&&e.Spatial&&e.Characters&&(e["PAO 0-9"]||e["PAO 00-99"]))}(e)?"CompleteLibrary":Array.isArray(e.palaces)?"MemoryPalace":e.white&&e.black?"Characters":e["00"]||e["01"]?"PAO_00_99":e.a1||e.a2?"Squares":null:null}function t(){setTimeout(()=>{try{const e=document.getElementById("pgnText");if(e&&e.value.trim()&&"function"==typeof parsePGN){const t="function"==typeof cleanPGN?cleanPGN(e.value):e.value;t!==e.value&&(e.value=t),gameMoves=parsePGN(t)}"function"==typeof renderAll&&renderAll(),"function"==typeof enableManualAnchors&&enableManualAnchors();const t=document.getElementById("tableSelect");t&&"function"==typeof showOnlySection&&showOnlySection(t.value||"sanSection")}catch(e){console.warn("user-libraries-history: table rebuild after library import failed",e)}},250)}function n(n,a){const r=e(a);if(!r)return;const o=(n||"").replace(/\.json$/i,"")||"User Library";let i=o;a&&"object"==typeof a&&(a.name&&(i=a.name),Array.isArray(a.palaces)&&a.palaces[0]?.name&&(i=a.palaces[0].name),"CompleteLibrary"===r&&(i=o||"Complete Mnemonic Library"));const l="user_libraries/"+(n||"user-library.json");let s;try{s=JSON.parse(localStorage.getItem("savedLibraries")||"[]"),Array.isArray(s)||(s=[])}catch{s=[]}const c={name:i,type:r,path:l},d=s.findIndex(e=>e.path===c.path);d>=0?s[d]=c:s.push(c),localStorage.setItem("savedLibraries",JSON.stringify(s));try{localStorage.setItem("activeLibrary",JSON.stringify({type:r,path:l}))}catch(e){console.warn("user-libraries-history: activeLibrary save failed",e)}try{"function"==typeof loadUserLibrariesIntoUI&&loadUserLibrariesIntoUI()}catch(e){console.warn("user-libraries-history: loadUserLibrariesIntoUI failed",e)}t(),console.log(`💾 Saved user library → name="${i}", type="${r}", path="${l}"`)}function a(a,r,o={}){const i=!0===o.silent;if(!r||"object"!=typeof r){const e="Invalid JSON structure.";return i||alert("❌ "+e),{ok:!1,fileName:a,type:null,message:e}}const l=e(r),s=(a||"user-library.json").replace(/\.json$/i,"");if("CompleteLibrary"===l){libs=r;try{window.libs=libs}catch(e){console.warn("user-libraries-history: window.libs sync failed",e)}return updateUserLibraryStatus(`📚 <b>${s}</b> — complete mnemonic library loaded <span style="opacity:0.6;">(${(new Date).toLocaleTimeString()})</span>`),n(a,r),t(),i||alert("📚 Complete mnemonic library loaded!"),{ok:!0,fileName:a,type:l,name:s,message:"Complete mnemonic library loaded"}}if(libs=libs||{},libs.User=libs.User||{},"MemoryPalace"===l){libs.User.MemoryPalaces=r;const e=r.palaces[0]||{},t=Array.isArray(e.locations)?e.locations.map(e=>e.label||""):[];return t.length&&window.applyUserPalaceToTables?.(t,e.name||s),updateUserLibraryStatus(`🏛️ <b>${e.name||s}</b> — ${t.length} loci loaded <span style="opacity:0.6;">(${(new Date).toLocaleTimeString()})</span>`),n(a,r),i||alert("🏛️ User Memory Palace loaded!"),{ok:!0,fileName:a,type:l,name:e.name||s,message:`${t.length} loci loaded`}}if("Characters"===l)return libs.User.Characters=r,updateUserLibraryStatus(`♟️ <b>User Characters</b> loaded <span style="opacity:0.6;">(${(new Date).toLocaleTimeString()})</span>`),n(a,r),i||alert("♟️ User Characters loaded!"),{ok:!0,fileName:a,type:l,name:s,message:"User Characters loaded"};if("PAO_00_99"===l)return libs.User.PAO_00_99=r,updateUserLibraryStatus(`🔢 <b>PAO 00–99</b> loaded <span style="opacity:0.6;">(${(new Date).toLocaleTimeString()})</span>`),n(a,r),i||alert("🔢 User PAO 00–99 loaded!"),{ok:!0,fileName:a,type:l,name:s,message:"PAO 00–99 loaded"};if("Squares"===l){libs.User.Squares=r;const e=Object.keys(r).length;return updateUserLibraryStatus(`🗺️ <b>Squares Map</b> — ${e} squares loaded <span style="opacity:0.6;">(${(new Date).toLocaleTimeString()})</span>`),n(a,r),i||alert("🗺️ User Squares loaded!"),{ok:!0,fileName:a,type:l,name:s,message:`${e} squares loaded`}}const c="Unknown library format.";return i||alert("⚠️ "+c),{ok:!1,fileName:a,type:null,message:c}}function r(e,t={}){return new Promise(n=>{if(!e)return void n({ok:!1,fileName:"",type:null,message:"No file selected."});const r=new FileReader;r.onload=r=>{let o;try{o=JSON.parse(r.target.result)}catch(a){const r={ok:!1,fileName:e.name,type:null,message:"Invalid JSON file: Cannot parse."};return t.silent||alert("❌ "+r.message),void n(r)}n(a(e.name,o,t))},r.onerror=()=>{const a={ok:!1,fileName:e.name,type:null,message:"File read error."};t.silent||alert("❌ "+a.message),n(a)},r.readAsText(e)})}async function o(e){const n=Array.from(e||[]);if(!n.length)return;const a=[];for(const e of n)a.push(await r(e,{silent:n.length>1}));if(1===n.length)return;const o=a.filter(e=>e.ok),i=a.filter(e=>!e.ok),l=o.length?o.map(e=>`✅ ${e.fileName} — ${e.type}`).join("<br>"):"None",s=i.length?"<br><br><b>Skipped:</b><br>"+i.map(e=>`⚠️ ${e.fileName} — ${e.message}`).join("<br>"):"";updateUserLibraryStatus(`<b>Custom libraries import complete</b><br>${l}${s}<br><span style="opacity:0.6;">(${(new Date).toLocaleTimeString()})</span>`),t(),alert(`Import complete. Loaded: ${o.length}. Skipped: ${i.length}.`)}window.CMAUserLibrariesHistory={detectLibraryType:e,saveLibraryToHistory:n,applyImportedLibrary:a,readAndApplyImportFile:r,readAndApplyImportFiles:o},"undefined"!=typeof window&&(!function(){if(window.__cmaUserRuntimeFixLoading)return;window.__cmaUserRuntimeFixLoading=!0;const e=document.createElement("script");e.src="js/user-library-runtime-fix.js",e.defer=!0,document.head.appendChild(e)}(),"undefined"!=typeof window&&(window.wireImportLibraryButton=function(){const e=document.getElementById("importLibraryBtn");e&&(e.dataset.cmaImportWired="1")}),"undefined"!=typeof document&&"1"!==window.__cmaImportClickGuardInstalled&&(window.__cmaImportClickGuardInstalled="1",document.addEventListener("click",function(e){e.target&&e.target.closest&&e.target.closest("#importLibraryBtn")&&(e.preventDefault(),e.stopPropagation(),e.stopImmediatePropagation(),function(){if("1"===window.__cmaImportPickerOpen)return;window.__cmaImportPickerOpen="1";const e=()=>{setTimeout(()=>{window.__cmaImportPickerOpen="0"},250)},t=document.createElement("input");t.type="file",t.accept=".json,application/json",t.multiple=!0,t.style.display="none",t.addEventListener("change",async n=>{const a=n.target.files;await o(a),t.remove(),e()},{once:!0}),window.addEventListener("focus",e,{once:!0}),document.body.appendChild(t),t.click()}())},!0)))}(),function(){function e(e){const t=document.getElementById("userLibraryStatus");t&&(!e&&t.innerHTML.trim()&&-1===t.innerHTML.indexOf("Default Libraries")||!e&&function(){try{return!!localStorage.getItem("activeLibrary")||"undefined"!=typeof libs&&libs&&libs.User&&Object.keys(libs.User).length>0}catch{return!1}}()||(t.style.display="block",t.classList.add("library-status-card"),t.innerHTML="Active system: <b>Default Libraries</b>"))}async function t(){try{"function"==typeof loadLibraries?await loadLibraries():(window.libs&&"object"==typeof window.libs&&delete window.libs.User,"undefined"!=typeof libs&&libs&&"object"==typeof libs&&delete libs.User)}catch(e){console.warn("restoreDefaultLibraries: could not reload default libraries",e);try{window.libs&&"object"==typeof window.libs&&delete window.libs.User,"undefined"!=typeof libs&&libs&&"object"==typeof libs&&delete libs.User}catch(e){console.warn("restoreDefaultLibraries: could not clear user libraries",e)}}try{localStorage.removeItem("activeLibrary")}catch(e){console.warn("restoreDefaultLibraries: could not clear activeLibrary",e)}const t=document.getElementById("activePalaceInfo");t&&(t.textContent=""),e(!0);try{"function"==typeof renderAll&&renderAll(),"function"==typeof enableManualAnchors&&enableManualAnchors()}catch(e){console.warn("restoreDefaultLibraries: table refresh failed",e)}}function n(){!function(){if(document.getElementById("cmaLibraryPanelUxStyles"))return;const e=document.createElement("style");e.id="cmaLibraryPanelUxStyles",e.textContent="\n      .right-panel h5 {\n        margin: 0 !important;\n        padding: 0 !important;\n        line-height: 1.25 !important;\n      }\n\n      .right-panel .libraries-group,\n      .right-panel .library {\n        margin-top: 0 !important;\n        padding-top: 0 !important;\n      }\n\n      .right-panel .library > br {\n        display: none !important;\n      }\n\n      .library-panel-title {\n        margin: 0 0 2px 0;\n        color: #ffffff;\n        font-size: 1rem;\n        font-weight: 700;\n        line-height: 1.15;\n      }\n\n      .library-panel-intro {\n        margin: 0 0 5px 0;\n        color: #dddddd;\n        font-size: 0.84rem;\n        line-height: 1.22;\n      }\n\n      .library-view-row {\n        display: flex;\n        flex-wrap: wrap;\n        gap: 5px;\n        align-items: center;\n        margin: 2px 0 4px 0;\n      }\n\n      .library-view-row label {\n        font-weight: 700;\n        color: #ffffff;\n      }\n\n      .library-actions-title {\n        margin: 3px 0 2px 0;\n        color: #CFAF4A;\n        font-family: Georgia, 'Times New Roman', serif;\n        font-size: 0.88rem;\n        font-weight: 700;\n        line-height: 1.15;\n      }\n\n      .library-actions-help {\n        margin: 0 0 4px 0;\n        color: #cfcfcf;\n        font-size: 0.78rem;\n        line-height: 1.18;\n      }\n\n      .user-lib-controls {\n        display: flex;\n        flex-wrap: wrap;\n        gap: 4px 5px;\n        align-items: center;\n      }\n\n      .user-lib-controls br {\n        display: none;\n      }\n\n      .user-lib-controls button,\n      .library-view-row select {\n        padding: 3px 8px;\n        font-size: 0.8rem;\n        line-height: 1.15;\n      }\n\n      .library-status-card {\n        width: 100%;\n        margin: 4px 0 1px 0;\n        padding: 5px 7px;\n        border: 1px solid #4a3f1c;\n        border-left: 4px solid #CFAF4A;\n        border-radius: 6px;\n        background: #141414;\n        color: #CFAF4A;\n        font-family: Georgia, 'Times New Roman', serif;\n        font-size: 0.82rem;\n        line-height: 1.18;\n      }\n\n      .library-note {\n        width: 100%;\n        margin: 1px 0 0 0 !important;\n        color: #bfbfbf !important;\n        font-size: 0.76rem !important;\n        line-height: 1.18;\n      }\n\n      #restoreDefaultLibrariesBtn {\n        border-color: #CFAF4A;\n        color: #CFAF4A;\n        margin-top: 0;\n      }\n\n      #activePalaceInfo {\n        margin: 2px 0 0 0 !important;\n        font-size: 0.82rem !important;\n        line-height: 1.18 !important;\n      }\n    ",document.head.appendChild(e)}(),function(){const e=document.querySelector(".right-panel .library");e&&Array.from(e.children).forEach(e=>{"BR"===e.tagName&&e.remove()})}();const n=document.querySelector(".right-panel");if(!n)return;const a=n.querySelector("h5");a&&!a.dataset.cmaEnhanced&&(a.dataset.cmaEnhanced="1",a.innerHTML='\n        <div class="library-panel-title">Library System</div>\n        <div class="library-panel-intro">\n          Default libraries are locked and listed below for overview purposes only.<br>\n          They can be found and studied in the Flashcards Application.<br>\n          Create your own JSON libraries, and load custom or complete mnemonic libraries temporarily in your browser.\n        </div>\n      ');const r=document.getElementById("librarySelect"),o=r?r.closest(".row"):null;if(o&&!o.dataset.cmaEnhanced){o.dataset.cmaEnhanced="1",o.classList.add("library-view-row"),o.removeAttribute("style");const e=o.querySelector("label[for='librarySelect']");e&&(e.textContent="View default library:")}const i=document.querySelector(".user-lib-controls");if(!i)return;if(!i.dataset.cmaEnhanced){i.dataset.cmaEnhanced="1";const e=document.createElement("div");e.className="library-actions-title",e.textContent="Use custom libraries",i.parentNode.insertBefore(e,i);const t=document.createElement("p");t.className="library-actions-help",t.textContent="You can import official JSON templates or a complete mnemonic library bundle.",i.parentNode.insertBefore(t,i)}const l=document.getElementById("createLibraryBtn"),s=document.getElementById("downloadTemplatesBtn"),c=document.getElementById("importLibraryBtn");s&&(s.textContent="Download libraries templates (json zip)"),l&&(l.textContent="Create your own custom libraries"),c&&(c.textContent="Import / load your own libraries"),s&&l&&c&&!i.dataset.cmaOrdered&&(i.dataset.cmaOrdered="1",i.prepend(c),i.prepend(l),i.prepend(s));let d=document.getElementById("restoreDefaultLibrariesBtn");d||(d=document.createElement("button"),d.id="restoreDefaultLibrariesBtn",d.className="epic-btn",d.type="button",d.textContent="Restore Default Libraries",d.addEventListener("click",t),i.appendChild(d));const p=i.querySelector(".library-note");p&&(p.textContent="Custom and complete libraries are applied locally. Use Restore Default Libraries to reload the protected default dataset without refreshing the page."),e(!1)}function a(){n(),function(){if(window.__cmaLibraryStatusWrapperInstalled)return;if("function"!=typeof updateUserLibraryStatus)return;window.__cmaLibraryStatusWrapperInstalled=!0;const e=updateUserLibraryStatus;updateUserLibraryStatus=function(t){e(t);const n=document.getElementById("userLibraryStatus");n&&(n.style.display="block",n.classList.add("library-status-card"))}}(),setTimeout(n,250),setTimeout(n,750)}"loading"===document.readyState?document.addEventListener("DOMContentLoaded",a):a()}(),function(){function e(){const e=document.getElementById("downloadTemplatesBtn");e&&"1"!==e.dataset.cmaTemplatesGuardInstalled&&(e.dataset.cmaTemplatesGuardInstalled="1",document.addEventListener("click",function(e){const t=e.target&&e.target.closest?e.target.closest("#downloadTemplatesBtn"):null;t&&(e.preventDefault(),e.stopPropagation(),e.stopImmediatePropagation(),async function(e){if(!e||"1"===e.dataset.cmaTemplatesBusy)return;e.dataset.cmaTemplatesBusy="1";const t=e.textContent;e.disabled=!0,e.textContent="Preparing ZIP...";try{if("function"!=typeof JSZip)throw new Error("JSZip is not available.");const e=[{filename:"template_characters.json",path:"user_libraries/user_characters_template.json"},{filename:"template_memory_palaces.json",path:"user_libraries/user_memory_palaces_template.json"},{filename:"template_pao_00_99.json",path:"user_libraries/user_pao_00_99_template.json"},{filename:"template_squares.json",path:"user_libraries/user_squares_template.json"}],t=new JSZip;for(const n of e){const e=await fetch(n.path,{cache:"no-store"});if(!e.ok)throw new Error(`Could not load ${n.path} (${e.status})`);const a=await e.json();t.file(n.filename,JSON.stringify(a,null,2))}const n=await t.generateAsync({type:"blob"}),a=URL.createObjectURL(n),r=document.createElement("a");r.href=a,r.download="CMA_Templates.zip",document.body.appendChild(r),r.click(),document.body.removeChild(r),setTimeout(()=>URL.revokeObjectURL(a),1e3),alert("📦 Templates ZIP downloaded!")}catch(e){console.error("Templates ZIP download failed:",e),alert("❌ Templates ZIP download failed. Please try again.")}finally{e.disabled=!1,e.textContent=t||"Download JSON Templates",delete e.dataset.cmaTemplatesBusy}}(t))},!0))}"loading"===document.readyState?document.addEventListener("DOMContentLoaded",e):e()}();
+// user-libraries-history.js
+// Custom library import/history support and Library System panel UX.
+
+(function () {
+  function loadRuntimeHelper() {
+    if (window.__cmaUserRuntimeFixLoading) return;
+    window.__cmaUserRuntimeFixLoading = true;
+    const script = document.createElement("script");
+    script.src = "js/user-library-runtime-fix.js";
+    script.defer = true;
+    document.head.appendChild(script);
+  }
+
+  function isCompleteLibraryBundle(json) {
+    return !!(
+      json &&
+      typeof json === "object" &&
+      json.Temporal &&
+      json.Spatial &&
+      json.Characters &&
+      (json["PAO 0-9"] || json["PAO 00-99"])
+    );
+  }
+
+  function detectLibraryType(json) {
+    if (!json || typeof json !== "object") return null;
+    if (isCompleteLibraryBundle(json)) return "CompleteLibrary";
+    if (Array.isArray(json.palaces)) return "MemoryPalace";
+    if (json.white && json.black) return "Characters";
+    if (json["00"] || json["01"]) return "PAO_00_99";
+    if (json.a1 || json.a2) return "Squares";
+    return null;
+  }
+
+  function rebuildGameAndTablesAfterLibraryChange() {
+    setTimeout(() => {
+      try {
+        const pgnEl = document.getElementById("pgnText");
+        if (pgnEl && pgnEl.value.trim() && typeof parsePGN === "function") {
+          const source = typeof cleanPGN === "function" ? cleanPGN(pgnEl.value) : pgnEl.value;
+          if (source !== pgnEl.value) pgnEl.value = source;
+          gameMoves = parsePGN(source);
+        }
+        if (typeof renderAll === "function") renderAll();
+        if (typeof enableManualAnchors === "function") enableManualAnchors();
+        const tableSelect = document.getElementById("tableSelect");
+        if (tableSelect && typeof showOnlySection === "function") {
+          showOnlySection(tableSelect.value || "sanSection");
+        }
+      } catch (err) {
+        console.warn("user-libraries-history: table rebuild after library import failed", err);
+      }
+    }, 250);
+  }
+
+  function refreshTablesAfterUserLibraryImport() {
+    rebuildGameAndTablesAfterLibraryChange();
+  }
+
+  function saveLibraryToHistory(fileName, json) {
+    const type = detectLibraryType(json);
+    if (!type) return;
+
+    const baseName = (fileName || "").replace(/\.json$/i, "") || "User Library";
+    let libName = baseName;
+    if (json && typeof json === "object") {
+      if (json.name) libName = json.name;
+      if (Array.isArray(json.palaces) && json.palaces[0]?.name) libName = json.palaces[0].name;
+      if (type === "CompleteLibrary") libName = baseName || "Complete Mnemonic Library";
+    }
+
+    const path = "user_libraries/" + (fileName || "user-library.json");
+    let saved = [];
+    try {
+      saved = JSON.parse(localStorage.getItem("savedLibraries") || "[]");
+      if (!Array.isArray(saved)) saved = [];
+    } catch {
+      saved = [];
+    }
+
+    const entry = { name: libName, type, path };
+    const idx = saved.findIndex((item) => item.path === entry.path);
+    if (idx >= 0) saved[idx] = entry;
+    else saved.push(entry);
+
+    localStorage.setItem("savedLibraries", JSON.stringify(saved));
+    try {
+      localStorage.setItem("activeLibrary", JSON.stringify({ type, path }));
+    } catch (err) {
+      console.warn("user-libraries-history: activeLibrary save failed", err);
+    }
+
+    try {
+      if (typeof loadUserLibrariesIntoUI === "function") loadUserLibrariesIntoUI();
+    } catch (err) {
+      console.warn("user-libraries-history: loadUserLibrariesIntoUI failed", err);
+    }
+
+    refreshTablesAfterUserLibraryImport();
+    console.log(`💾 Saved user library → name="${libName}", type="${type}", path="${path}"`);
+  }
+
+  function applyImportedLibrary(fileName, json, options = {}) {
+    const silent = options.silent === true;
+    if (!json || typeof json !== "object") {
+      const message = "Invalid JSON structure.";
+      if (!silent) alert("❌ " + message);
+      return { ok: false, fileName, type: null, message };
+    }
+
+    const type = detectLibraryType(json);
+    const name = (fileName || "user-library.json").replace(/\.json$/i, "");
+
+    if (type === "CompleteLibrary") {
+      libs = json;
+      try { window.libs = libs; } catch (err) { console.warn("user-libraries-history: window.libs sync failed", err); }
+      updateUserLibraryStatus(`📚 <b>${name}</b> — complete mnemonic library loaded <span style="opacity:0.6;">(${new Date().toLocaleTimeString()})</span>`);
+      saveLibraryToHistory(fileName, json);
+      refreshTablesAfterUserLibraryImport();
+      if (!silent) alert("📚 Complete mnemonic library loaded!");
+      return { ok: true, fileName, type, name, message: "Complete mnemonic library loaded" };
+    }
+
+    libs = libs || {};
+    libs.User = libs.User || {};
+
+    if (type === "MemoryPalace") {
+      libs.User.MemoryPalaces = json;
+      const palace = json.palaces[0] || {};
+      const loci = Array.isArray(palace.locations) ? palace.locations.map((loc) => loc.label || "") : [];
+      if (loci.length) window.applyUserPalaceToTables?.(loci, palace.name || name);
+      updateUserLibraryStatus(`🏛️ <b>${palace.name || name}</b> — ${loci.length} loci loaded <span style="opacity:0.6;">(${new Date().toLocaleTimeString()})</span>`);
+      saveLibraryToHistory(fileName, json);
+      if (!silent) alert("🏛️ User Memory Palace loaded!");
+      return { ok: true, fileName, type, name: palace.name || name, message: `${loci.length} loci loaded` };
+    }
+
+    if (type === "Characters") {
+      libs.User.Characters = json;
+      updateUserLibraryStatus(`♟️ <b>User Characters</b> loaded <span style="opacity:0.6;">(${new Date().toLocaleTimeString()})</span>`);
+      saveLibraryToHistory(fileName, json);
+      if (!silent) alert("♟️ User Characters loaded!");
+      return { ok: true, fileName, type, name, message: "User Characters loaded" };
+    }
+
+    if (type === "PAO_00_99") {
+      libs.User.PAO_00_99 = json;
+      updateUserLibraryStatus(`🔢 <b>PAO 00–99</b> loaded <span style="opacity:0.6;">(${new Date().toLocaleTimeString()})</span>`);
+      saveLibraryToHistory(fileName, json);
+      if (!silent) alert("🔢 User PAO 00–99 loaded!");
+      return { ok: true, fileName, type, name, message: "PAO 00–99 loaded" };
+    }
+
+    if (type === "Squares") {
+      libs.User.Squares = json;
+      const count = Object.keys(json).length;
+      updateUserLibraryStatus(`🗺️ <b>Squares Map</b> — ${count} squares loaded <span style="opacity:0.6;">(${new Date().toLocaleTimeString()})</span>`);
+      saveLibraryToHistory(fileName, json);
+      if (!silent) alert("🗺️ User Squares loaded!");
+      return { ok: true, fileName, type, name, message: `${count} squares loaded` };
+    }
+
+    const message = "Unknown library format.";
+    if (!silent) alert("⚠️ " + message);
+    return { ok: false, fileName, type: null, message };
+  }
+
+  function readAndApplyImportFile(file, options = {}) {
+    return new Promise((resolve) => {
+      if (!file) {
+        resolve({ ok: false, fileName: "", type: null, message: "No file selected." });
+        return;
+      }
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        try {
+          resolve(applyImportedLibrary(file.name, JSON.parse(event.target.result), options));
+        } catch {
+          const result = { ok: false, fileName: file.name, type: null, message: "Invalid JSON file: Cannot parse." };
+          if (!options.silent) alert("❌ " + result.message);
+          resolve(result);
+        }
+      };
+      reader.onerror = () => {
+        const result = { ok: false, fileName: file.name, type: null, message: "File read error." };
+        if (!options.silent) alert("❌ " + result.message);
+        resolve(result);
+      };
+      reader.readAsText(file);
+    });
+  }
+
+  async function readAndApplyImportFiles(fileList) {
+    const files = Array.from(fileList || []);
+    if (!files.length) return;
+    const results = [];
+    for (const file of files) results.push(await readAndApplyImportFile(file, { silent: files.length > 1 }));
+    if (files.length === 1) return;
+
+    const loaded = results.filter((result) => result.ok);
+    const skipped = results.filter((result) => !result.ok);
+    const loadedHtml = loaded.length ? loaded.map((result) => `✅ ${result.fileName} — ${result.type}`).join("<br>") : "None";
+    const skippedHtml = skipped.length ? "<br><br><b>Skipped:</b><br>" + skipped.map((result) => `⚠️ ${result.fileName} — ${result.message}`).join("<br>") : "";
+    updateUserLibraryStatus(`<b>Custom libraries import complete</b><br>${loadedHtml}${skippedHtml}<br><span style="opacity:0.6;">(${new Date().toLocaleTimeString()})</span>`);
+    refreshTablesAfterUserLibraryImport();
+    alert(`Import complete. Loaded: ${loaded.length}. Skipped: ${skipped.length}.`);
+  }
+
+  function openSingleImportPicker() {
+    if (window.__cmaImportPickerOpen === "1") return;
+    window.__cmaImportPickerOpen = "1";
+    const unlockPicker = () => setTimeout(() => { window.__cmaImportPickerOpen = "0"; }, 250);
+    const picker = document.createElement("input");
+    picker.type = "file";
+    picker.accept = ".json,application/json";
+    picker.multiple = true;
+    picker.style.display = "none";
+    picker.addEventListener("change", async (event) => {
+      await readAndApplyImportFiles(event.target.files);
+      picker.remove();
+      unlockPicker();
+    }, { once: true });
+    window.addEventListener("focus", unlockPicker, { once: true });
+    document.body.appendChild(picker);
+    picker.click();
+  }
+
+  function installSingleImportHandler() {
+    window.wireImportLibraryButton = function () {
+      const importBtn = document.getElementById("importLibraryBtn");
+      if (importBtn) importBtn.dataset.cmaImportWired = "1";
+    };
+  }
+
+  function installImportClickGuard() {
+    if (window.__cmaImportClickGuardInstalled === "1") return;
+    window.__cmaImportClickGuardInstalled = "1";
+    document.addEventListener("click", (event) => {
+      const targetBtn = event.target?.closest?.("#importLibraryBtn");
+      if (!targetBtn) return;
+      event.preventDefault();
+      event.stopPropagation();
+      event.stopImmediatePropagation();
+      openSingleImportPicker();
+    }, true);
+  }
+
+  window.CMAUserLibrariesHistory = {
+    detectLibraryType,
+    saveLibraryToHistory,
+    applyImportedLibrary,
+    readAndApplyImportFile,
+    readAndApplyImportFiles
+  };
+
+  if (typeof window !== "undefined") {
+    loadRuntimeHelper();
+    installSingleImportHandler();
+    installImportClickGuard();
+  }
+})();
+
+/* ===========================================================
+   Library panel UX enhancement
+   Clarifies default/custom libraries and adds a real Restore button.
+   =========================================================== */
+(function () {
+  function injectLibraryPanelStyles() {
+    if (document.getElementById("cmaLibraryPanelUxStyles")) return;
+    const style = document.createElement("style");
+    style.id = "cmaLibraryPanelUxStyles";
+    style.textContent = `
+      .right-panel h5 { margin: 0 !important; padding: 0 !important; line-height: 1.25 !important; }
+      .right-panel .libraries-group, .right-panel .library { margin-top: 0 !important; padding-top: 0 !important; }
+      .right-panel .library > br, .user-lib-controls br { display: none !important; }
+      .library-panel-title { margin: 0 0 2px 0; color: #ffffff; font-size: 1rem; font-weight: 700; line-height: 1.15; }
+      .library-panel-intro { margin: 0 0 5px 0; color: #dddddd; font-size: 0.84rem; line-height: 1.22; }
+      .library-view-row { display: flex; flex-wrap: wrap; gap: 5px; align-items: center; margin: 2px 0 4px 0; }
+      .library-view-row label { font-weight: 700; color: #ffffff; }
+      .library-actions-title { margin: 3px 0 2px 0; color: #CFAF4A; font-family: Georgia, 'Times New Roman', serif; font-size: 0.88rem; font-weight: 700; line-height: 1.15; }
+      .library-actions-help { margin: 0 0 4px 0; color: #cfcfcf; font-size: 0.78rem; line-height: 1.18; }
+      .user-lib-controls { display: flex; flex-wrap: wrap; gap: 4px 5px; align-items: center; }
+      .user-lib-controls button, .library-view-row select { padding: 3px 8px; font-size: 0.8rem; line-height: 1.15; }
+      .library-status-card { width: 100%; margin: 4px 0 1px 0; padding: 5px 7px; border: 1px solid #4a3f1c; border-left: 4px solid #CFAF4A; border-radius: 6px; background: #141414; color: #CFAF4A; font-family: Georgia, 'Times New Roman', serif; font-size: 0.82rem; line-height: 1.18; }
+      .library-note { width: 100%; margin: 1px 0 0 0 !important; color: #bfbfbf !important; font-size: 0.76rem !important; line-height: 1.18; }
+      #restoreDefaultLibrariesBtn { border-color: #CFAF4A; color: #CFAF4A; margin-top: 0; }
+      #activePalaceInfo { margin: 2px 0 0 0 !important; font-size: 0.82rem !important; line-height: 1.18 !important; }
+    `;
+    document.head.appendChild(style);
+  }
+
+  function removeLegacyPanelBreaks() {
+    const library = document.querySelector(".right-panel .library");
+    if (!library) return;
+    Array.from(library.children).forEach((child) => {
+      if (child.tagName === "BR") child.remove();
+    });
+  }
+
+  function hasActiveUserLibrary() {
+    try {
+      return !!localStorage.getItem("activeLibrary") || !!(typeof libs !== "undefined" && libs && libs.User && Object.keys(libs.User).length > 0);
+    } catch {
+      return false;
+    }
+  }
+
+  function setDefaultLibraryStatus(force) {
+    const status = document.getElementById("userLibraryStatus");
+    if (!status) return;
+    if (!force && status.innerHTML.trim() && status.innerHTML.indexOf("Default Libraries") === -1) return;
+    if (!force && hasActiveUserLibrary()) return;
+    status.style.display = "block";
+    status.classList.add("library-status-card");
+    status.innerHTML = "Active system: <b>Default Libraries</b>";
+  }
+
+  async function restoreDefaultLibraries() {
+    try {
+      if (typeof loadLibraries === "function") await loadLibraries();
+      else {
+        if (window.libs && typeof window.libs === "object") delete window.libs.User;
+        if (typeof libs !== "undefined" && libs && typeof libs === "object") delete libs.User;
+      }
+    } catch (err) {
+      console.warn("restoreDefaultLibraries: could not reload default libraries", err);
+    }
+
+    try { localStorage.removeItem("activeLibrary"); } catch (err) { console.warn("restoreDefaultLibraries: could not clear activeLibrary", err); }
+    const activePalaceInfo = document.getElementById("activePalaceInfo");
+    if (activePalaceInfo) activePalaceInfo.textContent = "";
+    setDefaultLibraryStatus(true);
+
+    try {
+      if (typeof renderAll === "function") renderAll();
+      if (typeof enableManualAnchors === "function") enableManualAnchors();
+    } catch (err) {
+      console.warn("restoreDefaultLibraries: table refresh failed", err);
+    }
+  }
+
+  function enhanceLibraryPanel() {
+    injectLibraryPanelStyles();
+    removeLegacyPanelBreaks();
+
+    const rightPanel = document.querySelector(".right-panel");
+    if (!rightPanel) return;
+
+    const heading = rightPanel.querySelector("h5");
+    if (heading && !heading.dataset.cmaEnhanced) {
+      heading.dataset.cmaEnhanced = "1";
+      heading.innerHTML = `
+        <div class="library-panel-title">Library System</div>
+        <div class="library-panel-intro">
+          Default libraries are locked and listed below for overview purposes only.<br>
+          They can be found and studied in the Flashcards Application.<br>
+          Create your own JSON libraries, and load custom or complete mnemonic libraries temporarily in your browser.
+        </div>
+      `;
+    }
+
+    const librarySelect = document.getElementById("librarySelect");
+    const libraryRow = librarySelect ? librarySelect.closest(".row") : null;
+    if (libraryRow && !libraryRow.dataset.cmaEnhanced) {
+      libraryRow.dataset.cmaEnhanced = "1";
+      libraryRow.classList.add("library-view-row");
+      libraryRow.removeAttribute("style");
+      const label = libraryRow.querySelector("label[for='librarySelect']");
+      if (label) label.textContent = "View default library:";
+    }
+
+    const controls = document.querySelector(".user-lib-controls");
+    if (!controls) return;
+
+    if (!controls.dataset.cmaEnhanced) {
+      controls.dataset.cmaEnhanced = "1";
+      const actionsTitle = document.createElement("div");
+      actionsTitle.className = "library-actions-title";
+      actionsTitle.textContent = "Use custom libraries";
+      controls.parentNode.insertBefore(actionsTitle, controls);
+
+      const actionsHelp = document.createElement("p");
+      actionsHelp.className = "library-actions-help";
+      actionsHelp.textContent = "You can import official JSON templates or a complete mnemonic library bundle.";
+      controls.parentNode.insertBefore(actionsHelp, controls);
+    }
+
+    const createBtn = document.getElementById("createLibraryBtn");
+    const downloadBtn = document.getElementById("downloadTemplatesBtn");
+    const importBtn = document.getElementById("importLibraryBtn");
+
+    if (downloadBtn) downloadBtn.textContent = "Download libraries templates (json zip)";
+    if (createBtn) createBtn.textContent = "Create your own custom libraries";
+    if (importBtn) importBtn.textContent = "Import / load your own libraries";
+
+    if (downloadBtn && createBtn && importBtn && !controls.dataset.cmaOrdered) {
+      controls.dataset.cmaOrdered = "1";
+      controls.prepend(importBtn);
+      controls.prepend(createBtn);
+      controls.prepend(downloadBtn);
+    }
+
+    let restoreBtn = document.getElementById("restoreDefaultLibrariesBtn");
+    if (!restoreBtn) {
+      restoreBtn = document.createElement("button");
+      restoreBtn.id = "restoreDefaultLibrariesBtn";
+      restoreBtn.className = "epic-btn";
+      restoreBtn.type = "button";
+      restoreBtn.textContent = "Restore Default Libraries";
+      restoreBtn.addEventListener("click", restoreDefaultLibraries);
+      controls.appendChild(restoreBtn);
+    }
+
+    const note = controls.querySelector(".library-note");
+    if (note) {
+      note.textContent = "Custom and complete libraries are applied locally. Use Restore Default Libraries to reload the protected default dataset without refreshing the page.";
+    }
+
+    setDefaultLibraryStatus(false);
+  }
+
+  function installStatusWrapper() {
+    if (window.__cmaLibraryStatusWrapperInstalled || typeof updateUserLibraryStatus !== "function") return;
+    window.__cmaLibraryStatusWrapperInstalled = true;
+    const original = updateUserLibraryStatus;
+    updateUserLibraryStatus = function (text) {
+      original(text);
+      const status = document.getElementById("userLibraryStatus");
+      if (!status) return;
+      status.style.display = "block";
+      status.classList.add("library-status-card");
+    };
+  }
+
+  function init() {
+    enhanceLibraryPanel();
+    installStatusWrapper();
+    setTimeout(enhanceLibraryPanel, 250);
+    setTimeout(enhanceLibraryPanel, 750);
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+})();
+
+/* ===========================================================
+   Safe templates ZIP download guard
+   Prevents duplicate download handlers and rapid double-clicks.
+   =========================================================== */
+(function () {
+  async function downloadTemplatesZip(btn) {
+    if (!btn || btn.dataset.cmaTemplatesBusy === "1") return;
+    btn.dataset.cmaTemplatesBusy = "1";
+    const originalText = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = "Preparing ZIP...";
+
+    try {
+      if (typeof JSZip !== "function") throw new Error("JSZip is not available.");
+      const templates = [
+        { filename: "template_characters.json", path: "user_libraries/user_characters_template.json" },
+        { filename: "template_memory_palaces.json", path: "user_libraries/user_memory_palaces_template.json" },
+        { filename: "template_pao_00_99.json", path: "user_libraries/user_pao_00_99_template.json" },
+        { filename: "template_squares.json", path: "user_libraries/user_squares_template.json" }
+      ];
+      const zip = new JSZip();
+      for (const template of templates) {
+        const response = await fetch(template.path, { cache: "no-store" });
+        if (!response.ok) throw new Error(`Could not load ${template.path} (${response.status})`);
+        zip.file(template.filename, JSON.stringify(await response.json(), null, 2));
+      }
+      const content = await zip.generateAsync({ type: "blob" });
+      const url = URL.createObjectURL(content);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "CMA_Templates.zip";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+      alert("📦 Templates ZIP downloaded!");
+    } catch (err) {
+      console.error("Templates ZIP download failed:", err);
+      alert("❌ Templates ZIP download failed. Please try again.");
+    } finally {
+      btn.disabled = false;
+      btn.textContent = originalText || "Download JSON Templates";
+      delete btn.dataset.cmaTemplatesBusy;
+    }
+  }
+
+  function installTemplatesDownloadGuard() {
+    const btn = document.getElementById("downloadTemplatesBtn");
+    if (!btn || btn.dataset.cmaTemplatesGuardInstalled === "1") return;
+    btn.dataset.cmaTemplatesGuardInstalled = "1";
+    document.addEventListener("click", (event) => {
+      const targetBtn = event.target?.closest?.("#downloadTemplatesBtn");
+      if (!targetBtn) return;
+      event.preventDefault();
+      event.stopPropagation();
+      event.stopImmediatePropagation();
+      downloadTemplatesZip(targetBtn);
+    }, true);
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", installTemplatesDownloadGuard);
+  else installTemplatesDownloadGuard();
+})();
