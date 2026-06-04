@@ -559,7 +559,7 @@
       libraryRow.removeAttribute("style");
 
       const label = libraryRow.querySelector("label[for='librarySelect']");
-      if (label) label.textContent = "View default library:";
+      if (label) label.textContent = "View default libraries:";
     }
 
     const controls = document.querySelector(".user-lib-controls");
