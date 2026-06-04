@@ -544,9 +544,10 @@
       heading.innerHTML = `
         <div class="library-panel-title">Library System</div>
         <div class="library-panel-intro">
-          Default libraries are protected. You can view them here, create your own JSON libraries, and load custom or complete mnemonic libraries temporarily in your browser.
-        </div>
-      `;
+           <h5>Default libraries are locked and listed below for overview purposes only.
+ 		         <br>They can be found and studied in the Flashcards Application.<br>Create your own JSON libraries, and load custom or complete mnemonic libraries temporarily in your browser.
+        </div>      `
+        ;
     }
 
     const librarySelect = document.getElementById("librarySelect");
