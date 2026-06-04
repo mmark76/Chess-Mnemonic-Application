@@ -531,24 +531,26 @@
     }
   }
 
-  function enhanceLibraryPanel() {
-    injectLibraryPanelStyles();
-    removeLegacyPanelBreaks();
+function enhanceLibraryPanel() {
+  injectLibraryPanelStyles();
+  removeLegacyPanelBreaks();
 
-    const rightPanel = document.querySelector(".right-panel");
-    if (!rightPanel) return;
+  const rightPanel = document.querySelector(".right-panel");
+  if (!rightPanel) return;
 
-    const heading = rightPanel.querySelector("h5");
-    if (heading && !heading.dataset.cmaEnhanced) {
-      heading.dataset.cmaEnhanced = "1";
-      heading.innerHTML = `
-        <div class="library-panel-title">Library System</div>
-        <div class="library-panel-intro">
-           <h5>Default libraries are locked and listed below for overview purposes only.
- 		         <br>They can be found and studied in the Flashcards Application.<br>Create your own JSON libraries, and load custom or complete mnemonic libraries temporarily in your browser.
-        </div>      `
-        ;
-    }
+  const heading = rightPanel.querySelector("h5");
+  if (heading && !heading.dataset.cmaEnhanced) {
+    heading.dataset.cmaEnhanced = "1";
+    heading.innerHTML = `
+      <div class="library-panel-title">Library System</div>
+      <div class="library-panel-intro">
+        Default libraries are locked and listed below for overview purposes only.<br>
+        They can be found and studied in the Flashcards Application.<br>
+        Create your own JSON libraries, and load custom or complete mnemonic libraries temporarily in your browser.
+      </div>
+    `;
+  }
+}
 
     const librarySelect = document.getElementById("librarySelect");
     const libraryRow = librarySelect ? librarySelect.closest(".row") : null;
