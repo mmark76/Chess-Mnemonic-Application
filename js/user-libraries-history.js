@@ -575,7 +575,7 @@
 
       const actionsHelp = document.createElement("p");
       actionsHelp.className = "library-actions-help";
-      actionsHelp.textContent = "You can import official JSON templates or a complete mnemonic library bundle such as libraries_v.5.3.json.";
+      actionsHelp.textContent = "You can import your own custom libraries (official JSON).";
       controls.parentNode.insertBefore(actionsHelp, controls);
     }
 
@@ -583,9 +583,9 @@
     const downloadBtn = document.getElementById("downloadTemplatesBtn");
     const importBtn = document.getElementById("importLibraryBtn");
 
-    if (downloadBtn) downloadBtn.textContent = "Download JSON Templates";
-    if (createBtn) createBtn.textContent = "Create Custom Library";
-    if (importBtn) importBtn.textContent = "Import / Load Library";
+    if (downloadBtn) downloadBtn.textContent = "Download libraries templates (json/zip)";
+    if (createBtn) createBtn.textContent = "Create your own custom libraries";
+    if (importBtn) importBtn.textContent = "Import / Load your own custom libraries";
 
     if (downloadBtn && createBtn && importBtn && !controls.dataset.cmaOrdered) {
       controls.dataset.cmaOrdered = "1";
