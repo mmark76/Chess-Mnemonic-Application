@@ -1,0 +1,13 @@
+⚠️ No technique, tool, or software functions as a “magic wand.” Nothing can instantly transform someone into a strong memorizer or a good chess player. Progress requires consistency, discipline, practice, patience, and persistence.
+
+⚠️ Mnemonic techniques are highly effective for long-term storage and rapid recall of openings, endgames, and full games; however, I want to clarify that each individual line (one variation) is mapped to a single linear memory palace, and that supporting multiple variations (complete and proper analysis) requires multiple memory palaces (routes), a feature which is not feasible within this application. Mnemonic techniques can assist with pure information retrieval, but they cannot replace the deep understanding a chess player needs: strategic thinking, visualization, calculation, evaluation of positions, and tactical skills. To truly “see” the battle on the chessboard, a player needs both: solid understanding together with precise mnemonic recall.
+
+⚠️ The Default Libraries are entirely personal and based on my own Memory Palaces. They can be used by anyone, but they will not necessarily work effectively for other users. The optimal approach is for each user to create their own personalized libraries using the tools provided in the application.
+
+⚠️ To import or load a library, the file must follow exactly the structure of the official Library Templates. You may download the official templates using the Download Libraries Templates (zip) button or create correctly structured files through the Create Library feature.
+
+ℹ️ Note on the PAO 0–9 Table: The PAO 0–9 table is mainly an educational and explanatory tool. It shows how a single chess move can be encoded through a simple Piece–File–Rank structure. Because it uses a small set of repeated mnemonic elements, it is not intended to be the main method for memorizing a complete chess game. For full-game memorization, the PAO 00–99 table, Associations, Shortnames, Temporal Loci, and Epic Story outputs are generally more suitable.
+
+⚠️ This application is designed for online use. Some functions depend on external online libraries and may not work if these services are unavailable.
+
+ℹ️ Recommended screen resolution: 1920×1080 for the best viewing experience.
