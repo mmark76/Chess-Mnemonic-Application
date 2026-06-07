@@ -1,0 +1,14 @@
+﻿# Node
+node_modules/
+dist/
+
+# Android / Capacitor / Gradle
+android/
+.gradle/
+build/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
