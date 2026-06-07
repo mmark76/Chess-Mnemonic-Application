@@ -1,9 +1,18 @@
 # Chess Mnemonic Application
 
-The **Chess Mnemonic Application** is a static web application for studying and memorizing chess games with mnemonic techniques.
+A static web application for studying and memorizing chess games with mnemonic techniques.
 
-It transforms PGN/SAN chess notation into mnemonic material such as associations, PAO elements, square shortnames, memory palace references, and narrative output.
+It converts PGN/SAN chess notation into mnemonic associations, PAO elements, shortnames, memory palace references, and story output.
 
-## Purpose
+## Main Features
 
-The purpose of the project is to make chess games easier to study, understand, and remember
+- PGN/SAN parsing
+- Mnemonic tables
+- PAO support
+- Epic Story generation
+- User libraries
+- CSV and JSON export
+
+## Status
+
+The `main` branch
