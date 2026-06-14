@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ✅ Basic Meta -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <!-- ✅ Title -->
+  <title>Chess Mnemonic Application and Epic Chess Stories Creator</title>
+  <link rel="icon" href="favicon.ico">
+  <link rel="canonical" href="https://chessmnemonics.net/">
+ 	
+  <!-- ✅ SEO Meta -->
+  <meta name="description" content="Chess Mnemonic Application and Epic Chess Stories Creator — A chess mnemonic app for PGN/SAN, memory palaces, associations, shortnames, PAO and epic chess stories.">
+  <meta name="author" content="Markellos Markides">
+  <meta name="keywords" content="chess mnemonics, chess mnemonic app, chess mnemonic system, memorize chess games, blindfold chess training, PGN, SAN, PAO, memory palace, chess training, chess notation, epic chess stories">
+  
+  <!-- ✅ Social / Open Graph -->
+  <meta property="og:title" content="Chess Mnemonic Application and Epic Chess Stories Creator">
+  <meta property="og:description" content="Chess Mnemonic Application and Epic Chess Stories Creator — Parse PGN/SAN and view SAN, associations, shortnames, PAO 0–9, PAO 00–99 and epic chess stories.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chessmnemonics.net/">
+  <meta property="og:image" content="https://chessmnemonics.net/assets/chess-and-mnemonics.png">
+  <meta property="og:image:alt" content="Chess Mnemonic Application and Epic Chess Stories Creator">
+
+  <!-- ✅ Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Chess Mnemonic Application and Epic Chess Stories Creator">
+  <meta name="twitter:description" content="A chess mnemonic app for PGN/SAN, memory palaces, PAO, shortnames and epic chess stories.">
+  <meta name="twitter:image" content="https://chessmnemonics.net/assets/chess-and-mnemonics.png">
+  <meta name="twitter:image:alt" content="Chess Mnemonic Application and Epic Chess Stories Creator">
+    
+  <!-- ✅ Mobile -->
+  <meta name="theme-color" content="#222222">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  
+  <!-- ✅ CSS Styles -->
+  <link rel="stylesheet" href="css/styles.css?v=20260517-3">
+  <link rel="stylesheet" href="css/menu.css?v=20260517-3">
+
+  <!-- ✅ External Libraries -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+  <!-- ✅ Project Scripts -->
+  <script src="js/cms.bundle.js"></script>
+  <script src="js/default-library-v5.4.js"></script>
+  <script src="js/shortnames-action-column.js"></script>
+  <script src="js/user-libraries-history.js"></script>
+  <script src="js/epic-ui-init.js" defer></script>
+  <script src="js/epic.js" defer></script>
+  <script src="js/epic-tts.js" defer></script>
+  <script src="js/san-to-text-popup.js"></script>
+  <script src="js/download-tables.js"></script>
+  <script src="js/structured-data.js" defer></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3PNNG17EF8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3PNNG17EF8');
+</script>
+
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://stats.chessmnemonics.net/js/pa-WdICfxHgt8muzquWjtyoH.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+
+</head>
+
+<body>
+<header>
+  <div class="header-top-row">
+    <img class="header-img" src="assets/chess-and-mnemonics.png" alt="Chess & Mnemonics">
+    <h1 class="main-title" style="font-size: 1.1rem; margin-bottom: 10px; font-weight:700; display:block; white-space:normal; line-height:1.25; max-width:360px; text-align:left;">Chess Mnemonic Application<br>and Epic Chess Stories Creator</h1><br>
+  </div>
+
+<div class="menus-wrapper">
+  <details class="br-menu">
+    <summary>
+      <span class="br-burger"><span></span><span></span><span></span></span>
+      <span style=" margin-left: 10px;">Ecosystem ↓ </span>
+    </summary>
+    <div class="br-panel">
+      <a href="https://markellos-chess-mnemonic-system.blogspot.com/">Chess Mnemonic App - User Guide</a>
+      <a href="https://chessmnemonics.net/flashcards/index.html">Chess Mnemonics Flashcards Trainer</a>
+      <a href="https://chessmnemonics.net/chess_games_tts_app/index.html">Chess Games TTS Player</a>
+      <a href="https://chessflashcards.net/">Chess Positions Flashcards Trainer App</a>
+      <a href="https://chess-reflections.blogspot.com/">Chess Reflections Blog</a>
+      <a href="https://forum.chessmnemonics.net/">Chess & Mnemonics Forum</a>
+      <a href="https://mnemonic-techniques.blogspot.com/">Mnemonic Techniques Blog</a>
+      <a href="https://memory-palaces.net/">Memory Palaces App</a>
+      <a href="https://relaxing-sounds.net/">Relaxing Sounds App</a>
+    </div>
+  </details>
+</div>
+    
+  <!-- Instructions -->
+  <button id="howToBtn" class="instructions-btn">
+   📜 How to create the Epic Story
+  </button>
+  <figure style="margin:0;display:flex;flex-direction:column;align-items:center;gap:3px;max-width:120px;text-align:center;">
+    <img class="header-img" src="assets/download.jfif" alt="Chess mnemonic illustration">
+  </figure>
+</header>
+ 	
+<button id="goldBtn" class="gold-button">Disclaimer - Guidance on libraries - Notes</button>
+
+<div id="popupOverlay" class="popup-overlay">
+  <div class="popup-box">
+    <span id="closePopup" class="close-btn">&times;</span>
+    <h2>📜 Disclaimer – Educational Purpose & User Guidance</h2>
+    <pre id="popupContent" class="popup-text"></pre>
+  </div>
+</div>
+
+<script>
+const popup = document.getElementById("popupOverlay");
+const content = document.getElementById("popupContent");
+
+// Άνοιγμα popup
+document.getElementById("goldBtn").onclick = () => {
+  popup.style.display = "flex";
+
+  fetch("Disclaimer.txt")
+    .then(response => response.text())
+    .then(text => { content.textContent = text; })
+    .catch(err => { content.textContent = "⚠️ Σφάλμα φόρτωσης αρχείου."; });
+};
+
+document.getElementById("closePopup").onclick = () => popup.style.display = "none";
+window.onclick = e => { if (e.target === popup) popup.style.display = "none"; };
+</script>
+     
+<!-- 🔹 Layout με τρεις στήλες --->
+  <div class="layout-container">
+
+    <!-- Αριστερά: PGN textarea -->
+    <section class="left-panel">
+      <textarea id="pgnText" style="height: 300px;"
+        placeholder="For loading a file (chess game), go to the ‘Import PGN / SAN’ option and click the ‘Choose file’ button, or Copy-Paste a game (PGN / SAN) into the text area (here), and then click ‘Parse PGN / SAN’. To test the feature, click the ‘Demo Games’ button."></textarea>
+    </section>
+
+    <!-- Μέση στήλη: PGN κουμπιά, file input, dropdowns -->
+    <section class="middle-panel">
+      <h4>Import PGN / SAN</h4>
+      <input type="file" id="pgnFileInput" accept=".pgn,.txt"/>
+      <div class="button-group">
+        <button id="parsePgnBtn">Parse PGN</button>
+        <button id="clearBtn">Clear PGN</button>
+        <button id="openFenBuilderBtn">Use the FEN Builder</button><br>
+        <button id="demoGamesBtn" style="background-color: white; margin-top:12px; color: red; font-size: 12px; font-weight: bold; border: 1px solid blue;">Demo Games</button>
+        <br><button id="openMemoryPalaceImgBtn" style="margin-top:12px;">Memory Palace in Chess - Example Image</button>
+ 	    <a style="color: red; font-size: 12px; font-weight: bold;" href="https://just-merwan.medium.com/how-to-use-a-memory-palace-to-remember-anything-yes-anything-84750fcc5feb" target="_blank">Image source</a>
+ 	  
+ 	  </div><br>
+ 		
+      <div id="google_translate_element"></div>
+      <br>
+
+      <a class="copyrighted-badge"
+         title="Copyrighted.com Registered &amp; Protected"
+         target="_blank"
+         href="https://app.copyrighted.com/work/RGtOgUdXWU6GZIGU/">
+      <img alt="Copyrighted.com Registered &amp; Protected" border="0" width="125" height="25" 
+           srcset="https://static.copyrighted.com/badges/125x25/03_1_2x.png 2x" 
+           src="https://static.copyrighted.com/badges/125x25/03_1.png"></a>
+      <script src="https://static.copyrighted.com/badges/helper.js"></script>
+
+    </section>
+
+    <!-- Δεξιά -->
+    <section class="right-panel">
+      <h5>Default libraries are locked and listed below for overview purposes only.
+ 		<br>They can be found and studied in the Flashcards Application.<br><br></h5>
+      
+ 	<div class="libraries-group">
+      <div class="library">
+
+<div class="row" style="display:flex; gap:20px; align-items:center;">
+
+  <div class="epic-btn"><label for="librarySelect">Default libraries:</label>
+ 	<select id="librarySelect">
+      <option value="Temporal/LibraryT1">Temporal Memory Palace T1</option>
+      <!--   <option value="Temporal/LibraryT2">Temporal Memory Palace T2</option>-->
+      <option value="Characters/LibraryC1">Characters C1</option>
+       <!--  <option value="Characters/LibraryC2">Characters C2</option>-->
+      <option value="Spatial/LibraryS1">Spatial Memory Palace S1</option>
+       <!--  <option value="Spatial/LibraryS2">Spatial Memory Palace S2</option>-->
+      <option value="PAO 0-9/Library_p1">PAO 0-9 (p1)</option>
+      <option value="PAO 00-99/LibraryP1">PAO 00-99 (P1)</option>
+      <!--  <option value="PAO 00-99/LibraryP2">PAO 00-99 (P2)</option>
+      <option value="PAO 00-99/LibraryP3">PAO 00-99 (P3)</option>
+      <option value="PAO 00-99/LibraryP4">PAO 00-99 (P4)</option>-->
+      <!-- <option value="PAO 00-99/LibraryP5">PAO 00-99 (P2)</option>-->
+      <option value="Shortnames/LibrarySN1">Shortnames SN1</option>
+    </select>
+  </div>
+
+  <!-- User libraries 
+<div><label class="epic-btn">User Libraries:</label><select id="userLibrarySelect"><option value="">— none —</option></select></div> -->
+
+</div>
+
+<br>
+
+<div class="user-lib-controls">
+  <button id="createLibraryBtn" class="epic-btn">Create your own Libraries</button>
+  <button id="downloadTemplatesBtn" class="epic-btn">Download Libraries Templates (zip)</button><br><br>
+  <button id="importLibraryBtn" class="epic-btn">Import / Load your own Libraries</button>
+  <p class="library-note" style="margin:10px 0 18px 0; font-size:0.9em; color:#CFAF4A; font-family:Georgia,'Times New Roman',serif;">🔄 To restore the default libraries, refresh the page or press F5.</p>
+    
+<div id="userLibraryStatus" style="display:none;"></div>
+
+</div>
+ 		
+<div id="activePalaceInfo"
+     style="color:#CFAF4A;text-align:center;margin:10px 0 12px 0;font-size:0.9em;font-family:Georgia,'Times New Roman',serif;">
+</div>
+
+    </section>
+  </div>
+ 	    
+ 	<div class="dropdown-group">
+        <span><label for="tableSelect"><h4>Table selection:</h4></label></span>
+        <select id="tableSelect">
+          <option value="sanSection">SAN Table</option>
+          <option value="assocSection">Associations</option>
+          <option value="shortnamesSection">Shortnames</option>
+          <option value="pao99Section">PAO 00–99</option>
+          <option value="paoSection">PAO 0–9</option>
+        </select>
+
+ 		<label for="locusMode">Memory Palace Mode:</label>
+        <select id="locusMode">
+        <option value="half">Ply (half move)♟️</option>
+        <option value="full">Full move ♞♟</option>
+        </select>
+     	
+</div>
+  
+<span style="font-size:0.8em; color:#777;">Anchor column - Click to show / hide ⚓</span>
+
+<section id="sanSection">
+  <h4>SAN Table</h4>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th style="min-width:6ch;">Move #</th>
+          <th style="min-width:7ch;">SAN</th>
+          <th style="min-width:2ch;"><span style="font-size:0.8em;color:#777;">⚓</span></th>
+          <th style="min-width:9ch;">Mnemonic Locus</th>
+          <th style="min-width:6ch;">Color Turn</th>
+          <th>Piece</th>
+          <th style="min-width:7ch;">Target Square</th>
+        </tr>
+      </thead>
+      <tbody id="sanBody"></tbody>
+    </table>
+    <select class="download-select" data-table="sanSection">
+      <option value="">Download as…</option>
+      <option value="csv">CSV</option>
+      <option value="txt">TXT</option>
+      <option value="json">JSON</option>
+    </select>
+  </div>
+</section>
+
+<section id="assocSection">
+  <h4>Associations Table</h4>
+  <div class="table-wrapper">
+    <table>
+<thead>
+  <tr>
+    <th style="min-width:6ch;">Move #</th>
+    <th style="min-width:7ch;">SAN</th>
+    <th style="min-width:2ch;"><span style="font-size:0.8em;color:#777;">⚓</span></th>
+    <th style="min-width:9ch;">Mnemonic Locus</th>
+    <th>Target Square</th>
+    <th style="min-width:6ch;">Color Turn</th>
+    <th>Piece Association</th>
+    <th>Action</th>
+    <th style="min-width:7ch;">Target Square Association</th>
+  </tr>
+</thead>
+      <tbody id="assocBody"></tbody>
+    </table>
+    <select class="download-select" data-table="assocSection">
+      <option value="">Download as…</option>
+      <option value="csv">CSV</option>
+      <option value="txt">TXT</option>
+      <option value="json">JSON</option>
+    </select>
+  </div>
+</section>
+
+<section id="paoSection">
+  <h4>PAO 0–9 Table</h4>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th style="min-width:6ch;">Move #</th>
+          <th style="min-width:7ch;">SAN</th>
+          <th style="min-width:2ch;"><span style="font-size:0.8em;color:#777;">⚓</span></th>
+          <th style="min-width:9ch;">Mnemonic Locus</th>
+          <th style="min-width:6ch;">Color Turn</th>
+          <th>PAO Code</th>
+          <th>Person / Action / Object</th>
+        </tr>
+      </thead>
+      <tbody id="paoBody"></tbody>
+    </table>
+    <select class="download-select" data-table="paoSection">
+      <option value="">Download as…</option>
+      <option value="csv">CSV</option>
+      <option value="txt">TXT</option>
+      <option value="json">JSON</option>
+    </select>
+  </div>
+</section>
+
+<section id="pao99Section">
+  <h4>PAO 00–99 Table</h4>
+
+  <div class="dropdown-group">
+    <label for="pao99CollectionSelect">LIBRARIES PAO 00–99:</label>
+  </div>
+
+  <select id="pao99CollectionSelect">
+    <option value="LibraryP1">LibraryP1</option>
+  </select>
+
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th style="min-width:6ch;">Move #</th>
+          <th style="min-width:7ch;">SAN</th>
+          <th style="min-width:2ch;"><span style="font-size:0.8em;color:#777;">⚓</span></th>
+          <th style="min-width:9ch;">Mnemonic Locus</th>
+          <th style="min-width:6ch;">Color Turn</th>
+          <th>PAO Code (6-digit)</th>
+          <th>Person / Action / Object</th>
+        </tr>
+      </thead>
+      <tbody id="pao99Body"></tbody>
+    </table>
+    <select class="download-select" data-table="pao99Section">
+      <option value="">Download as…</option>
+      <option value="csv">CSV</option>
+      <option value="txt">TXT</option>
+      <option value="json">JSON</option>
+    </select>
+  </div>
+</section>
+
+<section id="shortnamesSection">
+  <h4>Shortnames Table</h4>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th style="min-width:6ch;">Move #</th>
+          <th style="min-width:7ch;">SAN</th>
+          <th style="min-width:2ch;"><span style="font-size:0.8em;color:#777;">⚓</span></th>
+          <th style="min-width:9ch;">Mnemonic Locus</th>
+          <th>Target Square</th>
+          <th style="min-width:6ch;">Color Turn</th>
+          <th>Piece Shortname</th>
+          <th>Action</th>
+          <th style="min-width:7ch;">Target Square Shortname</th>
+        </tr>
+      </thead>
+      <tbody id="shortnamesBody"></tbody>
+    </table>
+    <select class="download-select" data-table="shortnamesSection">
+      <option value="">Download as…</option>
+      <option value="csv">CSV</option>
+      <option value="txt">TXT</option>
+      <option value="json">JSON</option>
+    </select>
+  </div>
+</section>
+  
+<footer>
+  <h4>© 2025-2026 Markellos Markides. All rights reserved.</h4>
+
+<a href="https://artofmemory.com/blog/chess-memorization/" target="_blank" rel="noopener noreferrer"
+   style="text-decoration:none; margin-left:10px;">
+  <div style="
+    display:inline-block;
+    padding:6px 12px;
+    border:1px solid #000;
+    border-radius:6px;
+    background:#ffffff;
+    font-family:Arial, sans-serif;
+    text-align:center;
+    vertical-align:middle;
+  ">
+    <div style="font-size:11px; color:#333; line-height:1;">Featured on</div>
+    <div style="font-size:14px; font-weight:bold; color:#000; line-height:1.1;">
+      ArtOFMemory.com
+    </div>
+  </div>
+</a>
+
+</footer>
+  
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+      {pageLanguage: 'en', includedLanguages: 'en,el,fr,de,it,es,ru'},
+      'google_translate_element'
+    );
+  }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- 🔹 Memory Palace Image Modal -->
+<div id="memoryPalaceModal" class="modal">
+  <div class="modal-content">
+    <span id="closeMemoryPalaceModal" class="close-mp">&times;</span>
+    <img src="assets/memory_palace_image.png" 
+         alt="Memory Palace Chess Example" 
+         style="max-width:100%;max-height:80vh;display:block;margin:0 auto;">
+  </div>
+</div>
+ 		
+<div id="howToModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3>The process to create an Epic Story</h3>
+    <p>
+  <br>  1️⃣ Go to the “Import PGN / SAN” option.
+  <br>  2️⃣ Select “Choose file” or Copy–Paste the PGN/SAN into the text area.
+  <br>  3️⃣ If you used Copy–Paste, click “Parse PGN / SAN”.
+  <br>  4️⃣ From the Table Selection drop-down, choose “Associations”.
+  <br>  5️⃣ Click the “Show Epic Story” button.
+    </p>
+  </div>
+</div>
+
+<script>
+  const modal = document.getElementById("howToModal");
+  const btn = document.getElementById("howToBtn");
+  const span = document.querySelector(".close");
+
+  btn.onclick = () => modal.style.display = "block";
+  span.onclick = () => modal.style.display = "none";
+  window.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; };
+</script>
+
+<script>
+  // Modal για τη Memory Palace Image
+  const mpModal = document.getElementById("memoryPalaceModal");
+  const mpBtn = document.getElementById("openMemoryPalaceImgBtn");
+  const mpClose = document.getElementById("closeMemoryPalaceModal");
+
+  if (mpModal && mpBtn && mpClose) {
+    mpBtn.onclick = () => { mpModal.style.display = "block"; };
+    mpClose.onclick = () => { mpModal.style.display = "none"; };
+    window.addEventListener("click", (e) => {
+      if (e.target === mpModal) mpModal.style.display = "none";
+    });
+  }
+</script>
+
+<script>
+document.addEventListener("click", function(e) {
+  document.querySelectorAll(".br-menu").forEach(menu => {
+    if (!menu.contains(e.target)) {
+      menu.removeAttribute("open");
+    }
+  });
+});
+</script>
+
+</body>
+</html>
