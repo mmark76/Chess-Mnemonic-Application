@@ -44,7 +44,7 @@
     .page {
       max-width: 1080px;
       margin: 0 auto;
-      padding: 28px 18px 56px;
+      padding: 28px 18px 110px;
     }
 
     header {
@@ -185,10 +185,19 @@
     }
 
     footer {
-      margin-top: 24px;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1000;
+      margin: 0;
+      padding: 10px 18px;
       text-align: center;
       color: var(--muted);
       font-size: 0.95rem;
+      background: rgba(11, 16, 32, 0.96);
+      border-top: 1px solid var(--line);
+      backdrop-filter: blur(8px);
     }
 
     @media (max-width: 800px) {
