@@ -141,6 +141,20 @@
       gap: 14px;
     }
 
+    .layers-section h2 {
+      text-align: center;
+    }
+
+    .layers-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .layers-grid .card {
+      height: 100%;
+    }
+
     .card {
       padding: 18px;
       border-radius: 16px;
@@ -174,6 +188,18 @@
       text-align: center;
       color: var(--muted);
       font-size: 0.95rem;
+    }
+
+    @media (max-width: 800px) {
+      .layers-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .layers-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 
@@ -227,9 +253,9 @@
         </p>
       </section>
 
-      <section>
+      <section class="layers-section">
         <h2>The main layers</h2>
-        <div class="grid">
+        <div class="grid layers-grid">
           <article class="card">
             <h3>1. Time Memory Palace</h3>
             <p>Each move or fullmove is placed in a chronological locus, giving the game a clear memory sequence.</p>
