@@ -21,11 +21,11 @@
       "PAO 0–9 and PAO 00–99 Tables",
       "Memory Palace Mode",
       "Epic Story Generator",
-      "Flashcards Training Module"
+      "Memory Palaces Training Module"
     ],
     "softwareAddOn": {
       "@type": "SoftwareApplication",
-      "name": "Chess Mnemonics Flashcards Trainer",
+      "name": "Memory Palaces Trainer",
       "url": "https://chessmnemonics.net/flashcards/"
     },
     "keywords": [
@@ -89,7 +89,7 @@
 (function () {
   try {
     var script = document.createElement("script");
-    script.src = "js/user-library-ui-labels.js?v=20260518-2";
+    script.src = "js/user-library-ui-labels.js?v=20260616-1";
     script.defer = true;
     document.head.appendChild(script);
   } catch (e) {
