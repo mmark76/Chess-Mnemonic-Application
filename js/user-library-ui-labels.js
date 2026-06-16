@@ -70,6 +70,17 @@
     if (menuLabel) {
       menuLabel.textContent = "Menu ↓ ";
     }
+
+    document.querySelectorAll('a[href*="/flashcards/"]').forEach(function (link) {
+      link.textContent = "Memory Palaces Trainer";
+    });
+
+    document.querySelectorAll("h5").forEach(function (element) {
+      element.innerHTML = element.innerHTML.replace(
+        /Flashcards Application/g,
+        "Memory Palaces Trainer"
+      );
+    });
   }
 
   function applyUiAdjustments() {
