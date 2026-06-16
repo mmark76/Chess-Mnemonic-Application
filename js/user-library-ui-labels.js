@@ -68,7 +68,7 @@
 
     var menuLabel = document.querySelector(".br-menu > summary span[style*='margin-left']");
     if (menuLabel) {
-      menuLabel.textContent = "Ecosystem ↓ ";
+      menuLabel.textContent = "Menu ↓ ";
     }
   }
 
