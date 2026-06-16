@@ -54,6 +54,7 @@
 
   <style>
     header {
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -69,7 +70,9 @@
     }
 
     .header-bottom {
-      flex: 0 0 auto;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
       min-height: 0;
       margin: 0;
     }
@@ -102,6 +105,11 @@
         text-align: left;
       }
 
+      .header-bottom {
+        position: static;
+        transform: none;
+      }
+
       .header-bottom,
       .header-links,
       .header-links select {
@@ -121,6 +129,7 @@
     <nav class="header-links" aria-label="Main navigation">
       <select aria-label="Main menu" onchange="if (this.value) window.location.href=this.value;">
         <option value="" selected disabled>Menu</option>
+        <option value="https://chessmnemonics.net/index.html">Home</option>
         <option value="https://markellos-chess-mnemonic-system.blogspot.com/">User Guide</option>
         <option value="https://chessmnemonics.net/app.html">Chess Mnemonic Application and Epic Chess Stories Creator</option>
       </select>
