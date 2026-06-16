@@ -53,13 +53,61 @@
   <link rel="stylesheet" href="style.css">
 
   <style>
-    .header-links {
+    header {
       display: flex;
-      justify-content: center;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      min-height: 64px;
+      padding: 10px 18px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: clamp(1.45rem, 2.2vw, 2rem);
+      line-height: 1.15;
+    }
+
+    .header-bottom {
+      flex: 0 0 auto;
+      min-height: 0;
+      margin: 0;
+    }
+
+    .header-links {
+      display: block;
     }
 
     .header-links select {
-      max-width: 100%;
+      width: auto;
+      min-width: 190px;
+      max-width: 260px;
+      margin: 0;
+      padding: 8px 38px 8px 14px;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      box-shadow: none;
+    }
+
+    @media (max-width: 700px) {
+      header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        padding: 12px;
+      }
+
+      header h1 {
+        font-size: 1.35rem;
+        text-align: left;
+      }
+
+      .header-bottom,
+      .header-links,
+      .header-links select {
+        width: 100%;
+        max-width: none;
+      }
     }
   </style>
    
