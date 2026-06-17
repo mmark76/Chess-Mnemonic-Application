@@ -36,9 +36,8 @@ jobs:
 
       - name: Commit the homepage change
         run: |
-          rm .github/workflows/add-ecosystem-link.yml .github/.ecosystem-trigger
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html .github/workflows/add-ecosystem-link.yml .github/.ecosystem-trigger
-          git commit -m "Add Markellos Ecosystem back link"
+          git add index.html
+          git diff --cached --quiet || git commit -m "Add Markellos Ecosystem back link"
           git push
