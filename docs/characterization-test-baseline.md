@@ -8,7 +8,7 @@ No production HTML, CSS, JavaScript, data, assets, text, identifiers, selectors,
 
 ## Initial scope
 
-The first baseline contains exactly five browser tests:
+The first baseline contains exactly five browser tests. Three non-visual tests run by default, and two Chrome-generated provisional visual tests require the explicit `test:visual-provisional` opt-in command:
 
 1. Landing-page smoke test.
 2. Main-application initial-render smoke test.
@@ -54,7 +54,9 @@ This is a characterization fixture, not a complete chess-rule test suite.
 
 Text/DOM snapshots and screenshots are stored under `tests/snapshots/` through the configured snapshot path template.
 
-The existing desktop and mobile screenshots were originally generated with installed Google Chrome `150.0.7871.101` and are local provisional baselines. They become eligible for the authoritative baseline only after successful regeneration with Playwright-managed Chromium in the controlled environment defined in `docs/characterization-environment.md` and visual review of the resulting images.
+JSON characterization snapshots use one portability rule: `serializeCharacterizationSnapshot` converts CRLF and lone CR line endings to LF before comparison, and `.gitattributes` keeps the committed JSON goldens checked out with LF. No other whitespace is trimmed or collapsed, and no text, keys, DOM structure, mnemonic values, or other snapshot content is removed or normalized.
+
+The existing desktop and mobile screenshots were originally generated with installed Google Chrome `150.0.7871.101` through the explicit `CMA_BROWSER_EXECUTABLE_PATH` diagnostic override and are local provisional baselines. Default characterization commands exclude them. They become eligible for the authoritative baseline only after successful regeneration with Playwright-managed Chromium in the controlled environment defined in `docs/characterization-environment.md` and visual review of the resulting images. Once approved, the visual tests will return to the default suite and the provisional opt-in gate will be removed.
 
 Snapshot updates require all of the following:
 

@@ -1,6 +1,11 @@
 const fs = require("node:fs");
 const path = require("node:path");
-const { expect, frozenCdnRoutes, test } = require("../helpers/characterization-test");
+const {
+  expect,
+  frozenCdnRoutes,
+  serializeCharacterizationSnapshot,
+  test
+} = require("../helpers/characterization-test");
 
 const representativePgn = fs.readFileSync(
   path.join(__dirname, "..", "fixtures", "pgn", "representative-legal-game.pgn"),
@@ -43,7 +48,7 @@ test("landing page smoke test records its primary DOM and text", async ({ page, 
     title: document.title
   }));
 
-  expect(JSON.stringify(state, null, 2)).toMatchSnapshot("landing-dom.json");
+  expect(serializeCharacterizationSnapshot(state)).toMatchSnapshot("landing-dom.json");
   expect(networkAudit.intercepted).toEqual([]);
   expect(networkAudit.blocked).toEqual([]);
 });
@@ -96,18 +101,18 @@ test("main application initial-render smoke test records current defaults", asyn
     };
   });
 
-  expect(JSON.stringify(state, null, 2)).toMatchSnapshot("main-initial-dom.json");
+  expect(serializeCharacterizationSnapshot(state)).toMatchSnapshot("main-initial-dom.json");
   assertStandardNetworkPolicy(networkAudit);
   expect(networkAudit.blocked.length).toBeGreaterThan(0);
 });
 
-test("main application desktop screenshot", async ({ page, networkAudit }) => {
+test("@visual-provisional main application desktop screenshot", async ({ page, networkAudit }) => {
   await waitForMainApplication(page);
   await expect(page).toHaveScreenshot("main-desktop.png", { fullPage: true });
   assertStandardNetworkPolicy(networkAudit);
 });
 
-test("main application mobile screenshot", async ({ page, networkAudit }) => {
+test("@visual-provisional main application mobile screenshot", async ({ page, networkAudit }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await waitForMainApplication(page);
   await expect(page).toHaveScreenshot("main-mobile.png", { fullPage: true });
@@ -152,6 +157,6 @@ test("representative legal PGN paste and parse records all table DOM text", asyn
   ]);
   expect(state.san.filter((row) => row[3].text).length).toBe(5);
   expect(state.locusMode).toBe("full");
-  expect(JSON.stringify(state, null, 2)).toMatchSnapshot("representative-legal-pgn-dom.json");
+  expect(serializeCharacterizationSnapshot(state)).toMatchSnapshot("representative-legal-pgn-dom.json");
   assertStandardNetworkPolicy(networkAudit);
 });

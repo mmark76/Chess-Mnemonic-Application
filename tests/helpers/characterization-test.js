@@ -22,6 +22,14 @@ function sortedUnique(values) {
   return Array.from(new Set(values)).sort();
 }
 
+function normalizeLineEndings(value) {
+  return value.replace(/\r\n?/g, "\n");
+}
+
+function serializeCharacterizationSnapshot(value) {
+  return normalizeLineEndings(JSON.stringify(value, null, 2));
+}
+
 const test = base.extend({
   browserRuntime: [async ({ browser }, use) => {
     const executablePath = process.env.CMA_BROWSER_EXECUTABLE_PATH
@@ -101,5 +109,7 @@ module.exports = {
   blockedHostPatterns,
   expect,
   frozenCdnRoutes,
+  normalizeLineEndings,
+  serializeCharacterizationSnapshot,
   test
 };

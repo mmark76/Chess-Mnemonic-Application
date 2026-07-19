@@ -65,9 +65,9 @@ npm.cmd ci
 npx.cmd playwright install chromium
 ```
 
-The Playwright-managed Chromium installation is the authoritative baseline. Only the Chromium browser engine is configured; Firefox and WebKit are not enabled. Each run reports the actual browser version and executable path as `BROWSER_RUNTIME` output.
+The Playwright-managed Chromium installation is the authoritative baseline. Only the Chromium browser engine is configured; Firefox and WebKit are not enabled. Each run reports the actual browser version and executable path as `BROWSER_RUNTIME` output. The local Phase 1A installation attempt timed out, so Playwright-managed Chromium is not currently installed in this environment.
 
-For local diagnosis only, an installed Chromium-family executable may be selected explicitly:
+For local diagnosis only, an installed Chromium-family executable may be selected explicitly. The standard command continues to run only the three non-visual characterization tests:
 
 ```powershell
 $env:CMA_BROWSER_EXECUTABLE_PATH = "<path-to-browser-executable>"
@@ -76,13 +76,22 @@ npm.cmd run test:characterization
 
 `CMA_BROWSER_EXECUTABLE_PATH` is a local diagnostic override, not an authoritative visual-baseline environment. When it is absent, the configuration uses only Playwright-managed Chromium and never searches for a system browser.
 
+The two Chrome-generated provisional screenshot tests are excluded from `npm test`, `test:characterization`, and `test:update-snapshots`. Run them only through the explicit opt-in command:
+
+```powershell
+$env:CMA_BROWSER_EXECUTABLE_PATH = "<path-to-Chrome-150-executable>"
+npm.cmd run test:visual-provisional
+```
+
+`test:visual-provisional` fails immediately with a clear error if `CMA_BROWSER_EXECUTABLE_PATH` is absent. It runs only the two provisional screenshot tests and retains the strict `maxDiffPixels: 0` comparison.
+
 Generate or intentionally update approved snapshots:
 
 ```powershell
 npm.cmd run test:update-snapshots
 ```
 
-Run the baseline without updating it:
+Run the default non-visual baseline without updating it:
 
 ```powershell
 npm.cmd run test:characterization
@@ -92,7 +101,7 @@ Snapshot changes must be visually reviewed. A refactor must not update snapshots
 
 ## Visual baseline status and CI target
 
-The existing desktop and mobile PNGs were originally generated with installed Google Chrome `150.0.7871.101`. They remain local provisional baselines unless and until they are regenerated successfully with Playwright-managed Chromium and visually reviewed.
+The existing desktop and mobile PNGs were originally generated with installed Google Chrome `150.0.7871.101` through the explicit `CMA_BROWSER_EXECUTABLE_PATH` diagnostic override. They remain local provisional baselines and are excluded from the default suite unless and until they are regenerated successfully with Playwright-managed Chromium and visually reviewed. After that review, the visual tests will return to the authoritative default characterization suite and the provisional opt-in gate will be removed.
 
 The future authoritative CI visual baseline must use:
 

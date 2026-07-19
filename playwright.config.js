@@ -4,6 +4,7 @@ const browserExecutablePath = process.env.CMA_BROWSER_EXECUTABLE_PATH;
 
 module.exports = defineConfig({
   testDir: "./tests/characterization",
+  grepInvert: /@visual-provisional/,
   outputDir: "./tests/.artifacts",
   preserveOutput: "never",
   fullyParallel: false,
