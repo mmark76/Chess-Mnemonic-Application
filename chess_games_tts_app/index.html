@@ -51,6 +51,25 @@
   }
   </script>
 
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+    window.gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied'
+    });
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3PNNG17EF8"></script>
+  <script>
+    window.gtag('js', new Date());
+    window.gtag('config', 'G-3PNNG17EF8', {
+      allow_google_signals: false,
+      allow_ad_personalization_signals: false
+    });
+  </script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
 
   <style>
@@ -112,7 +131,8 @@
 
     h1 { text-align: center; margin: 0 0 20px; }
 
-    .theme-toggle {
+    .theme-toggle,
+    .analytics-toggle {
       background: transparent;
       border: 2px solid var(--text-color);
       color: var(--text-color);
@@ -123,7 +143,79 @@
       font-size: 14px;
       white-space: nowrap;
     }
-    .theme-toggle:hover { opacity: 0.85; }
+    .theme-toggle:hover,
+    .analytics-toggle:hover { opacity: 0.85; }
+
+    .header-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .analytics-consent[hidden] { display: none; }
+
+    .analytics-consent {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      left: 16px;
+      z-index: 1000;
+      display: flex;
+      width: min(760px, calc(100% - 32px));
+      margin: 0 auto;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 16px 18px;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      background: var(--container-bg);
+      color: var(--text-color);
+      box-shadow: 0 18px 50px rgba(0,0,0,0.24);
+    }
+
+    .analytics-consent h2 {
+      margin: 0 0 5px;
+      font-size: 16px;
+    }
+
+    .analytics-consent p {
+      margin: 0;
+      max-width: 520px;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .analytics-consent-actions {
+      display: flex;
+      flex: 0 0 auto;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .analytics-consent-actions button {
+      min-height: 38px;
+      padding: 8px 12px;
+      border: 1px solid var(--border-color);
+      border-radius: 999px;
+      background: var(--container-bg);
+      color: var(--text-color);
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .analytics-consent-actions .analytics-allow {
+      border-color: #2e7d32;
+      background: #2e7d32;
+      color: white;
+    }
+
+    .analytics-consent-actions .analytics-close {
+      width: 38px;
+      padding: 0;
+      font-size: 18px;
+    }
 
     textarea {
       width: 100%;
@@ -231,6 +323,24 @@
         width: 100%;
       }
       select, input[type="file"] { width: 100%; }
+
+      .analytics-consent {
+        right: 10px;
+        bottom: 10px;
+        left: 10px;
+        width: auto;
+        align-items: stretch;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .analytics-consent-actions {
+        flex-wrap: wrap;
+      }
+
+      .analytics-consent-actions button:not(.analytics-close) {
+        flex: 1 1 140px;
+      }
     }
 
       /* Google Translate: make the outer shell follow the theme (iframe content can't be styled) */
@@ -257,7 +367,10 @@
 <body>
   <div class="header-tools">
     <div id="google_translate_element"></div>
-    <button class="theme-toggle" onclick="toggleTheme()">🌓 Light/Dark</button>
+    <div class="header-actions">
+      <button class="analytics-toggle" type="button" onclick="openAnalyticsChoices()">Analytics</button>
+      <button class="theme-toggle" type="button" onclick="toggleTheme()">🌓 Light/Dark</button>
+    </div>
   </div>
 
   <div class="container">
@@ -290,6 +403,18 @@
 
     <div id="statusBox" class="status">Ready...</div>
   </div>
+
+  <aside id="analyticsConsent" class="analytics-consent" role="dialog" aria-labelledby="analyticsConsentTitle" hidden>
+    <div>
+      <h2 id="analyticsConsentTitle">Analytics choices</h2>
+      <p>Google Analytics helps measure visits and use of the Chess PGN Audio Player. Analytics storage stays disabled unless you allow it. Advertising features remain disabled.</p>
+    </div>
+    <div class="analytics-consent-actions">
+      <button type="button" onclick="chooseAnalyticsConsent('denied')">Necessary only</button>
+      <button class="analytics-allow" type="button" onclick="chooseAnalyticsConsent('granted')">Allow analytics</button>
+      <button id="analyticsClose" class="analytics-close" type="button" onclick="closeAnalyticsChoices()" aria-label="Close analytics choices" title="Close">×</button>
+    </div>
+  </aside>
 
   <script type="text/javascript">
     function googleTranslateElementInit() {
@@ -327,6 +452,53 @@
   <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
   <script>
+    const ANALYTICS_CONSENT_KEY = 'chess-pgn-audio.analyticsConsent.v1';
+
+    function readAnalyticsConsent() {
+      try {
+        const value = localStorage.getItem(ANALYTICS_CONSENT_KEY);
+        return value === 'granted' || value === 'denied' ? value : null;
+      } catch (error) {
+        return null;
+      }
+    }
+
+    function applyAnalyticsConsent(consent) {
+      window.gtag('consent', 'update', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: consent === 'granted' ? 'granted' : 'denied'
+      });
+    }
+
+    function openAnalyticsChoices() {
+      const banner = document.getElementById('analyticsConsent');
+      const closeButton = document.getElementById('analyticsClose');
+      closeButton.hidden = readAnalyticsConsent() === null;
+      banner.hidden = false;
+    }
+
+    function closeAnalyticsChoices() {
+      document.getElementById('analyticsConsent').hidden = true;
+    }
+
+    function chooseAnalyticsConsent(consent) {
+      try {
+        localStorage.setItem(ANALYTICS_CONSENT_KEY, consent);
+      } catch (error) {
+        // Consent still applies to this page when local storage is unavailable.
+      }
+      applyAnalyticsConsent(consent);
+      closeAnalyticsChoices();
+    }
+
+    const storedAnalyticsConsent = readAnalyticsConsent();
+    applyAnalyticsConsent(storedAnalyticsConsent);
+    if (storedAnalyticsConsent === null) {
+      openAnalyticsChoices();
+    }
+
     let synth = window.speechSynthesis;
     let voices = [];
     let game;
