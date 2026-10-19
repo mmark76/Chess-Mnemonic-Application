@@ -489,8 +489,7 @@ Suggested future improvement:
 | Dependency | Purpose | Criticality |
 |---|---|---|
 | Google Translate | Optional translation widget | Low-Medium |
-| Google Analytics / gtag | Analytics | Low |
-| Plausible analytics | Analytics | Low |
+| Markellos Ecosystem cookie-less counter | Aggregate page-view counts | Low |
 | Copyrighted.com badge | Copyright badge | Low |
 
 ### 11.3 CDN dependencies

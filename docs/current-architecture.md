@@ -45,7 +45,7 @@ It does not load the main application JavaScript files and does not parse PGN.
 - metadata, social tags, and CSS links to `css/styles.css` and `css/menu.css`,
 - CDN dependencies for jQuery, Chess.js, PapaParse, FileSaver, and JSZip,
 - project script loading for the main app and helper scripts,
-- analytics scripts for Google Analytics and Plausible,
+- the Markellos Ecosystem self-hosted cookie-less aggregate page-view counter,
 - the PGN input area and parse/clear/demo controls,
 - a FEN Builder button that opens `https://lichess.org/editor` in a new tab,
 - table selection controls and memory palace mode controls,

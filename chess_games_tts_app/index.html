@@ -51,24 +51,7 @@
   }
   </script>
 
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
-    window.gtag('consent', 'default', {
-      ad_storage: 'denied',
-      ad_user_data: 'denied',
-      ad_personalization: 'denied',
-      analytics_storage: 'denied'
-    });
-  </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3PNNG17EF8"></script>
-  <script>
-    window.gtag('js', new Date());
-    window.gtag('config', 'G-3PNNG17EF8', {
-      allow_google_signals: false,
-      allow_ad_personalization_signals: false
-    });
-  </script>
+  <script async src="https://analytics.markellosecosystem.com/v1/script.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
 
@@ -368,7 +351,7 @@
   <div class="header-tools">
     <div id="google_translate_element"></div>
     <div class="header-actions">
-      <button class="analytics-toggle" type="button" onclick="openAnalyticsChoices()">Analytics</button>
+      <button class="analytics-toggle" type="button" onclick="openAnalyticsChoices()">Analytics information</button>
       <button class="theme-toggle" type="button" onclick="toggleTheme()">🌓 Light/Dark</button>
     </div>
   </div>
@@ -406,13 +389,11 @@
 
   <aside id="analyticsConsent" class="analytics-consent" role="dialog" aria-labelledby="analyticsConsentTitle" hidden>
     <div>
-      <h2 id="analyticsConsentTitle">Analytics choices</h2>
-      <p>Google Analytics helps measure visits and use of the Chess PGN Audio Player. Analytics storage stays disabled unless you allow it. Advertising features remain disabled.</p>
+      <h2 id="analyticsConsentTitle">Cookie-less analytics</h2>
+      <p>No analytics cookies are used. Only aggregate visit counts by hour, domain, and country are recorded for the administrator's understanding of traffic, not for any other purpose.</p>
     </div>
     <div class="analytics-consent-actions">
-      <button type="button" onclick="chooseAnalyticsConsent('denied')">Necessary only</button>
-      <button class="analytics-allow" type="button" onclick="chooseAnalyticsConsent('granted')">Allow analytics</button>
-      <button id="analyticsClose" class="analytics-close" type="button" onclick="closeAnalyticsChoices()" aria-label="Close analytics choices" title="Close">×</button>
+      <button id="analyticsClose" class="analytics-close" type="button" onclick="closeAnalyticsChoices()" aria-label="Close analytics information" title="Close">×</button>
     </div>
   </aside>
 
@@ -452,51 +433,13 @@
   <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
   <script>
-    const ANALYTICS_CONSENT_KEY = 'chess-pgn-audio.analyticsConsent.v1';
-
-    function readAnalyticsConsent() {
-      try {
-        const value = localStorage.getItem(ANALYTICS_CONSENT_KEY);
-        return value === 'granted' || value === 'denied' ? value : null;
-      } catch (error) {
-        return null;
-      }
-    }
-
-    function applyAnalyticsConsent(consent) {
-      window.gtag('consent', 'update', {
-        ad_storage: 'denied',
-        ad_user_data: 'denied',
-        ad_personalization: 'denied',
-        analytics_storage: consent === 'granted' ? 'granted' : 'denied'
-      });
-    }
-
     function openAnalyticsChoices() {
       const banner = document.getElementById('analyticsConsent');
-      const closeButton = document.getElementById('analyticsClose');
-      closeButton.hidden = readAnalyticsConsent() === null;
       banner.hidden = false;
     }
 
     function closeAnalyticsChoices() {
       document.getElementById('analyticsConsent').hidden = true;
-    }
-
-    function chooseAnalyticsConsent(consent) {
-      try {
-        localStorage.setItem(ANALYTICS_CONSENT_KEY, consent);
-      } catch (error) {
-        // Consent still applies to this page when local storage is unavailable.
-      }
-      applyAnalyticsConsent(consent);
-      closeAnalyticsChoices();
-    }
-
-    const storedAnalyticsConsent = readAnalyticsConsent();
-    applyAnalyticsConsent(storedAnalyticsConsent);
-    if (storedAnalyticsConsent === null) {
-      openAnalyticsChoices();
     }
 
     let synth = window.speechSynthesis;
