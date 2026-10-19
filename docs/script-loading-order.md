@@ -29,20 +29,17 @@ Scripts in the document head, in source order:
 13. `js/san-to-text-popup.js`
 14. `js/download-tables.js`
 15. `js/structured-data.js` with `defer`
-16. `https://www.googletagmanager.com/gtag/js?id=G-3PNNG17EF8` with `async`
-17. Inline Google Analytics setup: `window.dataLayer`, `gtag(...)`
-18. `https://stats.chessmnemonics.net/js/pa-WdICfxHgt8muzquWjtyoH.js` with `async`
-19. Inline Plausible setup: `window.plausible`, `plausible.init()`
+16. `https://analytics.markellosecosystem.com/v1/script.js` with `async`
 
 Scripts in the document body, in source order:
 
-20. Inline disclaimer popup script. Fetches `Disclaimer.txt` on button click and assigns `window.onclick`.
-21. `https://static.copyrighted.com/badges/helper.js`
-22. Inline `googleTranslateElementInit()`.
-23. `//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit`
-24. Inline How-To modal script. Assigns `window.onclick`, replacing the earlier direct `window.onclick` assignment.
-25. Inline memory palace image modal script. Uses `window.addEventListener("click", ...)`.
-26. Inline menu close script. Uses `document.addEventListener("click", ...)`.
+17. Inline disclaimer popup script. Fetches `Disclaimer.txt` on button click and assigns `window.onclick`.
+18. `https://static.copyrighted.com/badges/helper.js`
+19. Inline `googleTranslateElementInit()`.
+20. `//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit`
+21. Inline How-To modal script. Assigns `window.onclick`, replacing the earlier direct `window.onclick` assignment.
+22. Inline memory palace image modal script. Uses `window.addEventListener("click", ...)`.
+23. Inline menu close script. Uses `document.addEventListener("click", ...)`.
 
 ## Main Application Dependency Chain
 

@@ -97,9 +97,6 @@ Main application window-level properties observed:
 | Name | Defined In | Purpose |
 | --- | --- | --- |
 | `window.applyUserPalaceToTables` | `js/cms.bundle.js` | Applies user memory palace loci to table locus columns. |
-| `window.dataLayer` | `app.html` | Google Analytics queue. |
-| `gtag` | `app.html` | Google Analytics global function. |
-| `window.plausible` | `app.html` | Plausible analytics queue/function. |
 | `window.__cmaUserRuntimeFixLoading` | `js/user-libraries-history.js` | Guard for dynamic runtime helper injection. |
 | `window.__cmaImportPickerOpen` | `js/user-libraries-history.js` | Guard for file picker re-entry. |
 | `window.__cmaImportClickGuardInstalled` | `js/user-libraries-history.js` | Guard for import click handler installation. |
