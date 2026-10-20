@@ -351,7 +351,7 @@
   <div class="header-tools">
     <div id="google_translate_element"></div>
     <div class="header-actions">
-      <button class="analytics-toggle" type="button" onclick="openAnalyticsChoices()">Analytics information</button>
+      <button id="analyticsInfo" class="analytics-toggle" type="button" onclick="openAnalyticsChoices()">Analytics information</button>
       <button class="theme-toggle" type="button" onclick="toggleTheme()">🌓 Light/Dark</button>
     </div>
   </div>
@@ -606,5 +606,6 @@
       document.getElementById('rateValue').innerText = e.target.value + "x";
     });
   </script>
+  <script src="../js/analytics-notice.js"></script>
 </body>
 </html>

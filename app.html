@@ -39,6 +39,7 @@
   
   <!-- ✅ CSS Styles -->
   <link rel="stylesheet" href="css/styles.css?v=20260517-3">
+  <link rel="stylesheet" href="css/analytics-notice.css">
   <link rel="stylesheet" href="css/menu.css?v=20260517-3">
 
   <!-- ✅ External Libraries -->
@@ -377,6 +378,8 @@ window.onclick = e => { if (e.target === popup) popup.style.display = "none"; };
 <footer>
   <h4>© 2025-2026 Markellos Markides. All rights reserved.</h4>
 
+  <button id="analyticsInfo" class="analytics-info-button" type="button">Analytics information</button>
+
 <a href="https://artofmemory.com/blog/chess-memorization/" target="_blank" rel="noopener noreferrer"
    style="text-decoration:none; margin-left:10px;">
   <div style="
@@ -397,6 +400,16 @@ window.onclick = e => { if (e.target === popup) popup.style.display = "none"; };
 </a>
 
 </footer>
+
+<aside id="analyticsConsent" class="analytics-consent" role="dialog" aria-labelledby="analyticsConsentTitle" hidden>
+  <div>
+    <h2 id="analyticsConsentTitle">Cookie-less analytics</h2>
+    <p>No analytics cookies are used. Only aggregate visit counts by hour, domain, and country are recorded for the administrator's understanding of traffic, not for any other purpose.</p>
+  </div>
+  <button id="analyticsClose" class="analytics-close" type="button" aria-label="Close analytics information" title="Close">×</button>
+</aside>
+
+<script src="js/analytics-notice.js"></script>
   
 <script type="text/javascript">
   function googleTranslateElementInit() {
